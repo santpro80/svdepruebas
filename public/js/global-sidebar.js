@@ -1,4 +1,4 @@
-﻿// global-sidebar.js - TERIAN ERP Unificado v3.0 (COBOL WSFESA + Web Unificados)
+// global-sidebar.js - TERIAN ERP Unificado v3.0 (COBOL WSFESA + Web Unificados)
 
 export function initGlobalSidebar() {
     if (document.getElementById('global-sidebar-overlay')) return;
@@ -33,6 +33,10 @@ export function initGlobalSidebar() {
     // 2. Apps and Context Information
     const getBase = () => {
         const path = window.location.pathname;
+        const pubIdx = path.indexOf('/public/');
+        if (pubIdx !== -1) {
+            return path.slice(0, pubIdx + 8);
+        }
         if (window.location.hostname.includes('github.io')) {
             const repo = path.split('/')[1];
             return `/${repo}/`;

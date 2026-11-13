@@ -1,277 +1,801 @@
-﻿<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html>
+<html class="dark" lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Órdenes de Compra & Proveedores (VIA44 / VIA60) - TERIAN ERP</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            background: #f8fafc;
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
-            color: #0f172a;
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Proveedores y Órdenes de Compra - Villalba Systems</title>
+    <link rel="icon" href="../supervisor/assets/logo.png" type="image/png">
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="../css/tailwind.css">
+    <script src="../js/global-sidebar.js" defer></script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                font-family: 'Public Sans', sans-serif;
+            }
+            .font-mono {
+                font-family: 'JetBrains Mono', monospace;
+            }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.90);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .dark .glass-card {
+            background: rgba(22, 30, 42, 0.78);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: none;
+        }
+        .header-left {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .dark .header-left {
+            background: rgba(10, 15, 22, 0.88);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: rgba(148, 163, 184, 0.35);
+            border-radius: 9999px;
         }
         @media print {
-            body * { visibility: hidden; }
-            #oc-print-area, #oc-print-area * { visibility: visible; }
-            #oc-print-area {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
+            body * {
+                visibility: hidden !important;
+            }
+            #print-oc-area, #print-oc-area * {
+                visibility: visible !important;
+            }
+            #print-oc-area {
+                position: absolute !important;
+                left: 0 !important;
+                top: 0 !important;
+                width: 100% !important;
+                background: #ffffff !important;
+                color: #0f172a !important;
+                padding: 20px !important;
                 box-shadow: none !important;
                 border: none !important;
             }
-            .no-print { display: none !important; }
+            .no-print {
+                display: none !important;
+            }
         }
     </style>
 </head>
-<body class="min-h-screen">
-    <!-- Header -->
-    <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-30 no-print">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <a href="menu.html" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-slate-300 transition" title="Volver al Menú de Pedidos">
-                    <i class="fa-solid fa-arrow-left"></i>
-                </a>
+
+<body
+    class="bg-gradient-to-br from-[#6e8efb] to-[#a777e3] dark:from-[#0a0f16] dark:to-[#0a0f16] text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+
+    <!-- Top Navigation Bar (Trazabilidad Style) -->
+    <div class="header-left no-print">
+        <div class="flex items-center gap-3">
+            <img src="../supervisor/assets/logo.png" alt="Logo Villalba" class="h-8 w-auto">
+            <div>
+                <span class="text-slate-900 dark:text-white font-black text-base uppercase tracking-wider block leading-none">
+                    Proveedores y Órdenes de Compra
+                </span>
+                <span id="sync-status-label" class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 tracking-wide">
+                    Cargando carpetas y órdenes...
+                </span>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-2 flex-wrap">
+            <a href="../supervisor/menu.html"
+                class="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-white/5 dark:hover:bg-white/10 text-slate-700 dark:text-slate-200 text-xs font-bold uppercase tracking-wider transition-all border border-slate-200 dark:border-white/10">
+                <span class="material-symbols-outlined text-base text-villalba-blue">home</span>
+                Menú Trazabilidad
+            </a>
+            <a href="menu.html"
+                class="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-white/5 dark:hover:bg-white/10 text-slate-700 dark:text-slate-200 text-xs font-bold uppercase tracking-wider transition-all border border-slate-200 dark:border-white/10">
+                <span class="material-symbols-outlined text-base text-indigo-400">assignment</span>
+                Pedidos Internos
+            </a>
+            <button id="btn-nuevo-proveedor" type="button"
+                class="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 text-xs font-bold uppercase tracking-wider transition-all cursor-pointer">
+                <span class="material-symbols-outlined text-base">domain_add</span>
+                Nuevo Proveedor
+            </button>
+            <button id="btn-nueva-oc" type="button"
+                class="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-villalba-blue hover:bg-blue-600 text-white text-xs font-black uppercase tracking-wider shadow-lg shadow-villalba-blue/25 transition-all cursor-pointer">
+                <span class="material-symbols-outlined text-base">add_shopping_cart</span>
+                Emitir Orden de Compra
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="flex-1 w-full max-w-[1600px] mx-auto p-4 md:p-6 space-y-5 no-print">
+
+        <!-- KPI Summary Row -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div id="kpi-card-proveedores"
+                class="glass-card rounded-2xl p-4 flex items-center justify-between cursor-pointer hover:border-villalba-blue/50 transition-all">
                 <div>
-                    <div class="flex items-center gap-2">
-                        <h1 class="text-base sm:text-lg font-bold tracking-tight">Órdenes de Compra, Proveedores & Recepción de Insumos</h1>
-                        <span class="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 rounded-full border border-amber-500/30">VIA44 · VIA60/62 · React Unificado</span>
-                    </div>
-                    <p class="text-xs text-slate-400">Fusión de <code class="text-amber-300">PEDIDOS DE COMPRA</code> + <code class="text-amber-300">pedidos-internos</code> + Padrón de Proveedores COBOL (<code class="text-amber-300">VIA44</code>)</p>
+                    <p class="text-[11px] font-extrabold uppercase tracking-widest text-slate-500 dark:text-slate-400">
+                        Carpetas de Proveedores
+                    </p>
+                    <p id="kpi-total-prov" class="text-2xl md:text-3xl font-black text-slate-900 dark:text-white mt-1 font-mono">
+                        --
+                    </p>
+                    <p id="kpi-sub-prov" class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold mt-0.5">
+                        Cargando padrón...
+                    </p>
+                </div>
+                <div class="w-12 h-12 rounded-2xl bg-blue-500/15 border border-blue-500/25 flex items-center justify-center text-blue-500 dark:text-blue-400">
+                    <span class="material-symbols-outlined text-2xl">folder_shared</span>
                 </div>
             </div>
-            <div class="flex items-center gap-2">
-                <a href="stock-critico.html" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-amber-300 border border-slate-700 transition flex items-center gap-1.5">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                    <span class="hidden sm:inline">Stock Crítico</span>
-                </a>
-                <button id="btn-nueva-oc" class="px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs font-semibold text-white transition flex items-center gap-1.5 shadow-sm">
-                    <i class="fa-solid fa-cart-plus"></i>
-                    <span>Emitir Orden de Compra (OC)</span>
+
+            <div id="kpi-card-ocs"
+                class="glass-card rounded-2xl p-4 flex items-center justify-between cursor-pointer hover:border-indigo-500/50 transition-all">
+                <div>
+                    <p class="text-[11px] font-extrabold uppercase tracking-widest text-slate-500 dark:text-slate-400">
+                        Órdenes de Compra Totales
+                    </p>
+                    <p id="kpi-total-oc" class="text-2xl md:text-3xl font-black text-slate-900 dark:text-white mt-1 font-mono">
+                        --
+                    </p>
+                    <p id="kpi-sub-oc" class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold mt-0.5">
+                        Sistema + Oficina Técnica
+                    </p>
+                </div>
+                <div class="w-12 h-12 rounded-2xl bg-indigo-500/15 border border-indigo-500/25 flex items-center justify-center text-indigo-500 dark:text-indigo-400">
+                    <span class="material-symbols-outlined text-2xl">receipt_long</span>
+                </div>
+            </div>
+
+            <div id="kpi-card-pendientes"
+                class="glass-card rounded-2xl p-4 flex items-center justify-between cursor-pointer hover:border-amber-500/50 transition-all">
+                <div>
+                    <p class="text-[11px] font-extrabold uppercase tracking-widest text-slate-500 dark:text-slate-400">
+                        OCs Abiertas / En Curso
+                    </p>
+                    <p id="kpi-total-pend" class="text-2xl md:text-3xl font-black text-amber-600 dark:text-amber-400 mt-1 font-mono">
+                        --
+                    </p>
+                    <p id="kpi-sub-pend" class="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">
+                        Clic para filtrar pendientes
+                    </p>
+                </div>
+                <div class="w-12 h-12 rounded-2xl bg-amber-500/15 border border-amber-500/25 flex items-center justify-center text-amber-500 dark:text-amber-400">
+                    <span class="material-symbols-outlined text-2xl">pending_actions</span>
+                </div>
+            </div>
+
+            <div id="kpi-card-recepciones"
+                class="glass-card rounded-2xl p-4 flex items-center justify-between cursor-pointer hover:border-emerald-500/50 transition-all">
+                <div>
+                    <p class="text-[11px] font-extrabold uppercase tracking-widest text-slate-500 dark:text-slate-400">
+                        Recepciones y Docs PDF
+                    </p>
+                    <p id="kpi-total-rec" class="text-2xl md:text-3xl font-black text-emerald-600 dark:text-emerald-400 mt-1 font-mono">
+                        --
+                    </p>
+                    <p id="kpi-sub-rec" class="text-xs text-slate-500 dark:text-slate-400 font-semibold mt-0.5">
+                        Ingresos MP/Piezas y Remitos
+                    </p>
+                </div>
+                <div class="w-12 h-12 rounded-2xl bg-emerald-500/15 border border-emerald-500/25 flex items-center justify-center text-emerald-500 dark:text-emerald-400">
+                    <span class="material-symbols-outlined text-2xl">inventory</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main View Switcher Tabs -->
+        <div class="glass-card rounded-2xl p-2 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2 flex-wrap">
+                <button id="tab-btn-proveedores" type="button"
+                    class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all cursor-pointer bg-villalba-blue text-white shadow-md shadow-villalba-blue/25">
+                    <span class="material-symbols-outlined text-lg">folder_open</span>
+                    Carpetas de Proveedores
+                    <span id="badge-count-prov" class="px-2 py-0.5 rounded-full text-[10px] bg-white/20 font-mono">0</span>
+                </button>
+                <button id="tab-btn-ordenes" type="button"
+                    class="flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all cursor-pointer text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-white/5">
+                    <span class="material-symbols-outlined text-lg">shopping_cart_checkout</span>
+                    Órdenes de Compra
+                    <span id="badge-count-oc" class="px-2 py-0.5 rounded-full text-[10px] bg-slate-200 dark:bg-white/10 font-mono">0</span>
+                </button>
+            </div>
+
+            <div class="flex items-center gap-2 pr-2">
+                <button id="btn-exportar-csv" type="button"
+                    class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-white/5 dark:hover:bg-white/10 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase tracking-wider transition-all border border-slate-200 dark:border-white/10 cursor-pointer">
+                    <span class="material-symbols-outlined text-base text-emerald-400">download</span>
+                    Exportar Vista CSV
                 </button>
             </div>
         </div>
-    </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6 no-print">
-        <!-- KPIs de Compras y Abastecimiento Industrial -->
-        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm">
-                <div class="flex items-center justify-between">
-                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Órdenes de Compra Activas</span>
-                    <span class="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center"><i class="fa-solid fa-file-signature"></i></span>
+        <!-- ========================================================== -->
+        <!-- VISTA 1: CARPETAS DE PROVEEDORES (370 PROVEEDORES)         -->
+        <!-- ========================================================== -->
+        <section id="view-proveedores" class="space-y-4">
+            <!-- Search & Filters Bar -->
+            <div class="glass-card rounded-2xl p-4 flex flex-col lg:flex-row gap-3 items-stretch lg:items-center justify-between">
+                <div class="relative flex-1">
+                    <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+                    <input id="search-proveedores" type="text"
+                        placeholder="Buscar proveedor por Razón Social, Código (ej: 00084), Código OT (ej: 119), CUIT, Localidad o Rubro SGC..."
+                        class="w-full pl-11 pr-10 py-2.5 rounded-xl bg-white dark:bg-[#0d141f] border border-slate-200 dark:border-white/10 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-villalba-blue transition-all" />
                 </div>
-                <div class="mt-3 flex items-baseline gap-2">
-                    <span id="kpi-oc-total" class="text-2xl font-black text-slate-900">12</span>
-                    <span id="kpi-oc-pendientes" class="text-xs font-semibold text-amber-600">En tránsito</span>
+
+                <div class="flex flex-wrap items-center gap-2">
+                    <select id="filter-prov-tipo"
+                        class="px-3.5 py-2.5 rounded-xl bg-white dark:bg-[#0d141f] border border-slate-200 dark:border-white/10 text-xs font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:border-villalba-blue">
+                        <option value="TODOS">Todos los Proveedores</option>
+                        <option value="CON_OC">Con Órdenes de Compra</option>
+                        <option value="HOMOLOGADOS">Homologados SGC (Calidad)</option>
+                        <option value="CON_RECEPCIONES">Con Recepciones MP / Piezas</option>
+                        <option value="CON_REMITOS_MP">Con Remitos de Envío MP</option>
+                        <option value="CON_DOCS">Con Documentos / PDFs en Carpeta</option>
+                    </select>
+
+                    <select id="sort-proveedores"
+                        class="px-3.5 py-2.5 rounded-xl bg-white dark:bg-[#0d141f] border border-slate-200 dark:border-white/10 text-xs font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:border-villalba-blue">
+                        <option value="OCS_DESC">Mayor cantidad de OCs</option>
+                        <option value="ULTIMA_OC">Última OC más reciente</option>
+                        <option value="NOMBRE_ASC">Razón Social (A - Z)</option>
+                        <option value="IMPORTE_DESC">Mayor Volumen ARS</option>
+                        <option value="CODIGO_ASC">Código Proveedor</option>
+                    </select>
                 </div>
-                <p class="mt-1 text-xs text-slate-500">Abastecimiento de Titanio, Acero 316LVM y Servicios</p>
             </div>
 
-            <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm">
-                <div class="flex items-center justify-between">
-                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Proveedores Industriales (VIA44)</span>
-                    <span class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center"><i class="fa-solid fa-industry"></i></span>
-                </div>
-                <div class="mt-3 flex items-baseline gap-2">
-                    <span id="kpi-prov-total" class="text-2xl font-black text-slate-900">200</span>
-                    <span class="text-xs font-semibold text-emerald-600">Homologados ANMAT</span>
-                </div>
-                <p class="mt-1 text-xs text-slate-500">Conectados con <code class="text-slate-700">proveedores_cobol.json</code></p>
+            <!-- Suppliers Grid -->
+            <div id="proveedores-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                <!-- Populated by JS -->
             </div>
 
-            <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm">
-                <div class="flex items-center justify-between">
-                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Monto Comprometido OC</span>
-                    <span class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center"><i class="fa-solid fa-sack-dollar"></i></span>
+            <!-- Suppliers Pagination -->
+            <div class="glass-card rounded-2xl p-3 flex items-center justify-between">
+                <span id="prov-pagination-info" class="text-xs font-bold text-slate-500 dark:text-slate-400">
+                    Mostrando proveedores...
+                </span>
+                <div class="flex items-center gap-2">
+                    <button id="prov-prev-btn" type="button"
+                        class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-xs font-bold text-slate-700 dark:text-slate-200 disabled:opacity-40 cursor-pointer">
+                        Anterior
+                    </button>
+                    <span id="prov-page-label" class="text-xs font-mono font-bold px-2">1 / 1</span>
+                    <button id="prov-next-btn" type="button"
+                        class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-xs font-bold text-slate-700 dark:text-slate-200 disabled:opacity-40 cursor-pointer">
+                        Siguiente
+                    </button>
                 </div>
-                <div class="mt-3 flex items-baseline gap-2">
-                    <span id="kpi-oc-monto" class="text-xl font-black text-slate-900">$0,00</span>
-                </div>
-                <p class="mt-1 text-xs text-slate-500">Cta. Cte. Proveedores (<code class="text-slate-700">VIA45</code>) + IVA Compras</p>
-            </div>
-
-            <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm">
-                <div class="flex items-center justify-between">
-                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Ingreso a Depósito MP</span>
-                    <span class="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center"><i class="fa-solid fa-boxes-packing"></i></span>
-                </div>
-                <div class="mt-3 flex items-baseline gap-2">
-                    <span id="kpi-oc-recibidas" class="text-2xl font-black text-emerald-600">0</span>
-                    <span class="text-xs font-semibold text-slate-500">Lotes ingresados</span>
-                </div>
-                <p class="mt-1 text-xs text-slate-500"><a href="../deposito/stock.html" class="text-indigo-600 font-semibold hover:underline">Ir a Almacén Materia Prima →</a></p>
             </div>
         </section>
 
-        <!-- Barra de Filtros -->
-        <section class="bg-white rounded-2xl p-4 border border-slate-200/90 shadow-sm grid grid-cols-1 sm:grid-cols-4 gap-3">
-            <div class="sm:col-span-2 relative">
-                <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
-                <input id="input-buscar-oc" type="text" placeholder="Buscar por Nro OC, proveedor VIA44, insumo, sector solicitante..." class="w-full pl-8 pr-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500">
-            </div>
-            <div>
-                <select id="select-sector-oc" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white">
-                    <option value="TODOS">Todos los Sectores Solicitantes</option>
-                    <option value="MECANIZADO CNC / TORNERIA">Mecanizado CNC / Tornería</option>
-                    <option value="ESTERILIZACION Y PACKAGING">Esterilización y Packaging</option>
-                    <option value="CALIDAD Y METROLOGIA">Calidad y Metrología</option>
-                    <option value="ARMADO DE CAJAS QUIRURGICAS">Armado de Cajas Quirúrgicas</option>
-                </select>
-            </div>
-            <div>
-                <select id="select-estado-oc" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white">
-                    <option value="TODOS">Todos los Estados</option>
-                    <option value="APROBADA_ENVIADA">Aprobada / Enviada al Proveedor</option>
-                    <option value="PENDIENTE_APROBACION">Pendiente de Aprobación</option>
-                    <option value="RECIBIDA_DEPOSITO">Recibida en Depósito (Stock MP)</option>
-                </select>
-            </div>
-        </section>
-
-        <!-- Tabla de Órdenes de Compra -->
-        <section class="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden">
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="bg-slate-50 text-[11px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-200/80">
-                            <th class="py-3.5 px-4">Orden de Compra</th>
-                            <th class="py-3.5 px-4">Fecha / Prioridad</th>
-                            <th class="py-3.5 px-4">Proveedor Industrial (VIA44)</th>
-                            <th class="py-3.5 px-4">Sector & Material / Insumo</th>
-                            <th class="py-3.5 px-4 text-right">Importe Est.</th>
-                            <th class="py-3.5 px-4 text-center">Estado</th>
-                            <th class="py-3.5 px-4 text-right">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbody-oc" class="divide-y divide-slate-100 text-xs">
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </main>
-
-    <!-- Modal: Emitir Nueva Orden de Compra a Proveedor (VIA44) -->
-    <div id="modal-nueva-oc" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4 no-print">
-        <div class="bg-white rounded-2xl max-w-2xl w-full shadow-2xl border border-slate-200 overflow-hidden">
-            <div class="px-6 py-4 bg-slate-900 text-white flex items-center justify-between">
-                <div>
-                    <h3 class="text-sm font-bold">Emitir Nueva Orden de Compra Industrial (VIA44 / VIA60)</h3>
-                    <p class="text-[11px] text-slate-400">Conecta solicitud interna de sector con padrón de proveedores homologados</p>
+        <!-- ========================================================== -->
+        <!-- VISTA 2: ÓRDENES DE COMPRA (COBOL + OT + NUEVAS WEB)       -->
+        <!-- ========================================================== -->
+        <section id="view-ordenes" class="space-y-4 hidden">
+            <!-- OC Search & Filters -->
+            <div class="glass-card rounded-2xl p-4 flex flex-col xl:flex-row gap-3 items-stretch xl:items-center justify-between">
+                <div class="relative flex-1">
+                    <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400">manage_search</span>
+                    <input id="search-ordenes" type="text"
+                        placeholder="Buscar por N° de OC (ej: 6268, 8750), Proveedor, CUIT, Código o Detalle de Insumo (ej: Titanio, 316L, Mecha, Fresas)..."
+                        class="w-full pl-11 pr-10 py-2.5 rounded-xl bg-white dark:bg-[#0d141f] border border-slate-200 dark:border-white/10 text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-villalba-blue transition-all" />
                 </div>
-                <button id="btn-cerrar-modal-oc" class="text-slate-400 hover:text-white">
-                    <i class="fa-solid fa-xmark"></i>
+
+                <div class="flex flex-wrap items-center gap-2">
+                    <select id="filter-oc-estado"
+                        class="px-3 py-2.5 rounded-xl bg-white dark:bg-[#0d141f] border border-slate-200 dark:border-white/10 text-xs font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:border-villalba-blue">
+                        <option value="TODOS">Todos los Estados</option>
+                        <option value="ABIERTAS">Abiertas / Pendientes</option>
+                        <option value="WEB">Emitidas en Web (Nuevas)</option>
+                        <option value="CERRADA">Cerradas / Cumplidas</option>
+                        <option value="DIGITALIZADA_PDF">Digitalizadas OT (PDF)</option>
+                        <option value="ANULADA">Anuladas / Bajas</option>
+                    </select>
+
+                    <select id="filter-oc-origen"
+                        class="px-3 py-2.5 rounded-xl bg-white dark:bg-[#0d141f] border border-slate-200 dark:border-white/10 text-xs font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:border-villalba-blue">
+                        <option value="TODOS">Todos los Orígenes</option>
+                        <option value="WEB">Web ERP</option>
+                        <option value="VIA52P">Planta / Producción (VIA52P)</option>
+                        <option value="VIA52.04">Central Caseros (VIA52.04)</option>
+                        <option value="VIA67">Compras Directas (VIA67)</option>
+                        <option value="SISTEMA_OT">Oficina Técnica (PDF OT)</option>
+                    </select>
+
+                    <select id="filter-oc-moneda"
+                        class="px-3 py-2.5 rounded-xl bg-white dark:bg-[#0d141f] border border-slate-200 dark:border-white/10 text-xs font-bold text-slate-700 dark:text-slate-200 focus:outline-none focus:border-villalba-blue">
+                        <option value="TODAS">Moneda: Todas</option>
+                        <option value="ARS">Pesos (ARS)</option>
+                        <option value="USD">Dólares (USD)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- OC Table -->
+            <div class="glass-card rounded-2xl overflow-hidden">
+                <div class="overflow-x-auto custom-scroll">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b border-slate-200 dark:border-white/10 bg-slate-100/70 dark:bg-white/[0.03] text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                                <th class="py-3.5 px-4">N° Orden</th>
+                                <th class="py-3.5 px-4">Fecha</th>
+                                <th class="py-3.5 px-4">Proveedor</th>
+                                <th class="py-3.5 px-4">Renglones / Insumos Pedidos</th>
+                                <th class="py-3.5 px-4">Sector / Autoriza</th>
+                                <th class="py-3.5 px-4 text-right">Importe Total</th>
+                                <th class="py-3.5 px-4 text-center">Estado</th>
+                                <th class="py-3.5 px-4 text-right">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="oc-table-body" class="divide-y divide-slate-200/70 dark:divide-white/5 text-sm">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- OC Pagination -->
+                <div class="p-3.5 border-t border-slate-200 dark:border-white/10 flex flex-wrap items-center justify-between gap-2">
+                    <span id="oc-pagination-info" class="text-xs font-bold text-slate-500 dark:text-slate-400">
+                        Mostrando órdenes...
+                    </span>
+                    <div class="flex items-center gap-2">
+                        <button id="oc-prev-btn" type="button"
+                            class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-xs font-bold text-slate-700 dark:text-slate-200 disabled:opacity-40 cursor-pointer">
+                            Anterior
+                        </button>
+                        <span id="oc-page-label" class="text-xs font-mono font-bold px-2">1 / 1</span>
+                        <button id="oc-next-btn" type="button"
+                            class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 text-xs font-bold text-slate-700 dark:text-slate-200 disabled:opacity-40 cursor-pointer">
+                            Siguiente
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ====================================================================== -->
+    <!-- MODAL 1: CARPETA / LEGAJO COMPLETO DEL PROVEEDOR                       -->
+    <!-- ====================================================================== -->
+    <div id="modal-carpeta-proveedor"
+        class="fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-sm hidden items-center justify-center p-3 md:p-6 no-print">
+        <div
+            class="glass-card bg-white dark:bg-[#0f1722] w-full max-w-6xl max-h-[92vh] rounded-3xl border border-slate-200 dark:border-white/15 shadow-2xl flex flex-col overflow-hidden">
+            <!-- Modal Header -->
+            <div class="p-5 border-b border-slate-200 dark:border-white/10 flex flex-wrap items-start justify-between gap-4 bg-slate-50/80 dark:bg-white/[0.02]">
+                <div class="flex items-start gap-3.5">
+                    <div class="w-12 h-12 rounded-2xl bg-villalba-blue/15 border border-villalba-blue/30 flex items-center justify-center text-villalba-blue shrink-0 mt-0.5">
+                        <span class="material-symbols-outlined text-2xl">folder_Special</span>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap items-center gap-2">
+                            <h2 id="legajo-razon-social" class="text-lg md:text-xl font-black text-slate-900 dark:text-white uppercase tracking-wide">
+                                PROVEEDOR
+                            </h2>
+                            <span id="legajo-cod-badge" class="px-2.5 py-0.5 rounded-lg text-xs font-mono font-bold bg-blue-500/15 text-blue-600 dark:text-blue-400 border border-blue-500/30">
+                                #00000
+                            </span>
+                            <span id="legajo-sgc-badge" class="hidden px-2.5 py-0.5 rounded-lg text-xs font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+                                HOMOLOGADO SGC
+                            </span>
+                        </div>
+                        <p id="legajo-sub-info" class="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium">
+                            CUIT: -- | Localidad: --
+                        </p>
+                        <p id="legajo-carpeta-path" class="text-[11px] font-mono text-indigo-600 dark:text-indigo-400 mt-0.5">
+                            Carpeta Desktop: C:\Users\Tecnica\Desktop\proveedores\...
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <button id="btn-legajo-editar-prov" type="button"
+                        class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-white/5 dark:hover:bg-white/10 text-slate-700 dark:text-slate-200 text-xs font-bold uppercase tracking-wider border border-slate-200 dark:border-white/10 cursor-pointer">
+                        <span class="material-symbols-outlined text-sm">edit</span>
+                        Editar Ficha
+                    </button>
+                    <button id="btn-legajo-nueva-oc" type="button"
+                        class="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-villalba-blue hover:bg-blue-600 text-white text-xs font-black uppercase tracking-wider cursor-pointer">
+                        <span class="material-symbols-outlined text-sm">add_shopping_cart</span>
+                        Nueva OC a este Proveedor
+                    </button>
+                    <button id="btn-cerrar-legajo" type="button"
+                        class="p-2 rounded-xl bg-slate-100 hover:bg-rose-500/20 dark:bg-white/5 text-slate-500 hover:text-rose-400 transition-all cursor-pointer">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Supplier Technical Sheet Bar -->
+            <div id="legajo-ficha-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 p-4 bg-slate-100/60 dark:bg-[#0a0f16]/60 border-b border-slate-200 dark:border-white/10 text-xs">
+                <!-- Populated by JS -->
+            </div>
+
+            <!-- Sub-tabs inside Supplier Folder -->
+            <div class="px-5 pt-3 border-b border-slate-200 dark:border-white/10 flex items-center gap-2 overflow-x-auto">
+                <button data-legajo-tab="ocs" type="button"
+                    class="legajo-tab-btn px-3.5 py-2 rounded-t-xl text-xs font-black uppercase tracking-wider border-b-2 border-villalba-blue text-villalba-blue cursor-pointer whitespace-nowrap">
+                    Órdenes de Compra (<span id="legajo-count-ocs">0</span>)
+                </button>
+                <button data-legajo-tab="ot" type="button"
+                    class="legajo-tab-btn px-3.5 py-2 rounded-t-xl text-xs font-bold uppercase tracking-wider border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-white cursor-pointer whitespace-nowrap">
+                    OCs PDF Oficina Técnica (<span id="legajo-count-ot">0</span>)
+                </button>
+                <button data-legajo-tab="recepciones" type="button"
+                    class="legajo-tab-btn px-3.5 py-2 rounded-t-xl text-xs font-bold uppercase tracking-wider border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-white cursor-pointer whitespace-nowrap">
+                    Recepciones MP / Piezas (<span id="legajo-count-rec">0</span>)
+                </button>
+                <button data-legajo-tab="remitos" type="button"
+                    class="legajo-tab-btn px-3.5 py-2 rounded-t-xl text-xs font-bold uppercase tracking-wider border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-white cursor-pointer whitespace-nowrap">
+                    Remitos Envío MP (<span id="legajo-count-rem">0</span>)
+                </button>
+                <button data-legajo-tab="archivos" type="button"
+                    class="legajo-tab-btn px-3.5 py-2 rounded-t-xl text-xs font-bold uppercase tracking-wider border-b-2 border-transparent text-slate-500 hover:text-slate-800 dark:hover:text-white cursor-pointer whitespace-nowrap">
+                    Archivos en Carpeta (<span id="legajo-count-docs">0</span>)
                 </button>
             </div>
-            <form id="form-nueva-oc" class="p-6 space-y-4 text-xs">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+            <!-- Sub-tab Body -->
+            <div id="legajo-tab-content" class="flex-1 overflow-y-auto p-5 custom-scroll space-y-3">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ====================================================================== -->
+    <!-- MODAL 2: EMITIR NUEVA ORDEN DE COMPRA (MULTI-RENGLÓN)                  -->
+    <!-- ====================================================================== -->
+    <div id="modal-nueva-oc"
+        class="fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-sm hidden items-center justify-center p-3 md:p-6 no-print">
+        <div
+            class="glass-card bg-white dark:bg-[#0f1722] w-full max-w-4xl max-h-[92vh] rounded-3xl border border-slate-200 dark:border-white/15 shadow-2xl flex flex-col overflow-hidden">
+            <div class="p-5 border-b border-slate-200 dark:border-white/10 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-2xl text-villalba-blue">add_shopping_cart</span>
                     <div>
-                        <label class="block font-bold text-slate-700 mb-1">Proveedor Homologado (VIA44) *</label>
-                        <input id="oc-proveedor" list="dl-proveedores-oc" required placeholder="Escribí nombre o CUIT del proveedor..." class="w-full px-3 py-2 rounded-xl border border-slate-200 uppercase">
-                        <datalist id="dl-proveedores-oc"></datalist>
+                        <h3 class="text-base font-black uppercase tracking-wider text-slate-900 dark:text-white">
+                            Emitir Orden de Compra a Proveedor
+                        </h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">
+                            Se asocia automáticamente al legajo del proveedor y queda disponible para recepción e impresión
+                        </p>
+                    </div>
+                </div>
+                <button id="btn-cerrar-nueva-oc" type="button"
+                    class="p-2 rounded-xl bg-slate-100 dark:bg-white/5 text-slate-500 hover:text-rose-400 cursor-pointer">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+
+            <form id="form-nueva-oc" class="flex-1 overflow-y-auto p-5 custom-scroll space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+                    <div class="md:col-span-2">
+                        <label class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
+                            Proveedor *
+                        </label>
+                        <input id="oc-input-proveedor" list="datalist-proveedores" required
+                            placeholder="Escribí nombre o código (ej: ACEROS MUNRO [00084])..."
+                            class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-[#0a0f16] border border-slate-200 dark:border-white/10 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-villalba-blue" />
+                        <datalist id="datalist-proveedores"></datalist>
                     </div>
                     <div>
-                        <label class="block font-bold text-slate-700 mb-1">Sector Solicitante *</label>
-                        <select id="oc-sector" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white">
-                            <option value="MECANIZADO CNC / TORNERIA">Mecanizado CNC / Tornería</option>
-                            <option value="ESTERILIZACION Y PACKAGING">Esterilización y Packaging</option>
-                            <option value="CALIDAD Y METROLOGIA">Calidad y Metrología</option>
-                            <option value="ARMADO DE CAJAS QUIRURGICAS">Armado de Cajas Quirúrgicas</option>
+                        <label class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
+                            CUIT Proveedor
+                        </label>
+                        <input id="oc-input-cuit" type="text" placeholder="30-00000000-0"
+                            class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-[#0a0f16] border border-slate-200 dark:border-white/10 text-sm font-mono text-slate-900 dark:text-white focus:outline-none focus:border-villalba-blue" />
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3.5">
+                    <div>
+                        <label class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
+                            Sector Requirente *
+                        </label>
+                        <select id="oc-input-sector"
+                            class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-[#0a0f16] border border-slate-200 dark:border-white/10 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-villalba-blue">
+                            <option value="OFICINA TECNICA">OFICINA TÉCNICA</option>
+                            <option value="PRODUCCION">PRODUCCIÓN / MECANIZADO</option>
+                            <option value="DEPOSITO MP">DEPÓSITO MATERIA PRIMA</option>
+                            <option value="CALIDAD / ANMAT">CALIDAD / SGC</option>
+                            <option value="MANTENIMIENTO">MANTENIMIENTO</option>
+                            <option value="COMERCIAL / CAJAS">COMERCIAL / TRAZABILIDAD</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
+                            Autorizado Por *
+                        </label>
+                        <input id="oc-input-autoriza" type="text" value="ADRIAN GONZALEZ" required
+                            class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-[#0a0f16] border border-slate-200 dark:border-white/10 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-villalba-blue" />
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
+                            Condición de Pago
+                        </label>
+                        <input id="oc-input-pago" type="text" value="HABITUALES"
+                            class="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-[#0a0f16] border border-slate-200 dark:border-white/10 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-villalba-blue" />
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
+                            Moneda
+                        </label>
+                        <select id="oc-input-moneda"
+                            class="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-[#0a0f16] border border-slate-200 dark:border-white/10 text-sm font-bold text-slate-900 dark:text-white focus:outline-none focus:border-villalba-blue">
+                            <option value="ARS">ARS ($ Pesos)</option>
+                            <option value="USD">USD (U$S Dólares)</option>
                         </select>
                     </div>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    <div>
-                        <label class="block font-bold text-slate-700 mb-1">Prioridad (App Compras) *</label>
-                        <select id="oc-prioridad" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white">
-                            <option value="URGENTE_PLANTA">URGENTE PLANTA (24/48hs)</option>
-                            <option value="ALTA">ALTA (Reposición Stock Crítico)</option>
-                            <option value="NORMAL">NORMAL (Programada)</option>
-                        </select>
+
+                <!-- Dynamic Line Items -->
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <label class="text-xs font-black uppercase tracking-wider text-slate-700 dark:text-slate-200">
+                            Renglones / Ítems de la Orden de Compra
+                        </label>
+                        <button id="btn-agregar-renglon" type="button"
+                            class="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-villalba-blue/15 hover:bg-villalba-blue/25 text-villalba-blue text-xs font-bold uppercase tracking-wider cursor-pointer">
+                            <span class="material-symbols-outlined text-sm">add</span>
+                            Agregar Renglón
+                        </button>
                     </div>
-                    <div>
-                        <label class="block font-bold text-slate-700 mb-1">Cantidad & Unidad *</label>
-                        <input id="oc-cantidad" type="text" required value="50 KG" class="w-full px-3 py-2 rounded-xl border border-slate-200 font-mono uppercase">
-                    </div>
-                    <div>
-                        <label class="block font-bold text-slate-700 mb-1">Importe Estimado ($) *</label>
-                        <input id="oc-importe" type="number" step="0.01" required value="1450000" class="w-full px-3 py-2 rounded-xl border border-slate-200 font-mono font-bold">
+
+                    <div class="rounded-2xl border border-slate-200 dark:border-white/10 overflow-hidden">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-slate-100 dark:bg-white/5 text-slate-500 dark:text-slate-400 uppercase font-extrabold">
+                                    <th class="py-2.5 px-3 w-24">Código</th>
+                                    <th class="py-2.5 px-3 w-36">Rubro</th>
+                                    <th class="py-2.5 px-3">Descripción / Especificación</th>
+                                    <th class="py-2.5 px-3 w-20 text-right">Cant.</th>
+                                    <th class="py-2.5 px-3 w-28 text-right">Precio Unit.</th>
+                                    <th class="py-2.5 px-3 w-20 text-right">% IVA</th>
+                                    <th class="py-2.5 px-3 w-28 text-right">Subtotal</th>
+                                    <th class="py-2.5 px-2 w-10"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="oc-renglones-tbody" class="divide-y divide-slate-200 dark:divide-white/5">
+                                <!-- Rows added by JS -->
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <div>
-                    <label class="block font-bold text-slate-700 mb-1">Especificación Técnica del Material / Insumo (Norma ASTM / ISO / ANMAT) *</label>
-                    <textarea id="oc-detalle" rows="3" required class="w-full px-3 py-2 rounded-xl border border-slate-200 font-mono text-[11px]">BARRAS DE TITANIO GRADO 5 ELI (TI-6AL-4V ASTM F136) DIAMETRO 12MM CON CERTIFICADO DE CALIDAD DE COLADA PARA IMPLANTES</textarea>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-start pt-2">
+                    <div class="md:col-span-2">
+                        <label class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
+                            Observaciones / Instrucciones de Entrega y Calidad
+                        </label>
+                        <textarea id="oc-input-obs" rows="2"
+                            placeholder="Ej: Adjuntar certificado de calidad de colada / lote. Horario de recepción Lunes a Viernes de 8 a 14 hs."
+                            class="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-[#0a0f16] border border-slate-200 dark:border-white/10 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-villalba-blue"></textarea>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-100/80 dark:bg-[#0a0f16] border border-slate-200 dark:border-white/10 space-y-1.5 text-xs">
+                        <div class="flex justify-between text-slate-500 dark:text-slate-400">
+                            <span>Subtotal Neto:</span>
+                            <span id="oc-calc-neto" class="font-mono font-bold text-slate-800 dark:text-slate-200">$ 0,00</span>
+                        </div>
+                        <div class="flex justify-between text-slate-500 dark:text-slate-400">
+                            <span>IVA Calculado:</span>
+                            <span id="oc-calc-iva" class="font-mono font-bold text-slate-800 dark:text-slate-200">$ 0,00</span>
+                        </div>
+                        <div class="flex justify-between text-sm font-black text-slate-900 dark:text-white pt-1.5 border-t border-slate-300 dark:border-white/10">
+                            <span>TOTAL OC:</span>
+                            <span id="oc-calc-total" class="font-mono text-villalba-blue">$ 0,00</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="pt-3 border-t border-slate-100 flex justify-end gap-2">
-                    <button type="button" id="btn-cancelar-oc" class="px-4 py-2 rounded-xl border border-slate-200 text-slate-600 font-semibold">Cancelar</button>
-                    <button type="submit" class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold">Emitir Orden de Compra</button>
+
+                <div class="pt-3 border-t border-slate-200 dark:border-white/10 flex justify-end gap-2.5">
+                    <button id="btn-cancelar-nueva-oc" type="button"
+                        class="px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider cursor-pointer">
+                        Cancelar
+                    </button>
+                    <button type="submit"
+                        class="flex items-center gap-1.5 px-5 py-2.5 rounded-xl bg-villalba-blue hover:bg-blue-600 text-white text-xs font-black uppercase tracking-wider shadow-lg shadow-villalba-blue/25 cursor-pointer">
+                        <span class="material-symbols-outlined text-base">check_circle</span>
+                        Guardar y Emitir Orden de Compra
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Modal Imprimible Orden de Compra -->
-    <div id="modal-print-oc" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
-        <div id="oc-print-area" class="bg-white rounded-2xl max-w-3xl w-full shadow-2xl border border-slate-200 overflow-hidden">
-            <div class="px-6 py-3 bg-slate-900 text-white flex items-center justify-between no-print">
-                <span id="po-header-id" class="font-mono text-xs font-bold text-amber-300">OC-2026-0412</span>
+    <!-- ====================================================================== -->
+    <!-- MODAL 3: ALTA / EDICIÓN DE PROVEEDOR                                   -->
+    <!-- ====================================================================== -->
+    <div id="modal-proveedor-form"
+        class="fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-sm hidden items-center justify-center p-3 md:p-6 no-print">
+        <div
+            class="glass-card bg-white dark:bg-[#0f1722] w-full max-w-2xl rounded-3xl border border-slate-200 dark:border-white/15 shadow-2xl flex flex-col overflow-hidden">
+            <div class="p-5 border-b border-slate-200 dark:border-white/10 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined text-2xl text-emerald-400">domain_add</span>
+                    <h3 id="modal-prov-titulo" class="text-base font-black uppercase tracking-wider text-slate-900 dark:text-white">
+                        Nuevo Proveedor
+                    </h3>
+                </div>
+                <button id="btn-cerrar-prov-form" type="button"
+                    class="p-2 rounded-xl bg-slate-100 dark:bg-white/5 text-slate-500 hover:text-rose-400 cursor-pointer">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+
+            <form id="form-proveedor" class="p-5 space-y-3.5 text-sm">
+                <input id="prov-edit-carpeta" type="hidden" value="" />
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div class="sm:col-span-2">
+                        <label class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
+                            Razón Social / Nombre *
+                        </label>
+                        <input id="prov-input-razon" type="text" required placeholder="Ej: METALURGICA DEL SUR S.R.L."
+                            class="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-[#0a0f16] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white uppercase" />
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
+                            Código Proveedor
+                        </label>
+                        <input id="prov-input-codigo" type="text" placeholder="Automático"
+                            class="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-[#0a0f16] border border-slate-200 dark:border-white/10 font-mono text-slate-900 dark:text-white" />
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div>
+                        <label class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
+                            CUIT
+                        </label>
+                        <input id="prov-input-cuit" type="text" placeholder="30-00000000-0"
+                            class="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-[#0a0f16] border border-slate-200 dark:border-white/10 font-mono text-slate-900 dark:text-white" />
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
+                            Condición de Pago
+                        </label>
+                        <input id="prov-input-pago" type="text" value="HABITUALES"
+                            class="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-[#0a0f16] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white" />
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
+                            Homologación SGC
+                        </label>
+                        <select id="prov-input-sgc"
+                            class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-[#0a0f16] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white">
+                            <option value="NO">Estándar</option>
+                            <option value="Producto">Homologado SGC - Producto</option>
+                            <option value="Servicio">Homologado SGC - Servicio</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
+                            Dirección
+                        </label>
+                        <input id="prov-input-dir" type="text" placeholder="Calle y número"
+                            class="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-[#0a0f16] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white" />
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
+                            Localidad / Provincia
+                        </label>
+                        <input id="prov-input-loc" type="text" placeholder="CASEROS - BUENOS AIRES"
+                            class="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-[#0a0f16] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white" />
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
+                            Teléfonos
+                        </label>
+                        <input id="prov-input-tel" type="text" placeholder="011 4750-XXXX"
+                            class="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-[#0a0f16] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white" />
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
+                            Email / Contacto
+                        </label>
+                        <input id="prov-input-email" type="text" placeholder="ventas@proveedor.com.ar"
+                            class="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-[#0a0f16] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white" />
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[11px] font-extrabold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1">
+                        Rubro / Productos o Servicios que provee
+                    </label>
+                    <input id="prov-input-rubro" type="text" placeholder="Ej: Acero inoxidable 316L, Titanio Grado 5, Mecanizado CNC..."
+                        class="w-full px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-[#0a0f16] border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white" />
+                </div>
+
+                <div class="pt-3 border-t border-slate-200 dark:border-white/10 flex justify-end gap-2">
+                    <button id="btn-cancelar-prov-form" type="button"
+                        class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider cursor-pointer">
+                        Cancelar
+                    </button>
+                    <button type="submit"
+                        class="px-5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-black uppercase tracking-wider cursor-pointer">
+                        Guardar Proveedor
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ====================================================================== -->
+    <!-- MODAL 4: COMPROBANTE / IMPRESIÓN DE ORDEN DE COMPRA                    -->
+    <!-- ====================================================================== -->
+    <div id="modal-detalle-oc"
+        class="fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-sm hidden items-center justify-center p-3 md:p-6">
+        <div
+            class="glass-card bg-white dark:bg-[#0f1722] w-full max-w-4xl max-h-[92vh] rounded-3xl border border-slate-200 dark:border-white/15 shadow-2xl flex flex-col overflow-hidden">
+            <div class="p-4 border-b border-slate-200 dark:border-white/10 flex flex-wrap items-center justify-between gap-2 no-print">
                 <div class="flex items-center gap-2">
-                    <button id="btn-recibir-mp" class="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-xs font-bold text-white">
-                        <i class="fa-solid fa-boxes-packing mr-1"></i>Dar Ingreso a Depósito Materia Prima
+                    <span class="material-symbols-outlined text-villalba-blue">description</span>
+                    <span class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white">
+                        Comprobante de Orden de Compra
+                    </span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button id="btn-oc-cambiar-estado" type="button"
+                        class="px-3 py-1.5 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 text-xs font-bold uppercase tracking-wider cursor-pointer">
+                        Marcar Recibida / Cumplida
                     </button>
-                    <button onclick="window.print()" class="px-3 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs font-bold text-white">
-                        <i class="fa-solid fa-print mr-1"></i>Imprimir OC
+                    <button onclick="window.print()" type="button"
+                        class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-villalba-blue hover:bg-blue-600 text-white text-xs font-black uppercase tracking-wider cursor-pointer">
+                        <span class="material-symbols-outlined text-sm">print</span>
+                        Imprimir / PDF
                     </button>
-                    <button id="btn-cerrar-print-oc" class="text-slate-400 hover:text-white ml-2">
-                        <i class="fa-solid fa-xmark"></i>
+                    <button id="btn-cerrar-detalle-oc" type="button"
+                        class="p-1.5 rounded-xl bg-slate-100 dark:bg-white/5 text-slate-500 hover:text-rose-400 cursor-pointer">
+                        <span class="material-symbols-outlined">close</span>
                     </button>
                 </div>
             </div>
-            <div class="p-8 space-y-5 text-xs">
-                <div class="border-2 border-slate-900 rounded-xl p-5 space-y-4">
-                    <div class="flex justify-between items-start border-b-2 border-slate-900 pb-4">
-                        <div>
-                            <div class="text-base font-black text-slate-900">VILLALBA HNOS. IMPLANTES S.A.</div>
-                            <div class="text-[11px] text-slate-600">Departamento de Compras Productivas & Abastecimiento ISO 13485</div>
-                            <div class="text-[10px] text-slate-500">CUIT: 30-70875873-2 · Caseros, Provincia de Buenos Aires</div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-xs font-bold uppercase text-slate-500">Orden de Compra Oficial</div>
-                            <div id="po-numero" class="text-lg font-black font-mono text-indigo-700">OC-2026-0412</div>
-                            <div class="text-[11px] text-slate-600">Fecha: <strong id="po-fecha">2026-11-06</strong></div>
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-2 gap-4 border-b border-slate-200 pb-3">
-                        <div>
-                            <div class="text-slate-500">Proveedor Adjudicado (VIA44):</div>
-                            <div id="po-proveedor" class="font-bold text-slate-900 text-sm"></div>
-                            <div id="po-cuit" class="font-mono text-[11px] text-slate-600"></div>
-                        </div>
-                        <div>
-                            <div class="text-slate-500">Sector Solicitante & Prioridad:</div>
-                            <div id="po-sector" class="font-bold text-slate-900"></div>
-                            <div id="po-prioridad" class="text-[11px] font-bold text-amber-700"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="font-bold uppercase text-[10px] text-slate-500 mb-1">Especificación del Material / Servicio Solicitado</div>
-                        <div id="po-detalle" class="p-3 rounded-xl bg-slate-50 border border-slate-200 font-mono text-xs text-slate-800"></div>
-                    </div>
-                    <div class="flex justify-between items-center pt-3 border-t-2 border-slate-900">
-                        <div class="text-[11px] text-slate-600">Cantidad Solicitada: <strong id="po-cantidad" class="font-mono text-slate-900"></strong></div>
-                        <div class="text-sm font-black text-slate-900">Total Orden de Compra: <span id="po-importe" class="font-mono text-indigo-700"></span></div>
-                    </div>
-                </div>
+
+            <div id="print-oc-area" class="flex-1 overflow-y-auto p-6 custom-scroll space-y-5">
+                <!-- Populated by JS -->
             </div>
         </div>
     </div>
 
-    <script type="module" src="../js/global-sidebar.js"></script>
-    <script src="js/ordenes-compra-proveedores.js"></script>
+    <script type="module" src="js/ordenes-compra-proveedores.js"></script>
+    <script type="module">import '../js/theme.js';</script>
 </body>
-</html>
 
+</html>
