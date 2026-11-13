@@ -1,0 +1,1252 @@
+[
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0001",
+        "registroRaw":  ",-./0123456789"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0002",
+        "registroRaw":  "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0003",
+        "registroRaw":  "10101TALLO CHARNLEY S35 C/ACOPLE 12/14"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0004",
+        "registroRaw":  "N(SNNSNNTALLO CHARNLEY CONO DE ACOPLE S-35"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0005",
+        "registroRaw":  "S129NNSNS07798276552158"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0006",
+        "registroRaw":  "10201CHARNLEY S 40 N.D. ST"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0007",
+        "registroRaw":  "N SNNSNNTALLO CHARNLEY CABEZA FIJA"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0008",
+        "registroRaw":  "22 MM) S-40."
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0009",
+        "registroRaw":  "S129NNSNS07798276552189"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0010",
+        "registroRaw":  "10301CHARNLEY S 45 N.D. ST"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0011",
+        "registroRaw":  "22 MM) S-45."
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0012",
+        "registroRaw":  "S129NNSNS07798276552219"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0013",
+        "registroRaw":  "707070570CLAVO TIBIA ACERROJAD.TI"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0014",
+        "registroRaw":  "NNSNNCLAVO ACERROJADO TIBIA"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0015",
+        "registroRaw":  ",421472942AP.SUSP.VH 3,5 EN T TI OBLIC 3 ORIF"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0016",
+        "registroRaw":  "NSNNPLACA EN T OBLICUA VH"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0017",
+        "registroRaw":  "3,5 X 3 ORIFICIOS TITANIO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0018",
+        "registroRaw":  "APOYO SUSPENDIDO IZQUIERDA"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0019",
+        "registroRaw":  "Á,707071070CLAVO TIBIA ACERROJAD.TI"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0020",
+        "registroRaw":  "NNSSNCLAVO ACERROJADO TIBIA"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0021",
+        "registroRaw":  "1SET CHARNLEY - AR N. DISEÑO REFORZ."
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0022",
+        "registroRaw":  "20101CHARNLEY AR 35 N.D. REFORZADO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0023",
+        "registroRaw":  "22 MM) AR-35."
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0024",
+        "registroRaw":  "S129NNSNS07798276550"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0025",
+        "registroRaw":  "20201CHARNLEY AR 40 N.D. REFORZADO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0026",
+        "registroRaw":  "22 MM) AR-40."
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0027",
+        "registroRaw":  "S129NNSNS07798276550482"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0028",
+        "registroRaw":  "20301CHARNLEY AR 45 N.D. REFORZADO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0029",
+        "registroRaw":  "22 MM) AR-45."
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0030",
+        "registroRaw":  "S129NNSNS07798276550512"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0031",
+        "registroRaw":  "2040PLACA RECONST.RECTA 4,5 X20 ORIF."
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0032",
+        "registroRaw":  "NNSSNPLACA DE RECONSTRICION RECTA"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0033",
+        "registroRaw":  "4,5 X 20 ORIFICIOS"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0034",
+        "registroRaw":  ",421481742AP.SUSP.VH 3,5 PILON TIB.TI 20 ORIF"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0035",
+        "registroRaw":  "NSNNAP.SUSP.VH 3,5 PILON TIB.TI 20 ORIF"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0036",
+        "registroRaw":  "1SET CHARNLEY - ER N.D.EXTRA REFORZ"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0037",
+        "registroRaw":  "30201CHARNLEY ER 45 N.D. EXTRA REFORZ"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0038",
+        "registroRaw":  "SNNSNNCHARNLEY ER 45 EXTRA REFORZADO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0039",
+        "registroRaw":  "S129NNSNS0779827655167"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0040",
+        "registroRaw":  "40101CHARNLEY S 35 ST DE REVISION"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0041",
+        "registroRaw":  "SNNSNNCHARNLEY S 35 STANDARD DE"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0042",
+        "registroRaw":  "S129NNSNS07798276552165"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0043",
+        "registroRaw":  "40201CHARNLEY S 40 ST DE REVISION"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0044",
+        "registroRaw":  "SNNSNNCHARNLEY S 40 STANDARD DE"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0045",
+        "registroRaw":  "S129NNSNS07798276552196"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0046",
+        "registroRaw":  "640PLACA RECONST.RECTA 4.5X16 ORIF."
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0047",
+        "registroRaw":  "S7NNSSNPLACA DE RECONSTRUCCION RECTA"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0048",
+        "registroRaw":  "4,5 X 16 ORIFICIOS"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0049",
+        "registroRaw":  "840PLACA RECONST.RECTA 4,5 X18 ORIF."
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0050",
+        "registroRaw":  "18 ORIFICIOS"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0051",
+        "registroRaw":  "N RECTA 4,5 X 18 ORIFICIOS TITANIO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0052",
+        "registroRaw":  "40301CHARNLEY S 45 ST DE REVISION"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0053",
+        "registroRaw":  "SNNSNNCHARNLEY S 45 STANDARD DE"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0054",
+        "registroRaw":  "S129NNSNS0779827655"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0055",
+        "registroRaw":  "40401CHARNLEY AR 35 REFORZ. REVISION"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0056",
+        "registroRaw":  "SNNSNNCHARNLEY AR 35 REFORZADO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0057",
+        "registroRaw":  "S129NNSNS07798276550451"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0058",
+        "registroRaw":  "40501CHARNLEY AR 40 REFORZ. REVISION"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0059",
+        "registroRaw":  "SNNSNNCHARNLEY AR 40 REFORZADO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0060",
+        "registroRaw":  "S129NNSNS07798276550499"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0061",
+        "registroRaw":  "40601CHARNLEY AR 45 REFORZ. REVISION"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0062",
+        "registroRaw":  "SNNSNNCHARNLEY AR 45 REFORZADO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0063",
+        "registroRaw":  "S129NNSNS07798276550529"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0064",
+        "registroRaw":  "40701CHARNLEY ER 40 EXTRA REF REVISION"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0065",
+        "registroRaw":  "SNNSNNCHARNLEY ER 40 EXTRA REF"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0066",
+        "registroRaw":  "S129NNSNS07798276551632"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0067",
+        "registroRaw":  "ECOSNST.RECTA 4,5X14 ORIF.TI"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0068",
+        "registroRaw":  "NNSSNPLACA DE RECONSTRUCCION RECTA 4,5 X 14 ORIFICIOS TITANIO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0069",
+        "registroRaw":  "40801CHARNLEY ER 45 EXTRA REF REVISION"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0070",
+        "registroRaw":  "SNNSNNCHARNLEY ER 45 EXTRA REF"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0071",
+        "registroRaw":  "S129NNSNS07798276551663"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0072",
+        "registroRaw":  "1CHARNLEY CLR C/LARGO REFORZADO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0073",
+        "registroRaw":  "SNNSNNCHARNLEY CLR"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0074",
+        "registroRaw":  "S129NNSNS07798276550765"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0075",
+        "registroRaw":  "1CHARNLEY CLER C/L EXTRA REFORZ."
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0076",
+        "registroRaw":  "SNNSNNCHARNLEY CLER"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0077",
+        "registroRaw":  "S129NNSNS07798276550727"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0078",
+        "registroRaw":  "1CHARNLEY CELR C/EXTRA LARGO REF"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0079",
+        "registroRaw":  "SNNSNNCHARNLEY CELR"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0080",
+        "registroRaw":  "S129NNSNS07798276550703"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0081",
+        "registroRaw":  ",421383942PL.TREB.PILON TIBIAL 4,5X19 ORIF.TI"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0082",
+        "registroRaw":  "NNSSNPLACA TREBOL APOYO SUSPENDIDO PILON TIBIAL 4,5 X 19 ORIF."
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0083",
+        "registroRaw":  "42APOYO SUSP VH 3,5 EN T TI 3 ORIF."
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0084",
+        "registroRaw":  "S6NNSSNPLACA EN T VH"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0085",
+        "registroRaw":  "3,5 X 3 ORIF. TI APOYO SUSPENDIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0086",
+        "registroRaw":  "5 EN T TI 3 ORIF."
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0087",
+        "registroRaw":  "1CHARNLEY CELERTL C/XL EXT.REF T/LAR"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0088",
+        "registroRaw":  "SNNSNNCHARNLEY CELERTL"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0089",
+        "registroRaw":  "S129NNSNS0779827655068"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0090",
+        "registroRaw":  ",)010110101CHARNLEY TRF 35 TALLO RECTO FINO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0091",
+        "registroRaw":  "SNNSNNTALLO CHARNLEY CABEZA FIIJA"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0092",
+        "registroRaw":  "(22 MM) TRF-35"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0093",
+        "registroRaw":  "(TALLO RECTO FINO)"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0094",
+        "registroRaw":  "S129NNSNS07798276552417"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0095",
+        "registroRaw":  ")010110201CHARNLEY TRF 40 TALLO RECTO FINO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0096",
+        "registroRaw":  "22 MM) TRF-40."
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0097",
+        "registroRaw":  "S129NNSNS07798276552431"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0098",
+        "registroRaw":  "18248TOR. INTERF. VASTAGO TENEDOR 8MM."
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0099",
+        "registroRaw":  "(18748TOR INTERF GUIA CLAVIJA P/GUIA EN U"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0100",
+        "registroRaw":  ",421383842PL.TREB.PILON TIBIAL 4,5X18 ORIF.TI"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0101",
+        "registroRaw":  "NNSSNPLACA TREBOL APOYO SUSPENDIDO PILON TIBIAL 4,5 X 18 ORIF."
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0102",
+        "registroRaw":  "010110301CHARNLEY TRF CUELLO CORTO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0103",
+        "registroRaw":  "SNNSNNCHARNLEY TRF CUELLO CORTO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0104",
+        "registroRaw":  "S129NNSNS07798276552516"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0105",
+        "registroRaw":  "010110401CHARNLEY TRF CUELLO MEDIANO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0106",
+        "registroRaw":  "SNNSNNCHARNLEY TRF CUELLO MEDIANO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0107",
+        "registroRaw":  "S129NNSNS0779827655253"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0108",
+        "registroRaw":  "01011R101CHARNLEY TRF PARA REVISION 35"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0109",
+        "registroRaw":  "SNNSNNCHARNLEY TRF PARA REVISION 35"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0110",
+        "registroRaw":  "S129NNSNS07798276552547"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0111",
+        "registroRaw":  "2293CABEZA FEMORAL INOX 28 XL"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0112",
+        "registroRaw":  "CABEZA FEMORAL ACERO INOX"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0113",
+        "registroRaw":  "CONO 12/14 DIAMETRO 28"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0114",
+        "registroRaw":  "CUELLO EXTRA LARGO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0115",
+        "registroRaw":  "S146NNSNS03760255380179"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0116",
+        "registroRaw":  ",707042970CLAVO P/FEMUR ACERROJ"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0117",
+        "registroRaw":  "S NNSSNCLAVO PARA FEMUR ACERROJADO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0118",
+        "registroRaw":  "12 X 340 MM TITANIO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0119",
+        "registroRaw":  "70CLAVO P/ FEMUR ACERROJ"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0120",
+        "registroRaw":  "10 X 340 MM TITANIO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0121",
+        "registroRaw":  "PARA FEMUR ACERROJADO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0122",
+        "registroRaw":  "01011R301CHARNLEY TRF REVISION CORTO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0123",
+        "registroRaw":  "SNNSNNCHARNLEY TRF REVISION CORTO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0124",
+        "registroRaw":  "S129NNSNS07798276552578"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0125",
+        "registroRaw":  "01011R401CHARNLEY TRF REVISION MEDIANO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0126",
+        "registroRaw":  "SNNSNNCHARNLEY TRF REVISION MEDIANO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0127",
+        "registroRaw":  "S129NNSNS07798276552592"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0128",
+        "registroRaw":  "01011R501CHARNLEY TRF REVISION LARGO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0129",
+        "registroRaw":  "SNNSNNCHARNLEY TRF REVISION LARGO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0130",
+        "registroRaw":  "S129NNSNS07798276552585"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0131",
+        "registroRaw":  "010120101CHARNLEY CUELLO 3/4"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0132",
+        "registroRaw":  "SNNSNNCHARNLEY CUELLO 3/4"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0133",
+        "registroRaw":  "S129NNSNS0779827655138"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0134",
+        "registroRaw":  "010120201CHARNLEY PEQUEÑOÑ"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0135",
+        "registroRaw":  "SNNSNNCHARNLEY P PEQUE"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0136",
+        "registroRaw":  "S129NNSNS07798276550383"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0137",
+        "registroRaw":  "(13889REEMPLAZO TOTAL RODILLA MODULAR ANV"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0138",
+        "registroRaw":  "14089REEMPLAZO TOTAL RODILLA"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0139",
+        "registroRaw":  ")010120301CHARNLEY LCC LUXAC. CONG. CADERA"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0140",
+        "registroRaw":  "SNNSNNCHARNLEY LCC LUXAC. CONG."
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0141",
+        "registroRaw":  "S129NNSNS07798276551922"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0142",
+        "registroRaw":  ")010130101CHARNLEY LARGO ST REVISION CORTO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0143",
+        "registroRaw":  "1(22 MM) STANDARD CUELLO CORTO DE REVISION (18 CM)"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0144",
+        "registroRaw":  "S129NNSNS07798276551885"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0145",
+        "registroRaw":  "010130201CHARNLEY LARGO ST REVISION MED"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0146",
+        "registroRaw":  "22 MM) STANDARD CUELLO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0147",
+        "registroRaw":  "MEDIANO DE REVISION (20 CM)"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0148",
+        "registroRaw":  "S129NNSNS07798276551908"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0149",
+        "registroRaw":  ",18068P818VAST.DIST.TALLO TI MOD. 13 X 210 NT"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0150",
+        "registroRaw":  "NNSSNVASTAGO DISTAL TALLO TI"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0151",
+        "registroRaw":  "MODULAR PROXIMAL 13 X 210 N.T"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0152",
+        "registroRaw":  "S129NNSNS0779830676704"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0153",
+        "registroRaw":  ")91990A191CAJA CONTENEDORA GRANDE ESTANDAR"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0154",
+        "registroRaw":  "NNCAJA CONTENEDORA GRANDE"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0155",
+        "registroRaw":  ")010130301CHARNLEY LARGO ST REVISION LARGO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0156",
+        "registroRaw":  "1(22 MM) STANDARD CUELLO LARGO DE REVISION (20 CM)"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0157",
+        "registroRaw":  "S129NNSNS07798276551892"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0158",
+        "registroRaw":  "01013MA01CHARNLEY M/40 MAGNUM"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0159",
+        "registroRaw":  "SNNSNNCHARNLEY M-40 MAGNUM"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0160",
+        "registroRaw":  "S129NNSNS07798276550376"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0161",
+        "registroRaw":  "01014A201CHARNLEY S 40 CUELLO REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0162",
+        "registroRaw":  "SNNSNNCHARNLEY S 40 CUELLO REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0163",
+        "registroRaw":  "S129NNSNS07798276552172"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0164",
+        "registroRaw":  "01014A301CHARNLEY S 45 CUELLO REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0165",
+        "registroRaw":  "SNNSNNCHARNLEY S 45 CUELLO REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0166",
+        "registroRaw":  "S129NNSNS07798276552202"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0167",
+        "registroRaw":  ",18068P718VAST.DIST.TALLO TI MOD 13 X 120 N.T"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0168",
+        "registroRaw":  "MODULAR PROXIMAL 13 X 120 MM"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0169",
+        "registroRaw":  "S129NNSNS07798306767033"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0170",
+        "registroRaw":  "01014B101CHARNLEY AR 35 CUELLO REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0171",
+        "registroRaw":  "SNNSNNCHARNLEY AR 35 CUELLO REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0172",
+        "registroRaw":  "S129NNSNS07798276550437"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0173",
+        "registroRaw":  "01014B201CHARNLEY AR 40 CUELLO REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0174",
+        "registroRaw":  "(22 MM) AR-40"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0175",
+        "registroRaw":  "S129NNSNS07798276550475"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0176",
+        "registroRaw":  "01014B301CHARNLEY AR 45 CUELLO REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0177",
+        "registroRaw":  "SNNSNNCHARNLEY AR 45 CUELLO REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0178",
+        "registroRaw":  "S129NNSNS07798276550505"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0179",
+        "registroRaw":  ",707212470ACERROJ.DE HUMERO ANV DER.8X280MM T"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0180",
+        "registroRaw":  "CLAVO HUMERO ACERROJADO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0181",
+        "registroRaw":  "ANV DER.8X280MM"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0182",
+        "registroRaw":  "647ARTICULACION IZQUIERDA 2 ORIF. 12MM"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0183",
+        "registroRaw":  "NNSSNPLACA ACROMIOCLAVICULAR"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0184",
+        "registroRaw":  "IZQUIERDA 2 ORIFICIOS 12 MM"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0185",
+        "registroRaw":  "99BAUL CONTENEDOR PLASTICO GRANDE"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0186",
+        "registroRaw":  "NNSNNCAJA CONTENEDORA GRANDE"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0187",
+        "registroRaw":  "01014C101CHARNLEY ER 40 CUELLO REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0188",
+        "registroRaw":  "22 MM) ER-40"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0189",
+        "registroRaw":  "CUELLO REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0190",
+        "registroRaw":  "S129NNSNS07798276551625"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0191",
+        "registroRaw":  "01014C201CHARNLEY ER 45 CUELLO REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0192",
+        "registroRaw":  "SNNSNNCHARNLEY ER 45 CUELLO REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0193",
+        "registroRaw":  "S129NNSNS07798276551656"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0194",
+        "registroRaw":  "01014D101CHARNLEY CLR CUELLO REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0195",
+        "registroRaw":  "22 MM) HEAVY REFORZADO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0196",
+        "registroRaw":  "CUELLO LARGO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0197",
+        "registroRaw":  "S129NNSNS07798276550772"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0198",
+        "registroRaw":  "01014D301CHARNLEY CELR CUELLO REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0199",
+        "registroRaw":  "SNNSNNCHARNLEY CELR CUELLO REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0200",
+        "registroRaw":  "S129NNSNS0779827655071"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0201",
+        "registroRaw":  "(827358682BULON CEFALICO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0202",
+        "registroRaw":  "NNSNNBULON CEFALICO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0203",
+        "registroRaw":  "(827358582BULON CEFALICO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0204",
+        "registroRaw":  "NNSSNBULON CEFALICO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0205",
+        "registroRaw":  "(01014D501CHARNLEY CLERTL CUELLO REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0206",
+        "registroRaw":  "SNNSNNCHARNLEY CLERTL CUELLO REDUCI-DO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0207",
+        "registroRaw":  "S129NNSNS07798276550758"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0208",
+        "registroRaw":  ")01014D601CHARNLEY CELERTL CUELLO REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0209",
+        "registroRaw":  "SNNSNNCHARNLEY CELERTL CUELLO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0210",
+        "registroRaw":  "S129NNSNS07798276550697"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0211",
+        "registroRaw":  "(01014E101CHARNLEY TRF 35 CUELLO REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0212",
+        "registroRaw":  "SNNSNNCHARNLEY TRF 35 CUELLO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0213",
+        "registroRaw":  "S129NNSNS077982765524"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0214",
+        "registroRaw":  "(01014E201CHARNLEY TRF 40 CUELLO REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0215",
+        "registroRaw":  "SNNSNNCHARNLEY TRF 40 CUELLO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0216",
+        "registroRaw":  "S129NNSNS07798276552424"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0217",
+        "registroRaw":  "(827358382BULON CEFALICO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0218",
+        "registroRaw":  "(827358482BULON CEFALICO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0219",
+        "registroRaw":  "01014F101CHARNLEY CUELLO 3/4"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0220",
+        "registroRaw":  "SNNSNNCHARNLEY CUELLO 3/4 REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0221",
+        "registroRaw":  "S129NNSNS07798276551397"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0222",
+        "registroRaw":  "01014F201CHARNLEY PEQUEÑO C/REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0223",
+        "registroRaw":  "SNNSNNCHARNLEY PEQUE"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0224",
+        "registroRaw":  "O C/REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0225",
+        "registroRaw":  "S129NNSNS07798276552073"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0226",
+        "registroRaw":  "01014F301CHARNLEY LCC CUELLO REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0227",
+        "registroRaw":  "SNNSNNCHARNLEY LCC CUELLO REDUCIDO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0228",
+        "registroRaw":  "S129NNSNS07798276551915"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0229",
+        "registroRaw":  ",370945837PLACA TUBO DESLIZ 140"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0230",
+        "registroRaw":  "X4 ORIF AUTOC"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0231",
+        "registroRaw":  "NNSSNPLACA TUBO DESLIZANTE 140"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0232",
+        "registroRaw":  "X 4 ORIFICIOS AUTOC."
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0233",
+        "registroRaw":  "ACERO INOXIDABLE"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0234",
+        "registroRaw":  "(827358182BULON CEFALICO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0235",
+        "registroRaw":  "S NSSNBULON CEFALICO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0236",
+        "registroRaw":  "827358782BULON CEFALICO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0237",
+        "registroRaw":  "NSSNBULON CEFALICO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0238",
+        "registroRaw":  "01014G301APOYO EN CALCAR C/REDUCIDO C/MED."
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0239",
+        "registroRaw":  "S NNSNNCHARNLEY C/RED APOYO CALCAR"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0240",
+        "registroRaw":  "S129NNSNS07798276550642"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0241",
+        "registroRaw":  "01014G401APOYO EN CALCAR C/REDUCIDO C/LARGO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0242",
+        "registroRaw":  "S129NNSNS07798276550635"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0243",
+        "registroRaw":  "01014G501CHARNLEY AR 40 C/RED APOYO CALCAR"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0244",
+        "registroRaw":  "NNSNNCHARNLEY AR 40 C/RED APOYO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0245",
+        "registroRaw":  "S129NNSNS07798276550468"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0246",
+        "registroRaw":  "11394CAMPO QUIRURGICO (U DRAPE)"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0247",
+        "registroRaw":  "11494CIFOPLASTIA (SET / CEMENTO)"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0248",
+        "registroRaw":  "(11789CLAVO ARTRODESIS DE RODILLA TITANIO"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0249",
+        "registroRaw":  "13689REEMPLAZO TOTAL RODILLA INSALL"
+    },
+    {
+        "origen":  "VIA02 (WSFESA)",
+        "id":  "CLI-0250",
+        "registroRaw":  "010150201STANDARD 22MM CUELLO MEDIANO"
+    }
+]

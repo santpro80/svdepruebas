@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0f16" />
+    <title>Flujos | Diagram Sandbox</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="../css/tailwind.css">
+    <link rel="stylesheet" href="../css/dark-theme.css">
+
+    <style>
+        html, body {
+            height: 100% !important;
+            height: 100vh !important;
+            height: 100dvh !important;
+            min-height: 100% !important;
+            min-height: 100vh !important;
+            min-height: 100dvh !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: hidden !important;
+            width: 100% !important;
+        }
+
+        body {
+            font-family: 'Public Sans', sans-serif;
+            opacity: 0;
+            animation: fadeIn 0.3s ease forwards;
+            overflow: hidden;
+            user-select: none;
+            display: flex !important;
+            flex-direction: column !important;
+        }
+
+        #canvas-container {
+            flex: 1 1 0% !important;
+            height: 100% !important;
+            width: 100% !important;
+            position: relative !important;
+            overflow: hidden !important;
+            min-height: 0 !important;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* Header adaptativo */
+        .flujos-header {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        html.dark .flujos-header {
+            background-color: #0d131f !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #e2e8f0;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+        }
+
+        html.dark .glass-panel {
+            background: rgba(15, 23, 42, 0.9) !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6) !important;
+        }
+
+        /* Lienzo infinito con patrón de puntos */
+        .canvas-bg-grid {
+            background-color: #f8fafc;
+            background-image: radial-gradient(#cbd5e1 1.2px, transparent 1.2px);
+            background-size: 24px 24px;
+        }
+
+        html.dark .canvas-bg-grid {
+            background-color: #070b12 !important;
+            background-image: radial-gradient(#1e293b 1.3px, transparent 1.3px) !important;
+            background-size: 24px 24px;
+        }
+
+        /* ==========================================================================
+           SISTEMA DE NODOS VECTORIALES: FORMAS GEOMÉTRICAS ESTÁNDAR
+           ========================================================================== */
+        .flow-node {
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            border-radius: 0 !important;
+            will-change: left, top;
+        }
+
+        /* Capa SVG vectorial de fondo para cada forma */
+        .node-shape-svg {
+            overflow: visible;
+            pointer-events: none;
+            filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.08));
+            transition: filter 0.2s ease;
+        }
+        html.dark .node-shape-svg {
+            filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.6));
+        }
+
+        .node-shape-vector .shape-fill {
+            fill: var(--node-bg-light, #ffffff);
+            stroke: var(--node-color, #3b82f6);
+            stroke-linejoin: round;
+            stroke-linecap: round;
+            transition: fill 0.2s ease, stroke 0.2s ease, stroke-width 0.15s ease;
+        }
+        html.dark .node-shape-vector .shape-fill {
+            fill: var(--node-bg-dark, #0e1726) !important;
+            stroke: var(--node-color, #3b82f6) !important;
+        }
+        .node-shape-vector .shape-stroke {
+            stroke: var(--node-color, #3b82f6) !important;
+            stroke-linejoin: round;
+            stroke-linecap: round;
+        }
+
+        .flow-node:hover .node-shape-svg {
+            filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.15));
+        }
+        html.dark .flow-node:hover .node-shape-svg {
+            filter: drop-shadow(0 10px 28px rgba(0, 0, 0, 0.8));
+        }
+        .flow-node:hover .node-shape-vector .shape-fill {
+            stroke-width: 3.5px;
+        }
+
+        /* Tipografía de Nodos */
+        .flow-node .node-title {
+            color: #0f172a;
+        }
+        html.dark .flow-node .node-title {
+            color: #f8fafc !important;
+        }
+
+        .flow-node .node-text {
+            color: #475569;
+        }
+        html.dark .flow-node .node-text {
+            color: #94a3b8 !important;
+        }
+
+        /* Puertos */
+        .flow-port {
+            background-color: #ffffff;
+        }
+        html.dark .flow-port {
+            background-color: #0f172a !important;
+        }
+
+        .flow-port:hover > div {
+            transform: scale(1.6);
+            transition: transform 0.15s;
+        }
+
+        /* Labels SVG en Aristas (Siempre por delante de las líneas con fondo opaco y sombra) */
+        .edge-label-group {
+            transition: transform 0.15s ease;
+        }
+        .edge-label-group:hover {
+            transform: scale(1.08);
+        }
+        .edge-label-bg {
+            fill: #ffffff !important;
+            stroke: #94a3b8;
+            stroke-width: 1.5;
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.15));
+        }
+        html.dark .edge-label-bg {
+            fill: #0d1522 !important;
+            stroke: #475569 !important;
+            stroke-width: 1.5;
+            filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.6));
+        }
+        .edge-label-text {
+            fill: #0f172a;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            pointer-events: none;
+            font-family: inherit;
+        }
+        html.dark .edge-label-text {
+            fill: #f8fafc !important;
+        }
+
+        /* ==========================================================================
+           ESTILOS DE SELECCIÓN DE CELDAS / NODOS (ALTO CONTRASTE Y RESALTADO)
+           ========================================================================== */
+        .flow-node.node-selected {
+            z-index: 30 !important;
+            transform: scale(1.02);
+            transition: transform 0.15s ease;
+        }
+
+        /* En modo claro */
+        html:not(.dark) .flow-node.node-selected .node-shape-svg {
+            filter: drop-shadow(0 0 10px rgba(37, 99, 235, 0.45)) drop-shadow(0 8px 24px rgba(37, 99, 235, 0.25)) !important;
+        }
+        html:not(.dark) .flow-node.node-selected .node-shape-vector .shape-fill {
+            stroke-width: 4px !important;
+            stroke: #2563eb !important;
+            fill: var(--node-bg-light, #eff6ff) !important;
+        }
+
+        /* En modo oscuro */
+        html.dark .flow-node.node-selected .node-shape-svg {
+            filter: drop-shadow(0 0 14px rgba(56, 189, 248, 0.6)) drop-shadow(0 10px 28px rgba(0, 0, 0, 0.9)) !important;
+        }
+        html.dark .flow-node.node-selected .node-shape-vector .shape-fill {
+            stroke-width: 4px !important;
+            stroke: #38bdf8 !important;
+            fill: var(--node-bg-dark, #112239) !important;
+        }
+
+        /* Badge indicador de selección activa en la esquina superior derecha */
+        .flow-node.node-selected::after {
+            content: '✓';
+            position: absolute;
+            top: -9px;
+            right: -9px;
+            width: 22px;
+            height: 22px;
+            background-color: #38bdf8;
+            color: #04101e;
+            font-size: 12px;
+            font-weight: 900;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+            border: 2px solid #ffffff;
+            z-index: 40;
+            pointer-events: none;
+            animation: pulse-badge 1.8s infinite;
+        }
+
+        html:not(.dark) .flow-node.node-selected::after {
+            background-color: #2563eb;
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.12); }
+        }
+
+        /* Recuadro de Selección Múltiple (Marquee) */
+        #marquee-selection-box {
+            border: 2px dashed #3b82f6;
+            background-color: rgba(59, 130, 246, 0.15);
+            backdrop-filter: blur(1px);
+        }
+
+        /* Botón de Modo Activo en HUD */
+        .hud-mode-active {
+            background-color: #3b82f6 !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35);
+        }
+
+        /* Estilo interactivo para nodos destino al conectar */
+        .node-connect-target {
+            outline: 2px dashed #6366f1 !important;
+            outline-offset: 4px;
+            cursor: crosshair !important;
+            transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+            animation: pulse-target 1.5s infinite alternate ease-in-out;
+        }
+
+        .node-connect-target:hover {
+            transform: scale(1.03) !important;
+            box-shadow: 0 0 25px rgba(99, 102, 241, 0.6) !important;
+            outline-color: #818cf8 !important;
+        }
+
+        @keyframes pulse-target {
+            0% { outline-color: #6366f1; }
+            100% { outline-color: #a5b4fc; }
+        }
+
+        /* ==========================================================================
+           REGLAS DE IMPRESIÓN PROFESIONAL (PDF / IMPRESORA A4 HORIZONTAL)
+        /* ==========================================================================
+           REGLAS DE IMPRESIÓN PROFESIONAL (BLANCO Y NEGRO / A4 HORIZONTAL)
+           ========================================================================== */
+        @media print {
+            @page {
+                size: landscape;
+                margin: 8mm;
+            }
+
+            /* Ocultar elementos de interfaz interactiva */
+            header,
+            .glass-panel,
+            #context-menu-canvas,
+            #context-menu-node,
+            #port-quick-picker,
+            #toast-msg,
+            #marquee-selection-box,
+            .flow-port,
+            .sub-workspace-hint,
+            .btn-node-edit,
+            .edge-action-group,
+            #modal-mobile-add-node,
+            #edit-node-modal,
+            #edit-edge-modal,
+            .flow-node::after {
+                display: none !important;
+            }
+
+            html, body {
+                background: #ffffff !important;
+                color: #000000 !important;
+                width: 100% !important;
+                height: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                overflow: hidden !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            main, #canvas-container {
+                background: #ffffff !important;
+                color: #000000 !important;
+                width: 1020px !important;
+                height: 640px !important;
+                margin: 0 auto !important;
+                position: relative !important;
+                overflow: hidden !important;
+                display: block !important;
+            }
+
+            .canvas-bg-grid {
+                background: none !important;
+            }
+
+            #canvas-svg,
+            #canvas-nodes-layer {
+                width: 1020px !important;
+                height: 570px !important;
+                position: absolute !important;
+                top: 65px !important;
+                left: 0 !important;
+            }
+
+            /* 1. Nodos: Fondo blanco puro, sin sombras pesadas, borde negro vectorial */
+            .flow-node,
+            html.dark .flow-node {
+                background-color: transparent !important;
+                box-shadow: none !important;
+                filter: none !important;
+                page-break-inside: avoid;
+            }
+
+            .node-shape-svg,
+            html.dark .node-shape-svg,
+            .flow-node:hover .node-shape-svg,
+            html.dark .flow-node:hover .node-shape-svg {
+                filter: none !important;
+                box-shadow: none !important;
+                drop-shadow: none !important;
+            }
+
+            /* Figuras geométricas vectoriales: Fondo blanco y borde negro nítido */
+            .node-shape-vector,
+            html.dark .node-shape-vector {
+                stroke: #000000 !important;
+            }
+
+            .node-shape-vector .shape-fill,
+            html.dark .node-shape-vector .shape-fill,
+            .flow-node:hover .node-shape-vector .shape-fill {
+                fill: #ffffff !important;
+                stroke: #000000 !important;
+                stroke-width: 2.2px !important;
+                opacity: 1 !important;
+            }
+
+            .node-shape-vector .shape-stroke,
+            html.dark .node-shape-vector .shape-stroke {
+                stroke: #000000 !important;
+                stroke-width: 2.2px !important;
+            }
+
+            /* 2. Tipografía e Iconos: Letras negras de alto contraste y legibilidad */
+            .flow-node .node-title,
+            html.dark .flow-node .node-title {
+                color: #000000 !important;
+                font-weight: 900 !important;
+            }
+
+            .flow-node .node-text,
+            html.dark .flow-node .node-text {
+                color: #1e293b !important;
+                font-weight: 700 !important;
+            }
+
+            .flow-node .material-symbols-outlined,
+            html.dark .flow-node .material-symbols-outlined {
+                color: #000000 !important;
+            }
+
+            /* 3. Conexiones / Flechas: Líneas negras y puntas de flecha negras */
+            .edge-item path {
+                stroke: #000000 !important;
+                filter: none !important;
+            }
+
+            marker path {
+                fill: #000000 !important;
+            }
+
+            .edge-label-bg {
+                fill: #ffffff !important;
+                stroke: #000000 !important;
+                stroke-width: 1.5px !important;
+                filter: none !important;
+            }
+
+            .edge-label-text {
+                fill: #000000 !important;
+                font-weight: 800 !important;
+            }
+
+            /* 4. Membrete de impresión institucional */
+            .print-banner {
+                display: flex !important;
+                align-items: center;
+                justify-content: space-between;
+                border-bottom: 2px solid #000000 !important;
+                padding-bottom: 8px;
+                margin-bottom: 12px;
+                width: 1020px !important;
+                margin: 0 auto !important;
+                color: #000000 !important;
+            }
+
+            .print-banner * {
+                color: #000000 !important;
+            }
+        }
+
+        /* Ocultar tips de teclado en cualquier dispositivo táctil o celular */
+        @media (hover: none) and (pointer: coarse) {
+            #desktop-shortcuts-bar {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-[#0a0f16] text-slate-900 dark:text-[#f1f5f9] antialiased min-h-screen h-screen flex flex-col transition-colors duration-300 overflow-hidden" style="height: 100dvh; min-height: 100dvh; width: 100%; display: flex; flex-direction: column;">
+
+    <!-- Top Navigation Bar -->
+    <header class="h-14 sm:h-16 flujos-header px-2 sm:px-4 lg:px-6 flex items-center justify-between gap-2 shrink-0 z-30 shadow-sm relative">
+        
+        <!-- Left: Logo & Breadcrumbs -->
+        <div class="flex items-center gap-1.5 sm:gap-3 overflow-hidden min-w-0">
+            <button id="btn-header-back" class="size-8 sm:size-9 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-colors flex items-center justify-center shrink-0 cursor-pointer" title="Volver al nivel anterior">
+                <span class="material-symbols-outlined text-[18px] sm:text-[20px]">arrow_back</span>
+            </button>
+
+            <div class="flex items-center gap-2 shrink-0">
+                <div class="size-8 sm:size-9 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-500 flex items-center justify-center text-white shadow-lg shadow-indigo-500/20">
+                    <span class="material-symbols-outlined text-[18px] sm:text-[20px]">account_tree</span>
+                </div>
+                <div class="hidden sm:flex flex-col">
+                    <span class="text-sm font-black tracking-tight uppercase leading-tight text-slate-900 dark:text-white">Flujos</span>
+                    <span class="text-[9px] font-bold text-slate-400 uppercase tracking-widest leading-none">Diagram Sandbox</span>
+                </div>
+            </div>
+
+            <!-- Separador Vertical -->
+            <div class="h-6 w-px bg-slate-200 dark:bg-slate-800 shrink-0 hidden md:block"></div>
+
+            <!-- Migas de Pan (Breadcrumbs multinivel) -->
+            <nav id="breadcrumbs-container" class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto py-1 hide-scrollbar">
+                <!-- Generado dinámicamente por ui.js -->
+            </nav>
+        </div>
+
+        <!-- Right: Actions & Cloud Sync Status -->
+        <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+            <!-- Cloud Sync Badge Indicator -->
+            <div id="cloud-sync-badge" class="flex items-center gap-1.5 px-2 sm:px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20" title="Sincronización en la nube en tiempo real">
+                <span class="size-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span id="cloud-sync-text" class="hidden sm:inline">En la nube</span>
+            </div>
+
+            <!-- Botones Rápidos de Agregar Formas Estándar (Desktop) -->
+            <div class="hidden lg:flex items-center gap-1.5 bg-slate-100 dark:bg-slate-900/60 p-1 rounded-2xl border border-slate-200 dark:border-slate-800">
+                <button data-quick-add="process" class="px-2.5 py-1.5 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 text-blue-600 dark:text-blue-400 text-[11px] font-black uppercase tracking-wider flex items-center gap-1 transition-all cursor-pointer" title="Proceso (Rectángulo)">
+                    <span class="material-symbols-outlined text-[15px]">crop_landscape</span> Proceso
+                </button>
+                <button data-quick-add="decision" class="px-2.5 py-1.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-[11px] font-black uppercase tracking-wider flex items-center gap-1 transition-all cursor-pointer" title="Decisión (Rombo)">
+                    <span class="material-symbols-outlined text-[15px]">diamond</span> Decisión
+                </button>
+                <button data-quick-add="terminal" class="px-2.5 py-1.5 rounded-xl bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-[11px] font-black uppercase tracking-wider flex items-center gap-1 transition-all cursor-pointer" title="Terminal (Inicio/Fin)">
+                    <span class="material-symbols-outlined text-[15px]">stadium</span> Terminal
+                </button>
+                <button data-quick-add="data" class="px-2.5 py-1.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 text-[11px] font-black uppercase tracking-wider flex items-center gap-1 transition-all cursor-pointer" title="Datos (Paralelogramo)">
+                    <span class="material-symbols-outlined text-[15px]">input</span> Datos
+                </button>
+                <button data-quick-add="document" class="px-2.5 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-600 dark:text-amber-400 text-[11px] font-black uppercase tracking-wider flex items-center gap-1 transition-all cursor-pointer" title="Documento (Base curva)">
+                    <span class="material-symbols-outlined text-[15px]">article</span> Doc
+                </button>
+                
+                <!-- Desplegable con Todas las Formas Estándar -->
+                <div class="relative">
+                    <button id="btn-more-shapes-dropdown" type="button" class="px-2 py-1.5 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 text-[11px] font-black uppercase tracking-wider flex items-center gap-1 transition-all cursor-pointer" title="Todas las Formas Geométricas">
+                        <span>+ Formas</span>
+                        <span class="material-symbols-outlined text-[15px]">expand_more</span>
+                    </button>
+                    <div id="more-shapes-menu" class="hidden absolute right-0 mt-2 w-60 glass-panel rounded-2xl p-2 shadow-2xl border border-slate-200 dark:border-slate-800 flex-col gap-1 z-50 text-xs font-bold max-h-80 overflow-y-auto hide-scrollbar animate-in fade-in zoom-in-95 duration-150">
+                        <div class="px-2 py-1 text-[9px] font-black uppercase tracking-widest text-slate-400">Datos & Almacenamiento</div>
+                        <button data-quick-add="database" class="flex items-center gap-2 px-2 py-1.5 rounded-xl hover:bg-purple-500/10 hover:text-purple-600 dark:hover:text-purple-400 transition-colors text-left cursor-pointer">
+                            <span class="material-symbols-outlined text-purple-500 text-[16px]">database</span> Base de Datos
+                        </button>
+                        <button data-quick-add="multidocument" class="flex items-center gap-2 px-2 py-1.5 rounded-xl hover:bg-orange-500/10 hover:text-orange-600 dark:hover:text-orange-400 transition-colors text-left cursor-pointer">
+                            <span class="material-symbols-outlined text-orange-500 text-[16px]">file_copy</span> Múltiples Docs
+                        </button>
+                        <button data-quick-add="storage" class="flex items-center gap-2 px-2 py-1.5 rounded-xl hover:bg-rose-500/10 hover:text-rose-600 dark:hover:text-rose-400 transition-colors text-left cursor-pointer">
+                            <span class="material-symbols-outlined text-rose-500 text-[16px]">archive</span> Almacén (Triángulo)
+                        </button>
+                        <div class="px-2 py-1 text-[9px] font-black uppercase tracking-widest text-slate-400 mt-1 border-t border-slate-200 dark:border-slate-800 pt-1.5">Operaciones & Procesos</div>
+                        <button data-quick-add="subprocess" class="flex items-center gap-2 px-2 py-1.5 rounded-xl hover:bg-blue-600/10 hover:text-blue-600 dark:hover:text-blue-400 transition-colors text-left cursor-pointer">
+                            <span class="material-symbols-outlined text-blue-600 text-[16px]">account_tree</span> Proceso Predefinido
+                        </button>
+                        <button data-quick-add="manual_op" class="flex items-center gap-2 px-2 py-1.5 rounded-xl hover:bg-amber-600/10 hover:text-amber-600 dark:hover:text-amber-400 transition-colors text-left cursor-pointer">
+                            <span class="material-symbols-outlined text-amber-600 text-[16px]">front_hand</span> Operación Manual
+                        </button>
+                        <button data-quick-add="preparation" class="flex items-center gap-2 px-2 py-1.5 rounded-xl hover:bg-lime-600/10 hover:text-lime-600 dark:hover:text-lime-400 transition-colors text-left cursor-pointer">
+                            <span class="material-symbols-outlined text-lime-600 text-[16px]">settings</span> Preparación (Hexágono)
+                        </button>
+                        <button data-quick-add="delay" class="flex items-center gap-2 px-2 py-1.5 rounded-xl hover:bg-yellow-600/10 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors text-left cursor-pointer">
+                            <span class="material-symbols-outlined text-yellow-500 text-[16px]">hourglass_empty</span> Retraso (Espera)
+                        </button>
+                        <button data-quick-add="display" class="flex items-center gap-2 px-2 py-1.5 rounded-xl hover:bg-sky-500/10 hover:text-sky-600 dark:hover:text-sky-400 transition-colors text-left cursor-pointer">
+                            <span class="material-symbols-outlined text-sky-500 text-[16px]">monitor</span> Display / Pantalla
+                        </button>
+                        <button data-quick-add="circle" class="flex items-center gap-2 px-2 py-1.5 rounded-xl hover:bg-teal-500/10 hover:text-teal-600 dark:hover:text-teal-400 transition-colors text-left cursor-pointer">
+                            <span class="material-symbols-outlined text-teal-500 text-[16px]">radio_button_unchecked</span> Conector (Círculo)
+                        </button>
+                        <button data-quick-add="comment" class="flex items-center gap-2 px-2 py-1.5 rounded-xl hover:bg-slate-300 dark:hover:bg-slate-800 transition-colors text-left cursor-pointer">
+                            <span class="material-symbols-outlined text-slate-500 text-[16px]">comment</span> Comentario / Nota
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón Móvil: Agregar Bloque -->
+            <button id="btn-mobile-add" class="lg:hidden size-8 sm:size-9 rounded-xl bg-blue-600 hover:bg-blue-700 text-white transition-colors flex items-center justify-center cursor-pointer shadow-md shadow-blue-500/20" title="Agregar bloque">
+                <span class="material-symbols-outlined text-[19px]">add</span>
+            </button>
+
+            <!-- Botones de Deshacer y Rehacer -->
+            <div class="flex items-center gap-0.5 bg-slate-100 dark:bg-slate-900/60 p-0.5 sm:p-1 rounded-2xl border border-slate-200 dark:border-slate-800">
+                <button id="btn-undo" type="button" class="size-8 sm:size-9 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 disabled:opacity-30 disabled:hover:bg-transparent disabled:cursor-not-allowed transition-all flex items-center justify-center cursor-pointer" title="Deshacer (Ctrl+Z)" disabled>
+                    <span class="material-symbols-outlined text-[18px] sm:text-[19px]">undo</span>
+                </button>
+                <button id="btn-redo" type="button" class="size-8 sm:size-9 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 disabled:opacity-30 disabled:hover:bg-transparent disabled:cursor-not-allowed transition-all flex items-center justify-center cursor-pointer" title="Rehacer (Ctrl+Y)" disabled>
+                    <span class="material-symbols-outlined text-[18px] sm:text-[19px]">redo</span>
+                </button>
+            </div>
+
+            <!-- Botón Guardar -->
+            <button id="btn-save" class="size-8 sm:size-9 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer" title="Guardar cambios (Ctrl+S)">
+                <span class="material-symbols-outlined text-[18px] sm:text-[19px]">save</span>
+            </button>
+
+            <!-- Herramientas de Archivo (Desktop/Tablet) -->
+            <div class="hidden sm:flex items-center gap-1">
+                <button id="btn-print" class="size-9 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer" title="Imprimir / Guardar como PDF (Ctrl+P)">
+                    <span class="material-symbols-outlined text-[19px]">print</span>
+                </button>
+                <button id="btn-export-png" class="size-9 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer" title="Descargar como Imagen PNG">
+                    <span class="material-symbols-outlined text-[19px]">image</span>
+                </button>
+                <button id="btn-export-json" class="size-9 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer" title="Exportar Diagrama a JSON">
+                    <span class="material-symbols-outlined text-[19px]">download</span>
+                </button>
+                <button id="btn-import-json" class="size-9 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer" title="Importar Diagrama desde JSON">
+                    <span class="material-symbols-outlined text-[19px]">upload</span>
+                </button>
+            </div>
+            <input type="file" id="import-file-input" accept=".json" class="hidden" />
+
+            <!-- Menú Más Opciones en Móvil -->
+            <div class="relative sm:hidden">
+                <button id="btn-mobile-more" class="size-8 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors flex items-center justify-center cursor-pointer" title="Más opciones">
+                    <span class="material-symbols-outlined text-[19px]">more_vert</span>
+                </button>
+                <div id="mobile-more-menu" class="hidden absolute right-0 mt-2 w-48 glass-panel rounded-2xl p-1.5 shadow-2xl border border-slate-200 dark:border-slate-800 flex-col gap-1 z-50 text-xs font-bold">
+                    <button id="btn-mobile-print" class="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 w-full text-left">
+                        <span class="material-symbols-outlined text-[18px]">print</span> Imprimir / PDF
+                    </button>
+                    <button id="btn-mobile-export-png" class="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 w-full text-left">
+                        <span class="material-symbols-outlined text-[18px]">image</span> Guardar Imagen
+                    </button>
+                    <button id="btn-mobile-export-json" class="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 w-full text-left">
+                        <span class="material-symbols-outlined text-[18px]">download</span> Exportar JSON
+                    </button>
+                    <button id="btn-mobile-import-json" class="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 w-full text-left">
+                        <span class="material-symbols-outlined text-[18px]">upload</span> Importar JSON
+                    </button>
+                </div>
+            </div>
+
+            <!-- Usuario -->
+            <span id="user-display-name" class="text-xs font-black text-slate-500 uppercase tracking-widest hidden xl:inline-block ml-1">...</span>
+        </div>
+    </header>
+
+    <!-- Main Canvas Viewport (Infinite Sandbox) -->
+    <main class="flex-1 relative overflow-hidden canvas-bg-grid" id="canvas-container" style="flex: 1 1 0%; height: 100%; width: 100%; min-height: 0; position: relative; overflow: hidden; touch-action: none;">
+        
+        <!-- Membrete exclusivo para Impresión / PDF -->
+        <div id="print-banner" class="hidden print:flex print-banner">
+            <div>
+                <h1 class="text-xl font-black uppercase text-slate-900 leading-tight">Villalba Systems - Flujos de Proceso</h1>
+                <p id="print-breadcrumbs-text" class="text-xs font-bold text-slate-600 uppercase tracking-wider mt-0.5">Principal</p>
+            </div>
+            <div class="text-right">
+                <span id="print-date-text" class="text-xs font-bold text-slate-500"></span>
+            </div>
+        </div>
+
+        <!-- SVG Layer para Conexiones / Cables Bezier -->
+        <svg id="canvas-svg" class="absolute inset-0 w-full h-full pointer-events-none z-10 overflow-visible">
+            <g id="canvas-transform-group">
+                <g id="canvas-edges-group"></g>
+            </g>
+        </svg>
+
+        <!-- HTML Layer para Nodos Interactivos -->
+        <div id="canvas-nodes-layer" class="absolute inset-0 z-20 pointer-events-auto">
+            <!-- Nodos renderizados dinámicamente -->
+        </div>
+
+        <!-- Marquee Selection Box (Recuadro de Selección Múltiple) -->
+        <div id="marquee-selection-box" class="absolute hidden rounded-xl pointer-events-none z-30 transition-none"></div>
+
+        <!-- Floating HUD: Modos & Zoom Controls (Abajo a la derecha) -->
+        <div class="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-30 flex items-center gap-1.5 sm:gap-2 glass-panel p-1.5 sm:p-2 rounded-2xl shadow-xl">
+            <!-- Selector de Modo de Interacción (Mano vs Selección Múltiple) -->
+            <div class="flex items-center gap-1 bg-slate-100 dark:bg-slate-900/60 p-0.5 rounded-xl border border-slate-200 dark:border-slate-800">
+                <button id="btn-mode-pan" class="size-7 sm:size-8 rounded-lg hud-mode-active text-slate-600 dark:text-slate-300 flex items-center justify-center transition-all cursor-pointer" title="Modo Mano: Arrastrar lienzo (H)">
+                    <span class="material-symbols-outlined text-[16px] sm:text-[18px]">pan_tool</span>
+                </button>
+                <button id="btn-mode-select" class="size-7 sm:size-8 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center transition-all cursor-pointer" title="Modo Selección: Arrastrar para seleccionar varios bloques (V)">
+                    <span class="material-symbols-outlined text-[16px] sm:text-[18px]">highlight_alt</span>
+                </button>
+            </div>
+
+            <div class="h-4 sm:h-5 w-px bg-slate-300 dark:bg-slate-700"></div>
+
+            <button id="btn-zoom-out" class="size-7 sm:size-9 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center transition-colors cursor-pointer" title="Alejar (-)">
+                <span class="material-symbols-outlined text-[18px] sm:text-[20px]">remove</span>
+            </button>
+            <span id="zoom-percentage" class="text-[11px] sm:text-xs font-black px-1 sm:px-2 text-slate-700 dark:text-slate-300 select-none">100%</span>
+            <button id="btn-zoom-in" class="size-7 sm:size-9 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center transition-colors cursor-pointer" title="Acercar (+)">
+                <span class="material-symbols-outlined text-[18px] sm:text-[20px]">add</span>
+            </button>
+            <div class="h-4 sm:h-5 w-px bg-slate-300 dark:bg-slate-700"></div>
+            <button id="btn-zoom-reset" class="size-7 sm:size-9 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center transition-colors cursor-pointer" title="Centrar todo el diagrama">
+                <span class="material-symbols-outlined text-[17px] sm:text-[19px]">fit_screen</span>
+            </button>
+        </div>
+
+        <!-- Floating Instructions (Abajo a la izquierda, solo visible en computadoras con mouse/teclado) -->
+        <div id="desktop-shortcuts-bar" class="absolute bottom-6 left-6 z-30 hidden lg:flex items-center gap-2.5 glass-panel px-4 py-2 rounded-2xl shadow-xl text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 select-none pointer-events-none">
+            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-blue-500">ads_click</span> Conectar: Clic circulito</span>
+            <span>•</span>
+            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-rose-500">link_off</span> Desvincular: Clic en línea</span>
+            <span>•</span>
+            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-emerald-500">content_copy</span> Ctrl+C / V: Copiar / Pegar</span>
+            <span>•</span>
+            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-cyan-500">control_point_duplicate</span> Ctrl+D: Duplicar</span>
+            <span>•</span>
+            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-indigo-500">undo</span> Ctrl+Z: Deshacer</span>
+            <span>•</span>
+            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-[14px] text-teal-500">arrow_back</span> Esc: Volver</span>
+        </div>
+    </main>
+
+    <!-- Menú Contextual del Lienzo (Clic Derecho en espacio vacío) -->
+    <div id="context-menu-canvas" class="fixed z-50 hidden glass-panel rounded-2xl p-2 w-60 shadow-2xl border border-slate-200 dark:border-slate-800 flex flex-col gap-1 text-xs font-bold text-slate-800 dark:text-slate-200 animate-in fade-in zoom-in-95 duration-150">
+        <button id="ctx-canvas-paste" class="flex items-center gap-3 px-3 py-2 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 text-blue-600 dark:text-blue-400 transition-colors text-left cursor-pointer font-black">
+            <span class="material-symbols-outlined text-[18px]">content_paste</span>
+            <div class="flex items-center justify-between flex-1">
+                <span>Pegar bloque <span class="paste-count-badge text-[10px] opacity-75"></span></span>
+                <span class="text-[9px] text-slate-400 font-normal">Ctrl+V</span>
+            </div>
+        </button>
+        <div class="h-px bg-slate-200 dark:bg-slate-800 my-1"></div>
+        <div class="px-3 py-1.5 text-[9px] font-black uppercase tracking-widest text-slate-400 border-b border-slate-200 dark:border-slate-800 mb-1">
+            Crear Nuevo Nodo
+        </div>
+        <button data-action-create="action" class="flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-blue-500/10 hover:text-blue-500 transition-colors text-left cursor-pointer">
+            <span class="material-symbols-outlined text-[18px] text-blue-500">bolt</span>
+            <span>Paso de Acción (Azul)</span>
+        </button>
+        <button data-action-create="decision" class="flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-emerald-500/10 hover:text-emerald-500 transition-colors text-left cursor-pointer">
+            <span class="material-symbols-outlined text-[18px] text-emerald-500">call_split</span>
+            <span>Decisión / Condición (Verde)</span>
+        </button>
+        <button data-action-create="warning" class="flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-amber-500/10 hover:text-amber-500 transition-colors text-left cursor-pointer">
+            <span class="material-symbols-outlined text-[18px] text-amber-500">warning</span>
+            <span>Alerta / Control (Amarillo)</span>
+        </button>
+        <button data-action-create="note" class="flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-left cursor-pointer">
+            <span class="material-symbols-outlined text-[18px] text-slate-400">description</span>
+            <span>Comentario / Nota</span>
+        </button>
+        <div class="h-px bg-slate-200 dark:bg-slate-800 my-1"></div>
+        <button id="ctx-action-fit" class="flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-left cursor-pointer">
+            <span class="material-symbols-outlined text-[18px] text-slate-500">fit_screen</span>
+            <span>Centrar diagrama</span>
+        </button>
+    </div>
+
+    <!-- Menú Contextual del Nodo (Clic Derecho sobre un nodo) -->
+    <div id="context-menu-node" class="fixed z-50 hidden glass-panel rounded-2xl p-2 w-64 shadow-2xl border border-slate-200 dark:border-slate-800 flex flex-col gap-1 text-xs font-bold text-slate-800 dark:text-slate-200 animate-in fade-in zoom-in-95 duration-150">
+        <button id="ctx-node-duplicate" class="flex items-center gap-3 px-3 py-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 transition-colors text-left cursor-pointer font-black">
+            <span class="material-symbols-outlined text-[18px]">control_point_duplicate</span>
+            <div class="flex items-center justify-between flex-1">
+                <span>Duplicar bloque</span>
+                <span class="text-[9px] text-slate-400 font-normal">Ctrl+D</span>
+            </div>
+        </button>
+        <button id="ctx-node-copy" class="flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-left cursor-pointer">
+            <span class="material-symbols-outlined text-[18px] text-blue-500">content_copy</span>
+            <div class="flex items-center justify-between flex-1">
+                <span>Copiar bloque</span>
+                <span class="text-[9px] text-slate-400 font-normal">Ctrl+C</span>
+            </div>
+        </button>
+        <div class="h-px bg-slate-200 dark:bg-slate-800 my-1"></div>
+        <button id="ctx-node-subflow" class="flex items-center gap-3 px-3 py-2 rounded-xl bg-blue-500/10 hover:bg-blue-500/20 text-blue-600 dark:text-blue-400 transition-colors text-left cursor-pointer font-black">
+            <span class="material-symbols-outlined text-[18px]">account_tree</span>
+            <span>Abrir Sub-diagrama ↵</span>
+        </button>
+        <div class="h-px bg-slate-200 dark:bg-slate-800 my-1"></div>
+        <div class="px-3 py-1 text-[9px] font-black uppercase tracking-widest text-slate-400">
+            Conectar con nuevo nodo...
+        </div>
+        <button data-action-connect="action" class="flex items-center gap-3 px-3 py-1.5 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-left cursor-pointer">
+            <span class="size-2 rounded-full bg-blue-500"></span>
+            <span>Siguiente Acción</span>
+        </button>
+        <button data-action-connect="decision" class="flex items-center gap-3 px-3 py-1.5 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-left cursor-pointer">
+            <span class="size-2 rounded-full bg-emerald-500"></span>
+            <span>Decisión</span>
+        </button>
+        <button data-action-connect="warning" class="flex items-center gap-3 px-3 py-1.5 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-left cursor-pointer">
+            <span class="size-2 rounded-full bg-amber-500"></span>
+            <span>Alerta / Punto de Riesgo</span>
+        </button>
+        <div class="h-px bg-slate-200 dark:bg-slate-800 my-1"></div>
+        <button id="ctx-node-comment" class="flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-left cursor-pointer">
+            <span class="material-symbols-outlined text-[18px] text-slate-500">add_comment</span>
+            <span>Agregar comentario vinculado</span>
+        </button>
+        <button id="ctx-node-edit" class="flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-left cursor-pointer">
+            <span class="material-symbols-outlined text-[18px] text-slate-500">edit_note</span>
+            <span>Editar texto y tipo</span>
+        </button>
+        <div class="h-px bg-slate-200 dark:bg-slate-800 my-1"></div>
+        <button id="ctx-node-delete" class="flex items-center gap-3 px-3 py-2 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-600 dark:text-rose-400 transition-colors text-left cursor-pointer font-black">
+            <span class="material-symbols-outlined text-[18px]">delete</span>
+            <span>Eliminar nodo y conexiones</span>
+        </button>
+    </div>
+
+    <!-- Popover Rápido de Puerto (Clic en circulito) -->
+    <div id="port-quick-picker" class="fixed z-50 hidden glass-panel rounded-2xl p-2 w-64 shadow-2xl border border-slate-200 dark:border-slate-700/80 flex flex-col gap-1 text-xs font-bold text-slate-800 dark:text-slate-200 animate-in fade-in zoom-in-95 duration-150">
+        <div class="px-2.5 py-1 text-[9px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800 mb-0.5 flex items-center justify-between">
+            <span>Crear y Conectar</span>
+            <span class="material-symbols-outlined text-[14px] text-blue-500">add_circle</span>
+        </div>
+        <button data-quick-spawn="process" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-xl hover:bg-blue-500/10 hover:text-blue-500 dark:hover:bg-blue-500/20 dark:hover:text-blue-400 transition-colors text-left cursor-pointer">
+            <span class="size-2.5 rounded-full bg-blue-500 shrink-0"></span>
+            <span>Proceso (Rectángulo)</span>
+        </button>
+        <button data-quick-spawn="decision" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-xl hover:bg-emerald-500/10 hover:text-emerald-500 dark:hover:bg-emerald-500/20 dark:hover:text-emerald-400 transition-colors text-left cursor-pointer">
+            <span class="size-2.5 rounded-full bg-emerald-500 shrink-0"></span>
+            <span>Decisión (Rombo)</span>
+        </button>
+        <button data-quick-spawn="terminal" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-xl hover:bg-indigo-500/10 hover:text-indigo-500 dark:hover:bg-indigo-500/20 dark:hover:text-indigo-400 transition-colors text-left cursor-pointer">
+            <span class="size-2.5 rounded-full bg-indigo-500 shrink-0"></span>
+            <span>Terminal (Inicio/Fin)</span>
+        </button>
+        <button data-quick-spawn="data" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-xl hover:bg-cyan-500/10 hover:text-cyan-500 dark:hover:bg-cyan-500/20 dark:hover:text-cyan-400 transition-colors text-left cursor-pointer">
+            <span class="size-2.5 rounded-full bg-cyan-500 shrink-0"></span>
+            <span>Datos (Paralelogramo)</span>
+        </button>
+        <button data-quick-spawn="document" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-xl hover:bg-amber-500/10 hover:text-amber-500 dark:hover:bg-amber-500/20 dark:hover:text-amber-400 transition-colors text-left cursor-pointer">
+            <span class="size-2.5 rounded-full bg-amber-500 shrink-0"></span>
+            <span>Documento (Curvo)</span>
+        </button>
+        <button data-quick-spawn="database" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-xl hover:bg-purple-500/10 hover:text-purple-500 dark:hover:bg-purple-500/20 dark:hover:text-purple-400 transition-colors text-left cursor-pointer">
+            <span class="size-2.5 rounded-full bg-purple-500 shrink-0"></span>
+            <span>Base de Datos (Cilindro)</span>
+        </button>
+        <button data-quick-spawn="comment" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors text-left cursor-pointer">
+            <span class="size-2.5 rounded-full bg-slate-400 shrink-0"></span>
+            <span>Nota / Comentario</span>
+        </button>
+
+        <!-- Conexiones Activas (para Desvincular directamente desde el circulito) -->
+        <div id="port-active-connections-wrapper" class="hidden flex-col gap-1 mt-0.5">
+            <div class="h-px bg-slate-200 dark:bg-slate-800 my-0.5"></div>
+            <div class="px-2.5 py-1 text-[9px] font-black uppercase tracking-widest text-rose-500 dark:text-rose-400 flex items-center justify-between">
+                <span>Desvincular Conexión</span>
+                <span class="material-symbols-outlined text-[14px]">link_off</span>
+            </div>
+            <div id="port-active-connections-container" class="flex flex-col gap-1 max-h-28 overflow-y-auto hide-scrollbar">
+                <!-- Conexiones activas inyectadas dinámicamente -->
+            </div>
+        </div>
+
+        <!-- Conectar a Bloque Existente -->
+        <div class="h-px bg-slate-200 dark:bg-slate-800 my-1"></div>
+        <div class="px-2.5 py-1 text-[9px] font-black uppercase tracking-widest text-indigo-500 dark:text-indigo-400 flex items-center justify-between">
+            <span>Conectar a Bloque Existente</span>
+            <span class="material-symbols-outlined text-[14px]">link</span>
+        </div>
+
+        <button id="btn-port-connect-interactive" class="flex items-center gap-2 px-2.5 py-2 rounded-xl bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 transition-all text-left cursor-pointer font-black border border-indigo-500/20">
+            <span class="material-symbols-outlined text-[17px]">ads_click</span>
+            <span>Elegir bloque con clic...</span>
+        </button>
+
+        <div id="port-existing-nodes-container" class="flex flex-col gap-0.5 max-h-36 overflow-y-auto hide-scrollbar pt-0.5">
+            <!-- Nodos existentes inyectados dinámicamente -->
+        </div>
+    </div>
+
+    <!-- Banner flotante cuando está activo el modo "Conectar a otro bloque" -->
+    <div id="connecting-mode-banner" class="fixed top-20 left-1/2 -translate-x-1/2 z-40 hidden items-center gap-3 px-4 py-2.5 rounded-2xl glass-panel shadow-2xl border-2 border-indigo-500 bg-slate-900/95 text-white animate-in slide-in-from-top-3 duration-150">
+        <div class="size-2.5 rounded-full bg-indigo-500 animate-ping"></div>
+        <div class="flex items-center gap-1.5 text-xs font-black uppercase tracking-wide text-slate-100">
+            <span class="material-symbols-outlined text-[18px] text-indigo-400">link</span>
+            <span id="connecting-mode-text">Haz clic en el bloque o circulito de destino</span>
+        </div>
+        <button id="btn-cancel-connecting" class="px-2.5 py-1 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-[11px] font-bold uppercase transition-colors cursor-pointer ml-2 border border-slate-700">
+            Cancelar <span class="hidden md:inline">(Esc)</span>
+        </button>
+    </div>
+
+    <!-- Modal para Editar Nodo -->
+    <div id="edit-node-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="glass-panel rounded-3xl max-w-md w-full p-6 shadow-2xl border border-slate-200 dark:border-slate-800 animate-in fade-in zoom-in-95 duration-200">
+            <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-200 dark:border-slate-800">
+                <h3 class="text-base font-black uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
+                    <span class="material-symbols-outlined text-blue-500">edit_note</span>
+                    Editar Nodo
+                </h3>
+                <button id="btn-close-edit-modal" class="size-8 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center text-slate-500 cursor-pointer">
+                    <span class="material-symbols-outlined text-[20px]">close</span>
+                </button>
+            </div>
+
+            <input type="hidden" id="edit-node-id" />
+
+            <div class="space-y-4">
+
+                <div>
+                    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1.5">Título</label>
+                    <input type="text" id="edit-node-title" placeholder="Ej: Control Dimensional..." class="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-xl text-xs font-bold text-slate-800 dark:text-white outline-none focus:border-blue-500 transition-colors" />
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1.5">Descripción / Contenido</label>
+                    <textarea id="edit-node-text" rows="3" placeholder="Detalle o instrucción del paso..." class="w-full p-4 bg-slate-50 dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-xl text-xs font-bold text-slate-800 dark:text-white outline-none focus:border-blue-500 transition-colors"></textarea>
+                </div>
+            </div>
+
+            <div class="mt-6 flex items-center justify-end gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+                <button type="button" onclick="document.getElementById('edit-node-modal').classList.add('hidden'); document.getElementById('edit-node-modal').classList.remove('flex');" class="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer">
+                    Cancelar
+                </button>
+                <button type="button" id="btn-save-node-edit" class="px-5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-black uppercase tracking-wider transition-colors shadow-lg shadow-blue-500/25 cursor-pointer">
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Editar Texto de Conexión / Condición -->
+    <div id="edit-edge-modal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="glass-panel rounded-3xl max-w-sm w-full p-5 shadow-2xl border border-slate-200 dark:border-slate-800 animate-in fade-in zoom-in-95 duration-200">
+            <div class="flex items-center justify-between mb-3 pb-2.5 border-b border-slate-200 dark:border-slate-800">
+                <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white flex items-center gap-2">
+                    <span class="material-symbols-outlined text-amber-500 text-[18px]">label</span>
+                    Texto de Conexión
+                </h3>
+                <button id="btn-close-edge-modal" class="size-8 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center text-slate-500 cursor-pointer">
+                    <span class="material-symbols-outlined text-[18px]">close</span>
+                </button>
+            </div>
+
+            <input type="hidden" id="edit-edge-id" />
+
+            <div class="space-y-3">
+                <div>
+                    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-1.5">Condición o Etiqueta</label>
+                    <input type="text" id="edit-edge-label-input" placeholder="Ej: Sí, No, Cumple, Conforme, Mayor a..." class="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-xl text-xs font-bold text-slate-800 dark:text-white outline-none focus:border-amber-500 transition-colors" />
+                </div>
+
+                <!-- Chips de Atajos / Opciones Rápidas Frecuentes -->
+                <div>
+                    <span class="block text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1.5">Opciones Rápidas</span>
+                    <div class="flex flex-wrap gap-1.5" id="edge-quick-chips">
+                        <button type="button" data-edge-chip="Sí" class="px-2.5 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-[10px] font-black uppercase transition-colors cursor-pointer border border-emerald-500/20">Sí</button>
+                        <button type="button" data-edge-chip="No" class="px-2.5 py-1 rounded-lg bg-rose-500/10 hover:bg-rose-500/20 text-rose-600 dark:text-rose-400 text-[10px] font-black uppercase transition-colors cursor-pointer border border-rose-500/20">No</button>
+                        <button type="button" data-edge-chip="Cumple" class="px-2.5 py-1 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 text-blue-600 dark:text-blue-400 text-[10px] font-black uppercase transition-colors cursor-pointer border border-blue-500/20">Cumple</button>
+                        <button type="button" data-edge-chip="No Cumple" class="px-2.5 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-600 dark:text-amber-400 text-[10px] font-black uppercase transition-colors cursor-pointer border border-amber-500/20">No Cumple</button>
+                        <button type="button" data-edge-chip="Aprobado" class="px-2.5 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-[10px] font-black uppercase transition-colors cursor-pointer border border-emerald-500/20">Aprobado</button>
+                        <button type="button" data-edge-chip="Rechazado" class="px-2.5 py-1 rounded-lg bg-rose-500/10 hover:bg-rose-500/20 text-rose-600 dark:text-rose-400 text-[10px] font-black uppercase transition-colors cursor-pointer border border-rose-500/20">Rechazado</button>
+                        <button type="button" data-edge-chip="Revisión" class="px-2.5 py-1 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-600 dark:text-amber-400 text-[10px] font-black uppercase transition-colors cursor-pointer border border-amber-500/20">Revisión</button>
+                        <button type="button" data-edge-chip="Conforme" class="px-2.5 py-1 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-[10px] font-black uppercase transition-colors cursor-pointer border border-indigo-500/20">Conforme</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-5 flex items-center justify-between pt-3.5 border-t border-slate-200 dark:border-slate-800">
+                <button type="button" id="btn-remove-edge-label" class="px-2.5 py-1.5 rounded-xl text-[11px] font-bold text-rose-500 hover:bg-rose-500/10 transition-colors cursor-pointer flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[15px]">backspace</span>
+                    <span>Sin texto</span>
+                </button>
+                <div class="flex items-center gap-2">
+                    <button type="button" id="btn-cancel-edge-modal" class="px-3 py-1.5 rounded-xl text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer">
+                        Cancelar
+                    </button>
+                    <button type="button" id="btn-save-edge-label" class="px-4 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-black uppercase tracking-wider transition-colors shadow-lg shadow-blue-500/25 cursor-pointer">
+                        Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Móvil (Bottom Sheet) para Agregar Bloque -->
+    <div id="modal-mobile-add-node" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden items-end sm:items-center justify-center p-0 sm:p-4">
+        <div class="glass-panel rounded-t-3xl sm:rounded-3xl max-w-sm w-full p-5 shadow-2xl border border-slate-200 dark:border-slate-800">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-200 dark:border-slate-800">
+                <span class="text-xs font-black uppercase tracking-widest text-slate-600 dark:text-slate-300">Agregar Bloque</span>
+                <button id="btn-close-mobile-add" class="size-8 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center text-slate-500 cursor-pointer">
+                    <span class="material-symbols-outlined text-[18px]">close</span>
+                </button>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-3 max-h-96 overflow-y-auto hide-scrollbar p-1">
+                <button data-quick-add="process" class="p-3 rounded-2xl bg-blue-500/10 hover:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex flex-col items-center gap-1 border border-blue-500/20 transition-transform active:scale-95 cursor-pointer">
+                    <span class="material-symbols-outlined text-[24px]">crop_landscape</span>
+                    <span class="text-[11px] font-black uppercase">Proceso</span>
+                </button>
+                <button data-quick-add="decision" class="p-3 rounded-2xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex flex-col items-center gap-1 border border-emerald-500/20 transition-transform active:scale-95 cursor-pointer">
+                    <span class="material-symbols-outlined text-[24px]">diamond</span>
+                    <span class="text-[11px] font-black uppercase">Decisión</span>
+                </button>
+                <button data-quick-add="terminal" class="p-3 rounded-2xl bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex flex-col items-center gap-1 border border-indigo-500/20 transition-transform active:scale-95 cursor-pointer">
+                    <span class="material-symbols-outlined text-[24px]">stadium</span>
+                    <span class="text-[11px] font-black uppercase">Terminal</span>
+                </button>
+                <button data-quick-add="data" class="p-3 rounded-2xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 flex flex-col items-center gap-1 border border-cyan-500/20 transition-transform active:scale-95 cursor-pointer">
+                    <span class="material-symbols-outlined text-[24px]">input</span>
+                    <span class="text-[11px] font-black uppercase">Datos</span>
+                </button>
+                <button data-quick-add="document" class="p-3 rounded-2xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-600 dark:text-amber-400 flex flex-col items-center gap-1 border border-amber-500/20 transition-transform active:scale-95 cursor-pointer">
+                    <span class="material-symbols-outlined text-[24px]">article</span>
+                    <span class="text-[11px] font-black uppercase">Documento</span>
+                </button>
+                <button data-quick-add="database" class="p-3 rounded-2xl bg-purple-500/10 hover:bg-purple-500/20 text-purple-600 dark:text-purple-400 flex flex-col items-center gap-1 border border-purple-500/20 transition-transform active:scale-95 cursor-pointer">
+                    <span class="material-symbols-outlined text-[24px]">database</span>
+                    <span class="text-[11px] font-black uppercase">Base Datos</span>
+                </button>
+                <button data-quick-add="subprocess" class="p-3 rounded-2xl bg-blue-600/10 hover:bg-blue-600/20 text-blue-700 dark:text-blue-300 flex flex-col items-center gap-1 border border-blue-600/20 transition-transform active:scale-95 cursor-pointer">
+                    <span class="material-symbols-outlined text-[24px]">account_tree</span>
+                    <span class="text-[11px] font-black uppercase">Sub-flujo</span>
+                </button>
+                <button data-quick-add="manual_op" class="p-3 rounded-2xl bg-orange-500/10 hover:bg-orange-500/20 text-orange-600 dark:text-orange-400 flex flex-col items-center gap-1 border border-orange-500/20 transition-transform active:scale-95 cursor-pointer">
+                    <span class="material-symbols-outlined text-[24px]">front_hand</span>
+                    <span class="text-[11px] font-black uppercase">Op. Manual</span>
+                </button>
+                <button data-quick-add="preparation" class="p-3 rounded-2xl bg-lime-500/10 hover:bg-lime-500/20 text-lime-600 dark:text-lime-400 flex flex-col items-center gap-1 border border-lime-500/20 transition-transform active:scale-95 cursor-pointer">
+                    <span class="material-symbols-outlined text-[24px]">settings</span>
+                    <span class="text-[11px] font-black uppercase">Preparación</span>
+                </button>
+                <button data-quick-add="delay" class="p-3 rounded-2xl bg-yellow-500/10 hover:bg-yellow-500/20 text-yellow-600 dark:text-yellow-400 flex flex-col items-center gap-1 border border-yellow-500/20 transition-transform active:scale-95 cursor-pointer">
+                    <span class="material-symbols-outlined text-[24px]">hourglass_empty</span>
+                    <span class="text-[11px] font-black uppercase">Retraso</span>
+                </button>
+                <button data-quick-add="storage" class="p-3 rounded-2xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-600 dark:text-rose-400 flex flex-col items-center gap-1 border border-rose-500/20 transition-transform active:scale-95 cursor-pointer">
+                    <span class="material-symbols-outlined text-[24px]">archive</span>
+                    <span class="text-[11px] font-black uppercase">Almacén</span>
+                </button>
+                <button data-quick-add="comment" class="p-3 rounded-2xl bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 flex flex-col items-center gap-1 border border-slate-300 dark:border-slate-700 transition-transform active:scale-95 cursor-pointer">
+                    <span class="material-symbols-outlined text-[24px]">comment</span>
+                    <span class="text-[11px] font-black uppercase">Nota</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Pill -->
+    <div id="toast-msg" class="fixed top-20 right-6 z-50 px-4 py-2.5 rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900 text-xs font-black uppercase tracking-widest shadow-2xl transition-all duration-300 opacity-0 translate-y-4 pointer-events-none border border-white/10">
+        Mensaje
+    </div>
+
+    <!-- Global App Integration Scripts -->
+    <script type="module" src="./js/app.js?v=2.3"></script>
+    <script type="module" src="../js/global-sidebar.js"></script>
+    <script type="module">import '../js/theme.js';</script>
+</body>
+
+</html>

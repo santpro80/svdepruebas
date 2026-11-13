@@ -1,0 +1,456 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facturación AFIP/ARCA, Ctas. Ctes. & Trazabilidad ANMAT - TERIAN ERP</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: #f8fafc;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: #0f172a;
+        }
+        .tab-pill.active {
+            background: #4f46e5;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+        }
+        @media print {
+            body * { visibility: hidden; }
+            #factura-print-area, #factura-print-area * { visibility: visible; }
+            #factura-print-area {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                box-shadow: none !important;
+                border: none !important;
+            }
+            .no-print { display: none !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Top Header -->
+    <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-30 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <a href="menu.html" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-slate-300 transition" title="Volver al Hub Comercial">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="text-base sm:text-lg font-bold tracking-tight">Facturación Electrónica AFIP/ARCA, Ctas. Ctes. & ANMAT</h1>
+                        <span class="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 rounded-full border border-amber-500/30">WSFEv1 · QR · Ley 27.743</span>
+                    </div>
+                    <p class="text-xs text-slate-400">CUIT Emisor <code class="text-amber-300">30-70875873-2</code> · Reemplaza <code class="text-amber-300">FACWSFE</code>, <code class="text-amber-300">COBVIEW.exe</code>, <code class="text-amber-300">VIA13/23</code> y <code class="text-amber-300">CABA-PRD / ANMAT</code></p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button id="btn-exportar-iva" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-emerald-300 border border-slate-700 transition flex items-center gap-1.5" title="Exporta Libro IVA Digital AFIP">
+                    <i class="fa-solid fa-file-export"></i>
+                    <span class="hidden sm:inline">Libro IVA Ventas (.CSV)</span>
+                </button>
+                <button id="btn-emitir-factura" class="px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs font-semibold text-white transition flex items-center gap-1.5 shadow-sm">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>Liquidar Factura Electrónica (CAE)</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6 no-print">
+        <!-- KPIs Financieros & Regulatorios -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Facturación Emitida (PV 0004)</span>
+                    <span class="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center"><i class="fa-solid fa-file-invoice-dollar"></i></span>
+                </div>
+                <div class="mt-3 flex items-baseline gap-2">
+                    <span id="kpi-total-facturado" class="text-xl font-black text-slate-900">$0,00</span>
+                </div>
+                <p class="mt-1 text-xs text-slate-500">Último Cbte: <strong id="kpi-ultimo-cbte" class="font-mono text-indigo-600">A-0004-00011827</strong></p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Saldo Ctas. Ctes. a Cobrar</span>
+                    <span class="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center"><i class="fa-solid fa-scale-balanced"></i></span>
+                </div>
+                <div class="mt-3 flex items-baseline gap-2">
+                    <span id="kpi-saldo-cc" class="text-xl font-black text-amber-600">$0,00</span>
+                </div>
+                <p class="mt-1 text-xs text-slate-500"><span id="kpi-pendientes-count" class="font-bold text-slate-700">0</span> comprobantes en Cuenta Corriente</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">IVA Débito + Perc. ARBA</span>
+                    <span class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center"><i class="fa-solid fa-landmark"></i></span>
+                </div>
+                <div class="mt-3 flex items-baseline gap-2">
+                    <span id="kpi-iva-debito" class="text-xl font-black text-slate-900">$0,00</span>
+                </div>
+                <p class="mt-1 text-xs text-slate-500">Desglose Ley 27.743 + IIBB Pcia. Bs.As.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Trazabilidad ANMAT / GCBA</span>
+                    <span class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center"><i class="fa-solid fa-barcode"></i></span>
+                </div>
+                <div class="mt-3 flex items-baseline gap-2">
+                    <span id="kpi-anmat-total" class="text-xl font-black text-slate-900">60</span>
+                    <span class="text-xs font-semibold text-emerald-600">Series GTIN informadas</span>
+                </div>
+                <p class="mt-1 text-xs text-slate-500">GLN Villalba <code class="text-slate-700">9960142210006</code></p>
+            </div>
+        </section>
+
+        <!-- Barra de Pestañas (3 Submódulos) -->
+        <section class="bg-white rounded-2xl p-4 border border-slate-200/90 shadow-sm flex flex-wrap items-center justify-between gap-3">
+            <div class="flex flex-wrap items-center gap-2">
+                <button data-tab="facturas" class="tab-pill active px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition flex items-center gap-2">
+                    <i class="fa-solid fa-qrcode"></i>
+                    <span>1. Comprobantes Electrónicos AFIP (WSFEv1 + QR)</span>
+                </button>
+                <button data-tab="ctacte" class="tab-pill px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition flex items-center gap-2">
+                    <i class="fa-solid fa-money-check-dollar"></i>
+                    <span>2. Cuentas Corrientes & Recibos (VIA13/VIA23)</span>
+                </button>
+                <button data-tab="anmat" class="tab-pill px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition flex items-center gap-2">
+                    <i class="fa-solid fa-shield-heart text-emerald-500"></i>
+                    <span>3. Trazabilidad ANMAT & Conector GCBA (CABA-PRD)</span>
+                </button>
+            </div>
+
+            <div class="relative w-full sm:w-72">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                <input id="input-buscar-afip" type="text" placeholder="Buscar factura, CAE, cliente, serie GTIN..." class="w-full pl-8 pr-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+        </section>
+
+        <!-- PANEL 1: Comprobantes Electrónicos AFIP / ARCA -->
+        <section id="panel-facturas" class="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-50 text-[11px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-200/80">
+                            <th class="py-3.5 px-4">Comprobante</th>
+                            <th class="py-3.5 px-4">Fecha</th>
+                            <th class="py-3.5 px-4">Cliente / Obra Social & CUIT</th>
+                            <th class="py-3.5 px-4">Remito / Cirugía</th>
+                            <th class="py-3.5 px-4">CAE AFIP & Vto.</th>
+                            <th class="py-3.5 px-4 text-right">Neto + IVA + ARBA</th>
+                            <th class="py-3.5 px-4 text-right">Total</th>
+                            <th class="py-3.5 px-4 text-right">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-facturas" class="divide-y divide-slate-100 text-xs">
+                        <tr>
+                            <td colspan="8" class="py-10 text-center text-slate-400">Cargando comprobantes electrónicos...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- PANEL 2: Cuentas Corrientes y Cobranzas (VIA13 / VIA23) -->
+        <section id="panel-ctacte" class="hidden bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden">
+            <div class="px-6 py-4 bg-slate-50/70 border-b border-slate-100 flex flex-wrap items-center justify-between gap-2">
+                <div>
+                    <h3 class="text-sm font-bold text-slate-900">Estado de Cuentas Corrientes y Gestión de Cobranzas (<code class="text-indigo-600">VIA04 / VIA13 / VIA23</code>)</h3>
+                    <p class="text-xs text-slate-500">Imputación directa de Recibos Oficiales X, E-Cheqs, Transferencias y Retenciones IIBB/Ganancias/SUSS</p>
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-50 text-[11px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-200/80">
+                            <th class="py-3.5 px-4">Factura</th>
+                            <th class="py-3.5 px-4">Fecha Emisión</th>
+                            <th class="py-3.5 px-4">Cliente / Institución</th>
+                            <th class="py-3.5 px-4 text-right">Total Facturado</th>
+                            <th class="py-3.5 px-4 text-right">Saldo Pendiente</th>
+                            <th class="py-3.5 px-4 text-center">Estado Cta. Cte.</th>
+                            <th class="py-3.5 px-4 text-right">Cobranza</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-ctacte" class="divide-y divide-slate-100 text-xs">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- PANEL 3: Trazabilidad Nacional ANMAT & Conector GCBA (CABA-PRD) -->
+        <section id="panel-anmat" class="hidden bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden">
+            <div class="px-6 py-4 bg-slate-50/70 border-b border-slate-100 flex flex-wrap items-center justify-between gap-3">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h3 class="text-sm font-bold text-slate-900">Trazabilidad de Implantes ANMAT (<code class="text-emerald-600">ANMAT_*.TXT</code>) & Conector GCBA (<code class="text-emerald-600">CABA-PRD / via805</code>)</h3>
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800">SOAP wsh.buenosaires.gov.ar:8080/insumos.asmx</span>
+                    </div>
+                    <p class="text-xs text-slate-500">Registros reales informados desde <code class="text-slate-700">D:\WSFESA\ANMAT_2026*.TXT</code> con GLN Emisor <code class="text-slate-700">9960142210006</code>, GTIN, Serie, Lote y Remito asociado</p>
+                </div>
+                <button id="btn-exportar-anmat" class="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Descargar TXT Oficial ANMAT</span>
+                </button>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-50 text-[11px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-200/80">
+                            <th class="py-3.5 px-4">Fecha Evento</th>
+                            <th class="py-3.5 px-4">Evento ANMAT</th>
+                            <th class="py-3.5 px-4">GTIN + Serie Implante</th>
+                            <th class="py-3.5 px-4">Lote & Vencimiento</th>
+                            <th class="py-3.5 px-4">GLN Origen → Destino</th>
+                            <th class="py-3.5 px-4">Remito Asociado</th>
+                            <th class="py-3.5 px-4 text-right">Estado SNT</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-anmat" class="divide-y divide-slate-100 text-xs">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal: Emitir Nueva Factura Electrónica AFIP (WSFEv1) -->
+    <div id="modal-nueva-factura" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4 no-print">
+        <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[92vh] overflow-y-auto shadow-2xl border border-slate-200">
+            <div class="px-6 py-4 bg-slate-900 text-white flex items-center justify-between rounded-t-2xl">
+                <div>
+                    <h3 class="text-sm font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-bolt text-amber-400"></i>
+                        <span>Liquidar Comprobante Electrónico AFIP / ARCA (WSFEv1)</span>
+                    </h3>
+                    <p class="text-[11px] text-slate-400">Solicita CAE electrónico, calcula Percepción IIBB ARBA y genera QR Oficial + Ley 27.743</p>
+                </div>
+                <button id="btn-cerrar-modal-factura" class="text-slate-400 hover:text-white text-lg">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="form-nueva-factura" class="p-6 space-y-4 text-xs">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Tipo de Comprobante AFIP *</label>
+                        <select id="fac-tipo" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white">
+                            <option value="A|1">Factura A (Cód. 01 — Resp. Inscripto)</option>
+                            <option value="B|6">Factura B (Cód. 06 — Exento / Obra Social)</option>
+                            <option value="FCE-A|201">Factura de Crédito MiPyME FCE A (Cód. 201)</option>
+                            <option value="NC-A|3">Nota de Crédito A (Cód. 03)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Punto de Venta Electrónico *</label>
+                        <select id="fac-pv" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white font-mono">
+                            <option value="0004">PV 0004 — Casa Matriz (WSFEv1)</option>
+                            <option value="0005">PV 0005 — Sucursal La Plata</option>
+                            <option value="0007">PV 0007 — Sucursal Mar del Plata</option>
+                            <option value="0020">PV 0020 — Sucursal Rosario</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Vincular Remito / Préstamo (VIA34)</label>
+                        <select id="fac-remito" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white font-mono">
+                            <option value="">-- Seleccionar Remito --</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Cliente / Obra Social (VIA02) *</label>
+                        <input id="fac-cliente" type="text" required placeholder="Razón social del receptor" class="w-full px-3 py-2 rounded-xl border border-slate-200 uppercase">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">CUIT Receptor (11 dígitos) *</label>
+                        <input id="fac-cuit" type="text" required value="30708023910" class="w-full px-3 py-2 rounded-xl border border-slate-200 font-mono">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Importe Neto Gravado ($) *</label>
+                        <input id="fac-neto" type="number" step="0.01" required value="924074.38" class="w-full px-3 py-2 rounded-xl border border-slate-200 font-mono font-bold">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Alícuota IVA *</label>
+                        <select id="fac-alicuota" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white">
+                            <option value="0.21">21% — Alícuota General</option>
+                            <option value="0.105">10.5% — Prótesis / Implantes Médicos</option>
+                            <option value="0">0% — Exento</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Percepción IIBB ARBA (%)</label>
+                        <select id="fac-arba" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white">
+                            <option value="0">0% — Sin Percepción</option>
+                            <option value="0.025">2.5% — Padrón General ARBA</option>
+                            <option value="0.035">3.5% — Alícuota Convenio Multilateral</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">Concepto / Detalle Quirúrgico Facturado *</label>
+                    <textarea id="fac-concepto" rows="3" required class="w-full px-3 py-2 rounded-xl border border-slate-200 font-mono text-[11px]">PROVISION DE SISTEMA DE OSTEOSINTESIS E IMPLANTES QUIRURGICOS ANMAT PM-1432 SEGUN REMITO ASOCIADO</textarea>
+                </div>
+
+                <div class="p-4 rounded-xl bg-amber-50/80 border border-amber-200 flex flex-wrap items-center justify-between gap-2">
+                    <div class="text-[11px] text-amber-900">
+                        <div><strong>Transparencia Fiscal Ley 27.743:</strong> IVA Contenido <span id="preview-iva" class="font-mono font-bold">$194.055,62</span> · Perc. ARBA <span id="preview-arba" class="font-mono font-bold">$0,00</span></div>
+                    </div>
+                    <div class="text-sm font-black text-slate-900">
+                        Total a Autorizar: <span id="preview-total" class="font-mono text-indigo-700">$1.118.130,00</span>
+                    </div>
+                </div>
+
+                <div class="pt-3 border-t border-slate-200 flex justify-end gap-2">
+                    <button type="button" id="btn-cancelar-factura" class="px-4 py-2 rounded-xl border border-slate-200 text-slate-600 font-semibold">Cancelar</button>
+                    <button type="submit" class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold shadow-sm flex items-center gap-1.5">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>Autorizar CAE en AFIP y Generar QR</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: Vista Imprimible Factura Electrónica Oficial con QR AFIP + Ley 27.743 (Reemplaza COBVIEW.exe) -->
+    <div id="modal-vista-factura" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
+        <div id="factura-print-area" class="bg-white rounded-2xl max-w-4xl w-full max-h-[94vh] overflow-y-auto shadow-2xl border border-slate-200">
+            <!-- Barra superior No Imprimible -->
+            <div class="px-6 py-3 bg-slate-900 text-white flex flex-wrap items-center justify-between gap-2 rounded-t-2xl no-print">
+                <div class="flex items-center gap-2">
+                    <span id="vf-header-id" class="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 font-mono text-xs font-bold">A-0004-00011827</span>
+                    <span class="text-xs text-slate-300">Factura Electrónica Oficial AFIP/ARCA (Reemplaza COBVIEW.exe y .def)</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="window.print()" class="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-xs font-bold text-white transition">
+                        <i class="fa-solid fa-print mr-1"></i>Imprimir / Guardar PDF
+                    </button>
+                    <button id="btn-cerrar-vista-factura" class="ml-2 text-slate-400 hover:text-white text-lg">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Diseño Oficial Factura Electrónica Villalba Hnos. -->
+            <div class="p-6 sm:p-8 text-xs space-y-5">
+                <div class="border-2 border-slate-900 rounded-xl p-5 space-y-4">
+                    <!-- Cabecera Tripartita -->
+                    <div class="grid grid-cols-3 items-start border-b-2 border-slate-900 pb-4">
+                        <div>
+                            <div class="text-base font-black text-slate-900 tracking-tight">VILLALBA HNOS. IMPLANTES S.A.</div>
+                            <div class="text-[11px] text-slate-600 mt-1">Fabricación y Comercialización de Implantes Quirúrgicos</div>
+                            <div class="text-[10px] text-slate-500">Caseros, Partido de Tres de Febrero — Prov. de Buenos Aires</div>
+                            <div class="text-[10px] font-bold text-slate-800 mt-1">IVA RESPONSABLE INSCRIPTO</div>
+                        </div>
+                        <div class="flex flex-col items-center justify-center">
+                            <div class="w-16 h-16 border-2 border-slate-900 rounded-xl flex flex-col items-center justify-center font-black text-3xl text-slate-900">
+                                <span id="vf-letra">A</span>
+                                <span id="vf-cod-afip" class="text-[9px] font-bold tracking-wider uppercase">Cód. 01</span>
+                            </div>
+                            <span class="mt-1 text-[10px] font-bold uppercase text-slate-500">ORIGINAL</span>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-xs font-bold uppercase text-slate-500">Factura Electrónica</div>
+                            <div id="vf-numero" class="text-lg font-black font-mono text-slate-900">0004-00011827</div>
+                            <div class="text-[11px] text-slate-700 mt-1">Fecha de Emisión: <strong id="vf-fecha">2026-11-05</strong></div>
+                            <div class="text-[10px] font-mono text-slate-600 mt-1">CUIT: <strong>30-70875873-2</strong></div>
+                            <div class="text-[10px] text-slate-500">Ing. Brutos: 30-70875873-2 · Inicio Act.: 01/2003</div>
+                        </div>
+                    </div>
+
+                    <!-- Datos del Receptor y Remito Quirúrgico -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 py-3 border-b border-slate-300">
+                        <div class="space-y-1">
+                            <div><span class="text-slate-500 font-semibold">Razón Social Receptor:</span> <strong id="vf-cliente" class="text-slate-900"></strong></div>
+                            <div><span class="text-slate-500 font-semibold">CUIT Receptor:</span> <strong id="vf-cuit" class="font-mono"></strong></div>
+                            <div><span class="text-slate-500 font-semibold">Condición frente al IVA:</span> <span id="vf-cond-iva">IVA RESPONSABLE INSCRIPTO</span></div>
+                        </div>
+                        <div class="space-y-1">
+                            <div><span class="text-slate-500 font-semibold">Condición de Venta:</span> <span id="vf-cond-venta">CUENTA CORRIENTE 30 DIAS</span></div>
+                            <div><span class="text-slate-500 font-semibold">Remito / Préstamo Asociado:</span> <strong id="vf-remito" class="font-mono text-indigo-700"></strong></div>
+                            <div><span class="text-slate-500 font-semibold">Médico / Paciente:</span> <span id="vf-medico-pac"></span></div>
+                        </div>
+                    </div>
+
+                    <!-- Detalle de Ítems Facturados -->
+                    <div class="min-h-[150px]">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="border-b-2 border-slate-800 text-[10px] font-bold uppercase text-slate-600">
+                                    <th class="py-2 px-2 w-28">Código</th>
+                                    <th class="py-2 px-2 w-16 text-center">Cant.</th>
+                                    <th class="py-2 px-2">Descripción del Producto / Implante Quirúrgico</th>
+                                    <th class="py-2 px-2 w-28 text-right">Subtotal Neto</th>
+                                </tr>
+                            </thead>
+                            <tbody id="vf-tbody-items" class="divide-y divide-slate-200 font-mono text-[11px]">
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Totales + Régimen de Transparencia Fiscal Ley 27.743 -->
+                    <div class="border-t-2 border-slate-900 pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 items-end">
+                        <div class="p-3 rounded-xl bg-slate-50 border border-slate-300 space-y-1">
+                            <div class="text-[10px] font-black uppercase tracking-wider text-slate-700">
+                                Régimen de Transparencia Fiscal al Consumidor (Ley 27.743)
+                            </div>
+                            <div class="text-[11px] text-slate-700">
+                                IVA Contenido: <strong id="vf-ley-iva" class="font-mono"></strong>
+                            </div>
+                            <div class="text-[10px] text-slate-500">
+                                Otros Impuestos Nacionales Indirectos: $0,00 · Tributos Provinciales (ARBA): <span id="vf-ley-arba" class="font-mono"></span>
+                            </div>
+                        </div>
+
+                        <div class="space-y-1 text-right font-mono">
+                            <div class="flex justify-between text-slate-600"><span>Importe Neto Gravado:</span> <strong id="vf-neto"></strong></div>
+                            <div class="flex justify-between text-slate-600"><span>IVA 21%:</span> <strong id="vf-iva"></strong></div>
+                            <div class="flex justify-between text-slate-600"><span>Percepción IIBB ARBA:</span> <strong id="vf-arba"></strong></div>
+                            <div class="flex justify-between text-base font-black text-slate-900 border-t border-slate-300 pt-1">
+                                <span>IMPORTE TOTAL:</span> <span id="vf-total"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pie Oficial con QR AFIP Base64 + CAE -->
+                    <div class="border-t-2 border-slate-900 pt-4 flex flex-wrap items-center justify-between gap-4">
+                        <div class="flex items-center gap-3">
+                            <img id="vf-qr-img" src="" alt="QR Oficial AFIP" class="w-24 h-24 border border-slate-300 rounded-lg p-1 bg-white">
+                            <div class="space-y-1">
+                                <div class="font-black text-slate-900 text-xs">AFIP / ARCA — Comprobante Autorizado</div>
+                                <div class="text-[10px] text-slate-500 max-w-xs">
+                                    El código QR contiene el payload JSON Base64 oficial según RG AFIP 4892/2020 (<code class="font-mono">ARCHI-QR.TXT</code>).
+                                </div>
+                                <a id="vf-qr-link" href="#" target="_blank" class="no-print text-[10px] font-bold text-indigo-600 hover:underline inline-flex items-center gap-1">
+                                    <span>Verificar URL QR en afip.gob.ar</span>
+                                    <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="text-right font-mono space-y-1">
+                            <div class="text-xs font-bold text-slate-800">CAE N°: <span id="vf-cae" class="text-indigo-700 font-black">86451211698113</span></div>
+                            <div class="text-[11px] text-slate-600">Fecha Vto. CAE: <strong id="vf-vto-cae">2026-11-15</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../js/global-sidebar.js"></script>
+    <script src="js/facturacion-afip.js"></script>
+</body>
+</html>
+

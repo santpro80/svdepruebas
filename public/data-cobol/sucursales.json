@@ -1,0 +1,112 @@
+[
+    {
+        "activa":  true,
+        "codigo":  "04",
+        "nombre":  "CASA MATRIZ / FABRICA",
+        "localidad":  "CASEROS",
+        "direccion":  "DR. REBIZO 5458/60",
+        "tipo":  "Casa Matriz \u0026 Planta Industrial",
+        "provincia":  "BUENOS AIRES",
+        "extension":  ".04"
+    },
+    {
+        "activa":  true,
+        "codigo":  "05",
+        "nombre":  "SUCURSAL LA PLATA",
+        "localidad":  "LA PLATA",
+        "direccion":  "LA PLATA",
+        "tipo":  "Sucursal Comercial",
+        "provincia":  "BUENOS AIRES",
+        "extension":  ".05"
+    },
+    {
+        "activa":  true,
+        "codigo":  "07",
+        "nombre":  "SUCURSAL MAR DEL PLATA",
+        "localidad":  "MAR DEL PLATA",
+        "direccion":  "MAR DEL PLATA",
+        "tipo":  "Sucursal Comercial",
+        "provincia":  "BUENOS AIRES",
+        "extension":  ".07"
+    },
+    {
+        "activa":  true,
+        "codigo":  "08",
+        "nombre":  "SUCURSAL BAHIA BLANCA",
+        "localidad":  "BAHIA BLANCA",
+        "direccion":  "BAHIA BLANCA",
+        "tipo":  "Sucursal Comercial",
+        "provincia":  "BUENOS AIRES",
+        "extension":  ".08"
+    },
+    {
+        "activa":  true,
+        "codigo":  "20",
+        "nombre":  "SUCURSAL ROSARIO",
+        "localidad":  "ROSARIO",
+        "direccion":  "ROSARIO",
+        "tipo":  "Sucursal Comercial",
+        "provincia":  "SANTA FE",
+        "extension":  ".20"
+    },
+    {
+        "activa":  true,
+        "codigo":  "21",
+        "nombre":  "SUCURSAL 21",
+        "localidad":  "INTERIOR",
+        "direccion":  "SUCURSAL 21",
+        "tipo":  "Sucursal Comercial",
+        "provincia":  "ARGENTINA",
+        "extension":  ".21"
+    },
+    {
+        "activa":  true,
+        "codigo":  "22",
+        "nombre":  "SUCURSAL 22",
+        "localidad":  "INTERIOR",
+        "direccion":  "SUCURSAL 22",
+        "tipo":  "Sucursal Comercial",
+        "provincia":  "ARGENTINA",
+        "extension":  ".22"
+    },
+    {
+        "activa":  true,
+        "codigo":  "23",
+        "nombre":  "CENTRO LOGISTICO JUJUY",
+        "localidad":  "SAN SALVADOR DE JUJUY",
+        "direccion":  "JUJUY",
+        "tipo":  "Centro Logístico",
+        "provincia":  "JUJUY",
+        "extension":  ".23"
+    },
+    {
+        "activa":  true,
+        "codigo":  "24",
+        "nombre":  "SUCURSAL CHACO",
+        "localidad":  "RESISTENCIA",
+        "direccion":  "CHACO",
+        "tipo":  "Sucursal Comercial",
+        "provincia":  "CHACO",
+        "extension":  ".24"
+    },
+    {
+        "activa":  true,
+        "codigo":  "25",
+        "nombre":  "SUCURSAL PARANA",
+        "localidad":  "PARANA",
+        "direccion":  "PARANA",
+        "tipo":  "Sucursal Comercial",
+        "provincia":  "ENTRE RIOS",
+        "extension":  ".25"
+    },
+    {
+        "activa":  true,
+        "codigo":  "26",
+        "nombre":  "SUCURSAL CORDOBA",
+        "localidad":  "CORDOBA",
+        "direccion":  "CORDOBA",
+        "tipo":  "Sucursal Comercial",
+        "provincia":  "CORDOBA",
+        "extension":  ".26"
+    }
+]

@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal | Producción & Planta (TERIAN ERP)</title>
+    <link rel="stylesheet" href="../css/tailwind.css">
+    <link rel="stylesheet" href="../css/dark-theme.css">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        body { font-family: 'Public Sans', sans-serif; opacity: 0; animation: fadeInMenu 0.35s ease forwards; }
+        @keyframes fadeInMenu { to { opacity: 1; } }
+        .glass-card { background: rgba(255, 255, 255, 0.92); border: 1px solid rgba(0,0,0,0.08); backdrop-filter: blur(12px); }
+        html.dark .glass-card { background: rgba(22, 30, 42, 0.72); border: 1px solid rgba(255, 255, 255, 0.06); }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-[#6e8efb] to-[#a777e3] dark:from-[#0a0f16] dark:to-[#0a0f16] text-slate-900 dark:text-[#f1f5f9] antialiased min-h-screen flex flex-col relative transition-colors duration-300">
+
+    <header class="bg-[#f8fafc]/90 dark:bg-[#0f172a]/90 backdrop-blur-md shadow-sm border-b border-indigo-100 dark:border-slate-800 px-4 lg:px-6 py-3 flex items-center justify-between sticky top-0 z-40 w-full">
+        <div class="header-left flex items-center gap-3">
+            <div class="h-9 w-9 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white shadow-lg shadow-emerald-500/20">
+                <span class="material-symbols-outlined text-[18px]">precision_manufacturing</span>
+            </div>
+            <div>
+                <h1 class="text-base font-black tracking-tight uppercase text-slate-900 dark:text-white leading-none">Producción & Planta</h1>
+                <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-500">Módulo Unificado VIAORD / VIAPIE / Zebra</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-4">
+            <span id="user-display-name" class="text-xs font-black text-slate-600 dark:text-slate-400 uppercase tracking-widest hidden md:inline-block">Supervisor ERP</span>
+        </div>
+    </header>
+
+    <main class="flex-1 w-full max-w-6xl mx-auto px-4 py-8 md:py-10 relative z-10 flex flex-col gap-6">
+        <!-- KPIs en Vivo desde VIAORD -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="glass-card rounded-2xl p-5 border border-white/40 dark:border-slate-800">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-[10px] font-black uppercase tracking-widest text-slate-400">Órdenes Activas (VIAORD)</span>
+                    <span class="material-symbols-outlined text-emerald-500 text-xl">engineering</span>
+                </div>
+                <div id="kpi-total-ops" class="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">80</div>
+                <p id="kpi-last-op" class="text-[10px] font-bold text-emerald-500 uppercase mt-1">Última OP: #26896</p>
+            </div>
+            <div class="glass-card rounded-2xl p-5 border border-white/40 dark:border-slate-800">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-[10px] font-black uppercase tracking-widest text-slate-400">Cuarentena / Calidad (PZ3)</span>
+                    <span class="material-symbols-outlined text-amber-500 text-xl">science</span>
+                </div>
+                <div id="kpi-cuarentena" class="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">14</div>
+                <p class="text-[10px] font-bold text-amber-500 uppercase mt-1">Lotes pendientes de liberar</p>
+            </div>
+            <div class="glass-card rounded-2xl p-5 border border-white/40 dark:border-slate-800">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-[10px] font-black uppercase tracking-widest text-slate-400">Etiquetado Zebra ZPL</span>
+                    <span class="material-symbols-outlined text-blue-500 text-xl">qr_code_2</span>
+                </div>
+                <div class="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">GS1 + QR</div>
+                <p class="text-[10px] font-bold text-blue-500 uppercase mt-1">Plantilla Oficial ANMAT PM 15</p>
+            </div>
+            <div class="glass-card rounded-2xl p-5 border border-white/40 dark:border-slate-800">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-[10px] font-black uppercase tracking-widest text-slate-400">Sincronización Monday</span>
+                    <span class="material-symbols-outlined text-purple-500 text-xl">hub</span>
+                </div>
+                <div class="text-2xl md:text-3xl font-black text-slate-900 dark:text-white">Activo</div>
+                <p class="text-[10px] font-bold text-purple-400 uppercase mt-1">Tablero #9012338710</p>
+            </div>
+        </div>
+
+        <!-- Panel Central -->
+        <div class="glass-card rounded-[2rem] p-6 lg:p-10 shadow-2xl relative w-full border border-white/40 dark:border-slate-800/80">
+            <div class="mb-8 text-left border-b border-slate-200 dark:border-slate-800 pb-5 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-black text-emerald-600 dark:text-emerald-400 tracking-tight leading-none mb-2">Centro de Control de Producción</h2>
+                    <p class="text-xs font-black text-slate-500 uppercase tracking-[0.18em]">REEMPLAZO UNIFICADO DE VIAORD • VISEMI02 • VIAPIE • BI8003ZP-ZEBRA</p>
+                </div>
+                <a href="ordenes-produccion.html?new=1" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs uppercase tracking-widest shadow-lg shadow-emerald-600/20 transition-all no-underline">
+                    <span class="material-symbols-outlined text-[18px]">add_circle</span> Nueva Orden (OP)
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-[10px] font-black text-emerald-500 tracking-[0.2em] uppercase border-b border-slate-200 dark:border-slate-800 pb-2 mb-4">Fabricación, Loteo y Trazabilidad</h3>
+                    <div class="flex flex-col gap-4" id="col-fabricacion"></div>
+                </div>
+                <div>
+                    <h3 class="text-[10px] font-black text-emerald-500 tracking-[0.2em] uppercase border-b border-slate-200 dark:border-slate-800 pb-2 mb-4">Calidad, Etiquetado y Conexión Depósito</h3>
+                    <div class="flex flex-col gap-4" id="col-calidad"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="js/menu.js"></script>
+    <script type="module" src="../js/global-sidebar.js"></script>
+    <script type="module">import "../js/theme.js";</script>
+</body>
+</html>
+

@@ -1,0 +1,1002 @@
+[
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0001",
+        "razonSocialRaw":  "MAYUS-MINUS"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0002",
+        "razonSocialRaw":  ",-./0123456789"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0003",
+        "razonSocialRaw":  "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0004",
+        "razonSocialRaw":  "1001 FERRETERIA INDUSTRIAL"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0005",
+        "razonSocialRaw":  "ACEROS MUNRO SRL"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0006",
+        "razonSocialRaw":  "DAMANT S.R.L"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0007",
+        "razonSocialRaw":  "EROMEDICAL S.A."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0008",
+        "razonSocialRaw":  "LAMBRES RUMBOS S.A."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0009",
+        "razonSocialRaw":  "MMAR ULTRASONIDOS"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0010",
+        "razonSocialRaw":  "MERICAN IMPLANT S.A."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0011",
+        "razonSocialRaw":  "NDES ELEVADORES S.R.L."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0012",
+        "razonSocialRaw":  "RTROTEK S.R.L."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0013",
+        "razonSocialRaw":  "SISTHOS S.R.L."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0014",
+        "razonSocialRaw":  "VIE CIRUGIAS S.R.L."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0015",
+        "razonSocialRaw":  "ZMED - RESISTENCIA / CHACO"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0016",
+        "razonSocialRaw":  "FFIGI SOCIEDAD DE HECHO"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0017",
+        "razonSocialRaw":  "IARG S.A. - SANTA FE"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0018",
+        "razonSocialRaw":  "ELQUIM S.R.L."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0019",
+        "razonSocialRaw":  "STMED S.A.S."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0020",
+        "razonSocialRaw":  "IAMAQ S.R.L."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0021",
+        "razonSocialRaw":  "O PATAGONIA - RIO NEGRO"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0022",
+        "razonSocialRaw":  "ADVANCE ARGENTINA"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0023",
+        "razonSocialRaw":  "SSIST S.A. - CORRIENTES"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0024",
+        "razonSocialRaw":  "DEC S.R.L."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0025",
+        "razonSocialRaw":  "FORGE DE MARTINEZ GASTON"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0026",
+        "razonSocialRaw":  "IMPLANT S.R.L. - ROSARIO/STA. FE"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0027",
+        "razonSocialRaw":  "MATERIALES SRL"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0028",
+        "razonSocialRaw":  "ED S.R.L. - ROSARIO / SANTA FE"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0029",
+        "razonSocialRaw":  "ICI S.R.L."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0030",
+        "razonSocialRaw":  "PROT (DE BIOIMMPLANT S.R.L.)"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0031",
+        "razonSocialRaw":  "LASTING S.A."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0032",
+        "razonSocialRaw":  "RAIN MEDICAL"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0033",
+        "razonSocialRaw":  "VA CANITAS S.A.S."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0034",
+        "razonSocialRaw":  "OGLIO IMPRENTA"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0035",
+        "razonSocialRaw":  "C.O.A. MEDICAL PRODUCTS S.A."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0036",
+        "razonSocialRaw":  "ARLOS FERNANDEZ"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0037",
+        "razonSocialRaw":  "SA SUDEY S.A."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0038",
+        "razonSocialRaw":  "DH PROTESIS E IMPLANTESCOS S.A"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0039",
+        "razonSocialRaw":  "LEANSON S.R.L"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0040",
+        "razonSocialRaw":  "MP IMPLANTES MEDICOS S.R.L."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0041",
+        "razonSocialRaw":  "ODIGOS - PASCUZZO SERGIO EDUARDO"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0042",
+        "razonSocialRaw":  "I CIRUGIA OSEA E INSTRUMENTAL"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0043",
+        "razonSocialRaw":  "RCAST - FUNDICION POR MICROFUCION"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0044",
+        "razonSocialRaw":  "PO MEDICA S.A.OEDICAL S.R.L.L"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0045",
+        "razonSocialRaw":  "1PROPATO HNOS. S.A.I.C."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0046",
+        "razonSocialRaw":  "BUENOS AIRES"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0047",
+        "razonSocialRaw":  "30554258693 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0048",
+        "razonSocialRaw":  "2PROMEDICAL"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0049",
+        "razonSocialRaw":  "Y4GLN(14) VENC(DDMMAA) LOTE(7) SERIE(6)"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0050",
+        "razonSocialRaw":  "3ADAMANT S.R.L"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0051",
+        "razonSocialRaw":  "PAYSANDU 923"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0052",
+        "razonSocialRaw":  "30714598534 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0053",
+        "razonSocialRaw":  "FILM DE POLIETILENO PARA TERMOSELLADO"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0054",
+        "razonSocialRaw":  "4GABRIEL IRIARTE S.R.L."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0055",
+        "razonSocialRaw":  "PRESBITERO ACTIS"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0056",
+        "razonSocialRaw":  "PISO 1 OF 27"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0057",
+        "razonSocialRaw":  "SAN ISIDRO"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0058",
+        "razonSocialRaw":  "5FIPTRA SRL"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0059",
+        "razonSocialRaw":  "POETA RISSO 1174"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0060",
+        "razonSocialRaw":  "HURLINGHAM"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0061",
+        "razonSocialRaw":  "02145203998 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0062",
+        "razonSocialRaw":  "6METALURGICA H"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0063",
+        "razonSocialRaw":  "7GENERAL AISLANTE SA"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0064",
+        "razonSocialRaw":  "AV. MITRE 902"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0065",
+        "razonSocialRaw":  "30536825726 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0066",
+        "razonSocialRaw":  "1PROVEEDOR DE MATERIALES COMO GRILON, POLIETILENO ALTA DENSIDAD"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0067",
+        "razonSocialRaw":  "8BIOMATERIALES SRLÉ"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0068",
+        "razonSocialRaw":  "LIBERTAD 6094"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0069",
+        "razonSocialRaw":  "VILLA BALLESTER"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0070",
+        "razonSocialRaw":  "30715167146 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0071",
+        "razonSocialRaw":  "1PROVEEDOR DE VENTA DE MATERIA PRIMA - TITANIO"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0072",
+        "razonSocialRaw":  "04 BIOMATERIALES"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0073",
+        "razonSocialRaw":  "BIOMATERIALES.COM.AR"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0074",
+        "razonSocialRaw":  "9ROBERTO CORDES SAÉ"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0075",
+        "razonSocialRaw":  "PALPA 3551"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0076",
+        "razonSocialRaw":  "CAPITAL FEDERAL"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0077",
+        "razonSocialRaw":  "30537253432 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0078",
+        "razonSocialRaw":  "1PROVEEDOR DE MATERIA PRIMA -"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0079",
+        "razonSocialRaw":  "POLIETILENO / TITANIO"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0080",
+        "razonSocialRaw":  "10TECNO CASEROS SRLÉ"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0081",
+        "razonSocialRaw":  "CAFERATA 4957"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0082",
+        "razonSocialRaw":  "30708875992 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0083",
+        "razonSocialRaw":  "1PROVEEDOR DE MECANIZADO"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0084",
+        "razonSocialRaw":  "11LUIS ROLDAN"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0085",
+        "razonSocialRaw":  "20226248812 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0086",
+        "razonSocialRaw":  "1PROVEEDOR DE MECANIZADO DE PIEZAS"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0087",
+        "razonSocialRaw":  "12SOLUCIONES TRAUMATOLOGICAS S.R.L."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0088",
+        "razonSocialRaw":  ". ENRIQUE FINOCHIETTO N"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0089",
+        "razonSocialRaw":  "30714189685 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0090",
+        "razonSocialRaw":  "13FAMIQ SRL"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0091",
+        "razonSocialRaw":  "BLANCO ENCALADA 1752"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0092",
+        "razonSocialRaw":  "30538068841 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0093",
+        "razonSocialRaw":  "PROVEEDOR DE ACERO INOXIDABLE"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0094",
+        "razonSocialRaw":  "14BIOFORGE DE MARTINEZ GASTON"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0095",
+        "razonSocialRaw":  "15BAFFIGI SOCIEDAD DE HECHO"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0096",
+        "razonSocialRaw":  "SAN NICOLAS 448"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0097",
+        "razonSocialRaw":  "BAHIA BLANCA"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0098",
+        "razonSocialRaw":  "16ORTOPEDIA INTEGRAL - SANTA CRUZ"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0099",
+        "razonSocialRaw":  "ERRAZURIZ 36"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0100",
+        "razonSocialRaw":  "RIO GALLEGOS"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0101",
+        "razonSocialRaw":  "SANTA CRUZ"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0102",
+        "razonSocialRaw":  "423865 FAX"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0103",
+        "razonSocialRaw":  "1TRANSPORTADORA PATAGONICA -AEROL.ARGENT-SOUTHER WINDS-"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0104",
+        "razonSocialRaw":  "202966-639787 T.E.DE LUIS CAÑETE (ADM.DEL HOSPITAL)"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0105",
+        "razonSocialRaw":  "02966-422550/421072 (D"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0106",
+        "razonSocialRaw":  ". MORETA 0297-4851140"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0107",
+        "razonSocialRaw":  "156232252)."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0108",
+        "razonSocialRaw":  "3AEROCARGAS JUNCAL 331 5"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0109",
+        "razonSocialRaw":  "A - 4821-3254 - SR.AGUSTIN"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0110",
+        "razonSocialRaw":  "4ENVIOS AEROLINEAS"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0111",
+        "razonSocialRaw":  "VIA BARILOCHE SEGUN LA URGENCIA."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0112",
+        "razonSocialRaw":  "17DIQUIME S.A."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0113",
+        "razonSocialRaw":  "MINISTRO FRANCISCO COCCHIARARO 5305"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0114",
+        "razonSocialRaw":  "03071187975 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0115",
+        "razonSocialRaw":  "8PROVEEDOR DE MATERIA PRIMA TITANIO / POLIETILENO / FORJA"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0116",
+        "razonSocialRaw":  "18JORVICAL ACEROS S.A."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0117",
+        "razonSocialRaw":  "CATAMARCA 1527"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0118",
+        "razonSocialRaw":  "LANUS OESTE"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0119",
+        "razonSocialRaw":  "33606484599 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0120",
+        "razonSocialRaw":  "19DISISPROT SA"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0121",
+        "razonSocialRaw":  "26 DE JULIO"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0122",
+        "razonSocialRaw":  "30711399131 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0123",
+        "razonSocialRaw":  "PROVEEDOR DE MECANIZADO DE PIEZAS"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0124",
+        "razonSocialRaw":  "20TOMMARELLI JUAN"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0125",
+        "razonSocialRaw":  "RGICA VIKLA"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0126",
+        "razonSocialRaw":  "30710806752 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0127",
+        "razonSocialRaw":  "30 DIAS FECHA FACTURA"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0128",
+        "razonSocialRaw":  "22SM SALUD S.R.L."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0129",
+        "razonSocialRaw":  "E.ZEBALLOS 1067"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0130",
+        "razonSocialRaw":  "23GRG MECANIZADOS (GONZALEZ DIEGO)"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0131",
+        "razonSocialRaw":  "WITCCOMB 1357"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0132",
+        "razonSocialRaw":  "20221260431 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0133",
+        "razonSocialRaw":  "PROVEEDOR MECANIZADOR DE PIEZAS"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0134",
+        "razonSocialRaw":  "24IMPLAN MED S.R.L"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0135",
+        "razonSocialRaw":  ". RIVADAVIA 2431 ENT.3 1"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0136",
+        "razonSocialRaw":  "CIUDAD AUT.BS.AS. -"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0137",
+        "razonSocialRaw":  "015-4083-4906 URGENCIAS"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0138",
+        "razonSocialRaw":  "25LUIS MAR"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0139",
+        "razonSocialRaw":  "50898939 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0140",
+        "razonSocialRaw":  "COLOMBRARO PLASTICOS"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0141",
+        "razonSocialRaw":  "A CONVENIR"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0142",
+        "razonSocialRaw":  "EXPORTACION Ú"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0143",
+        "razonSocialRaw":  ",PROVEEDOR PARA IMPORTACION UBICADO EN BRASIL"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0144",
+        "razonSocialRaw":  "NOS PROVEE DE TALLOS Y CABEZAS"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0145",
+        "razonSocialRaw":  "COSTA RICA 449"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0146",
+        "razonSocialRaw":  "30708762167 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0147",
+        "razonSocialRaw":  "28FAICO - INSTRUMENAL QUIRURGICO"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0148",
+        "razonSocialRaw":  "MARCOS PAZ N"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0149",
+        "razonSocialRaw":  "29GRUPO ROOT"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0150",
+        "razonSocialRaw":  "FRAY MAMERTO ESQUIU 1231"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0151",
+        "razonSocialRaw":  "JOSE LEON SUAREZ"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0152",
+        "razonSocialRaw":  "30716746026 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0153",
+        "razonSocialRaw":  "PROVEEDOR DE MECANIZADO"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0154",
+        "razonSocialRaw":  "30STEEL GROUP DE GERARDO PRETRUZZI"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0155",
+        "razonSocialRaw":  "PINTOS 1124"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0156",
+        "razonSocialRaw":  "20165882904 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0157",
+        "razonSocialRaw":  "GROUPSTEEL.COM"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0158",
+        "razonSocialRaw":  ".31VOESTALPINE HIGH PERFORMANCE METAL MOZART 40"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0159",
+        "razonSocialRaw":  "30504770873 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0160",
+        "razonSocialRaw":  "04 ANDRES.KURZ"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0161",
+        "razonSocialRaw":  "VOESTALPINE.COM"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0162",
+        "razonSocialRaw":  "33GONZALO HECTOR RICCO"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0163",
+        "razonSocialRaw":  "15 DIAS FECHA FACTURA"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0164",
+        "razonSocialRaw":  "1851 SIPAB"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0165",
+        "razonSocialRaw":  "224260904 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0166",
+        "razonSocialRaw":  "HABITUALES"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0167",
+        "razonSocialRaw":  "35GUILLERMO ANDINO"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0168",
+        "razonSocialRaw":  "VILLA ADELINA"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0169",
+        "razonSocialRaw":  "36SALDIVIA MARTIN"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0170",
+        "razonSocialRaw":  "37LAVADERO DE AUTO MAURY"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0171",
+        "razonSocialRaw":  "38TOMMARELLO JUAN"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0172",
+        "razonSocialRaw":  "GERVASIO MENDEZ 4072"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0173",
+        "razonSocialRaw":  "116257921 M"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0174",
+        "razonSocialRaw":  "39FICA INOX"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0175",
+        "razonSocialRaw":  "VEDOYA 3536"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0176",
+        "razonSocialRaw":  "REMEDIOS DE ESCALADA"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0177",
+        "razonSocialRaw":  "30714419184 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0178",
+        "razonSocialRaw":  "BARRAS CANULADAS DE ACERO"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0179",
+        "razonSocialRaw":  "40SANTHEO ORTOPEDIAÉ"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0180",
+        "razonSocialRaw":  "SOTAVENTO ESQ.DEL ESPARTILLO 1265"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0181",
+        "razonSocialRaw":  "41BLASTING S.A."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0182",
+        "razonSocialRaw":  "INT.AMARO AVALOS 3176Ñ"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0183",
+        "razonSocialRaw":  "30517011297 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0184",
+        "razonSocialRaw":  "42HALOCUT LUIS BUONO"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0185",
+        "razonSocialRaw":  "MARMOL JOSE 840 PISO 6 DTO.K-CABA"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0186",
+        "razonSocialRaw":  "20287460490 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0187",
+        "razonSocialRaw":  "43IMPLANTES MEDICOS JUNIN"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0188",
+        "razonSocialRaw":  "30708758732 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0189",
+        "razonSocialRaw":  "44INSUMOS DIB"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0190",
+        "razonSocialRaw":  "30708801719 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0191",
+        "razonSocialRaw":  "45PRIMALCO"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0192",
+        "razonSocialRaw":  "CAPITAL FEDERALÉ"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0193",
+        "razonSocialRaw":  "30696881576 S"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0194",
+        "razonSocialRaw":  "46EVOLUTIS"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0195",
+        "razonSocialRaw":  "PLACE DES TUILIERS 42720"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0196",
+        "razonSocialRaw":  "3760255380148Y8GTIN(14)VENC(AAMMDD)LOTE(10)"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0197",
+        "razonSocialRaw":  "47PRIMALCO SA"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0198",
+        "razonSocialRaw":  "MATERIA PRIMA"
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0199",
+        "razonSocialRaw":  "COBRE,ALUMINIO,BRONCE."
+    },
+    {
+        "origen":  "VIA44 (WSFESA)",
+        "id":  "PRV-0200",
+        "razonSocialRaw":  "48LIMINDAR"
+    }
+]

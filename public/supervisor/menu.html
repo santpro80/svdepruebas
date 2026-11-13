@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Menú Supervisor - Villalba Systems</title>
+    <link rel="icon" href="assets/logo.png" type="image/png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+        rel="stylesheet" />
+
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="../css/tailwind.css">
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            /* Fondo Modo Claro */
+
+            /* Texto Modo Claro */
+            opacity: 0;
+            animation: fadeInMenu 0.4s ease forwards;
+            animation-delay: 0.15s;
+        }
+
+
+
+
+        @keyframes fadeInMenu {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+
+        html.dark .glass-card {
+            background: rgba(22, 30, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: none;
+        }
+
+        /* Ocultar elementos por defecto hasta que JS los valide */
+        .auth-hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-gradient-to-br from-[#6e8efb] to-[#a777e3] dark:from-[#0a0f16] dark:to-[#0a0f16] text-slate-900 dark:text-[#f1f5f9] antialiased font-sans">
+    <div class="flex h-screen overflow-hidden">
+
+        <!-- Sidebar Drawer is now handled by global-sidebar.js -->
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto relative flex flex-col">
+
+            <header
+                class="bg-[#f8fafc] dark:bg-transparent backdrop-blur-md shadow-sm dark:shadow-none border-b border-white/20 dark:border-white/10 px-4 lg:px-8 py-3 flex items-center justify-between gap-4 sticky top-0 z-40 shrink-0 w-full hover:bg-white/95 transition-colors">
+                <div class="header-left flex items-center gap-4">
+                    <span
+                        class="font-black tracking-tighter uppercase text-villalba-blue dark:text-white">Trazabilidad</span>
+                </div>
+                <!-- User Profile & Logout -->
+                <div class="flex items-center gap-4">
+                    <span id="header-user-name"
+                        class="hidden md:inline-block text-sm font-bold text-slate-700 dark:text-slate-300">Cargando...</span>
+                    <button onclick="handleGlobalLogout()"
+                        class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-rose-500/10 text-rose-500 hover:bg-rose-500 hover:text-slate-900 dark:text-white transition-colors border border-rose-500/20">
+                        <span class="material-symbols-outlined text-[18px]">logout</span>
+                        <span class="text-xs font-bold uppercase tracking-wide hidden sm:inline-block">Salir</span>
+                    </button>
+                </div>
+            </header>
+
+            <div class="px-4 lg:px-8 py-8 lg:py-12 flex-1 w-full flex flex-col">
+                <div class="max-w-5xl w-full mx-auto">
+                    <div
+                        class="bg-white dark:bg-transparent dark:border dark:border-white/5 shadow-sm dark:shadow-none rounded-[2rem] p-6 lg:p-10 w-full mb-10">
+                        <div class="mb-8 lg:mb-10 text-left flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                            <div>
+                                <h1
+                                    class="text-3xl lg:text-4xl font-black text-villalba-blue dark:text-white tracking-tight mb-2">
+                                    Panel Supervisor</h1>
+                                <p
+                                    class="text-sm tracking-widest uppercase text-slate-500 dark:text-slate-400 font-bold mb-0">
+                                    Trazabilidad de Cajas - Administración</p>
+                            </div>
+                            <div id="onedrive-supervisor-box" class="auth-hidden flex items-center gap-2 self-start sm:self-center">
+                                <span id="onedrive-status-pill" class="px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center gap-1.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-500">
+                                    <span id="onedrive-status-icon" class="material-symbols-outlined text-[15px]">cloud_done</span>
+                                    <span id="onedrive-status-text">OneDrive: Verificando...</span>
+                                </span>
+                                <button id="btn-toggle-od-panel" type="button" class="px-2.5 py-1.5 rounded-xl text-[10px] font-bold uppercase tracking-wider bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-white/10 transition-colors cursor-pointer" title="Actualizar token de OneDrive manualmente">
+                                    Token
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Panel de aviso / actualización rápida de Token OneDrive (Oculto salvo aviso o clic) -->
+                        <div id="onedrive-alert-banner" class="hidden mb-8 p-4 rounded-2xl border border-amber-500/40 bg-amber-500/10 text-left">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+                                <div class="flex items-start gap-2.5">
+                                    <span class="material-symbols-outlined text-amber-500 text-xl mt-0.5">warning</span>
+                                    <div>
+                                        <h4 id="od-banner-title" class="text-xs font-black uppercase tracking-wider text-amber-500">Configuración de Token OneDrive</h4>
+                                        <p id="od-banner-desc" class="text-[11px] text-slate-600 dark:text-slate-300 mt-0.5">El token se auto-renueva en Firebase cada vez que se usa. Si algún día vence o necesitas cambiarlo, pégalo aquí para actualizarlo en todas las PCs al instante.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col sm:flex-row gap-2">
+                                <input id="od-new-token-input" type="text" placeholder="Pegar nuevo Refresh Token (M.C501...)" class="flex-1 px-3 py-2 rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs font-mono text-slate-800 dark:text-white outline-none">
+                                <button id="btn-save-od-token" type="button" class="px-4 py-2 rounded-xl bg-villalba-blue hover:bg-blue-600 text-white text-xs font-black uppercase tracking-wider transition-colors cursor-pointer">
+                                    Guardar en Firebase
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+
+                            <!-- Operaciones -->
+                            <div>
+                                <h2
+                                    class="text-xs font-black tracking-[0.2em] text-villalba-blue uppercase mb-4 border-b border-slate-200 dark:border-white/10 pb-2">
+                                    Gestión y Operatividad</h2>
+                                <div class="flex flex-col gap-3">
+                                    <button id="btn-cajas"
+                                        class="auth-hidden view-card group flex items-center p-4 rounded-2xl glass-card hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-left border-blue-500/20">
+                                        <span
+                                            class="material-symbols-outlined text-3xl text-blue-400 mr-4 group-hover:scale-110 transition-transform">inventory_2</span>
+                                        <div>
+                                            <h3
+                                                class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                                                Modelos de Cajas
+                                            </h3>
+                                            <p
+                                                class="text-[10px] text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-widest">
+                                                Gestión de
+                                                inventario</p>
+                                        </div>
+                                    </button>
+
+                                    <button id="btn-flujos"
+                                        class="auth-hidden view-card group flex items-center p-4 rounded-2xl glass-card hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-left border-indigo-500/30">
+                                        <span
+                                            class="material-symbols-outlined text-3xl text-indigo-400 mr-4 group-hover:scale-110 transition-transform">account_tree</span>
+                                        <div>
+                                            <h3
+                                                class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                                                Flujos y Procesos
+                                            </h3>
+                                            <p
+                                                class="text-[10px] text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-widest">
+                                                Diagramas multinivel sandbox</p>
+                                        </div>
+                                    </button>
+
+                                    <button id="btn-tickets"
+                                        class="auth-hidden view-card group flex items-center p-4 rounded-2xl glass-card hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-left">
+                                        <span
+                                            class="material-symbols-outlined text-3xl text-emerald-400 mr-4 group-hover:scale-110 transition-transform">confirmation_number</span>
+                                        <div>
+                                            <h3
+                                                class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                                                Tickets
+                                            </h3>
+                                            <p
+                                                class="text-[10px] text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-widest">
+                                                Resolución de
+                                                soporte</p>
+                                        </div>
+                                    </button>
+
+                                    <button id="btn-estados-cajas"
+                                        class="auth-hidden view-card group flex items-center p-4 rounded-2xl glass-card hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-left">
+                                        <span
+                                            class="material-symbols-outlined text-3xl text-amber-400 mr-4 group-hover:scale-110 transition-transform">local_shipping</span>
+                                        <div>
+                                            <h3
+                                                class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                                                Estados Cajas</h3>
+                                            <p
+                                                class="text-[10px] text-slate-500 dark:text-slate-400 mt-1 uppercase tracking-widest">
+                                                Rastreo de ruta
+                                            </p>
+                                        </div>
+                                    </button>
+
+                                    <button id="btn-buscar-reporte"
+                                        class="auth-hidden view-card group flex items-center p-4 rounded-2xl glass-card hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-left">
+                                        <span
+                                            class="material-symbols-outlined text-3xl text-indigo-400 mr-4 group-hover:scale-110 transition-transform">manage_search</span>
+                                        <div>
+                                            <h3
+                                                class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                                                Buscar Reporte
+                                            </h3>
+                                        </div>
+                                    </button>
+
+                                    <button id="btn-buscar-prestamo"
+                                        class="auth-hidden view-card group flex items-center p-4 rounded-2xl glass-card hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-left">
+                                        <span
+                                            class="material-symbols-outlined text-3xl text-purple-400 mr-4 group-hover:scale-110 transition-transform">find_in_page</span>
+                                        <div>
+                                            <h3
+                                                class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                                                Buscar Préstamo
+                                            </h3>
+                                        </div>
+                                    </button>
+
+                                    <button id="btn-reportar-problema"
+                                        class="auth-hidden view-card group flex items-center p-4 rounded-2xl glass-card hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-left">
+                                        <span
+                                            class="material-symbols-outlined text-3xl text-rose-400 mr-4 group-hover:scale-110 transition-transform">report_problem</span>
+                                        <div>
+                                            <h3
+                                                class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                                                Reportar Problema
+                                            </h3>
+                                        </div>
+                                    </button>
+
+                                    <button id="btn-ver-problemas"
+                                        class="auth-hidden view-card group flex items-center p-4 rounded-2xl glass-card hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-left border-rose-500/20">
+                                        <span
+                                            class="material-symbols-outlined text-3xl text-orange-400 mr-4 group-hover:scale-110 transition-transform">bug_report</span>
+                                        <div>
+                                            <h3
+                                                class="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider">
+                                                Ver
+                                                Problemas Reportados</h3>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Administración Global -->
+                            <div>
+                                <h2
+                                    class="text-xs font-black tracking-[0.2em] text-villalba-blue uppercase mb-4 border-b border-slate-200 dark:border-white/10 pb-2">
+                                    Administración Global</h2>
+                                <div class="flex flex-col gap-3">
+                                    <button id="btn-catalogo-items"
+                                        class="auth-hidden view-card group flex items-center p-4 rounded-2xl glass-card hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-left">
+                                        <span
+                                            class="material-symbols-outlined text-3xl text-fuchsia-400 mr-4 group-hover:scale-110 transition-transform">category</span>
+                                        <div>
+                                            <h3
+                                                class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                                                Catálogo de Ítems</h3>
+                                        </div>
+                                    </button>
+
+                                    <button id="btn-historial"
+                                        class="auth-hidden view-card group flex items-center p-4 rounded-2xl glass-card hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-left">
+                                        <span
+                                            class="material-symbols-outlined text-3xl text-slate-500 dark:text-slate-400 mr-4 group-hover:scale-110 transition-transform">history</span>
+                                        <div>
+                                            <h3
+                                                class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                                                Historial</h3>
+                                        </div>
+                                    </button>
+
+                                    <button id="btn-informe-diario"
+                                        class="auth-hidden view-card group flex items-center p-4 rounded-2xl glass-card hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-left">
+                                        <span
+                                            class="material-symbols-outlined text-3xl text-cyan-400 mr-4 group-hover:scale-110 transition-transform">today</span>
+                                        <div>
+                                            <h3
+                                                class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                                                Informe Diario
+                                            </h3>
+                                        </div>
+                                    </button>
+
+                                    <button id="btn-estadisticas"
+                                        class="auth-hidden view-card group flex items-center p-4 rounded-2xl glass-card hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-left border-teal-500/20">
+                                        <span
+                                            class="material-symbols-outlined text-3xl text-teal-400 mr-4 group-hover:scale-110 transition-transform">monitoring</span>
+                                        <div>
+                                            <h3
+                                                class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                                                Métricas y
+                                                Estadísticas</h3>
+                                        </div>
+                                    </button>
+
+                                    <button id="btn-registrar-usuario"
+                                        class="auth-hidden view-card group flex items-center p-4 rounded-2xl glass-card hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-left">
+                                        <span
+                                            class="material-symbols-outlined text-3xl text-pink-400 mr-4 group-hover:scale-110 transition-transform">person_add</span>
+                                        <div>
+                                            <h3
+                                                class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                                                Registrar Usuario
+                                            </h3>
+                                        </div>
+                                    </button>
+
+                                    <button id="btn-gestion-usuarios"
+                                        class="auth-hidden view-card group flex items-center p-4 rounded-2xl glass-card hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-left border-fuchsia-500/20">
+                                        <span
+                                            class="material-symbols-outlined text-3xl text-fuchsia-400 mr-4 group-hover:scale-110 transition-transform">manage_accounts</span>
+                                        <div>
+                                            <h3
+                                                class="text-sm font-black text-slate-900 dark:text-white uppercase tracking-wider">
+                                                Gestión de Usuarios App</h3>
+                                        </div>
+                                    </button>
+
+                                    <button id="btn-importar-datos"
+                                        class="auth-hidden view-card group flex items-center p-4 rounded-2xl glass-card hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-left">
+                                        <span
+                                            class="material-symbols-outlined text-3xl text-lime-400 mr-4 group-hover:scale-110 transition-transform">upload_file</span>
+                                        <div>
+                                            <h3
+                                                class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                                                Migración e
+                                                Importación</h3>
+                                        </div>
+                                    </button>
+
+                                    <button id="btn-cuenta"
+                                        class="auth-hidden view-card group flex items-center p-4 rounded-2xl glass-card hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-left">
+                                        <span
+                                            class="material-symbols-outlined text-3xl text-sky-400 mr-4 group-hover:scale-110 transition-transform">account_circle</span>
+                                        <div>
+                                            <h3
+                                                class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                                                Mi Cuenta
+                                                Administrador</h3>
+                                        </div>
+                                    </button>
+
+                                    <button id="btn-notifications"
+                                        class="auth-hidden view-card group flex items-center p-4 rounded-2xl glass-card hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-left mb-8">
+                                        <span
+                                            class="material-symbols-outlined text-3xl text-yellow-400 mr-4 group-hover:scale-110 transition-transform">notifications_active</span>
+                                        <div>
+                                            <h3
+                                                class="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
+                                                Habilitar Alertas
+                                                Push</h3>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module">
+        import { auth, db, onAuthStateChanged, signOut, doc, getDoc, setDoc, collection, query, where, onSnapshot } from './js/firebase-config.js';
+        import { setupTicketNotifications } from './js/global-notifications.js';
+        import { requestNotificationPermission } from './js/fcm-setup.js';
+
+        const OD_CLOUD_FUNCTION_URL = "https://us-central1-cajas-secuela.cloudfunctions.net/refrescarTokenOneDrive";
+        const OD_INITIAL_TOKEN = "M.C501_BL2.0.U.MsaArtifacts.-CqObiN744T10f4vcaQjWbLIt!IpYYGVMKpbBQKxbqh4HyaAgUGSKPz*Lmmt8nqEm3u5UG8HKMJouHsZEtQyI8rjD*4rG4EHey!TxTedIQIeuigRDdXMUBKi8FKKAEuVpV34lrfAkzpbIvcaOajL9Ibr4OqhEcIw0P3IYoXRIIp!7j*SDXGGpRBeqn7SpiUes7QR!k2EAJn*2muW1Bvu1maQ*6gSzW3Z!64CNca6WfBaUHuLHfJiHHeTqJAGrYsxwBl3qwHtFb4nJRL0C2b3E2z9VjJ5ujaY9J3au9NpmfKhhQ3PDVcG9GGAMRd!WISvJvjZfYACN3SG5ogMuzxKAPU7jyVGnmtgcXNfTmOy7xzRt";
+        const OD_SEED_TIMESTAMP = new Date("2026-11-03T12:00:00Z").getTime();
+
+        const updateODStatusUI = (state, message, showBanner = false, bannerMessage = '') => {
+            const pill = document.getElementById('onedrive-status-pill');
+            const icon = document.getElementById('onedrive-status-icon');
+            const text = document.getElementById('onedrive-status-text');
+            const banner = document.getElementById('onedrive-alert-banner');
+            const bannerDesc = document.getElementById('od-banner-desc');
+            if (!pill || !icon || !text) return;
+
+            if (state === 'ok') {
+                pill.className = "px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center gap-1.5 border border-emerald-500/30 bg-emerald-500/10 text-emerald-500";
+                icon.textContent = "cloud_done";
+            } else if (state === 'warn') {
+                pill.className = "px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center gap-1.5 border border-amber-500/40 bg-amber-500/15 text-amber-500";
+                icon.textContent = "warning";
+            } else {
+                pill.className = "px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center gap-1.5 border border-rose-500/40 bg-rose-500/15 text-rose-500 animate-pulse";
+                icon.textContent = "error";
+            }
+            text.textContent = message;
+
+            if (banner && showBanner) {
+                banner.classList.remove('hidden');
+                if (bannerDesc && bannerMessage) bannerDesc.textContent = bannerMessage;
+            }
+        };
+
+        const checkAndAutoRenewOneDrive = async () => {
+            try {
+                const odRef = doc(db, 'system', 'onedrive_config');
+                const snap = await getDoc(odRef);
+                let tokenToUse = localStorage.getItem('od_refresh_token') || OD_INITIAL_TOKEN;
+                let lastUpdated = 0;
+
+                if (snap.exists()) {
+                    const data = snap.data() || {};
+                    if (data.refreshToken && (data.seedToken === OD_INITIAL_TOKEN || data.manualOverride === true)) {
+                        tokenToUse = data.refreshToken;
+                        lastUpdated = Number(data.updatedAt) || 0;
+                    }
+                }
+
+                const now = Date.now();
+                const hoursSinceUpdate = lastUpdated ? (now - lastUpdated) / (1000 * 60 * 60) : 999;
+
+                // Si se renovó hace menos de 12 horas, no gastamos llamada extra y marcamos activo
+                if (lastUpdated > 0 && hoursSinceUpdate < 12) {
+                    updateODStatusUI('ok', 'OneDrive: Activo');
+                    return;
+                }
+
+                // Auto-renovamos en segundo plano cada 12 hs para estirar siempre la validez en Firebase
+                const res = await fetch(OD_CLOUD_FUNCTION_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ refreshToken: tokenToUse })
+                });
+                let json = await res.json();
+
+                // Si falló con el guardado, intentamos con el token inicial del código
+                if (json.error && tokenToUse !== OD_INITIAL_TOKEN) {
+                    const retryRes = await fetch(OD_CLOUD_FUNCTION_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ refreshToken: OD_INITIAL_TOKEN })
+                    });
+                    json = await retryRes.json();
+                }
+
+                if (json.error) {
+                    updateODStatusUI(
+                        'error',
+                        'OneDrive: Token Vencido',
+                        true,
+                        '⚠️ El token de OneDrive venció o fue rechazado por Microsoft. Pegá un nuevo token acá abajo para restaurar la subida de reportes para todos los usuarios sin tocar el código.'
+                    );
+                    return;
+                }
+
+                const freshToken = json.refresh_token || tokenToUse;
+                localStorage.setItem('od_refresh_token', freshToken);
+                localStorage.setItem('od_initial_token_seed', OD_INITIAL_TOKEN);
+
+                await setDoc(odRef, {
+                    refreshToken: freshToken,
+                    seedToken: OD_INITIAL_TOKEN,
+                    updatedAt: Date.now(),
+                    updatedIso: new Date().toISOString()
+                }, { merge: true });
+
+                const daysSinceSeed = Math.floor((Date.now() - OD_SEED_TIMESTAMP) / (1000 * 60 * 60 * 24));
+                if (daysSinceSeed >= 80) {
+                    updateODStatusUI(
+                        'warn',
+                        `OneDrive: Activo (${daysSinceSeed}d)`,
+                        true,
+                        `🔔 Aviso preventivo: Pasaron ${daysSinceSeed} días desde la última carga manual del token. Aunque se sigue auto-renovando en Firebase, te recomendamos tener un token nuevo a mano antes de cumplir los 90 días.`
+                    );
+                } else {
+                    updateODStatusUI('ok', 'OneDrive: Activo');
+                }
+            } catch (e) {
+                console.warn('Chequeo silencioso de OneDrive omitido:', e);
+            }
+        };
+
+        document.getElementById('btn-toggle-od-panel')?.addEventListener('click', () => {
+            document.getElementById('onedrive-alert-banner')?.classList.toggle('hidden');
+        });
+
+        document.getElementById('btn-save-od-token')?.addEventListener('click', async () => {
+            const input = document.getElementById('od-new-token-input');
+            const btn = document.getElementById('btn-save-od-token');
+            const newTok = (input?.value || '').trim();
+            if (!newTok) {
+                alert('Pegá un token válido primero.');
+                return;
+            }
+            btn.disabled = true;
+            btn.textContent = 'Verificando...';
+            try {
+                const res = await fetch(OD_CLOUD_FUNCTION_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ refreshToken: newTok })
+                });
+                const json = await res.json();
+                if (json.error) {
+                    alert('El token ingresado fue rechazado por Microsoft. Verificá que esté completo.');
+                    return;
+                }
+                const finalTok = json.refresh_token || newTok;
+                await setDoc(doc(db, 'system', 'onedrive_config'), {
+                    refreshToken: finalTok,
+                    seedToken: OD_INITIAL_TOKEN,
+                    manualOverride: true,
+                    updatedAt: Date.now(),
+                    updatedIso: new Date().toISOString()
+                }, { merge: true });
+                localStorage.setItem('od_refresh_token', finalTok);
+                input.value = '';
+                document.getElementById('onedrive-alert-banner')?.classList.add('hidden');
+                updateODStatusUI('ok', 'OneDrive: Actualizado');
+            } catch (err) {
+                alert('Error al guardar el token: ' + err.message);
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Guardar en Firebase';
+            }
+        });
+
+        // Elementos UI
+        let currentUserRole = 'supervisor';
+        let swRegistration = null;
+
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('firebase-messaging-sw.js')
+                    .then(registration => { swRegistration = registration; })
+                    .catch(error => console.error('SW Error:', error));
+            });
+        }
+
+        // App switcher is now handled by global-sidebar.js
+
+        // Mostrar botoneras dinámicamente según rol
+        const manageMenuVisibility = (role, user, userApps = []) => {
+            const isSupervisor = role === 'supervisor';
+            const isMantenimiento = role === 'mantenimiento';
+
+            const unhide = (id) => { const el = document.getElementById(id); if (el) el.classList.remove('auth-hidden'); }
+            const hide = (id) => { const el = document.getElementById(id); if (el) el.classList.add('auth-hidden'); }
+
+            // Básicos (todos los logueados)
+            unhide('btn-cuenta');
+            unhide('btn-tickets');
+            if (Array.isArray(userApps) && userApps.includes('flujos')) {
+                unhide('btn-flujos');
+            } else {
+                hide('btn-flujos');
+            }
+            if (!isMantenimiento) unhide('btn-cajas');
+            unhide('btn-reportar-problema');
+            unhide('btn-notifications');
+
+            // Manto o Super
+            if (isSupervisor || isMantenimiento) {
+                unhide('btn-ver-problemas');
+            }
+
+            // Super solo
+            if (isSupervisor) {
+                const superIds = [
+                    'btn-catalogo-items', 'btn-historial', 'btn-informe-diario', 'btn-importar-datos',
+                    'btn-registrar-usuario', 'btn-gestion-usuarios', 'btn-estadisticas',
+                    'btn-estados-cajas', 'btn-buscar-prestamo', 'btn-buscar-reporte',
+                    'onedrive-supervisor-box'
+                ];
+                superIds.forEach(id => unhide(id));
+                checkAndAutoRenewOneDrive();
+            }
+            const uidUsuarioEspecial = "k2PzZ3iXA4YNrhBADWj2DC6Or202";
+            if (user && user.uid === uidUsuarioEspecial) {
+                unhide('btn-informe-diario');
+            }
+        };
+
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                try {
+                    const userDocRef = doc(db, "users", user.uid);
+                    const userDocSnap = await getDoc(userDocRef);
+                    let userApps = [];
+                    if (userDocSnap.exists()) {
+                        const userData = userDocSnap.data();
+                        currentUserRole = userData.role || 'supervisor';
+                        userApps = Array.isArray(userData.apps) ? userData.apps : [];
+                        localStorage.setItem('userApps', JSON.stringify(userApps));
+                        if (typeof window.refreshGlobalSidebar === 'function') {
+                            window.refreshGlobalSidebar();
+                        }
+                        const headerName = document.getElementById('header-user-name');
+                        if (headerName) headerName.textContent = userData.name || user.email;
+                    } else {
+                        currentUserRole = 'supervisor';
+                        const headerName = document.getElementById('header-user-name');
+                        if (headerName) headerName.textContent = user.email;
+                    }
+                    manageMenuVisibility(currentUserRole, user, userApps);
+                    setupTicketNotifications(db, collection, query, where, onSnapshot, user, currentUserRole);
+                } catch (error) {
+                    console.error("Error al obtener datos:", error);
+                    manageMenuVisibility('supervisor', null, []);
+                }
+            } else {
+                window.location.href = '../login.html';
+            }
+        });
+
+        const setupRoute = (id, path) => {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('click', () => window.location.href = path);
+        }
+
+        setupRoute('btn-cajas', 'modelos-de-cajas.html');
+        setupRoute('btn-flujos', '../flujos/index.html');
+        setupRoute('btn-historial', 'lista-historial.html');
+        setupRoute('btn-informe-diario', 'informe-diario.html');
+        setupRoute('btn-cuenta', 'cuenta.html');
+        setupRoute('btn-importar-datos', 'redir-import.html');
+        setupRoute('btn-registrar-usuario', 'register.html');
+        setupRoute('btn-gestion-usuarios', 'gestion-usuarios.html');
+        setupRoute('btn-estadisticas', 'estadisticas.html');
+        setupRoute('btn-estados-cajas', 'estados-cajas.html');
+        setupRoute('btn-reportar-problema', 'reportar-problema.html');
+        setupRoute('btn-ver-problemas', 'ver-problemas.html');
+        setupRoute('btn-buscar-prestamo', 'buscar-por-prestamo.html');
+        setupRoute('btn-buscar-reporte', 'buscar-reporte.html');
+        setupRoute('btn-catalogo-items', 'catalogo-items.html');
+
+        document.getElementById('btn-tickets')?.addEventListener('click', () => {
+            window.location.href = currentUserRole === 'supervisor' ? 'tickets-supervisor.html' : 'tickets-operador.html';
+        });
+
+        document.getElementById('btn-notifications')?.addEventListener('click', () => {
+            if (swRegistration) requestNotificationPermission(swRegistration);
+            else alert('El servicio no está listo. Recarga la página.');
+        });
+    </script>
+
+    <script type="module">import '../js/theme.js';</script>
+</body>
+
+</html>

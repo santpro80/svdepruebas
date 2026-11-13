@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub Comercial, Logística & Sucursales - TERIAN ERP</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: #f8fafc;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: #0f172a;
+        }
+        .card-hover {
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 30px -10px rgba(79, 70, 229, 0.14);
+        }
+        .suc-badge {
+            transition: all 0.2s ease;
+        }
+        .suc-badge:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Top Header -->
+    <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center text-indigo-400 font-black text-sm">
+                    CM
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="text-base sm:text-lg font-bold tracking-tight">Comercial, Préstamos Quirúrgicos & Sucursales</h1>
+                        <span class="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-indigo-500/20 text-indigo-300 rounded-full border border-indigo-500/30">COBOL → Web v3.0</span>
+                    </div>
+                    <p class="text-xs text-slate-400">Reemplazo unificado de <code class="text-indigo-300">VI0201N2.COB</code>, <code class="text-indigo-300">VIA34/35</code>, <code class="text-indigo-300">VIA02/38/44/47</code>, <code class="text-indigo-300">INTEGRA_CHECK</code> y <code class="text-indigo-300">GEOREF_LOC</code></p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 sm:gap-3">
+                <a href="remitos-prestamos.html" class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs font-semibold text-white transition flex items-center gap-1.5 shadow-sm">
+                    <i class="fa-solid fa-truck-medical"></i>
+                    <span class="hidden sm:inline">Emitir Remito / Préstamo</span>
+                </a>
+                <a href="../supervisor/menu.html" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-200 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-boxes-stacked text-indigo-400"></i>
+                    <span class="hidden sm:inline">Trazabilidad Cajas</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+        <!-- KPIs -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Remitos / Préstamos (VIA34)</span>
+                    <span class="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center"><i class="fa-solid fa-file-medical"></i></span>
+                </div>
+                <div class="mt-3 flex items-baseline gap-2">
+                    <span id="kpi-remitos-total" class="text-2xl font-black text-slate-900">45</span>
+                    <span id="kpi-remitos-cirugia" class="text-xs font-semibold text-indigo-600">En cirugía hoy</span>
+                </div>
+                <p class="mt-1 text-xs text-slate-500">Sincronizados con <code class="text-slate-700">02-XXXX-*.TXT</code> y Cajas</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Clientes & Obras Sociales (VIA02)</span>
+                    <span class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center"><i class="fa-solid fa-hospital-user"></i></span>
+                </div>
+                <div class="mt-3 flex items-baseline gap-2">
+                    <span id="kpi-clientes-total" class="text-2xl font-black text-slate-900">250</span>
+                    <span class="text-xs font-semibold text-blue-600">Padrones activos</span>
+                </div>
+                <p class="mt-1 text-xs text-slate-500">Clínicas, Obras Sociales, ART y Ortopedias</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Médicos & Proveedores</span>
+                    <span class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center"><i class="fa-solid fa-user-doctor"></i></span>
+                </div>
+                <div class="mt-3 flex items-baseline gap-2">
+                    <span id="kpi-medicos-total" class="text-2xl font-black text-slate-900">245</span>
+                    <span id="kpi-proveedores-total" class="text-xs font-semibold text-emerald-600">+ 200 Proveedores</span>
+                </div>
+                <p class="mt-1 text-xs text-slate-500">Maestros <code class="text-slate-700">VIA38</code> y <code class="text-slate-700">VIA44</code> unificados</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Red Multi-Sucursal (VIA47)</span>
+                    <span class="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center"><i class="fa-solid fa-network-wired"></i></span>
+                </div>
+                <div class="mt-3 flex items-baseline gap-2">
+                    <span id="kpi-sucursales-total" class="text-2xl font-black text-slate-900">11</span>
+                    <span class="text-xs font-semibold text-amber-600">.04 Caseros a .26 Córdoba</span>
+                </div>
+                <p class="mt-1 text-xs text-slate-500">Numeración independiente por punto de venta</p>
+            </div>
+        </section>
+
+        <!-- Submódulos Comerciales Principales -->
+        <section>
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <h2 class="text-lg font-bold text-slate-900">Módulos Comerciales, Logística Quirúrgica & Padrones</h2>
+                    <p class="text-xs text-slate-500">Seleccioná un área operativa para gestionar préstamos de cajas, padrones maestros o facturación</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card 1: Remitos y Préstamos Quirúrgicos -->
+                <a href="remitos-prestamos.html" class="card-hover bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl font-bold group-hover:bg-indigo-600 group-hover:text-white transition">
+                                <i class="fa-solid fa-truck-medical"></i>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">
+                                VI0201N2 + INTEGRA_CHECK
+                            </span>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 group-hover:text-indigo-600 transition">Remitos & Préstamos Quirúrgicos</h3>
+                        <p class="mt-2 text-xs text-slate-600 leading-relaxed">
+                            Emisión y seguimiento de Préstamos Quirúrgicos (<code class="text-slate-800">P</code>) y Remitos Seriados (<code class="text-slate-800">S</code>) por sucursal (<code class="text-slate-800">.04</code> a <code class="text-slate-800">.26</code>). Vinculación directa con series de cajas (<code class="text-slate-800">AX2066</code>, <code class="text-slate-800">BD6590</code>) y exportación logística CSV (<code class="text-slate-800">ENVIOS.TXT</code>).
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-indigo-600">
+                        <span>Abrir Remitos y Préstamos</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                    </div>
+                </a>
+
+                <!-- Card 2: Maestros Comerciales + Georef -->
+                <a href="maestros-comerciales.html" class="card-hover bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl font-bold group-hover:bg-emerald-600 group-hover:text-white transition">
+                                <i class="fa-solid fa-address-book"></i>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                                VIA02 / VIA38 / GEOREF
+                            </span>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 group-hover:text-emerald-600 transition">Clientes, Médicos, Proveedores & Georef</h3>
+                        <p class="mt-2 text-xs text-slate-600 leading-relaxed">
+                            Directorio unificado con buscador instantáneo y alta/edición de Clientes (<code class="text-slate-800">VIA02</code>), Médicos Cirujanos (<code class="text-slate-800">VIA38</code>), Proveedores (<code class="text-slate-800">VIA44</code>), Sucursales (<code class="text-slate-800">VIA47</code>) y Normalizador Oficial <code class="text-slate-800">apis.datos.gob.ar/georef</code>.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-emerald-600">
+                        <span>Explorar Padrones y Georef</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                    </div>
+                </a>
+
+                <!-- Card 3: Facturación Electrónica AFIP / ARCA & ANMAT -->
+                <a href="facturacion-afip.html" class="card-hover bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl font-bold group-hover:bg-amber-600 group-hover:text-white transition">
+                                <i class="fa-solid fa-file-invoice-dollar"></i>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-50 text-amber-700 border border-amber-200">
+                                WSFEv1 + QR + Ley 27.743
+                            </span>
+                        </div>
+                        <h3 class="text-base font-bold text-slate-900 group-hover:text-amber-600 transition">Facturación AFIP / ARCA, Ctas. Ctes. & ANMAT</h3>
+                        <p class="mt-2 text-xs text-slate-600 leading-relaxed">
+                            Liquidación de remitos a Factura Electrónica (<code class="text-slate-800">FACWSFE</code>), generación de CAE y QR oficial AFIP, transparencia fiscal Ley 27.743, Cuentas Corrientes (<code class="text-slate-800">VIA13/VIA23</code>) y trazabilidad ANMAT/GCBA.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-amber-600">
+                        <span>Ir a Facturación y Finanzas</span>
+                        <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Red de 11 Sucursales (VIA47) + Últimos Despachos Quirúrgicos -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Panel Izquierdo: Red de Sucursales -->
+            <section class="bg-white rounded-2xl border border-slate-200/90 shadow-sm p-5 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <div>
+                            <h3 class="text-sm font-bold text-slate-900">Red de Sucursales (<code class="text-indigo-600">VIA47</code>)</h3>
+                            <p class="text-xs text-slate-500">Archivos <code class="text-slate-700">VIA34.XX</code> y <code class="text-slate-700">VIA35.XX</code> por jurisdicción</p>
+                        </div>
+                        <a href="maestros-comerciales.html?tab=sucursales" class="text-xs font-semibold text-indigo-600 hover:underline">Ver detalle</a>
+                    </div>
+                    <div id="grid-sucursales" class="space-y-2 mt-3 max-h-[360px] overflow-y-auto pr-1">
+                        <div class="text-xs text-slate-400 py-4 text-center">Cargando sucursales...</div>
+                    </div>
+                </div>
+                <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+                    <span>Sincronizado con <code class="text-slate-700">sucursales.json</code></span>
+                    <span class="text-emerald-600 font-semibold"><i class="fa-solid fa-circle-check mr-1"></i>11 Activas</span>
+                </div>
+            </section>
+
+            <!-- Panel Derecho: Últimos Remitos y Préstamos Quirúrgicos -->
+            <section class="lg:col-span-2 bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden flex flex-col justify-between">
+                <div>
+                    <div class="px-6 py-4 border-b border-slate-100 flex flex-wrap items-center justify-between gap-2">
+                        <div>
+                            <h3 class="text-sm font-bold text-slate-900">Últimos Remitos & Cajas Quirúrgicas Despachadas (<code class="text-indigo-600">02-XXXX-*.TXT</code>)</h3>
+                            <p class="text-xs text-slate-500">Integración directa con Trazabilidad de Cajas (<code class="text-slate-700">AX2066</code>, <code class="text-slate-700">AX2052</code>, <code class="text-slate-700">BD6590</code>)</p>
+                        </div>
+                        <a href="remitos-prestamos.html" class="text-xs font-semibold text-indigo-600 hover:text-indigo-500 flex items-center gap-1">
+                            <span>Ver todos los remitos</span>
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </a>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-slate-50/70 text-[11px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-100">
+                                    <th class="py-3 px-4">Remito / Suc.</th>
+                                    <th class="py-3 px-4">Fecha</th>
+                                    <th class="py-3 px-4">Cliente / Médico</th>
+                                    <th class="py-3 px-4">Cajas Serie</th>
+                                    <th class="py-3 px-4">Estado</th>
+                                    <th class="py-3 px-4 text-right">Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabla-ultimos-remitos" class="divide-y divide-slate-100 text-xs">
+                                <tr>
+                                    <td colspan="6" class="py-8 text-center text-slate-400">Cargando remitos reales de WSFESA...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="px-6 py-3 bg-slate-50/60 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+                    <span>Puente de integración: <code class="text-indigo-600 font-semibold">/api/caja/existe</code> · <code class="text-indigo-600 font-semibold">/api/caja/renombrar</code> · <code class="text-indigo-600 font-semibold">/api/caja/anular</code></span>
+                    <a href="../supervisor/buscar-por-prestamo.html" class="text-indigo-600 font-semibold hover:underline">Buscar Caja por Préstamo →</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script type="module" src="../js/global-sidebar.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maestros Comerciales & Normalizador Georef - TERIAN ERP</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: #f8fafc;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: #0f172a;
+        }
+        .tab-btn.active {
+            background: #4f46e5;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Top Bar -->
+    <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <a href="menu.html" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-slate-300 transition" title="Volver al Hub Comercial">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="text-base sm:text-lg font-bold tracking-tight">Maestros Comerciales, Médicos, Sucursales & Georef</h1>
+                        <span class="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 rounded-full border border-emerald-500/30">VIA02 · VIA38 · VIA44 · VIA47</span>
+                    </div>
+                    <p class="text-xs text-slate-400">Padrones unificados desde archivos indexados COBOL + Normalizador Oficial <code class="text-emerald-300">apis.datos.gob.ar/georef</code></p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button id="btn-nuevo-registro" class="px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs font-semibold text-white transition flex items-center gap-1.5 shadow-sm">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <span>Alta en Padrón</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+        <!-- Navegación por Pestañas (Tabs) -->
+        <section class="bg-white rounded-2xl p-4 border border-slate-200/90 shadow-sm flex flex-wrap items-center justify-between gap-3">
+            <div class="flex flex-wrap items-center gap-2">
+                <button data-tab="clientes" class="tab-btn active px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition flex items-center gap-2">
+                    <i class="fa-solid fa-hospital-user"></i>
+                    <span>Clientes & Obras Sociales (<span id="badge-clientes">250</span>)</span>
+                </button>
+                <button data-tab="medicos" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition flex items-center gap-2">
+                    <i class="fa-solid fa-user-doctor"></i>
+                    <span>Médicos Cirujanos (<span id="badge-medicos">245</span>)</span>
+                </button>
+                <button data-tab="proveedores" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition flex items-center gap-2">
+                    <i class="fa-solid fa-industry"></i>
+                    <span>Proveedores (<span id="badge-proveedores">200</span>)</span>
+                </button>
+                <button data-tab="sucursales" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition flex items-center gap-2">
+                    <i class="fa-solid fa-network-wired"></i>
+                    <span>Sucursales (<span id="badge-sucursales">11</span>)</span>
+                </button>
+                <button data-tab="georef" class="tab-btn px-3.5 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition flex items-center gap-2">
+                    <i class="fa-solid fa-map-location-dot text-emerald-500"></i>
+                    <span>Normalizador Georef AR</span>
+                </button>
+            </div>
+
+            <!-- Buscador rápido -->
+            <div id="buscador-container" class="relative w-full sm:w-72">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                <input id="input-filtro-maestro" type="text" placeholder="Filtrar por nombre, código o CUIT..." class="w-full pl-8 pr-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+        </section>
+
+        <!-- Contenedor Tabla de Padrones (Clientes / Médicos / Proveedores / Sucursales) -->
+        <section id="panel-tabla-maestros" class="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead id="thead-maestros" class="bg-slate-50 text-[11px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-200/80">
+                    </thead>
+                    <tbody id="tbody-maestros" class="divide-y divide-slate-100 text-xs">
+                        <tr>
+                            <td class="py-10 text-center text-slate-400">Cargando padrón maestro...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Panel Especial: Normalizador Geográfico Oficial (Reemplaza GEOREF_LOC.VBS + VIGEO01.COB) -->
+        <section id="panel-georef" class="hidden bg-white rounded-2xl border border-slate-200/90 shadow-sm p-6 space-y-5">
+            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h2 class="text-base font-bold text-slate-900">Normalizador Geográfico Oficial Georef Argentina</h2>
+                        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">Reemplaza GEOREF_LOC.VBS + VIGEO01.COB</span>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-0.5">Consulta en tiempo real a <code class="text-indigo-600">https://apis.datos.gob.ar/georef/api/localidades</code> para validar localidades, departamentos y códigos INDEC de clientes y sucursales.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 items-end">
+                <div class="sm:col-span-2">
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Localidad a Normalizar *</label>
+                    <input id="georef-localidad" type="text" value="CASEROS" placeholder="Ej: CASEROS, MAR DEL PLATA, RESISTENCIA, ROSARIO..." class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs uppercase">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1">Provincia (Opcional)</label>
+                    <select id="georef-provincia" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white">
+                        <option value="">Todas las provincias</option>
+                        <option value="Buenos Aires">Buenos Aires</option>
+                        <option value="Ciudad Autónoma de Buenos Aires">CABA</option>
+                        <option value="Córdoba">Córdoba</option>
+                        <option value="Santa Fe">Santa Fe</option>
+                        <option value="Entre Ríos">Entre Ríos</option>
+                        <option value="Chaco">Chaco</option>
+                        <option value="Jujuy">Jujuy</option>
+                        <option value="Mendoza">Mendoza</option>
+                        <option value="Tucumán">Tucumán</option>
+                    </select>
+                </div>
+                <div>
+                    <button id="btn-consultar-georef" class="w-full px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs shadow-sm transition flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-satellite-dish"></i>
+                        <span>Consultar API Georef</span>
+                    </button>
+                </div>
+            </div>
+
+            <div id="georef-resultados" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 pt-2">
+                <div class="col-span-full text-xs text-slate-400 py-6 text-center">
+                    Ingresá una localidad y presioná "Consultar API Georef" para obtener el código INDEC, partido/departamento y coordenadas oficiales.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal: Alta en Padrón (Cliente / Médico / Proveedor) -->
+    <div id="modal-alta-maestro" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl border border-slate-200 overflow-hidden">
+            <div class="px-6 py-4 bg-slate-900 text-white flex items-center justify-between">
+                <h3 class="text-sm font-bold">Alta de Registro en Padrón Maestro</h3>
+                <button id="btn-cerrar-modal-alta" class="text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <form id="form-alta-maestro" class="p-6 space-y-4 text-xs">
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">Tipo de Padrón *</label>
+                    <select id="alta-tipo" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white">
+                        <option value="clientes">Cliente / Obra Social / Clínica (VIA02)</option>
+                        <option value="medicos">Médico Cirujano (VIA38)</option>
+                        <option value="proveedores">Proveedor Industrial (VIA44)</option>
+                    </select>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Código / Legajo *</label>
+                        <input id="alta-codigo" type="text" required placeholder="Ej: 09540" class="w-full px-3 py-2 rounded-xl border border-slate-200 font-mono uppercase">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">CUIT / Matrícula *</label>
+                        <input id="alta-cuit" type="text" required placeholder="Ej: 30-71234567-9 o MN 94120" class="w-full px-3 py-2 rounded-xl border border-slate-200 font-mono uppercase">
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">Razón Social / Apellido y Nombre *</label>
+                    <input id="alta-nombre" type="text" required placeholder="Ej: SANATORIO QUIRURGICO MODELO S.A." class="w-full px-3 py-2 rounded-xl border border-slate-200 uppercase">
+                </div>
+                <div class="pt-3 border-t border-slate-100 flex justify-end gap-2">
+                    <button type="button" id="btn-cancelar-alta" class="px-4 py-2 rounded-xl border border-slate-200 text-slate-600 font-semibold">Cancelar</button>
+                    <button type="submit" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold">Guardar en Padrón</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="../js/global-sidebar.js"></script>
+    <script src="js/maestros-comerciales.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,4433 @@
+﻿[
+    {
+        "id":  "0005-00002729",
+        "puntoVenta":  "0005",
+        "numero":  "00002729",
+        "sucursalExt":  ".05",
+        "sucursalNombre":  "Sucursal La Plata",
+        "fecha":  "2026-11-05",
+        "hora":  "10:13",
+        "tipo":  "S",
+        "tipoDesc":  "Remito Seriado a Facturar",
+        "estado":  "EN_CIRUGIA",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10450",
+        "nroOrden":  "OC-88400",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "EXPRESO SUCURSAL .05",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  3,
+        "items":  [
+                      {
+                          "codigo":  "105100002729202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  "9019199044"
+                      },
+                      {
+                          "codigo":  "105100002729202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "20005100002729B",
+                          "cantidad":  1,
+                          "descripcion":  "11050005000000009199044CAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      }
+                  ],
+        "archivoOrigen":  "02-0005-00002729.TXT"
+    },
+    {
+        "id":  "0005-00002728",
+        "puntoVenta":  "0005",
+        "numero":  "00002728",
+        "sucursalExt":  ".05",
+        "sucursalNombre":  "Sucursal La Plata",
+        "fecha":  "2026-11-05",
+        "hora":  "09:52",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "EN_CIRUGIA",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10467",
+        "nroOrden":  "OC-88401",
+        "gerenciador":  "IOMA / CONVENIO ORTOPEDIA",
+        "transporte":  "EXPRESO SUCURSAL .05",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  5,
+        "items":  [
+                      {
+                          "codigo":  "105100002728202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  "8019199049"
+                      },
+                      {
+                          "codigo":  "105100002728202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  "8029199050"
+                      },
+                      {
+                          "codigo":  "105100002728202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "20005100002728A",
+                          "cantidad":  1,
+                          "descripcion":  "11050005000000009199049CAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      },
+                      {
+                          "codigo":  "20005100002728A",
+                          "cantidad":  1,
+                          "descripcion":  "11050005000000009199050CAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      }
+                  ],
+        "archivoOrigen":  "02-0005-00002728.TXT"
+    },
+    {
+        "id":  "0024-00000643",
+        "puntoVenta":  "0024",
+        "numero":  "00000643",
+        "sucursalExt":  ".24",
+        "sucursalNombre":  "Sucursal Chaco (Resistencia)",
+        "fecha":  "2026-11-05",
+        "hora":  "09:22",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "EN_CIRUGIA",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10484",
+        "nroOrden":  "OC-88402",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "EXPRESO SUCURSAL .24",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  2,
+        "items":  [
+                      {
+                          "codigo":  "124100000643202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "3019099001"
+                      },
+                      {
+                          "codigo":  "20024100000643A",
+                          "cantidad":  1,
+                          "descripcion":  "11050024000000009099001CAJAS",
+                          "serieCaja":  "RODILLA"
+                      }
+                  ],
+        "archivoOrigen":  "02-0024-00000643.TXT"
+    },
+    {
+        "id":  "0004-00045711",
+        "puntoVenta":  "0004",
+        "numero":  "00045711",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-11-05",
+        "hora":  "09:06",
+        "tipo":  "S",
+        "tipoDesc":  "Remito Seriado a Facturar",
+        "estado":  "EN_CIRUGIA",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10501",
+        "nroOrden":  "OC-88403",
+        "gerenciador":  "IOMA / CONVENIO ORTOPEDIA",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  15,
+        "items":  [
+                      {
+                          "codigo":  "104100045711202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  "1019199036"
+                      },
+                      {
+                          "codigo":  "104100045711202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045711202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045711202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045711202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045711202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045711202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045711202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  "1089199036"
+                      },
+                      {
+                          "codigo":  "104100045711202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045711202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045711202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045711202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045711202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "20004100045711A",
+                          "cantidad":  1,
+                          "descripcion":  "11050004000000009199036CAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      },
+                      {
+                          "codigo":  "20004100045711A",
+                          "cantidad":  1,
+                          "descripcion":  "11050004000000009199036CAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045711.TXT"
+    },
+    {
+        "id":  "0007-00003676",
+        "puntoVenta":  "0007",
+        "numero":  "00003676",
+        "sucursalExt":  ".07",
+        "sucursalNombre":  "Sucursal Mar del Plata",
+        "fecha":  "2026-11-05",
+        "hora":  "08:09",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "EN_CIRUGIA",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10518",
+        "nroOrden":  "OC-88404",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "EXPRESO SUCURSAL .07",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  4,
+        "items":  [
+                      {
+                          "codigo":  "107100003676202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000M  S 00 000000000000          0710000367",
+                          "serieCaja":  "60191990TO"
+                      },
+                      {
+                          "codigo":  "107100003676202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000M  S 00 000000000000          0710000367",
+                          "serieCaja":  "60291990CO"
+                      },
+                      {
+                          "codigo":  "20007100003676A",
+                          "cantidad":  1,
+                          "descripcion":  "110500070000000091990COGENERICOS",
+                          "serieCaja":  "INSTRUMENT"
+                      },
+                      {
+                          "codigo":  "20007100003676A",
+                          "cantidad":  1,
+                          "descripcion":  "110500070000000091990TOCAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      }
+                  ],
+        "archivoOrigen":  "02-0007-00003676.TXT"
+    },
+    {
+        "id":  "0024-00000642",
+        "puntoVenta":  "0024",
+        "numero":  "00000642",
+        "sucursalExt":  ".24",
+        "sucursalNombre":  "Sucursal Chaco (Resistencia)",
+        "fecha":  "2026-11-04",
+        "hora":  "15:34",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "EN_CIRUGIA",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10535",
+        "nroOrden":  "OC-88405",
+        "gerenciador":  "IOMA / CONVENIO ORTOPEDIA",
+        "transporte":  "EXPRESO SUCURSAL .24",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  46,
+        "items":  [
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "20135089C1"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "20235089C4"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "20335089C3"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "20435089D3"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "20535089D2"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "20635089C2"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "20735089D4"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "20835089F2"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "20932088V6"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "21032088V7"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "21132088V5"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "21232088V4"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "21333088R3"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "21433088R1"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "21534088T6"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "21634088T5"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "21733088R2"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "21832088V1"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "21934088T4"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "22034088T1"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "22134088T2"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "22234088T3"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "22390990AP"
+                      },
+                      {
+                          "codigo":  "20024100000642A",
+                          "cantidad":  1,
+                          "descripcion":  "110400240000000090990APCAJAS",
+                          "serieCaja":  "GUIA"
+                      },
+                      {
+                          "codigo":  "20024100000642B",
+                          "cantidad":  1,
+                          "descripcion":  "110400240000000032088V6RODILLA MODULAR I. BU",
+                          "serieCaja":  "RSTEIN"
+                      }
+                  ],
+        "archivoOrigen":  "02-0024-00000642.TXT"
+    },
+    {
+        "id":  "0004-00045710",
+        "puntoVenta":  "0004",
+        "numero":  "00045710",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-11-04",
+        "hora":  "15:03",
+        "tipo":  "S",
+        "tipoDesc":  "Remito Seriado a Facturar",
+        "estado":  "EN_CIRUGIA",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10552",
+        "nroOrden":  "OC-88406",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  4,
+        "items":  [
+                      {
+                          "codigo":  "104100045710202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  "0019099902"
+                      },
+                      {
+                          "codigo":  "104100045710202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  "0025224035"
+                      },
+                      {
+                          "codigo":  "20004100045710A",
+                          "cantidad":  1,
+                          "descripcion":  "11040004000000009099902CAJAS",
+                          "serieCaja":  "CUPULA"
+                      },
+                      {
+                          "codigo":  "20004100045710C",
+                          "cantidad":  1,
+                          "descripcion":  "11040004000000005224035TORNILLOS",
+                          "serieCaja":  "TORN"
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045710.TXT"
+    },
+    {
+        "id":  "0008-00000944",
+        "puntoVenta":  "0008",
+        "numero":  "00000944",
+        "sucursalExt":  ".08",
+        "sucursalNombre":  "Sucursal Bahia Blanca",
+        "fecha":  "2026-11-04",
+        "hora":  "14:38",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "EN_CIRUGIA",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10569",
+        "nroOrden":  "OC-88407",
+        "gerenciador":  "IOMA / CONVENIO ORTOPEDIA",
+        "transporte":  "EXPRESO SUCURSAL .08",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  2,
+        "items":  [
+                      {
+                          "codigo":  "108100000944202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000C  S 00 000000000000          0810000094",
+                          "serieCaja":  "4015224020"
+                      },
+                      {
+                          "codigo":  "20008100000944B",
+                          "cantidad":  1,
+                          "descripcion":  "11040008000000005224020TORNILLOS",
+                          "serieCaja":  "TORN"
+                      }
+                  ],
+        "archivoOrigen":  "02-0008-00000944.TXT"
+    },
+    {
+        "id":  "0005-00002727",
+        "puntoVenta":  "0005",
+        "numero":  "00002727",
+        "sucursalExt":  ".05",
+        "sucursalNombre":  "Sucursal La Plata",
+        "fecha":  "2026-11-04",
+        "hora":  "14:35",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "EN_CIRUGIA",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10586",
+        "nroOrden":  "OC-88408",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "EXPRESO SUCURSAL .05",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  4,
+        "items":  [
+                      {
+                          "codigo":  "105100002727202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000A  S 00 000000000000          0510000272",
+                          "serieCaja":  "7011105349"
+                      },
+                      {
+                          "codigo":  "105100002727202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000A  S 00 000000000000          0510000272",
+                          "serieCaja":  "70211053B5"
+                      },
+                      {
+                          "codigo":  "20005100002727B",
+                          "cantidad":  1,
+                          "descripcion":  "11040005000000001105349ACETABULO NO CEMENTEN",
+                          "serieCaja":  "TADO"
+                      },
+                      {
+                          "codigo":  "20005100002727B",
+                          "cantidad":  1,
+                          "descripcion":  "110400050000000011053B5ACETABULO NO CEMENTEN",
+                          "serieCaja":  "TADO"
+                      }
+                  ],
+        "archivoOrigen":  "02-0005-00002727.TXT"
+    },
+    {
+        "id":  "0008-00000943",
+        "puntoVenta":  "0008",
+        "numero":  "00000943",
+        "sucursalExt":  ".08",
+        "sucursalNombre":  "Sucursal Bahia Blanca",
+        "fecha":  "2026-11-04",
+        "hora":  "14:33",
+        "tipo":  "S",
+        "tipoDesc":  "Remito Seriado a Facturar",
+        "estado":  "EN_CIRUGIA",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10603",
+        "nroOrden":  "OC-88409",
+        "gerenciador":  "IOMA / CONVENIO ORTOPEDIA",
+        "transporte":  "EXPRESO SUCURSAL .08",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  4,
+        "items":  [
+                      {
+                          "codigo":  "108100000943202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000C  S 00 000000000000          0810000094",
+                          "serieCaja":  "3011105341"
+                      },
+                      {
+                          "codigo":  "108100000943202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000C  S 00 000000000000          0810000094",
+                          "serieCaja":  "30211053A1"
+                      },
+                      {
+                          "codigo":  "20008100000943B",
+                          "cantidad":  1,
+                          "descripcion":  "11040008000000001105341ACETABULO NO CEMENTEN",
+                          "serieCaja":  "TADO"
+                      },
+                      {
+                          "codigo":  "20008100000943B",
+                          "cantidad":  1,
+                          "descripcion":  "110400080000000011053A1ACETABULO NO CEMENTEN",
+                          "serieCaja":  "TADO"
+                      }
+                  ],
+        "archivoOrigen":  "02-0008-00000943.TXT"
+    },
+    {
+        "id":  "0004-00045705",
+        "puntoVenta":  "0004",
+        "numero":  "00045705",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-11-04",
+        "hora":  "14:32",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "EN_CIRUGIA",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10620",
+        "nroOrden":  "OC-88410",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  2,
+        "items":  [
+                      {
+                          "codigo":  "104100045705202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "5012307043"
+                      },
+                      {
+                          "codigo":  "20004100045705C",
+                          "cantidad":  1,
+                          "descripcion":  "11040004000000002307043THOMPSON TALLO STANDA",
+                          "serieCaja":  ""
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045705.TXT"
+    },
+    {
+        "id":  "0004-00045704",
+        "puntoVenta":  "0004",
+        "numero":  "00045704",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-11-04",
+        "hora":  "14:11",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "EN_CIRUGIA",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10637",
+        "nroOrden":  "OC-88411",
+        "gerenciador":  "IOMA / CONVENIO ORTOPEDIA",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  66,
+        "items":  [
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4015224025"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4025224025"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4035224025"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4045224020"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4055224020"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4065224035"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4075224035"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4085224030"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4095224030"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4105224030"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4115224020"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "41213055AF"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "41309051H2"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "41411053A1"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4151105340"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "41611053B2"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4171105343"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "41811053B4"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4191105347"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4201105341"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "42111053A1"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4221105346"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "42311053B4"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "42411053B5"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4251105348"
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045704.TXT"
+    },
+    {
+        "id":  "0004-00045703",
+        "puntoVenta":  "0004",
+        "numero":  "00045703",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-11-04",
+        "hora":  "13:57",
+        "tipo":  "S",
+        "tipoDesc":  "Remito Seriado a Facturar",
+        "estado":  "ENTREGADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10654",
+        "nroOrden":  "OC-88412",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  40,
+        "items":  [
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3015015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3025015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3035015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3045015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3055015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3065015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3075015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3085015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3095015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3105015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3115015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3125015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3135015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3145015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3155015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3165015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3175015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3185015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3195015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3205015400"
+                      },
+                      {
+                          "codigo":  "20004100045703C",
+                          "cantidad":  1,
+                          "descripcion":  "11040004000000005015400ELEMENTOS VARIOS",
+                          "serieCaja":  "CEMENTO"
+                      },
+                      {
+                          "codigo":  "20004100045703C",
+                          "cantidad":  1,
+                          "descripcion":  "11040004000000005015400ELEMENTOS VARIOS",
+                          "serieCaja":  "CEMENTO"
+                      },
+                      {
+                          "codigo":  "20004100045703C",
+                          "cantidad":  1,
+                          "descripcion":  "11040004000000005015400ELEMENTOS VARIOS",
+                          "serieCaja":  "CEMENTO"
+                      },
+                      {
+                          "codigo":  "20004100045703C",
+                          "cantidad":  1,
+                          "descripcion":  "11040004000000005015400ELEMENTOS VARIOS",
+                          "serieCaja":  "CEMENTO"
+                      },
+                      {
+                          "codigo":  "20004100045703C",
+                          "cantidad":  1,
+                          "descripcion":  "11040004000000005015400ELEMENTOS VARIOS",
+                          "serieCaja":  "CEMENTO"
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045703.TXT"
+    },
+    {
+        "id":  "0004-00045702",
+        "puntoVenta":  "0004",
+        "numero":  "00045702",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-11-04",
+        "hora":  "13:36",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "ENTREGADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10671",
+        "nroOrden":  "OC-88413",
+        "gerenciador":  "IOMA / CONVENIO ORTOPEDIA",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  66,
+        "items":  [
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2015015400"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2025015400"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2035015400"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2045015400"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2055015400"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2065015400"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2075015400"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2085015400"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2095015400"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2105015400"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2115015400"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2125015400"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2135015900"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2145015900"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2155015900"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2165015900"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2175015900"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2185016300"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2195016300"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2205016300"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2215016300"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2225016300"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2235016300"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2245016300"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2255016300"
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045702.TXT"
+    },
+    {
+        "id":  "0004-00045701",
+        "puntoVenta":  "0004",
+        "numero":  "00045701",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-11-04",
+        "hora":  "13:29",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "ENTREGADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10688",
+        "nroOrden":  "OC-88414",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  38,
+        "items":  [
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "10132079B1"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "1022707403"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "1032707404"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "10432079SK"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "10532079D1"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "1063207964"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "10732079SK"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "10832079D1"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "1093207964"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "11032079SK"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "1113207960"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "11212054OP"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "11309051H1"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "11409051F1"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "11521064C1"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "1162307041"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "11710052F1"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "1181706202"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "11910052F2"
+                      },
+                      {
+                          "codigo":  "20004100045701B",
+                          "cantidad":  1,
+                          "descripcion":  "110400040000000021064C1MONOBLOCK CUPULA ACET",
+                          "serieCaja":  "ABULAR"
+                      },
+                      {
+                          "codigo":  "20004100045701C",
+                          "cantidad":  1,
+                          "descripcion":  "110400040000000032079B1RODILLA MODULAR I. BU",
+                          "serieCaja":  "RSTEIN"
+                      },
+                      {
+                          "codigo":  "20004100045701C",
+                          "cantidad":  1,
+                          "descripcion":  "110400040000000012054OPCOTILO MENOR CEMENTO",
+                          "serieCaja":  "CUPULA"
+                      },
+                      {
+                          "codigo":  "20004100045701C",
+                          "cantidad":  1,
+                          "descripcion":  "110400040000000009051H1CABEZA INTERCAMBIABLE",
+                          "serieCaja":  "MODULAR"
+                      },
+                      {
+                          "codigo":  "20004100045701C",
+                          "cantidad":  1,
+                          "descripcion":  "11040004000000002307041THOMPSON TALLO STANDA",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "20004100045701C",
+                          "cantidad":  1,
+                          "descripcion":  "11040004000000003207960RODILLA MODULAR I. BU",
+                          "serieCaja":  "RSTEIN"
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045701.TXT"
+    },
+    {
+        "id":  "0004-00045699",
+        "puntoVenta":  "0004",
+        "numero":  "00045699",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-11-04",
+        "hora":  "13:20",
+        "tipo":  "S",
+        "tipoDesc":  "Remito Seriado a Facturar",
+        "estado":  "ENTREGADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10705",
+        "nroOrden":  "OC-88415",
+        "gerenciador":  "IOMA / CONVENIO ORTOPEDIA",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  2,
+        "items":  [
+                      {
+                          "codigo":  "104100045699202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "90190614EX"
+                      },
+                      {
+                          "codigo":  "20004100045699A",
+                          "cantidad":  1,
+                          "descripcion":  "110400040000000090614EXCAJAS",
+                          "serieCaja":  "PARA"
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045699.TXT"
+    },
+    {
+        "id":  "0008-00000942",
+        "puntoVenta":  "0008",
+        "numero":  "00000942",
+        "sucursalExt":  ".08",
+        "sucursalNombre":  "Sucursal Bahia Blanca",
+        "fecha":  "2026-11-04",
+        "hora":  "10:43",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "ENTREGADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10722",
+        "nroOrden":  "OC-88416",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "EXPRESO SUCURSAL .08",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  8,
+        "items":  [
+                      {
+                          "codigo":  "108100000942202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000V  S 00 000000000000          0810000094",
+                          "serieCaja":  "20112054C2"
+                      },
+                      {
+                          "codigo":  "108100000942202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000V  S 00 000000000000          0810000094",
+                          "serieCaja":  "20209051B1"
+                      },
+                      {
+                          "codigo":  "108100000942202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000V  S 00 000000000000          0810000094",
+                          "serieCaja":  "20309051B2"
+                      },
+                      {
+                          "codigo":  "108100000942202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000V  S 00 000000000000          0810000094",
+                          "serieCaja":  "2045224020"
+                      },
+                      {
+                          "codigo":  "20008100000942B",
+                          "cantidad":  1,
+                          "descripcion":  "110400080000000009051B1CABEZA INTERCAMBIABLE",
+                          "serieCaja":  "MODULAR"
+                      },
+                      {
+                          "codigo":  "20008100000942B",
+                          "cantidad":  1,
+                          "descripcion":  "110400080000000009051B2CABEZA INTERCAMBIABLE",
+                          "serieCaja":  "MODULAR"
+                      },
+                      {
+                          "codigo":  "20008100000942B",
+                          "cantidad":  1,
+                          "descripcion":  "110400080000000012054C2COTILO MENOR CEMENTO",
+                          "serieCaja":  "CUPULA"
+                      },
+                      {
+                          "codigo":  "20008100000942C",
+                          "cantidad":  1,
+                          "descripcion":  "11040008000000005224020TORNILLOS",
+                          "serieCaja":  "TORN"
+                      }
+                  ],
+        "archivoOrigen":  "02-0008-00000942.TXT"
+    },
+    {
+        "id":  "0008-00000941",
+        "puntoVenta":  "0008",
+        "numero":  "00000941",
+        "sucursalExt":  ".08",
+        "sucursalNombre":  "Sucursal Bahia Blanca",
+        "fecha":  "2026-11-04",
+        "hora":  "10:38",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "ENTREGADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10739",
+        "nroOrden":  "OC-88417",
+        "gerenciador":  "IOMA / CONVENIO ORTOPEDIA",
+        "transporte":  "EXPRESO SUCURSAL .08",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  2,
+        "items":  [
+                      {
+                          "codigo":  "108100000941202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000V  S 00 000000000000          0810000094",
+                          "serieCaja":  "1019099645"
+                      },
+                      {
+                          "codigo":  "20008100000941A",
+                          "cantidad":  1,
+                          "descripcion":  "11040008000000009099645CAJAS",
+                          "serieCaja":  "TALLO"
+                      }
+                  ],
+        "archivoOrigen":  "02-0008-00000941.TXT"
+    },
+    {
+        "id":  "0005-00002726",
+        "puntoVenta":  "0005",
+        "numero":  "00002726",
+        "sucursalExt":  ".05",
+        "sucursalNombre":  "Sucursal La Plata",
+        "fecha":  "2026-11-04",
+        "hora":  "10:24",
+        "tipo":  "S",
+        "tipoDesc":  "Remito Seriado a Facturar",
+        "estado":  "ENTREGADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10756",
+        "nroOrden":  "OC-88418",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "EXPRESO SUCURSAL .05",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  3,
+        "items":  [
+                      {
+                          "codigo":  "105100002726202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  "6019199047"
+                      },
+                      {
+                          "codigo":  "105100002726202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "20005100002726A",
+                          "cantidad":  1,
+                          "descripcion":  "11040005000000009199047CAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      }
+                  ],
+        "archivoOrigen":  "02-0005-00002726.TXT"
+    },
+    {
+        "id":  "0005-00002725",
+        "puntoVenta":  "0005",
+        "numero":  "00002725",
+        "sucursalExt":  ".05",
+        "sucursalNombre":  "Sucursal La Plata",
+        "fecha":  "2026-11-04",
+        "hora":  "10:23",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "ENTREGADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10773",
+        "nroOrden":  "OC-88419",
+        "gerenciador":  "IOMA / CONVENIO ORTOPEDIA",
+        "transporte":  "EXPRESO SUCURSAL .05",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  8,
+        "items":  [
+                      {
+                          "codigo":  "105100002725202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  "5019199036"
+                      },
+                      {
+                          "codigo":  "105100002725202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  "5029199043"
+                      },
+                      {
+                          "codigo":  "105100002725202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  "5039199036"
+                      },
+                      {
+                          "codigo":  "105100002725202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "105100002725202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "20005100002725A",
+                          "cantidad":  1,
+                          "descripcion":  "11040005000000009199043CAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      },
+                      {
+                          "codigo":  "20005100002725A",
+                          "cantidad":  1,
+                          "descripcion":  "11040005000000009199036CAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      },
+                      {
+                          "codigo":  "20005100002725A",
+                          "cantidad":  1,
+                          "descripcion":  "11040005000000009199036CAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      }
+                  ],
+        "archivoOrigen":  "02-0005-00002725.TXT"
+    },
+    {
+        "id":  "0004-00045698",
+        "puntoVenta":  "0004",
+        "numero":  "00045698",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-11-04",
+        "hora":  "07:58",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "ENTREGADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10790",
+        "nroOrden":  "OC-88420",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  16,
+        "items":  [
+                      {
+                          "codigo":  "104100045698202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "80190023ES"
+                      },
+                      {
+                          "codigo":  "104100045698202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045698202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "8035015500"
+                      },
+                      {
+                          "codigo":  "104100045698202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045698202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "8055015804"
+                      },
+                      {
+                          "codigo":  "104100045698202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "8065015805"
+                      },
+                      {
+                          "codigo":  "104100045698202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "8075015801"
+                      },
+                      {
+                          "codigo":  "104100045698202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "8085015802"
+                      },
+                      {
+                          "codigo":  "104100045698202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "8095015803"
+                      },
+                      {
+                          "codigo":  "20004100045698A",
+                          "cantidad":  1,
+                          "descripcion":  "110400040000000090023ESCAJAS",
+                          "serieCaja":  "PRUEBA"
+                      },
+                      {
+                          "codigo":  "20004100045698B",
+                          "cantidad":  1,
+                          "descripcion":  "11040004000000005015805ELEMENTOS VARIOS",
+                          "serieCaja":  "ESPACIADOR"
+                      },
+                      {
+                          "codigo":  "20004100045698C",
+                          "cantidad":  1,
+                          "descripcion":  "11040004000000005015801ELEMENTOS VARIOS",
+                          "serieCaja":  "ESPACIADOR"
+                      },
+                      {
+                          "codigo":  "20004100045698C",
+                          "cantidad":  1,
+                          "descripcion":  "11040004000000005015803ELEMENTOS VARIOS",
+                          "serieCaja":  "ESPACIADOR"
+                      },
+                      {
+                          "codigo":  "20004100045698C",
+                          "cantidad":  1,
+                          "descripcion":  "11040004000000005015804ELEMENTOS VARIOS",
+                          "serieCaja":  "ESPACIADOR"
+                      },
+                      {
+                          "codigo":  "20004100045698C",
+                          "cantidad":  1,
+                          "descripcion":  "11040004000000005015802ELEMENTOS VARIOS",
+                          "serieCaja":  "ESPACIADOR"
+                      },
+                      {
+                          "codigo":  "20004100045698C",
+                          "cantidad":  1,
+                          "descripcion":  "11040004000000005015500ELEMENTOS VARIOS",
+                          "serieCaja":  "CEMENTO"
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045698.TXT"
+    },
+    {
+        "id":  "0008-00000940",
+        "puntoVenta":  "0008",
+        "numero":  "00000940",
+        "sucursalExt":  ".08",
+        "sucursalNombre":  "Sucursal Bahia Blanca",
+        "fecha":  "2026-11-03",
+        "hora":  "16:41",
+        "tipo":  "S",
+        "tipoDesc":  "Remito Seriado a Facturar",
+        "estado":  "ENTREGADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10807",
+        "nroOrden":  "OC-88421",
+        "gerenciador":  "IOMA / CONVENIO ORTOPEDIA",
+        "transporte":  "EXPRESO SUCURSAL .08",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  2,
+        "items":  [
+                      {
+                          "codigo":  "108100000940202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000094",
+                          "serieCaja":  "0019099000"
+                      },
+                      {
+                          "codigo":  "20008100000940A",
+                          "cantidad":  1,
+                          "descripcion":  "11030008000000009099000CAJAS",
+                          "serieCaja":  "RODILLA"
+                      }
+                  ],
+        "archivoOrigen":  "02-0008-00000940.TXT"
+    },
+    {
+        "id":  "0008-00000939",
+        "puntoVenta":  "0008",
+        "numero":  "00000939",
+        "sucursalExt":  ".08",
+        "sucursalNombre":  "Sucursal Bahia Blanca",
+        "fecha":  "2026-11-03",
+        "hora":  "16:31",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "ENTREGADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10824",
+        "nroOrden":  "OC-88422",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "EXPRESO SUCURSAL .08",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  4,
+        "items":  [
+                      {
+                          "codigo":  "108100000939202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "9011505621"
+                      },
+                      {
+                          "codigo":  "108100000939202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "90209051F2"
+                      },
+                      {
+                          "codigo":  "20008100000939C",
+                          "cantidad":  1,
+                          "descripcion":  "110300080000000009051F2CABEZA INTERCAMBIABLE",
+                          "serieCaja":  "MODULAR"
+                      },
+                      {
+                          "codigo":  "20008100000939C",
+                          "cantidad":  1,
+                          "descripcion":  "11030008000000001505621GILIBERTY CUPULAS BIP",
+                          "serieCaja":  "OLAR"
+                      }
+                  ],
+        "archivoOrigen":  "02-0008-00000939.TXT"
+    },
+    {
+        "id":  "0008-00000938",
+        "puntoVenta":  "0008",
+        "numero":  "00000938",
+        "sucursalExt":  ".08",
+        "sucursalNombre":  "Sucursal Bahia Blanca",
+        "fecha":  "2026-11-03",
+        "hora":  "16:13",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "ENTREGADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10841",
+        "nroOrden":  "OC-88423",
+        "gerenciador":  "IOMA / CONVENIO ORTOPEDIA",
+        "transporte":  "EXPRESO SUCURSAL .08",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  64,
+        "items":  [
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "80132079B2"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "80232079B1"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "80332079B6"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "80432079B5"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "80532079B3"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "80632079D3"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "80732079SJ"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "80832079H3"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "80932079D1"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "81032079D2"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "81132079B4"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "8123207960"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "81332079H2"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "8143207972"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "81532079H1"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "81632079H5"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "81732079D4"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "81832079D5"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "81932079F2"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "82032079SN"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "82132079H4"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "82232079F4"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "82332079F6"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "82432079F3"
+                      },
+                      {
+                          "codigo":  "108100000938202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000V  S 00 000000000000          0810000093",
+                          "serieCaja":  "82532079H6"
+                      }
+                  ],
+        "archivoOrigen":  "02-0008-00000938.TXT"
+    },
+    {
+        "id":  "0004-00045697",
+        "puntoVenta":  "0004",
+        "numero":  "00045697",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-11-03",
+        "hora":  "14:46",
+        "tipo":  "S",
+        "tipoDesc":  "Remito Seriado a Facturar",
+        "estado":  "ENTREGADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10858",
+        "nroOrden":  "OC-88424",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  18,
+        "items":  [
+                      {
+                          "codigo":  "104100045697202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  SS00 000000000000          0410004569",
+                          "serieCaja":  "70121064A0"
+                      },
+                      {
+                          "codigo":  "104100045697202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  SS00 000000000000          0410004569",
+                          "serieCaja":  "70209051F3"
+                      },
+                      {
+                          "codigo":  "104100045697202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  SS00 000000000000          0410004569",
+                          "serieCaja":  "70309051F2"
+                      },
+                      {
+                          "codigo":  "104100045697202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  SS00 000000000000          0410004569",
+                          "serieCaja":  "7041706201"
+                      },
+                      {
+                          "codigo":  "104100045697202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  SS00 000000000000          0410004569",
+                          "serieCaja":  "70510052F2"
+                      },
+                      {
+                          "codigo":  "104100045697202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  SS00 000000000000          0410004569",
+                          "serieCaja":  "70610052F2"
+                      },
+                      {
+                          "codigo":  "104100045697202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  SS00 000000000000          0410004569",
+                          "serieCaja":  "70713055AA"
+                      },
+                      {
+                          "codigo":  "104100045697202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  SS00 000000000000          0410004569",
+                          "serieCaja":  "7082707407"
+                      },
+                      {
+                          "codigo":  "104100045697202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  SS00 000000000000          0410004569",
+                          "serieCaja":  "7091505622"
+                      },
+                      {
+                          "codigo":  "20004100045697B",
+                          "cantidad":  1,
+                          "descripcion":  "110300040000000021064A0MONOBLOCK CUPULA ACET",
+                          "serieCaja":  "ABULAR"
+                      },
+                      {
+                          "codigo":  "20004100045697B",
+                          "cantidad":  1,
+                          "descripcion":  "110300040000000013055AATALLO CHARNLEY CONO A",
+                          "serieCaja":  "COPLE"
+                      },
+                      {
+                          "codigo":  "20004100045697B",
+                          "cantidad":  1,
+                          "descripcion":  "11030004000000001505622GILIBERTY CUPULAS BIP",
+                          "serieCaja":  "OLAR"
+                      },
+                      {
+                          "codigo":  "20004100045697C",
+                          "cantidad":  1,
+                          "descripcion":  "110300040000000009051F3CABEZA INTERCAMBIABLE",
+                          "serieCaja":  "MODULAR"
+                      },
+                      {
+                          "codigo":  "20004100045697C",
+                          "cantidad":  1,
+                          "descripcion":  "11030004000000002707407HEMIPROTESIS PERNO CI",
+                          "serieCaja":  "LINDRICO"
+                      },
+                      {
+                          "codigo":  "20004100045697C",
+                          "cantidad":  1,
+                          "descripcion":  "110300040000000009051F2CABEZA INTERCAMBIABLE",
+                          "serieCaja":  "MODULAR"
+                      },
+                      {
+                          "codigo":  "20004100045697C",
+                          "cantidad":  1,
+                          "descripcion":  "11030004000000001706201TALLO MC PERNO CILIND",
+                          "serieCaja":  "RICO"
+                      },
+                      {
+                          "codigo":  "20004100045697C",
+                          "cantidad":  1,
+                          "descripcion":  "110300040000000010052F2TALLO AUTOBLOQUEANTE",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "20004100045697C",
+                          "cantidad":  1,
+                          "descripcion":  "110300040000000010052F2TALLO AUTOBLOQUEANTE",
+                          "serieCaja":  ""
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045697.TXT"
+    },
+    {
+        "id":  "0004-00045696",
+        "puntoVenta":  "0004",
+        "numero":  "00045696",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-11-03",
+        "hora":  "14:32",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "ENTREGADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10875",
+        "nroOrden":  "OC-88425",
+        "gerenciador":  "IOMA / CONVENIO ORTOPEDIA",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  12,
+        "items":  [
+                      {
+                          "codigo":  "104100045696202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  SS00 000000000000          0410004569",
+                          "serieCaja":  "60112054OD"
+                      },
+                      {
+                          "codigo":  "104100045696202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  SS00 000000000000          0410004569",
+                          "serieCaja":  "60209051H1"
+                      },
+                      {
+                          "codigo":  "104100045696202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  SS00 000000000000          0410004569",
+                          "serieCaja":  "60313055AC"
+                      },
+                      {
+                          "codigo":  "104100045696202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  SS00 000000000000          0410004569",
+                          "serieCaja":  "6041505621"
+                      },
+                      {
+                          "codigo":  "104100045696202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  SS00 000000000000          0410004569",
+                          "serieCaja":  "60509051F2"
+                      },
+                      {
+                          "codigo":  "104100045696202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  SS00 000000000000          0410004569",
+                          "serieCaja":  "60613055AD"
+                      },
+                      {
+                          "codigo":  "20004100045696C",
+                          "cantidad":  1,
+                          "descripcion":  "11030004000000001505621GILIBERTY CUPULAS BIP",
+                          "serieCaja":  "OLAR"
+                      },
+                      {
+                          "codigo":  "20004100045696C",
+                          "cantidad":  1,
+                          "descripcion":  "110300040000000009051H1CABEZA INTERCAMBIABLE",
+                          "serieCaja":  "MODULAR"
+                      },
+                      {
+                          "codigo":  "20004100045696C",
+                          "cantidad":  1,
+                          "descripcion":  "110300040000000009051F2CABEZA INTERCAMBIABLE",
+                          "serieCaja":  "MODULAR"
+                      },
+                      {
+                          "codigo":  "20004100045696C",
+                          "cantidad":  1,
+                          "descripcion":  "110300040000000013055ADTALLO CHARNLEY CONO A",
+                          "serieCaja":  "COPLE"
+                      },
+                      {
+                          "codigo":  "20004100045696C",
+                          "cantidad":  1,
+                          "descripcion":  "110300040000000013055ACTALLO CHARNLEY CONO A",
+                          "serieCaja":  "COPLE"
+                      },
+                      {
+                          "codigo":  "20004100045696C",
+                          "cantidad":  1,
+                          "descripcion":  "110300040000000012054ODCOTILO MENOR CEMENTO",
+                          "serieCaja":  "CUPULA"
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045696.TXT"
+    },
+    {
+        "id":  "0004-00045694",
+        "puntoVenta":  "0004",
+        "numero":  "00045694",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-11-03",
+        "hora":  "13:23",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "ENTREGADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10892",
+        "nroOrden":  "OC-88426",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  90,
+        "items":  [
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4015015500"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4025015500"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4035015500"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4045015500"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4055015500"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4065016100"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4075016100"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4085016100"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4095016100"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4105016100"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4115016100"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4125016100"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4135016100"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4145016100"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4155016100"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4165016100"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4175016100"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4185016100"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4195016100"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4205016100"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4215016100"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4225016100"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4235016100"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4245016100"
+                      },
+                      {
+                          "codigo":  "104100045694202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "4255016100"
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045694.TXT"
+    },
+    {
+        "id":  "0024-00000641",
+        "puntoVenta":  "0024",
+        "numero":  "00000641",
+        "sucursalExt":  ".24",
+        "sucursalNombre":  "Sucursal Chaco (Resistencia)",
+        "fecha":  "2026-11-03",
+        "hora":  "11:34",
+        "tipo":  "S",
+        "tipoDesc":  "Remito Seriado a Facturar",
+        "estado":  "ENTREGADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10909",
+        "nroOrden":  "OC-88427",
+        "gerenciador":  "IOMA / CONVENIO ORTOPEDIA",
+        "transporte":  "EXPRESO SUCURSAL .24",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  38,
+        "items":  [
+                      {
+                          "codigo":  "124100000641202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "10132079D3"
+                      },
+                      {
+                          "codigo":  "124100000641202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "10232079D2"
+                      },
+                      {
+                          "codigo":  "124100000641202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "10332082A3"
+                      },
+                      {
+                          "codigo":  "124100000641202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "10412054B4"
+                      },
+                      {
+                          "codigo":  "124100000641202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "10509051F4"
+                      },
+                      {
+                          "codigo":  "124100000641202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "10612054B2"
+                      },
+                      {
+                          "codigo":  "124100000641202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "10709051H1"
+                      },
+                      {
+                          "codigo":  "124100000641202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "1081505622"
+                      },
+                      {
+                          "codigo":  "124100000641202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "1092307145"
+                      },
+                      {
+                          "codigo":  "124100000641202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "1102307047"
+                      },
+                      {
+                          "codigo":  "124100000641202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "1112307153"
+                      },
+                      {
+                          "codigo":  "124100000641202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "1122307049"
+                      },
+                      {
+                          "codigo":  "124100000641202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "11310052A6"
+                      },
+                      {
+                          "codigo":  "124100000641202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "11418066A3"
+                      },
+                      {
+                          "codigo":  "124100000641202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "11510052C3"
+                      },
+                      {
+                          "codigo":  "124100000641202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "11633088R3"
+                      },
+                      {
+                          "codigo":  "124100000641202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "11733088R2"
+                      },
+                      {
+                          "codigo":  "124100000641202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "11830080E5"
+                      },
+                      {
+                          "codigo":  "124100000641202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "11933088R1"
+                      },
+                      {
+                          "codigo":  "20024100000641A",
+                          "cantidad":  1,
+                          "descripcion":  "110300240000000010052A6TALLO AUTOBLOQUEANTE",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "20024100000641B",
+                          "cantidad":  1,
+                          "descripcion":  "110300240000000033088R1RODILLA INSALL BURSTE",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "20024100000641B",
+                          "cantidad":  1,
+                          "descripcion":  "110300240000000033088R2RODILLA INSALL BURSTE",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "20024100000641B",
+                          "cantidad":  1,
+                          "descripcion":  "11030024000000002307049THOMPSON TALLO STANDA",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "20024100000641B",
+                          "cantidad":  1,
+                          "descripcion":  "11030024000000002307145THOMPSON TALLO STANDA",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "20024100000641B",
+                          "cantidad":  1,
+                          "descripcion":  "110300240000000033088R3RODILLA INSALL BURSTE",
+                          "serieCaja":  ""
+                      }
+                  ],
+        "archivoOrigen":  "02-0024-00000641.TXT"
+    },
+    {
+        "id":  "0004-00045689",
+        "puntoVenta":  "0004",
+        "numero":  "00045689",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-11-03",
+        "hora":  "11:25",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "FACTURADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10926",
+        "nroOrden":  "OC-88428",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  14,
+        "items":  [
+                      {
+                          "codigo":  "104100045689202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000D  SS00 000000000000          0410004568",
+                          "serieCaja":  "9015016300"
+                      },
+                      {
+                          "codigo":  "104100045689202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000D  SS00 000000000000          0410004568",
+                          "serieCaja":  "9025016300"
+                      },
+                      {
+                          "codigo":  "104100045689202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000D  SS00 000000000000          0410004568",
+                          "serieCaja":  "9035016300"
+                      },
+                      {
+                          "codigo":  "104100045689202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000D  SS00 000000000000          0410004568",
+                          "serieCaja":  "9045016100"
+                      },
+                      {
+                          "codigo":  "104100045689202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000D  SS00 000000000000          0410004568",
+                          "serieCaja":  "9055016100"
+                      },
+                      {
+                          "codigo":  "104100045689202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000D  SS00 000000000000          0410004568",
+                          "serieCaja":  "9065016100"
+                      },
+                      {
+                          "codigo":  "104100045689202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000D  SS00 000000000000          0410004568",
+                          "serieCaja":  "9075015880"
+                      },
+                      {
+                          "codigo":  "20004100045689C",
+                          "cantidad":  1,
+                          "descripcion":  "11030004000000005015880ELEMENTOS VARIOS",
+                          "serieCaja":  "HEMOSUCTOR"
+                      },
+                      {
+                          "codigo":  "20004100045689C",
+                          "cantidad":  1,
+                          "descripcion":  "11030004000000005016100ELEMENTOS VARIOS",
+                          "serieCaja":  "CAMPO"
+                      },
+                      {
+                          "codigo":  "20004100045689C",
+                          "cantidad":  1,
+                          "descripcion":  "11030004000000005016100ELEMENTOS VARIOS",
+                          "serieCaja":  "CAMPO"
+                      },
+                      {
+                          "codigo":  "20004100045689C",
+                          "cantidad":  1,
+                          "descripcion":  "11030004000000005016100ELEMENTOS VARIOS",
+                          "serieCaja":  "CAMPO"
+                      },
+                      {
+                          "codigo":  "20004100045689C",
+                          "cantidad":  1,
+                          "descripcion":  "11030004000000005016300ELEMENTOS VARIOS",
+                          "serieCaja":  "CAMPO"
+                      },
+                      {
+                          "codigo":  "20004100045689C",
+                          "cantidad":  1,
+                          "descripcion":  "11030004000000005016300ELEMENTOS VARIOS",
+                          "serieCaja":  "CAMPO"
+                      },
+                      {
+                          "codigo":  "20004100045689C",
+                          "cantidad":  1,
+                          "descripcion":  "11030004000000005016300ELEMENTOS VARIOS",
+                          "serieCaja":  "CAMPO"
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045689.TXT"
+    },
+    {
+        "id":  "0005-00002724",
+        "puntoVenta":  "0005",
+        "numero":  "00002724",
+        "sucursalExt":  ".05",
+        "sucursalNombre":  "Sucursal La Plata",
+        "fecha":  "2026-11-03",
+        "hora":  "09:15",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "FACTURADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10943",
+        "nroOrden":  "OC-88429",
+        "gerenciador":  "IOMA / CONVENIO ORTOPEDIA",
+        "transporte":  "EXPRESO SUCURSAL .05",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  3,
+        "items":  [
+                      {
+                          "codigo":  "105100002724202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  "4019199025"
+                      },
+                      {
+                          "codigo":  "105100002724202",
+                          "cantidad":  6110300,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "20005100002724A",
+                          "cantidad":  1,
+                          "descripcion":  "11030005000000009199025CAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      }
+                  ],
+        "archivoOrigen":  "02-0005-00002724.TXT"
+    },
+    {
+        "id":  "0020-00002342",
+        "puntoVenta":  "0020",
+        "numero":  "00002342",
+        "sucursalExt":  ".20",
+        "sucursalNombre":  "Sucursal Rosario",
+        "fecha":  "2026-11-02",
+        "hora":  "16:17",
+        "tipo":  "S",
+        "tipoDesc":  "Remito Seriado a Facturar",
+        "estado":  "FACTURADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10960",
+        "nroOrden":  "OC-88430",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "EXPRESO SUCURSAL .20",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  2,
+        "items":  [
+                      {
+                          "codigo":  "120100002342202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000A  S 00 000000000000          2010000234",
+                          "serieCaja":  "20112054OD"
+                      },
+                      {
+                          "codigo":  "20020100002342C",
+                          "cantidad":  1,
+                          "descripcion":  "110200200000000012054ODCOTILO MENOR CEMENTO",
+                          "serieCaja":  "CUPULA"
+                      }
+                  ],
+        "archivoOrigen":  "02-0020-00002342.TXT"
+    },
+    {
+        "id":  "0020-00002341",
+        "puntoVenta":  "0020",
+        "numero":  "00002341",
+        "sucursalExt":  ".20",
+        "sucursalNombre":  "Sucursal Rosario",
+        "fecha":  "2026-11-02",
+        "hora":  "16:13",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "FACTURADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10977",
+        "nroOrden":  "OC-88431",
+        "gerenciador":  "IOMA / CONVENIO ORTOPEDIA",
+        "transporte":  "EXPRESO SUCURSAL .20",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  10,
+        "items":  [
+                      {
+                          "codigo":  "120100002341202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000A  S 00 000000000000          2010000234",
+                          "serieCaja":  "1019199071"
+                      },
+                      {
+                          "codigo":  "120100002341202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000A  S 00 000000000000          2010000234",
+                          "serieCaja":  "102999999"
+                      },
+                      {
+                          "codigo":  "120100002341202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000A  S 00 000000000000          2010000234",
+                          "serieCaja":  "103999999"
+                      },
+                      {
+                          "codigo":  "120100002341202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000A  S 00 000000000000          2010000234",
+                          "serieCaja":  "104999999"
+                      },
+                      {
+                          "codigo":  "120100002341202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000A  S 00 000000000000          2010000234",
+                          "serieCaja":  "105999999"
+                      },
+                      {
+                          "codigo":  "120100002341202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000A  S 00 000000000000          2010000234",
+                          "serieCaja":  "106999999"
+                      },
+                      {
+                          "codigo":  "120100002341202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000A  S 00 000000000000          2010000234",
+                          "serieCaja":  "107999999"
+                      },
+                      {
+                          "codigo":  "120100002341202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000A  S 00 000000000000          2010000234",
+                          "serieCaja":  "108999999"
+                      },
+                      {
+                          "codigo":  "120100002341202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000A  S 00 000000000000          2010000234",
+                          "serieCaja":  "109999999"
+                      },
+                      {
+                          "codigo":  "20020100002341A",
+                          "cantidad":  1,
+                          "descripcion":  "11020020000000009199071CAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      }
+                  ],
+        "archivoOrigen":  "02-0020-00002341.TXT"
+    },
+    {
+        "id":  "0004-00045683",
+        "puntoVenta":  "0004",
+        "numero":  "00045683",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-11-02",
+        "hora":  "14:54",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "FACTURADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #10994",
+        "nroOrden":  "OC-88432",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  18,
+        "items":  [
+                      {
+                          "codigo":  "104100045683202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004568",
+                          "serieCaja":  "3015015900"
+                      },
+                      {
+                          "codigo":  "104100045683202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004568",
+                          "serieCaja":  "3025015900"
+                      },
+                      {
+                          "codigo":  "104100045683202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004568",
+                          "serieCaja":  "3035015900"
+                      },
+                      {
+                          "codigo":  "104100045683202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004568",
+                          "serieCaja":  "3045016300"
+                      },
+                      {
+                          "codigo":  "104100045683202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004568",
+                          "serieCaja":  "3055016300"
+                      },
+                      {
+                          "codigo":  "104100045683202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004568",
+                          "serieCaja":  "3065016300"
+                      },
+                      {
+                          "codigo":  "104100045683202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004568",
+                          "serieCaja":  "3075016100"
+                      },
+                      {
+                          "codigo":  "104100045683202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004568",
+                          "serieCaja":  "3085016100"
+                      },
+                      {
+                          "codigo":  "104100045683202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004568",
+                          "serieCaja":  "3095016100"
+                      },
+                      {
+                          "codigo":  "20004100045683C",
+                          "cantidad":  1,
+                          "descripcion":  "11020004000000005016100ELEMENTOS VARIOS",
+                          "serieCaja":  "CAMPO"
+                      },
+                      {
+                          "codigo":  "20004100045683C",
+                          "cantidad":  1,
+                          "descripcion":  "11020004000000005016100ELEMENTOS VARIOS",
+                          "serieCaja":  "CAMPO"
+                      },
+                      {
+                          "codigo":  "20004100045683C",
+                          "cantidad":  1,
+                          "descripcion":  "11020004000000005016100ELEMENTOS VARIOS",
+                          "serieCaja":  "CAMPO"
+                      },
+                      {
+                          "codigo":  "20004100045683C",
+                          "cantidad":  1,
+                          "descripcion":  "11020004000000005016300ELEMENTOS VARIOS",
+                          "serieCaja":  "CAMPO"
+                      },
+                      {
+                          "codigo":  "20004100045683C",
+                          "cantidad":  1,
+                          "descripcion":  "11020004000000005016300ELEMENTOS VARIOS",
+                          "serieCaja":  "CAMPO"
+                      },
+                      {
+                          "codigo":  "20004100045683C",
+                          "cantidad":  1,
+                          "descripcion":  "11020004000000005016300ELEMENTOS VARIOS",
+                          "serieCaja":  "CAMPO"
+                      },
+                      {
+                          "codigo":  "20004100045683C",
+                          "cantidad":  1,
+                          "descripcion":  "11020004000000005015900ELEMENTOS VARIOS",
+                          "serieCaja":  "HEMOSUCTOR"
+                      },
+                      {
+                          "codigo":  "20004100045683C",
+                          "cantidad":  1,
+                          "descripcion":  "11020004000000005015900ELEMENTOS VARIOS",
+                          "serieCaja":  "HEMOSUCTOR"
+                      },
+                      {
+                          "codigo":  "20004100045683C",
+                          "cantidad":  1,
+                          "descripcion":  "11020004000000005015900ELEMENTOS VARIOS",
+                          "serieCaja":  "HEMOSUCTOR"
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045683.TXT"
+    },
+    {
+        "id":  "0004-00045678",
+        "puntoVenta":  "0004",
+        "numero":  "00045678",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-11-02",
+        "hora":  "13:45",
+        "tipo":  "S",
+        "tipoDesc":  "Remito Seriado a Facturar",
+        "estado":  "FACTURADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #11011",
+        "nroOrden":  "OC-88433",
+        "gerenciador":  "IOMA / CONVENIO ORTOPEDIA",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  4,
+        "items":  [
+                      {
+                          "codigo":  "104100045678202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "80110052F2"
+                      },
+                      {
+                          "codigo":  "104100045678202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "80210052F2"
+                      },
+                      {
+                          "codigo":  "20004100045678C",
+                          "cantidad":  1,
+                          "descripcion":  "110200040000000010052F2TALLO AUTOBLOQUEANTE",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "20004100045678C",
+                          "cantidad":  1,
+                          "descripcion":  "110200040000000010052F2TALLO AUTOBLOQUEANTE",
+                          "serieCaja":  ""
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045678.TXT"
+    },
+    {
+        "id":  "0004-00045677",
+        "puntoVenta":  "0004",
+        "numero":  "00045677",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-11-02",
+        "hora":  "12:08",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "FACTURADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #11028",
+        "nroOrden":  "OC-88434",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  32,
+        "items":  [
+                      {
+                          "codigo":  "104100045677202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "70110052F2"
+                      },
+                      {
+                          "codigo":  "104100045677202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "70212054OD"
+                      },
+                      {
+                          "codigo":  "104100045677202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "70309051H3"
+                      },
+                      {
+                          "codigo":  "104100045677202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "70412054OB"
+                      },
+                      {
+                          "codigo":  "104100045677202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "70510052F2"
+                      },
+                      {
+                          "codigo":  "104100045677202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "70609051G2"
+                      },
+                      {
+                          "codigo":  "104100045677202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "7071505606"
+                      },
+                      {
+                          "codigo":  "104100045677202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "7085015400"
+                      },
+                      {
+                          "codigo":  "104100045677202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "7095015400"
+                      },
+                      {
+                          "codigo":  "104100045677202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "7105015400"
+                      },
+                      {
+                          "codigo":  "104100045677202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "7115015900"
+                      },
+                      {
+                          "codigo":  "104100045677202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "7125015900"
+                      },
+                      {
+                          "codigo":  "104100045677202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "7135016300"
+                      },
+                      {
+                          "codigo":  "104100045677202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "7145016300"
+                      },
+                      {
+                          "codigo":  "104100045677202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "7155016100"
+                      },
+                      {
+                          "codigo":  "104100045677202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "7165016100"
+                      },
+                      {
+                          "codigo":  "20004100045677B",
+                          "cantidad":  1,
+                          "descripcion":  "11020004000000001505606GILIBERTY CUPULAS BIP",
+                          "serieCaja":  "OLAR"
+                      },
+                      {
+                          "codigo":  "20004100045677C",
+                          "cantidad":  1,
+                          "descripcion":  "110200040000000009051G2CABEZA INTERCAMBIABLE",
+                          "serieCaja":  "MODULAR"
+                      },
+                      {
+                          "codigo":  "20004100045677C",
+                          "cantidad":  1,
+                          "descripcion":  "110200040000000009051H3CABEZA INTERCAMBIABLE",
+                          "serieCaja":  "MODULAR"
+                      },
+                      {
+                          "codigo":  "20004100045677C",
+                          "cantidad":  1,
+                          "descripcion":  "11020004000000005015400ELEMENTOS VARIOS",
+                          "serieCaja":  "CEMENTO"
+                      },
+                      {
+                          "codigo":  "20004100045677C",
+                          "cantidad":  1,
+                          "descripcion":  "11020004000000005015400ELEMENTOS VARIOS",
+                          "serieCaja":  "CEMENTO"
+                      },
+                      {
+                          "codigo":  "20004100045677C",
+                          "cantidad":  1,
+                          "descripcion":  "11020004000000005015400ELEMENTOS VARIOS",
+                          "serieCaja":  "CEMENTO"
+                      },
+                      {
+                          "codigo":  "20004100045677C",
+                          "cantidad":  1,
+                          "descripcion":  "110200040000000012054OBCOTILO MENOR CEMENTO",
+                          "serieCaja":  "CUPULA"
+                      },
+                      {
+                          "codigo":  "20004100045677C",
+                          "cantidad":  1,
+                          "descripcion":  "110200040000000012054ODCOTILO MENOR CEMENTO",
+                          "serieCaja":  "CUPULA"
+                      },
+                      {
+                          "codigo":  "20004100045677C",
+                          "cantidad":  1,
+                          "descripcion":  "11020004000000005016100ELEMENTOS VARIOS",
+                          "serieCaja":  "CAMPO"
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045677.TXT"
+    },
+    {
+        "id":  "0004-00045676",
+        "puntoVenta":  "0004",
+        "numero":  "00045676",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-11-02",
+        "hora":  "11:53",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "FACTURADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #11045",
+        "nroOrden":  "OC-88435",
+        "gerenciador":  "IOMA / CONVENIO ORTOPEDIA",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  3,
+        "items":  [
+                      {
+                          "codigo":  "104100045676202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  "60192807DR"
+                      },
+                      {
+                          "codigo":  "104100045676202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  "602999999"
+                      },
+                      {
+                          "codigo":  "20004100045676A",
+                          "cantidad":  1,
+                          "descripcion":  "110200040000000092807DRMATERIAL SIERRA-MOTOR",
+                          "serieCaja":  ""
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045676.TXT"
+    },
+    {
+        "id":  "0004-00045675",
+        "puntoVenta":  "0004",
+        "numero":  "00045675",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-11-02",
+        "hora":  "11:13",
+        "tipo":  "S",
+        "tipoDesc":  "Remito Seriado a Facturar",
+        "estado":  "FACTURADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #11062",
+        "nroOrden":  "OC-88436",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  10,
+        "items":  [
+                      {
+                          "codigo":  "104100045675202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  "5019199025"
+                      },
+                      {
+                          "codigo":  "104100045675202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045675202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045675202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045675202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045675202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045675202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045675202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045675202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "20004100045675A",
+                          "cantidad":  1,
+                          "descripcion":  "11020004000000009199025CAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045675.TXT"
+    },
+    {
+        "id":  "0004-00045674",
+        "puntoVenta":  "0004",
+        "numero":  "00045674",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-11-02",
+        "hora":  "09:57",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "FACTURADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #11079",
+        "nroOrden":  "OC-88437",
+        "gerenciador":  "IOMA / CONVENIO ORTOPEDIA",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  24,
+        "items":  [
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  "40191990PE"
+                      },
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045674202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000D  S 00 000000000000          0410004567",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "20004100045674A",
+                          "cantidad":  1,
+                          "descripcion":  "110200040000000091990PECAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045674.TXT"
+    },
+    {
+        "id":  "0004-00045673",
+        "puntoVenta":  "0004",
+        "numero":  "00045673",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-11-02",
+        "hora":  "08:06",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "FACTURADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #11096",
+        "nroOrden":  "OC-88438",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  60,
+        "items":  [
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3015016100"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3025016100"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3035016100"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3045016100"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3055016100"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3065016100"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3075016100"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3085016100"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3095016100"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3105016100"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3115016300"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3125016300"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3135016300"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3145016300"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3155016300"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3165016300"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3175016300"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3185016300"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3195016300"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3205016300"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3215015900"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3225015900"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3235015900"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3245015900"
+                      },
+                      {
+                          "codigo":  "104100045673202",
+                          "cantidad":  6110200,
+                          "descripcion":  "0000R  S 00 000000000000          0410004567",
+                          "serieCaja":  "3255015900"
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045673.TXT"
+    },
+    {
+        "id":  "0004-00045672",
+        "puntoVenta":  "0004",
+        "numero":  "00045672",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-10-30",
+        "hora":  "17:14",
+        "tipo":  "S",
+        "tipoDesc":  "Remito Seriado a Facturar",
+        "estado":  "FACTURADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #11113",
+        "nroOrden":  "OC-88439",
+        "gerenciador":  "IOMA / CONVENIO ORTOPEDIA",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  6,
+        "items":  [
+                      {
+                          "codigo":  "104100045672202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000L  S 00 000000000000          0410004567",
+                          "serieCaja":  "2011105343"
+                      },
+                      {
+                          "codigo":  "104100045672202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000L  S 00 000000000000          0410004567",
+                          "serieCaja":  "20211053B2"
+                      },
+                      {
+                          "codigo":  "104100045672202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000L  S 00 000000000000          0410004567",
+                          "serieCaja":  "2035224025"
+                      },
+                      {
+                          "codigo":  "20004100045672C",
+                          "cantidad":  1,
+                          "descripcion":  "10300004000000001105343ACETABULO NO CEMENTEN",
+                          "serieCaja":  "TADO"
+                      },
+                      {
+                          "codigo":  "20004100045672C",
+                          "cantidad":  1,
+                          "descripcion":  "103000040000000011053B2ACETABULO NO CEMENTEN",
+                          "serieCaja":  "TADO"
+                      },
+                      {
+                          "codigo":  "20004100045672C",
+                          "cantidad":  1,
+                          "descripcion":  "10300004000000005224025TORNILLOS",
+                          "serieCaja":  "TORN"
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045672.TXT"
+    },
+    {
+        "id":  "0004-00044326",
+        "puntoVenta":  "0004",
+        "numero":  "00044326",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-10-30",
+        "hora":  "16:34",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "FACTURADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #11130",
+        "nroOrden":  "OC-88440",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  12,
+        "items":  [
+                      {
+                          "codigo":  "104100044326202",
+                          "cantidad":  6071300,
+                          "descripcion":  "0000R  SS00 000000000000          0410004432",
+                          "serieCaja":  "60111053C4"
+                      },
+                      {
+                          "codigo":  "104100044326202",
+                          "cantidad":  6071300,
+                          "descripcion":  "0000R  SS00 000000000000          0410004432",
+                          "serieCaja":  "6021105346"
+                      },
+                      {
+                          "codigo":  "104100044326202",
+                          "cantidad":  6071300,
+                          "descripcion":  "0000R  SS00 000000000000          0410004432",
+                          "serieCaja":  "60311053C4"
+                      },
+                      {
+                          "codigo":  "104100044326202",
+                          "cantidad":  6071300,
+                          "descripcion":  "0000R  SS00 000000000000          0410004432",
+                          "serieCaja":  "6041105346"
+                      },
+                      {
+                          "codigo":  "104100044326202",
+                          "cantidad":  6071300,
+                          "descripcion":  "0000R  SS00 000000000000          0410004432",
+                          "serieCaja":  "60509051IA"
+                      },
+                      {
+                          "codigo":  "104100044326202",
+                          "cantidad":  6071300,
+                          "descripcion":  "0000R  SS00 000000000000          0410004432",
+                          "serieCaja":  "60609051IC"
+                      },
+                      {
+                          "codigo":  "20004100044326B",
+                          "cantidad":  1,
+                          "descripcion":  "071300040000000009051IACABEZA INTERCAMBIABLE",
+                          "serieCaja":  "MODULAR"
+                      },
+                      {
+                          "codigo":  "20004100044326B",
+                          "cantidad":  1,
+                          "descripcion":  "071300040000000009051ICCABEZA INTERCAMBIABLE",
+                          "serieCaja":  "MODULAR"
+                      },
+                      {
+                          "codigo":  "20004100044326C",
+                          "cantidad":  1,
+                          "descripcion":  "071300040000000011053C4ACETABULO NO CEMENTEN",
+                          "serieCaja":  "TADO"
+                      },
+                      {
+                          "codigo":  "20004100044326C",
+                          "cantidad":  1,
+                          "descripcion":  "071300040000000011053C4ACETABULO NO CEMENTEN",
+                          "serieCaja":  "TADO"
+                      },
+                      {
+                          "codigo":  "20004100044326C",
+                          "cantidad":  1,
+                          "descripcion":  "07130004000000001105346ACETABULO NO CEMENTEN",
+                          "serieCaja":  "TADO"
+                      },
+                      {
+                          "codigo":  "20004100044326C",
+                          "cantidad":  1,
+                          "descripcion":  "07130004000000001105346ACETABULO NO CEMENTEN",
+                          "serieCaja":  "TADO"
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00044326.TXT"
+    },
+    {
+        "id":  "0004-00045670",
+        "puntoVenta":  "0004",
+        "numero":  "00045670",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-10-30",
+        "hora":  "14:05",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "FACTURADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #11147",
+        "nroOrden":  "OC-88441",
+        "gerenciador":  "IOMA / CONVENIO ORTOPEDIA",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  50,
+        "items":  [
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "00110052F2"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "00210052F2"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "00310052F2"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "00412054OD"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "00509051H1"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "0061505606"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "00709051G2"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "00811053B2"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "0091105342"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "01032079D2"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "01132079SN"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "0123207964"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "0135015900"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "0145015900"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "0155015900"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "0165015400"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "0175015400"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "0185015400"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "0195015400"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "0205016300"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "0215016300"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "0225016300"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "0235016100"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "0245016100"
+                      },
+                      {
+                          "codigo":  "104100045670202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000D  SS00 000000000000          0410004567",
+                          "serieCaja":  "0255016100"
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045670.TXT"
+    },
+    {
+        "id":  "0020-00002340",
+        "puntoVenta":  "0020",
+        "numero":  "00002340",
+        "sucursalExt":  ".20",
+        "sucursalNombre":  "Sucursal Rosario",
+        "fecha":  "2026-10-30",
+        "hora":  "14:04",
+        "tipo":  "S",
+        "tipoDesc":  "Remito Seriado a Facturar",
+        "estado":  "FACTURADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #11164",
+        "nroOrden":  "OC-88442",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "EXPRESO SUCURSAL .20",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  2,
+        "items":  [
+                      {
+                          "codigo":  "120100002340202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000A  S 00 000000000000          2010000234",
+                          "serieCaja":  "0019199025"
+                      },
+                      {
+                          "codigo":  "20020100002340A",
+                          "cantidad":  1,
+                          "descripcion":  "10300020000000009199025CAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      }
+                  ],
+        "archivoOrigen":  "02-0020-00002340.TXT"
+    },
+    {
+        "id":  "0020-00002339",
+        "puntoVenta":  "0020",
+        "numero":  "00002339",
+        "sucursalExt":  ".20",
+        "sucursalNombre":  "Sucursal Rosario",
+        "fecha":  "2026-10-30",
+        "hora":  "14:03",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "FACTURADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #11181",
+        "nroOrden":  "OC-88443",
+        "gerenciador":  "IOMA / CONVENIO ORTOPEDIA",
+        "transporte":  "EXPRESO SUCURSAL .20",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  39,
+        "items":  [
+                      {
+                          "codigo":  "120100002339202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000A  S 00 000000000000          2010000233",
+                          "serieCaja":  "90111053B2"
+                      },
+                      {
+                          "codigo":  "120100002339202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000A  S 00 000000000000          2010000233",
+                          "serieCaja":  "9021105343"
+                      },
+                      {
+                          "codigo":  "120100002339202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000A  S 00 000000000000          2010000233",
+                          "serieCaja":  "90332088V7"
+                      },
+                      {
+                          "codigo":  "120100002339202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000A  S 00 000000000000          2010000233",
+                          "serieCaja":  "90432079F4"
+                      },
+                      {
+                          "codigo":  "120100002339202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000A  S 00 000000000000          2010000233",
+                          "serieCaja":  "90532079B5"
+                      },
+                      {
+                          "codigo":  "120100002339202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000A  S 00 000000000000          2010000233",
+                          "serieCaja":  "90632079B4"
+                      },
+                      {
+                          "codigo":  "120100002339202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000A  S 00 000000000000          2010000233",
+                          "serieCaja":  "90732079RL"
+                      },
+                      {
+                          "codigo":  "120100002339202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000A  S 00 000000000000          2010000233",
+                          "serieCaja":  "90832079D5"
+                      },
+                      {
+                          "codigo":  "120100002339202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000A  S 00 000000000000          2010000233",
+                          "serieCaja":  "90917062B4"
+                      },
+                      {
+                          "codigo":  "120100002339202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000A  S 00 000000000000          2010000233",
+                          "serieCaja":  "9101305543"
+                      },
+                      {
+                          "codigo":  "120100002339202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000A  S 00 000000000000          2010000233",
+                          "serieCaja":  "9111305531"
+                      },
+                      {
+                          "codigo":  "120100002339202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000A  S 00 000000000000          2010000233",
+                          "serieCaja":  "91217062B4"
+                      },
+                      {
+                          "codigo":  "120100002339202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000A  S 00 000000000000          2010000233",
+                          "serieCaja":  "9135016800"
+                      },
+                      {
+                          "codigo":  "120100002339202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000A  S 00 000000000000          2010000233",
+                          "serieCaja":  "91491990CA"
+                      },
+                      {
+                          "codigo":  "120100002339202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000A  S 00 000000000000          2010000233",
+                          "serieCaja":  "9159199070"
+                      },
+                      {
+                          "codigo":  "120100002339202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000A  S 00 000000000000          2010000233",
+                          "serieCaja":  "9169099100"
+                      },
+                      {
+                          "codigo":  "120100002339202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000A  S 00 000000000000          2010000233",
+                          "serieCaja":  "9179199048"
+                      },
+                      {
+                          "codigo":  "120100002339202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000A  S 00 000000000000          2010000233",
+                          "serieCaja":  "9189199048"
+                      },
+                      {
+                          "codigo":  "120100002339202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000A  S 00 000000000000          2010000233",
+                          "serieCaja":  "919999999"
+                      },
+                      {
+                          "codigo":  "120100002339202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000A  S 00 000000000000          2010000233",
+                          "serieCaja":  "920999999"
+                      },
+                      {
+                          "codigo":  "120100002339202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000A  S 00 000000000000          2010000233",
+                          "serieCaja":  "921999999"
+                      },
+                      {
+                          "codigo":  "20020100002339A",
+                          "cantidad":  1,
+                          "descripcion":  "10300020000000009099100CAJAS INSTRUMENTAL PR",
+                          "serieCaja":  "OTESIS"
+                      },
+                      {
+                          "codigo":  "20020100002339A",
+                          "cantidad":  1,
+                          "descripcion":  "10300020000000009199048CAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      },
+                      {
+                          "codigo":  "20020100002339A",
+                          "cantidad":  1,
+                          "descripcion":  "10300020000000009199048CAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      },
+                      {
+                          "codigo":  "20020100002339A",
+                          "cantidad":  1,
+                          "descripcion":  "10300020000000009199070CAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      }
+                  ],
+        "archivoOrigen":  "02-0020-00002339.TXT"
+    },
+    {
+        "id":  "0004-00045669",
+        "puntoVenta":  "0004",
+        "numero":  "00045669",
+        "sucursalExt":  ".04",
+        "sucursalNombre":  "Casa Matriz Caseros (CABA/GBA)",
+        "fecha":  "2026-10-30",
+        "hora":  "12:48",
+        "tipo":  "P",
+        "tipoDesc":  "Prestamo Quirurgico (Cajas/Implantes)",
+        "estado":  "FACTURADO",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  null,
+        "medicoNombre":  null,
+        "paciente":  "PACIENTE AFIL. #11198",
+        "nroOrden":  "OC-88444",
+        "gerenciador":  "OSDE / PRESTADORES QUIRURGICOS",
+        "transporte":  "LOGISTICA PROPIA VILLALBA",
+        "cajasSerie":  [
+
+                       ],
+        "totalItems":  8,
+        "items":  [
+                      {
+                          "codigo":  "104100045669202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000R  S 00 000000000000          0410004566",
+                          "serieCaja":  "90112054C2"
+                      },
+                      {
+                          "codigo":  "104100045669202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000R  S 00 000000000000          0410004566",
+                          "serieCaja":  "90213055AD"
+                      },
+                      {
+                          "codigo":  "104100045669202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000R  S 00 000000000000          0410004566",
+                          "serieCaja":  "90309051F2"
+                      },
+                      {
+                          "codigo":  "104100045669202",
+                          "cantidad":  6103000,
+                          "descripcion":  "0000R  S 00 000000000000          0410004566",
+                          "serieCaja":  "90430080F4"
+                      },
+                      {
+                          "codigo":  "20004100045669C",
+                          "cantidad":  1,
+                          "descripcion":  "103000040000000012054C2COTILO MENOR CEMENTO",
+                          "serieCaja":  "CUPULA"
+                      },
+                      {
+                          "codigo":  "20004100045669C",
+                          "cantidad":  1,
+                          "descripcion":  "103000040000000013055ADTALLO CHARNLEY CONO A",
+                          "serieCaja":  "COPLE"
+                      },
+                      {
+                          "codigo":  "20004100045669C",
+                          "cantidad":  1,
+                          "descripcion":  "103000040000000009051F2CABEZA INTERCAMBIABLE",
+                          "serieCaja":  "MODULAR"
+                      },
+                      {
+                          "codigo":  "20004100045669C",
+                          "cantidad":  1,
+                          "descripcion":  "103000040000000030080F4TALLO MODULAR MC III",
+                          "serieCaja":  "BLOCAJE"
+                      }
+                  ],
+        "archivoOrigen":  "02-0004-00045669.TXT"
+    }
+]

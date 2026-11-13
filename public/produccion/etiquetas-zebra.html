@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio de Etiquetas Zebra ZPL | TERIAN ERP</title>
+    <link rel="stylesheet" href="../css/tailwind.css">
+    <link rel="stylesheet" href="../css/dark-theme.css">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .glass-card { background: rgba(255, 255, 255, 0.94); border: 1px solid rgba(0,0,0,0.08); backdrop-filter: blur(12px); }
+        html.dark .glass-card { background: rgba(22, 30, 42, 0.78); border: 1px solid rgba(255, 255, 255, 0.07); }
+    </style>
+</head>
+<body class="bg-slate-100 dark:bg-[#0a0f16] text-slate-900 dark:text-[#f1f5f9] antialiased min-h-screen flex flex-col">
+
+    <header class="bg-[#f8fafc]/90 dark:bg-[#0f172a]/90 backdrop-blur-md shadow-sm border-b border-slate-200 dark:border-slate-800 px-4 lg:px-6 py-3 flex items-center justify-between sticky top-0 z-40">
+        <div class="header-left flex items-center gap-3">
+            <a href="menu.html" class="p-2 rounded-xl bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 no-underline flex items-center">
+                <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+            </a>
+            <div class="h-9 w-9 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/20">
+                <span class="material-symbols-outlined text-[18px]">qr_code_2</span>
+            </div>
+            <div>
+                <h1 class="text-base font-black tracking-tight uppercase text-slate-900 dark:text-white leading-none">Estudio de Etiquetas Zebra ZPL & ANMAT</h1>
+                <span class="text-[10px] font-bold uppercase tracking-widest text-blue-500">Reemplazo Web de BI8003ZP-ZEBRA • VIETIQ-ZEBRA • VIMUESTROETIQ</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-2">
+            <a href="ordenes-produccion.html" class="px-3 py-2 rounded-xl bg-emerald-500/10 text-emerald-500 font-black text-[11px] uppercase tracking-wider no-underline hover:bg-emerald-500/20 flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[16px]">engineering</span> Ver OPs (VIAORD)
+            </a>
+        </div>
+    </header>
+
+    <main class="flex-1 w-full max-w-7xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Formulario de Datos de Etiqueta -->
+        <section class="lg:col-span-5 glass-card rounded-3xl p-6 shadow-xl flex flex-col gap-4">
+            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+                <div>
+                    <h2 class="text-sm font-black uppercase tracking-wider text-blue-500">Parámetros de Etiqueta Oficial</h2>
+                    <p class="text-[11px] text-slate-500">Formato Zebra 4" x 1.5" (8 dpmm / 203 dpi) - GS1 DataMatrix + Code39</p>
+                </div>
+                <span class="px-2.5 py-1 rounded-full text-[10px] font-black uppercase bg-blue-500/10 text-blue-500">ANMAT PM 15</span>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+                <div>
+                    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Código Producto (22)</label>
+                    <input id="zpl-codigo" type="text" value="4214731" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-sm text-slate-900 dark:text-white" placeholder="Ej: 4214731">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">N° de Serie (21)</label>
+                    <input id="zpl-serie" type="text" value="BM0221" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-sm text-emerald-500 uppercase" placeholder="Ej: BM0221">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+                <div>
+                    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">N° de Lote / OP (10)</label>
+                    <input id="zpl-lote" type="text" value="2301328" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-sm text-slate-900 dark:text-white" placeholder="Ej: 2301328">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Fecha Fabricación</label>
+                    <input id="zpl-fecha" type="text" value="06/11/2026" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-sm text-slate-900 dark:text-white" placeholder="DD/MM/AAAA">
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Descripción Línea 1 (Máx 32 car.)</label>
+                <input id="zpl-desc1" type="text" value="AP.SUSP.VH 3,5 EN T TI OBLIC 5" maxlength="34" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-sm text-slate-900 dark:text-white uppercase">
+            </div>
+
+            <div>
+                <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Descripción Línea 2</label>
+                <input id="zpl-desc2" type="text" value="ORIF IZQ" maxlength="34" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-sm text-slate-900 dark:text-white uppercase">
+            </div>
+
+            <div class="grid grid-cols-3 gap-3">
+                <div>
+                    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Material</label>
+                    <select id="zpl-material" class="w-full px-3 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-xs text-slate-900 dark:text-white">
+                        <option value="TITANIO">TITANIO</option>
+                        <option value="ACERO INOX.">ACERO INOX.</option>
+                        <option value="CR-CO-MO">CR-CO-MO</option>
+                        <option value="PEEK / UHMWPE">PEEK / UHMWPE</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Condición</label>
+                    <select id="zpl-condicion" class="w-full px-3 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-xs text-slate-900 dark:text-white">
+                        <option value="NO ESTERIL">NO ESTERIL</option>
+                        <option value="ESTERIL ETO">ESTERIL ETO</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Reg. ANMAT</label>
+                    <input id="zpl-pm" type="text" value="PM 15" class="w-full px-3 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-xs text-slate-900 dark:text-white">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 pt-2">
+                <button id="btn-render-label" class="w-full py-3 px-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-black text-xs uppercase tracking-widest shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2 cursor-pointer border-none">
+                    <span class="material-symbols-outlined text-[18px]">refresh</span> Renderizar Etiqueta
+                </button>
+                <button id="btn-print-label" class="w-full py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs uppercase tracking-widest shadow-lg shadow-emerald-600/20 flex items-center justify-center gap-2 cursor-pointer border-none">
+                    <span class="material-symbols-outlined text-[18px]">print</span> Imprimir Zebra
+                </button>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+                <button id="btn-download-png" class="w-full py-2.5 px-3 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5 cursor-pointer border-none">
+                    <span class="material-symbols-outlined text-[16px]">image</span> Descargar LOGONEW.PNG
+                </button>
+                <button id="btn-download-zpl" class="w-full py-2.5 px-3 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-[11px] uppercase tracking-wider flex items-center justify-center gap-1.5 cursor-pointer border-none">
+                    <span class="material-symbols-outlined text-[16px]">terminal</span> Descargar LOGONEW.TXT
+                </button>
+            </div>
+        </section>
+
+        <!-- Vista Previa PNG Labelary + Editor ZPL Crudo -->
+        <section class="lg:col-span-7 flex flex-col gap-6">
+            <div class="glass-card rounded-3xl p-6 shadow-xl flex flex-col items-center justify-center">
+                <div class="w-full flex items-center justify-between mb-4">
+                    <div>
+                        <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white">Vista Previa Real (Labelary Engine 8dpmm 4x1.5")</h3>
+                        <p id="render-status" class="text-[11px] text-emerald-500 font-bold">Plantilla oficial Villalba S.A. con logos :Z64: integrados</p>
+                    </div>
+                    <span class="text-[10px] font-mono px-2.5 py-1 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400">PW799 x LL0281</span>
+                </div>
+
+                <div class="w-full bg-slate-200/70 dark:bg-slate-950/80 rounded-2xl p-6 flex items-center justify-center min-h-[260px] border border-dashed border-slate-300 dark:border-slate-800">
+                    <img id="label-preview-img" src="../data-cobol/LOGONEW.PNG" alt="Vista previa Etiqueta Zebra" class="max-w-full h-auto rounded-lg shadow-2xl bg-white p-2 border border-slate-300" />
+                </div>
+            </div>
+
+            <div class="glass-card rounded-3xl p-6 shadow-xl flex flex-col gap-3 flex-1">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-xs font-black uppercase tracking-widest text-slate-400">Código Fuente ZPL II Generado (LOGONEW.TXT)</h3>
+                    <button id="btn-copy-zpl" class="text-[11px] font-bold text-blue-500 hover:underline bg-transparent border-none cursor-pointer flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[15px]">content_copy</span> Copiar ZPL
+                    </button>
+                </div>
+                <textarea id="zpl-raw-editor" rows="9" class="w-full p-3.5 rounded-2xl bg-slate-950 text-emerald-400 font-mono text-xs border border-slate-800 focus:outline-none"></textarea>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="js/etiquetas-zebra.js"></script>
+    <script type="module" src="../js/global-sidebar.js"></script>
+    <script type="module">import "../js/theme.js";</script>
+</body>
+</html>
+

@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Control & Sincronización Bidireccional — TERIAN ERP v3.0</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: #0f172a;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: #f8fafc;
+        }
+        .hub-card {
+            background: rgba(30, 41, 59, 0.75);
+            border: 1px solid rgba(148, 163, 184, 0.16);
+            backdrop-filter: blur(12px);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .hub-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(99, 102, 241, 0.55);
+            box-shadow: 0 20px 35px -10px rgba(79, 70, 229, 0.28);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Top Header -->
+    <header class="bg-slate-950/90 border-b border-slate-800 sticky top-0 z-30 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-emerald-500 flex items-center justify-center font-black text-white text-sm shadow-lg">
+                    ERP
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="text-base sm:text-lg font-black tracking-tight text-white">TERIAN ERP v3.0 — Sistema Industrial Unificado</h1>
+                        <span class="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-emerald-500/20 text-emerald-300 rounded-full border border-emerald-500/30">COBOL + Web 100% Integrado</span>
+                    </div>
+                    <p class="text-xs text-slate-400">Villalba Hnos. Implantes S.A. · Entorno de Pruebas Aislado en <code class="text-indigo-300">D:\TERIAN-UNIFICADO</code></p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button id="btn-exportar-sql" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-indigo-300 border border-slate-700 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-database"></i>
+                    <span class="hidden sm:inline">Exportar SQL (sga_mysql)</span>
+                </button>
+                <button id="btn-exportar-json" class="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-xs font-bold text-white transition flex items-center gap-1.5 shadow-lg">
+                    <i class="fa-solid fa-cloud-arrow-down"></i>
+                    <span>Descargar Paquete Sincronización</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+        <!-- Resumen Ejecutivo de Unificación -->
+        <section class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3">
+            <div class="hub-card rounded-2xl p-4 text-center">
+                <div class="text-[10px] font-bold uppercase text-slate-400">Sucursales</div>
+                <div id="stat-sucursales" class="text-xl font-black text-indigo-400 mt-1">11</div>
+                <div class="text-[10px] text-slate-500">VIA47 (.04-.26)</div>
+            </div>
+            <div class="hub-card rounded-2xl p-4 text-center">
+                <div class="text-[10px] font-bold uppercase text-slate-400">Clientes</div>
+                <div id="stat-clientes" class="text-xl font-black text-blue-400 mt-1">250</div>
+                <div class="text-[10px] text-slate-500">Padrón VIA02</div>
+            </div>
+            <div class="hub-card rounded-2xl p-4 text-center">
+                <div class="text-[10px] font-bold uppercase text-slate-400">Cirujanos</div>
+                <div id="stat-medicos" class="text-xl font-black text-emerald-400 mt-1">245</div>
+                <div class="text-[10px] text-slate-500">Padrón VIA38</div>
+            </div>
+            <div class="hub-card rounded-2xl p-4 text-center">
+                <div class="text-[10px] font-bold uppercase text-slate-400">Proveedores</div>
+                <div id="stat-proveedores" class="text-xl font-black text-amber-400 mt-1">200</div>
+                <div class="text-[10px] text-slate-500">Padrón VIA44</div>
+            </div>
+            <div class="hub-card rounded-2xl p-4 text-center">
+                <div class="text-[10px] font-bold uppercase text-slate-400">Órdenes OP</div>
+                <div id="stat-ops" class="text-xl font-black text-purple-400 mt-1">80</div>
+                <div class="text-[10px] text-slate-500">VIAORD #26896</div>
+            </div>
+            <div class="hub-card rounded-2xl p-4 text-center">
+                <div class="text-[10px] font-bold uppercase text-slate-400">Remitos Cirugía</div>
+                <div id="stat-remitos" class="text-xl font-black text-cyan-400 mt-1">45</div>
+                <div class="text-[10px] text-slate-500">VIA34/35 + Cajas</div>
+            </div>
+            <div class="hub-card rounded-2xl p-4 text-center">
+                <div class="text-[10px] font-bold uppercase text-slate-400">Facturas AFIP</div>
+                <div id="stat-facturas" class="text-xl font-black text-rose-400 mt-1">20</div>
+                <div class="text-[10px] text-slate-500">WSFEv1 + QR</div>
+            </div>
+            <div class="hub-card rounded-2xl p-4 text-center">
+                <div class="text-[10px] font-bold uppercase text-slate-400">Series ANMAT</div>
+                <div id="stat-anmat" class="text-xl font-black text-teal-400 mt-1">60</div>
+                <div class="text-[10px] text-slate-500">SNT + GCBA</div>
+            </div>
+        </section>
+
+        <!-- Los 6 Módulos Unificados del Ecosistema TERIAN ERP v3.0 -->
+        <section>
+            <div class="flex items-center justify-between mb-4">
+                <div>
+                    <h2 class="text-lg font-bold text-white">Los 6 Módulos del Sistema Unificado (Web + COBOL Migrado)</h2>
+                    <p class="text-xs text-slate-400">Entrá a cualquier módulo para probar la operación completa sin afectar producción (<code class="text-indigo-300">Z:\</code> intacto)</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- 1. TZ: Trazabilidad de Cajas -->
+                <div class="hub-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-11 h-11 rounded-xl bg-blue-500/20 border border-blue-500/40 text-blue-400 flex items-center justify-center font-black">TZ</span>
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-blue-500/10 text-blue-300 border border-blue-500/20">388 Modelos 3D .GLB</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white">1. Trazabilidad de Cajas Quirúrgicas</h3>
+                        <p class="mt-1.5 text-xs text-slate-400 leading-relaxed">
+                            Control por código y serie (<code class="text-slate-200">AX2066</code>, <code class="text-slate-200">BD6590</code>), visor 3D interactivo de implantes, armado por operario, mantenimiento y auditoría de préstamos.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-slate-800 flex flex-wrap gap-2">
+                        <a href="supervisor/menu.html" class="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition">Menú Supervisor →</a>
+                        <a href="operario/menu.html" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition">Operario</a>
+                    </div>
+                </div>
+
+                <!-- 2. DP: Depósito y 4 Almacenes -->
+                <div class="hub-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-11 h-11 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center font-black">DP</span>
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">4 Almacenes + Loteo</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white">2. Depósito Industrial & Stock</h3>
+                        <p class="mt-1.5 text-xs text-slate-400 leading-relaxed">
+                            Gestión de Materia Prima, Semi-Elaborado, No Estéril Terminado y Estéril Terminado. Movimientos de entrada/salida y consumo de cirugías.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-slate-800 flex flex-wrap gap-2">
+                        <a href="deposito/menu.html" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition">Abrir Depósito →</a>
+                        <a href="deposito/stock.html" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition">Ver Stock</a>
+                    </div>
+                </div>
+
+                <!-- 3. PR: Producción, OP, Cuarentena & Zebra ZPL -->
+                <div class="hub-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-11 h-11 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-400 flex items-center justify-center font-black">PR</span>
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/10 text-amber-300 border border-amber-500/20">VIAORD + Zebra ZPL</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white">3. Producción, Calidad & Etiquetas Zebra</h3>
+                        <p class="mt-1.5 text-xs text-slate-400 leading-relaxed">
+                            Órdenes de Producción (<code class="text-slate-200">OP #26896</code>) con vínculo a Monday.com, Cuarentena de Calidad (<code class="text-slate-200">PZ3</code>) y generador de etiquetas Zebra ZPL + GS1 DataMatrix.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-slate-800 flex flex-wrap gap-2">
+                        <a href="produccion/menu.html" class="px-3 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold transition">Hub Producción →</a>
+                        <a href="produccion/etiquetas-zebra.html" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition">Estudio Zebra</a>
+                    </div>
+                </div>
+
+                <!-- 4. CM: Comercial, Remitos, AFIP & ANMAT -->
+                <div class="hub-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-11 h-11 rounded-xl bg-indigo-500/20 border border-indigo-500/40 text-indigo-400 flex items-center justify-center font-black">CM</span>
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">VI0201N2 + WSFEv1 + ANMAT</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white">4. Comercial, Préstamos, AFIP & ANMAT</h3>
+                        <p class="mt-1.5 text-xs text-slate-400 leading-relaxed">
+                            Remitos y Préstamos Quirúrgicos en las 11 sucursales (<code class="text-slate-200">.04</code> a <code class="text-slate-200">.26</code>), Facturación Electrónica AFIP con QR y Ley 27.743, Ctas. Ctes. y Trazabilidad ANMAT.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-slate-800 flex flex-wrap gap-2">
+                        <a href="comercial/menu.html" class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition">Hub Comercial →</a>
+                        <a href="comercial/remitos-prestamos.html" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition">Remitos</a>
+                        <a href="comercial/facturacion-afip.html" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition">AFIP / QR</a>
+                    </div>
+                </div>
+
+                <!-- 5. PD: Pedidos Internos & Órdenes de Compra VIA44 -->
+                <div class="hub-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-11 h-11 rounded-xl bg-rose-500/20 border border-rose-500/40 text-rose-400 flex items-center justify-center font-black">PD</span>
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-rose-500/10 text-rose-300 border border-rose-500/20">Compras React + VIA44</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white">5. Pedidos Internos & Compras (VIA44)</h3>
+                        <p class="mt-1.5 text-xs text-slate-400 leading-relaxed">
+                            Solicitudes por sector, alertas de Stock Crítico y emisión de Órdenes de Compra a los 200 proveedores industriales de <code class="text-slate-200">VIA44</code> con ingreso a Depósito.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-slate-800 flex flex-wrap gap-2">
+                        <a href="pedidos-internos/ordenes-compra-proveedores.html" class="px-3 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold transition">Órdenes Compra VIA44 →</a>
+                        <a href="pedidos-internos/menu.html" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition">Pedidos Internos</a>
+                    </div>
+                </div>
+
+                <!-- 6. FL: Flujos Operativos Interactivos -->
+                <div class="hub-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="w-11 h-11 rounded-xl bg-purple-500/20 border border-purple-500/40 text-purple-400 flex items-center justify-center font-black">FL</span>
+                            <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-purple-500/10 text-purple-300 border border-purple-500/20">BPMN / Procesos</span>
+                        </div>
+                        <h3 class="text-base font-bold text-white">6. Flujos Operativos & Circuitos</h3>
+                        <p class="mt-1.5 text-xs text-slate-400 leading-relaxed">
+                            Mapa visual de procesos industriales, circuitos de esterilización, trazabilidad quirúrgica y normativa de calidad de Villalba Hnos.
+                        </p>
+                    </div>
+                    <div class="mt-5 pt-4 border-t border-slate-800 flex flex-wrap gap-2">
+                        <a href="flujos/index.html" class="px-3 py-1.5 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold transition">Abrir Mapa de Flujos →</a>
+                        <a href="comercial/maestros-comerciales.html?tab=georef" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold transition">Georef AR</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Monitor de Sincronización Bidireccional COBOL <-> Web -->
+        <section class="hub-card rounded-2xl p-6 space-y-4">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-4">
+                <div>
+                    <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-arrows-rotate text-emerald-400"></i>
+                        <span>Estado del Puente de Datos COBOL (<code class="text-indigo-300">D:\WSFESA</code>) ↔ Web (<code class="text-emerald-300">public/data-cobol/</code>)</span>
+                    </h3>
+                    <p class="text-xs text-slate-400">Todos los cambios realizados en la Web quedan registrados en tu navegador y pueden exportarse a SQL / TXT cuando decidas subirlos a producción.</p>
+                </div>
+                <span id="badge-cambios-locales" class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                    0 movimientos nuevos en sesión
+                </span>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse text-xs">
+                    <thead>
+                        <tr class="text-[11px] font-bold uppercase text-slate-400 border-b border-slate-800">
+                            <th class="py-2.5 px-3">Archivo Origen COBOL</th>
+                            <th class="py-2.5 px-3">Dataset JSON Unificado</th>
+                            <th class="py-2.5 px-3">Registros Base</th>
+                            <th class="py-2.5 px-3">Nuevos en Web</th>
+                            <th class="py-2.5 px-3">Módulo Destino</th>
+                            <th class="py-2.5 px-3 text-right">Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-puente" class="divide-y divide-slate-800/70 font-mono text-[11px]">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="js/global-sidebar.js"></script>
+    <script src="js/sincronizador-erp.js"></script>
+</body>
+</html>
+

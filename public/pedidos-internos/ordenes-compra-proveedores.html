@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Órdenes de Compra & Proveedores (VIA44 / VIA60) - TERIAN ERP</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: #f8fafc;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: #0f172a;
+        }
+        @media print {
+            body * { visibility: hidden; }
+            #oc-print-area, #oc-print-area * { visibility: visible; }
+            #oc-print-area {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                box-shadow: none !important;
+                border: none !important;
+            }
+            .no-print { display: none !important; }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Header -->
+    <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-30 no-print">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <a href="menu.html" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-slate-300 transition" title="Volver al Menú de Pedidos">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="text-base sm:text-lg font-bold tracking-tight">Órdenes de Compra, Proveedores & Recepción de Insumos</h1>
+                        <span class="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 rounded-full border border-amber-500/30">VIA44 · VIA60/62 · React Unificado</span>
+                    </div>
+                    <p class="text-xs text-slate-400">Fusión de <code class="text-amber-300">PEDIDOS DE COMPRA</code> + <code class="text-amber-300">pedidos-internos</code> + Padrón de Proveedores COBOL (<code class="text-amber-300">VIA44</code>)</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <a href="stock-critico.html" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-amber-300 border border-slate-700 transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span class="hidden sm:inline">Stock Crítico</span>
+                </a>
+                <button id="btn-nueva-oc" class="px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs font-semibold text-white transition flex items-center gap-1.5 shadow-sm">
+                    <i class="fa-solid fa-cart-plus"></i>
+                    <span>Emitir Orden de Compra (OC)</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6 no-print">
+        <!-- KPIs de Compras y Abastecimiento Industrial -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Órdenes de Compra Activas</span>
+                    <span class="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center"><i class="fa-solid fa-file-signature"></i></span>
+                </div>
+                <div class="mt-3 flex items-baseline gap-2">
+                    <span id="kpi-oc-total" class="text-2xl font-black text-slate-900">12</span>
+                    <span id="kpi-oc-pendientes" class="text-xs font-semibold text-amber-600">En tránsito</span>
+                </div>
+                <p class="mt-1 text-xs text-slate-500">Abastecimiento de Titanio, Acero 316LVM y Servicios</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Proveedores Industriales (VIA44)</span>
+                    <span class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center"><i class="fa-solid fa-industry"></i></span>
+                </div>
+                <div class="mt-3 flex items-baseline gap-2">
+                    <span id="kpi-prov-total" class="text-2xl font-black text-slate-900">200</span>
+                    <span class="text-xs font-semibold text-emerald-600">Homologados ANMAT</span>
+                </div>
+                <p class="mt-1 text-xs text-slate-500">Conectados con <code class="text-slate-700">proveedores_cobol.json</code></p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Monto Comprometido OC</span>
+                    <span class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center"><i class="fa-solid fa-sack-dollar"></i></span>
+                </div>
+                <div class="mt-3 flex items-baseline gap-2">
+                    <span id="kpi-oc-monto" class="text-xl font-black text-slate-900">$0,00</span>
+                </div>
+                <p class="mt-1 text-xs text-slate-500">Cta. Cte. Proveedores (<code class="text-slate-700">VIA45</code>) + IVA Compras</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm">
+                <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Ingreso a Depósito MP</span>
+                    <span class="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center"><i class="fa-solid fa-boxes-packing"></i></span>
+                </div>
+                <div class="mt-3 flex items-baseline gap-2">
+                    <span id="kpi-oc-recibidas" class="text-2xl font-black text-emerald-600">0</span>
+                    <span class="text-xs font-semibold text-slate-500">Lotes ingresados</span>
+                </div>
+                <p class="mt-1 text-xs text-slate-500"><a href="../deposito/stock.html" class="text-indigo-600 font-semibold hover:underline">Ir a Almacén Materia Prima →</a></p>
+            </div>
+        </section>
+
+        <!-- Barra de Filtros -->
+        <section class="bg-white rounded-2xl p-4 border border-slate-200/90 shadow-sm grid grid-cols-1 sm:grid-cols-4 gap-3">
+            <div class="sm:col-span-2 relative">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                <input id="input-buscar-oc" type="text" placeholder="Buscar por Nro OC, proveedor VIA44, insumo, sector solicitante..." class="w-full pl-8 pr-3 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            </div>
+            <div>
+                <select id="select-sector-oc" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white">
+                    <option value="TODOS">Todos los Sectores Solicitantes</option>
+                    <option value="MECANIZADO CNC / TORNERIA">Mecanizado CNC / Tornería</option>
+                    <option value="ESTERILIZACION Y PACKAGING">Esterilización y Packaging</option>
+                    <option value="CALIDAD Y METROLOGIA">Calidad y Metrología</option>
+                    <option value="ARMADO DE CAJAS QUIRURGICAS">Armado de Cajas Quirúrgicas</option>
+                </select>
+            </div>
+            <div>
+                <select id="select-estado-oc" class="w-full px-3 py-2 rounded-xl border border-slate-200 text-xs bg-white">
+                    <option value="TODOS">Todos los Estados</option>
+                    <option value="APROBADA_ENVIADA">Aprobada / Enviada al Proveedor</option>
+                    <option value="PENDIENTE_APROBACION">Pendiente de Aprobación</option>
+                    <option value="RECIBIDA_DEPOSITO">Recibida en Depósito (Stock MP)</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Tabla de Órdenes de Compra -->
+        <section class="bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-slate-50 text-[11px] font-bold uppercase tracking-wider text-slate-400 border-b border-slate-200/80">
+                            <th class="py-3.5 px-4">Orden de Compra</th>
+                            <th class="py-3.5 px-4">Fecha / Prioridad</th>
+                            <th class="py-3.5 px-4">Proveedor Industrial (VIA44)</th>
+                            <th class="py-3.5 px-4">Sector & Material / Insumo</th>
+                            <th class="py-3.5 px-4 text-right">Importe Est.</th>
+                            <th class="py-3.5 px-4 text-center">Estado</th>
+                            <th class="py-3.5 px-4 text-right">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody-oc" class="divide-y divide-slate-100 text-xs">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal: Emitir Nueva Orden de Compra a Proveedor (VIA44) -->
+    <div id="modal-nueva-oc" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4 no-print">
+        <div class="bg-white rounded-2xl max-w-2xl w-full shadow-2xl border border-slate-200 overflow-hidden">
+            <div class="px-6 py-4 bg-slate-900 text-white flex items-center justify-between">
+                <div>
+                    <h3 class="text-sm font-bold">Emitir Nueva Orden de Compra Industrial (VIA44 / VIA60)</h3>
+                    <p class="text-[11px] text-slate-400">Conecta solicitud interna de sector con padrón de proveedores homologados</p>
+                </div>
+                <button id="btn-cerrar-modal-oc" class="text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <form id="form-nueva-oc" class="p-6 space-y-4 text-xs">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Proveedor Homologado (VIA44) *</label>
+                        <input id="oc-proveedor" list="dl-proveedores-oc" required placeholder="Escribí nombre o CUIT del proveedor..." class="w-full px-3 py-2 rounded-xl border border-slate-200 uppercase">
+                        <datalist id="dl-proveedores-oc"></datalist>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Sector Solicitante *</label>
+                        <select id="oc-sector" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white">
+                            <option value="MECANIZADO CNC / TORNERIA">Mecanizado CNC / Tornería</option>
+                            <option value="ESTERILIZACION Y PACKAGING">Esterilización y Packaging</option>
+                            <option value="CALIDAD Y METROLOGIA">Calidad y Metrología</option>
+                            <option value="ARMADO DE CAJAS QUIRURGICAS">Armado de Cajas Quirúrgicas</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Prioridad (App Compras) *</label>
+                        <select id="oc-prioridad" class="w-full px-3 py-2 rounded-xl border border-slate-200 bg-white">
+                            <option value="URGENTE_PLANTA">URGENTE PLANTA (24/48hs)</option>
+                            <option value="ALTA">ALTA (Reposición Stock Crítico)</option>
+                            <option value="NORMAL">NORMAL (Programada)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Cantidad & Unidad *</label>
+                        <input id="oc-cantidad" type="text" required value="50 KG" class="w-full px-3 py-2 rounded-xl border border-slate-200 font-mono uppercase">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-700 mb-1">Importe Estimado ($) *</label>
+                        <input id="oc-importe" type="number" step="0.01" required value="1450000" class="w-full px-3 py-2 rounded-xl border border-slate-200 font-mono font-bold">
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-bold text-slate-700 mb-1">Especificación Técnica del Material / Insumo (Norma ASTM / ISO / ANMAT) *</label>
+                    <textarea id="oc-detalle" rows="3" required class="w-full px-3 py-2 rounded-xl border border-slate-200 font-mono text-[11px]">BARRAS DE TITANIO GRADO 5 ELI (TI-6AL-4V ASTM F136) DIAMETRO 12MM CON CERTIFICADO DE CALIDAD DE COLADA PARA IMPLANTES</textarea>
+                </div>
+                <div class="pt-3 border-t border-slate-100 flex justify-end gap-2">
+                    <button type="button" id="btn-cancelar-oc" class="px-4 py-2 rounded-xl border border-slate-200 text-slate-600 font-semibold">Cancelar</button>
+                    <button type="submit" class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold">Emitir Orden de Compra</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Imprimible Orden de Compra -->
+    <div id="modal-print-oc" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden items-center justify-center p-4">
+        <div id="oc-print-area" class="bg-white rounded-2xl max-w-3xl w-full shadow-2xl border border-slate-200 overflow-hidden">
+            <div class="px-6 py-3 bg-slate-900 text-white flex items-center justify-between no-print">
+                <span id="po-header-id" class="font-mono text-xs font-bold text-amber-300">OC-2026-0412</span>
+                <div class="flex items-center gap-2">
+                    <button id="btn-recibir-mp" class="px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-xs font-bold text-white">
+                        <i class="fa-solid fa-boxes-packing mr-1"></i>Dar Ingreso a Depósito Materia Prima
+                    </button>
+                    <button onclick="window.print()" class="px-3 py-1 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs font-bold text-white">
+                        <i class="fa-solid fa-print mr-1"></i>Imprimir OC
+                    </button>
+                    <button id="btn-cerrar-print-oc" class="text-slate-400 hover:text-white ml-2">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="p-8 space-y-5 text-xs">
+                <div class="border-2 border-slate-900 rounded-xl p-5 space-y-4">
+                    <div class="flex justify-between items-start border-b-2 border-slate-900 pb-4">
+                        <div>
+                            <div class="text-base font-black text-slate-900">VILLALBA HNOS. IMPLANTES S.A.</div>
+                            <div class="text-[11px] text-slate-600">Departamento de Compras Productivas & Abastecimiento ISO 13485</div>
+                            <div class="text-[10px] text-slate-500">CUIT: 30-70875873-2 · Caseros, Provincia de Buenos Aires</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-xs font-bold uppercase text-slate-500">Orden de Compra Oficial</div>
+                            <div id="po-numero" class="text-lg font-black font-mono text-indigo-700">OC-2026-0412</div>
+                            <div class="text-[11px] text-slate-600">Fecha: <strong id="po-fecha">2026-11-06</strong></div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 border-b border-slate-200 pb-3">
+                        <div>
+                            <div class="text-slate-500">Proveedor Adjudicado (VIA44):</div>
+                            <div id="po-proveedor" class="font-bold text-slate-900 text-sm"></div>
+                            <div id="po-cuit" class="font-mono text-[11px] text-slate-600"></div>
+                        </div>
+                        <div>
+                            <div class="text-slate-500">Sector Solicitante & Prioridad:</div>
+                            <div id="po-sector" class="font-bold text-slate-900"></div>
+                            <div id="po-prioridad" class="text-[11px] font-bold text-amber-700"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-bold uppercase text-[10px] text-slate-500 mb-1">Especificación del Material / Servicio Solicitado</div>
+                        <div id="po-detalle" class="p-3 rounded-xl bg-slate-50 border border-slate-200 font-mono text-xs text-slate-800"></div>
+                    </div>
+                    <div class="flex justify-between items-center pt-3 border-t-2 border-slate-900">
+                        <div class="text-[11px] text-slate-600">Cantidad Solicitada: <strong id="po-cantidad" class="font-mono text-slate-900"></strong></div>
+                        <div class="text-sm font-black text-slate-900">Total Orden de Compra: <span id="po-importe" class="font-mono text-indigo-700"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="../js/global-sidebar.js"></script>
+    <script src="js/ordenes-compra-proveedores.js"></script>
+</body>
+</html>
+

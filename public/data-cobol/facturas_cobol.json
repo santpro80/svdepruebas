@@ -1,0 +1,1112 @@
+﻿[
+    {
+        "id":  "A-0004-00011827",
+        "tipo":  "A",
+        "tipoCmpAfip":  1,
+        "puntoVenta":  "0004",
+        "numero":  "00011827",
+        "fecha":  "2026-11-05",
+        "clienteCodigo":  "01042",
+        "clienteNombre":  "ORTOPEDIA Y CIRUGIA ESPECIALIZADA S.R.L.",
+        "clienteCuit":  "30708023910",
+        "condicionIva":  "IVA RESPONSABLE INSCRIPTO",
+        "condicionVenta":  "CUENTA CORRIENTE 30 DIAS",
+        "remitoAsociado":  "0005-00002729",
+        "medico":  null,
+        "paciente":  "PACIENTE AFIL. #10450",
+        "cajasSerie":  [
+
+                       ],
+        "netoGravado":  924074.38,
+        "iva21":  194055.62,
+        "percepcionArba":  0,
+        "total":  1118130,
+        "cae":  "86451211698113",
+        "vtoCae":  "2026-11-15",
+        "estadoCobro":  "PENDIENTE_CC",
+        "saldoPendiente":  1118130,
+        "qrUrl":  "https://www.afip.gob.ar/fe/qr/?p=eyJtb25lZGEiOiJQRVMiLCJ2ZXIiOjEsInB0b1Z0YSI6NCwiZmVjaGEiOiIyMDI2LTExLTA1IiwiaW1wb3J0ZSI6MTExODEzMCwibnJvRG9jUmVjIjozMDcwODAyMzkxMCwiY3VpdCI6MzA3MDg3NTg3MzIsImNvZEF1dCI6ODY0NTEyMTE2OTgxMTMsInRpcG9Db2RBdXQiOiJFIiwiY3R6IjoxLCJ0aXBvQ21wIjoxLCJ0aXBvRG9jUmVjIjo4MCwibnJvQ21wIjoxMTgyN30=",
+        "items":  [
+                      {
+                          "codigo":  "105100002729202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  "9019199044"
+                      },
+                      {
+                          "codigo":  "105100002729202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "20005100002729B",
+                          "cantidad":  1,
+                          "descripcion":  "11050005000000009199044CAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      }
+                  ]
+    },
+    {
+        "id":  "A-0004-00011826",
+        "tipo":  "A",
+        "tipoCmpAfip":  1,
+        "puntoVenta":  "0004",
+        "numero":  "00011826",
+        "fecha":  "2026-11-05",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  "30708023910",
+        "condicionIva":  "IVA RESPONSABLE INSCRIPTO",
+        "condicionVenta":  "CUENTA CORRIENTE 30 DIAS",
+        "remitoAsociado":  "0005-00002728",
+        "medico":  null,
+        "paciente":  "PACIENTE AFIL. #10467",
+        "cajasSerie":  [
+
+                       ],
+        "netoGravado":  698512.4,
+        "iva21":  146687.6,
+        "percepcionArba":  0,
+        "total":  845200,
+        "cae":  "86451211697976",
+        "vtoCae":  "2026-11-15",
+        "estadoCobro":  "PENDIENTE_CC",
+        "saldoPendiente":  845200,
+        "qrUrl":  "https://www.afip.gob.ar/fe/qr/?p=eyJtb25lZGEiOiJQRVMiLCJ2ZXIiOjEsInB0b1Z0YSI6NCwiZmVjaGEiOiIyMDI2LTExLTA1IiwiaW1wb3J0ZSI6ODQ1MjAwLCJucm9Eb2NSZWMiOjMwNzA4MDIzOTEwLCJjdWl0IjozMDcwODc1ODczMiwiY29kQXV0Ijo4NjQ1MTIxMTY5Nzk3NiwidGlwb0NvZEF1dCI6IkUiLCJjdHoiOjEsInRpcG9DbXAiOjEsInRpcG9Eb2NSZWMiOjgwLCJucm9DbXAiOjExODI2fQ==",
+        "items":  [
+                      {
+                          "codigo":  "105100002728202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  "8019199049"
+                      },
+                      {
+                          "codigo":  "105100002728202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  "8029199050"
+                      },
+                      {
+                          "codigo":  "105100002728202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "20005100002728A",
+                          "cantidad":  1,
+                          "descripcion":  "11050005000000009199049CAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      },
+                      {
+                          "codigo":  "20005100002728A",
+                          "cantidad":  1,
+                          "descripcion":  "11050005000000009199050CAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      }
+                  ]
+    },
+    {
+        "id":  "A-0004-00011825",
+        "tipo":  "A",
+        "tipoCmpAfip":  1,
+        "puntoVenta":  "0004",
+        "numero":  "00011825",
+        "fecha":  "2026-11-04",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  "30708023910",
+        "condicionIva":  "IVA RESPONSABLE INSCRIPTO",
+        "condicionVenta":  "CUENTA CORRIENTE 30 DIAS",
+        "remitoAsociado":  "0024-00000643",
+        "medico":  null,
+        "paciente":  "PACIENTE AFIL. #10484",
+        "cajasSerie":  [
+
+                       ],
+        "netoGravado":  1355785.12,
+        "iva21":  284714.88,
+        "percepcionArba":  0,
+        "total":  1640500,
+        "cae":  "86451211697839",
+        "vtoCae":  "2026-11-14",
+        "estadoCobro":  "PENDIENTE_CC",
+        "saldoPendiente":  1640500,
+        "qrUrl":  "https://www.afip.gob.ar/fe/qr/?p=eyJtb25lZGEiOiJQRVMiLCJ2ZXIiOjEsInB0b1Z0YSI6NCwiZmVjaGEiOiIyMDI2LTExLTA0IiwiaW1wb3J0ZSI6MTY0MDUwMCwibnJvRG9jUmVjIjozMDcwODAyMzkxMCwiY3VpdCI6MzA3MDg3NTg3MzIsImNvZEF1dCI6ODY0NTEyMTE2OTc4MzksInRpcG9Db2RBdXQiOiJFIiwiY3R6IjoxLCJ0aXBvQ21wIjoxLCJ0aXBvRG9jUmVjIjo4MCwibnJvQ21wIjoxMTgyNX0=",
+        "items":  [
+                      {
+                          "codigo":  "124100000643202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "3019099001"
+                      },
+                      {
+                          "codigo":  "20024100000643A",
+                          "cantidad":  1,
+                          "descripcion":  "11050024000000009099001CAJAS",
+                          "serieCaja":  "RODILLA"
+                      }
+                  ]
+    },
+    {
+        "id":  "A-0004-00011824",
+        "tipo":  "A",
+        "tipoCmpAfip":  1,
+        "puntoVenta":  "0004",
+        "numero":  "00011824",
+        "fecha":  "2026-11-04",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  "30708023910",
+        "condicionIva":  "IVA RESPONSABLE INSCRIPTO",
+        "condicionVenta":  "CUENTA CORRIENTE 30 DIAS",
+        "remitoAsociado":  "0004-00045711",
+        "medico":  null,
+        "paciente":  "PACIENTE AFIL. #10501",
+        "cajasSerie":  [
+
+                       ],
+        "netoGravado":  760330.58,
+        "iva21":  159669.42,
+        "percepcionArba":  19008.26,
+        "total":  939008.26,
+        "cae":  "86451211697702",
+        "vtoCae":  "2026-11-14",
+        "estadoCobro":  "PENDIENTE_CC",
+        "saldoPendiente":  939008.26,
+        "qrUrl":  "https://www.afip.gob.ar/fe/qr/?p=eyJtb25lZGEiOiJQRVMiLCJ2ZXIiOjEsInB0b1Z0YSI6NCwiZmVjaGEiOiIyMDI2LTExLTA0IiwiaW1wb3J0ZSI6OTM5MDA4LjI2LCJucm9Eb2NSZWMiOjMwNzA4MDIzOTEwLCJjdWl0IjozMDcwODc1ODczMiwiY29kQXV0Ijo4NjQ1MTIxMTY5NzcwMiwidGlwb0NvZEF1dCI6IkUiLCJjdHoiOjEsInRpcG9DbXAiOjEsInRpcG9Eb2NSZWMiOjgwLCJucm9DbXAiOjExODI0fQ==",
+        "items":  [
+                      {
+                          "codigo":  "104100045711202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  "1019199036"
+                      },
+                      {
+                          "codigo":  "104100045711202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045711202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045711202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045711202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "104100045711202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  ""
+                      }
+                  ]
+    },
+    {
+        "id":  "A-0004-00011823",
+        "tipo":  "A",
+        "tipoCmpAfip":  1,
+        "puntoVenta":  "0004",
+        "numero":  "00011823",
+        "fecha":  "2026-11-03",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  "30708023910",
+        "condicionIva":  "IVA RESPONSABLE INSCRIPTO",
+        "condicionVenta":  "CUENTA CORRIENTE 30 DIAS",
+        "remitoAsociado":  "0007-00003676",
+        "medico":  null,
+        "paciente":  "PACIENTE AFIL. #10518",
+        "cajasSerie":  [
+
+                       ],
+        "netoGravado":  1909421.49,
+        "iva21":  400978.51,
+        "percepcionArba":  0,
+        "total":  2310400,
+        "cae":  "86451211697565",
+        "vtoCae":  "2026-11-13",
+        "estadoCobro":  "PENDIENTE_CC",
+        "saldoPendiente":  2310400,
+        "qrUrl":  "https://www.afip.gob.ar/fe/qr/?p=eyJtb25lZGEiOiJQRVMiLCJ2ZXIiOjEsInB0b1Z0YSI6NCwiZmVjaGEiOiIyMDI2LTExLTAzIiwiaW1wb3J0ZSI6MjMxMDQwMCwibnJvRG9jUmVjIjozMDcwODAyMzkxMCwiY3VpdCI6MzA3MDg3NTg3MzIsImNvZEF1dCI6ODY0NTEyMTE2OTc1NjUsInRpcG9Db2RBdXQiOiJFIiwiY3R6IjoxLCJ0aXBvQ21wIjoxLCJ0aXBvRG9jUmVjIjo4MCwibnJvQ21wIjoxMTgyM30=",
+        "items":  [
+                      {
+                          "codigo":  "107100003676202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000M  S 00 000000000000          0710000367",
+                          "serieCaja":  "60191990TO"
+                      },
+                      {
+                          "codigo":  "107100003676202",
+                          "cantidad":  6110500,
+                          "descripcion":  "0000M  S 00 000000000000          0710000367",
+                          "serieCaja":  "60291990CO"
+                      },
+                      {
+                          "codigo":  "20007100003676A",
+                          "cantidad":  1,
+                          "descripcion":  "110500070000000091990COGENERICOS",
+                          "serieCaja":  "INSTRUMENT"
+                      },
+                      {
+                          "codigo":  "20007100003676A",
+                          "cantidad":  1,
+                          "descripcion":  "110500070000000091990TOCAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      }
+                  ]
+    },
+    {
+        "id":  "A-0004-00011822",
+        "tipo":  "A",
+        "tipoCmpAfip":  1,
+        "puntoVenta":  "0004",
+        "numero":  "00011822",
+        "fecha":  "2026-11-03",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  "30708023910",
+        "condicionIva":  "IVA RESPONSABLE INSCRIPTO",
+        "condicionVenta":  "CUENTA CORRIENTE 30 DIAS",
+        "remitoAsociado":  "0024-00000642",
+        "medico":  null,
+        "paciente":  "PACIENTE AFIL. #10535",
+        "cajasSerie":  [
+
+                       ],
+        "netoGravado":  558512.4,
+        "iva21":  117287.6,
+        "percepcionArba":  0,
+        "total":  675800,
+        "cae":  "86451211697428",
+        "vtoCae":  "2026-11-13",
+        "estadoCobro":  "PENDIENTE_CC",
+        "saldoPendiente":  675800,
+        "qrUrl":  "https://www.afip.gob.ar/fe/qr/?p=eyJtb25lZGEiOiJQRVMiLCJ2ZXIiOjEsInB0b1Z0YSI6NCwiZmVjaGEiOiIyMDI2LTExLTAzIiwiaW1wb3J0ZSI6Njc1ODAwLCJucm9Eb2NSZWMiOjMwNzA4MDIzOTEwLCJjdWl0IjozMDcwODc1ODczMiwiY29kQXV0Ijo4NjQ1MTIxMTY5NzQyOCwidGlwb0NvZEF1dCI6IkUiLCJjdHoiOjEsInRpcG9DbXAiOjEsInRpcG9Eb2NSZWMiOjgwLCJucm9DbXAiOjExODIyfQ==",
+        "items":  [
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "20135089C1"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "20235089C4"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "20335089C3"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "20435089D3"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "20535089D2"
+                      },
+                      {
+                          "codigo":  "124100000642202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000E  S 00 000000000000          2410000064",
+                          "serieCaja":  "20635089C2"
+                      }
+                  ]
+    },
+    {
+        "id":  "A-0004-00011821",
+        "tipo":  "A",
+        "tipoCmpAfip":  1,
+        "puntoVenta":  "0004",
+        "numero":  "00011821",
+        "fecha":  "2026-11-02",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  "30708023910",
+        "condicionIva":  "IVA RESPONSABLE INSCRIPTO",
+        "condicionVenta":  "CUENTA CORRIENTE 30 DIAS",
+        "remitoAsociado":  "0004-00045710",
+        "medico":  null,
+        "paciente":  "PACIENTE AFIL. #10552",
+        "cajasSerie":  [
+
+                       ],
+        "netoGravado":  1223140.5,
+        "iva21":  256859.5,
+        "percepcionArba":  30578.51,
+        "total":  1510578.51,
+        "cae":  "86451211697291",
+        "vtoCae":  "2026-11-12",
+        "estadoCobro":  "PENDIENTE_CC",
+        "saldoPendiente":  1510578.51,
+        "qrUrl":  "https://www.afip.gob.ar/fe/qr/?p=eyJtb25lZGEiOiJQRVMiLCJ2ZXIiOjEsInB0b1Z0YSI6NCwiZmVjaGEiOiIyMDI2LTExLTAyIiwiaW1wb3J0ZSI6MTUxMDU3OC41MSwibnJvRG9jUmVjIjozMDcwODAyMzkxMCwiY3VpdCI6MzA3MDg3NTg3MzIsImNvZEF1dCI6ODY0NTEyMTE2OTcyOTEsInRpcG9Db2RBdXQiOiJFIiwiY3R6IjoxLCJ0aXBvQ21wIjoxLCJ0aXBvRG9jUmVjIjo4MCwibnJvQ21wIjoxMTgyMX0=",
+        "items":  [
+                      {
+                          "codigo":  "104100045710202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  "0019099902"
+                      },
+                      {
+                          "codigo":  "104100045710202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004571",
+                          "serieCaja":  "0025224035"
+                      },
+                      {
+                          "codigo":  "20004100045710A",
+                          "cantidad":  1,
+                          "descripcion":  "11040004000000009099902CAJAS",
+                          "serieCaja":  "CUPULA"
+                      },
+                      {
+                          "codigo":  "20004100045710C",
+                          "cantidad":  1,
+                          "descripcion":  "11040004000000005224035TORNILLOS",
+                          "serieCaja":  "TORN"
+                      }
+                  ]
+    },
+    {
+        "id":  "A-0004-00011820",
+        "tipo":  "A",
+        "tipoCmpAfip":  1,
+        "puntoVenta":  "0004",
+        "numero":  "00011820",
+        "fecha":  "2026-11-02",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  "30708023910",
+        "condicionIva":  "IVA RESPONSABLE INSCRIPTO",
+        "condicionVenta":  "CUENTA CORRIENTE 30 DIAS",
+        "remitoAsociado":  "0008-00000944",
+        "medico":  null,
+        "paciente":  "PACIENTE AFIL. #10569",
+        "cajasSerie":  [
+
+                       ],
+        "netoGravado":  438760.33,
+        "iva21":  92139.67,
+        "percepcionArba":  0,
+        "total":  530900,
+        "cae":  "86451211697154",
+        "vtoCae":  "2026-11-12",
+        "estadoCobro":  "PARCIAL_CC",
+        "saldoPendiente":  238905,
+        "qrUrl":  "https://www.afip.gob.ar/fe/qr/?p=eyJtb25lZGEiOiJQRVMiLCJ2ZXIiOjEsInB0b1Z0YSI6NCwiZmVjaGEiOiIyMDI2LTExLTAyIiwiaW1wb3J0ZSI6NTMwOTAwLCJucm9Eb2NSZWMiOjMwNzA4MDIzOTEwLCJjdWl0IjozMDcwODc1ODczMiwiY29kQXV0Ijo4NjQ1MTIxMTY5NzE1NCwidGlwb0NvZEF1dCI6IkUiLCJjdHoiOjEsInRpcG9DbXAiOjEsInRpcG9Eb2NSZWMiOjgwLCJucm9DbXAiOjExODIwfQ==",
+        "items":  [
+                      {
+                          "codigo":  "108100000944202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000C  S 00 000000000000          0810000094",
+                          "serieCaja":  "4015224020"
+                      },
+                      {
+                          "codigo":  "20008100000944B",
+                          "cantidad":  1,
+                          "descripcion":  "11040008000000005224020TORNILLOS",
+                          "serieCaja":  "TORN"
+                      }
+                  ]
+    },
+    {
+        "id":  "A-0004-00011819",
+        "tipo":  "A",
+        "tipoCmpAfip":  1,
+        "puntoVenta":  "0004",
+        "numero":  "00011819",
+        "fecha":  "2026-11-01",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  "30708023910",
+        "condicionIva":  "IVA RESPONSABLE INSCRIPTO",
+        "condicionVenta":  "CUENTA CORRIENTE 30 DIAS",
+        "remitoAsociado":  "0005-00002727",
+        "medico":  null,
+        "paciente":  "PACIENTE AFIL. #10586",
+        "cajasSerie":  [
+
+                       ],
+        "netoGravado":  1611570.25,
+        "iva21":  338429.75,
+        "percepcionArba":  0,
+        "total":  1950000,
+        "cae":  "86451211697017",
+        "vtoCae":  "2026-11-11",
+        "estadoCobro":  "PARCIAL_CC",
+        "saldoPendiente":  877500,
+        "qrUrl":  "https://www.afip.gob.ar/fe/qr/?p=eyJtb25lZGEiOiJQRVMiLCJ2ZXIiOjEsInB0b1Z0YSI6NCwiZmVjaGEiOiIyMDI2LTExLTAxIiwiaW1wb3J0ZSI6MTk1MDAwMCwibnJvRG9jUmVjIjozMDcwODAyMzkxMCwiY3VpdCI6MzA3MDg3NTg3MzIsImNvZEF1dCI6ODY0NTEyMTE2OTcwMTcsInRpcG9Db2RBdXQiOiJFIiwiY3R6IjoxLCJ0aXBvQ21wIjoxLCJ0aXBvRG9jUmVjIjo4MCwibnJvQ21wIjoxMTgxOX0=",
+        "items":  [
+                      {
+                          "codigo":  "105100002727202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000A  S 00 000000000000          0510000272",
+                          "serieCaja":  "7011105349"
+                      },
+                      {
+                          "codigo":  "105100002727202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000A  S 00 000000000000          0510000272",
+                          "serieCaja":  "70211053B5"
+                      },
+                      {
+                          "codigo":  "20005100002727B",
+                          "cantidad":  1,
+                          "descripcion":  "11040005000000001105349ACETABULO NO CEMENTEN",
+                          "serieCaja":  "TADO"
+                      },
+                      {
+                          "codigo":  "20005100002727B",
+                          "cantidad":  1,
+                          "descripcion":  "110400050000000011053B5ACETABULO NO CEMENTEN",
+                          "serieCaja":  "TADO"
+                      }
+                  ]
+    },
+    {
+        "id":  "A-0004-00011818",
+        "tipo":  "A",
+        "tipoCmpAfip":  1,
+        "puntoVenta":  "0004",
+        "numero":  "00011818",
+        "fecha":  "2026-11-01",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  "30708023910",
+        "condicionIva":  "IVA RESPONSABLE INSCRIPTO",
+        "condicionVenta":  "CUENTA CORRIENTE 30 DIAS",
+        "remitoAsociado":  "0008-00000943",
+        "medico":  null,
+        "paciente":  "PACIENTE AFIL. #10603",
+        "cajasSerie":  [
+
+                       ],
+        "netoGravado":  644958.68,
+        "iva21":  135441.32,
+        "percepcionArba":  16123.97,
+        "total":  796523.97,
+        "cae":  "86451211696880",
+        "vtoCae":  "2026-11-11",
+        "estadoCobro":  "PARCIAL_CC",
+        "saldoPendiente":  358435.79,
+        "qrUrl":  "https://www.afip.gob.ar/fe/qr/?p=eyJtb25lZGEiOiJQRVMiLCJ2ZXIiOjEsInB0b1Z0YSI6NCwiZmVjaGEiOiIyMDI2LTExLTAxIiwiaW1wb3J0ZSI6Nzk2NTIzLjk3LCJucm9Eb2NSZWMiOjMwNzA4MDIzOTEwLCJjdWl0IjozMDcwODc1ODczMiwiY29kQXV0Ijo4NjQ1MTIxMTY5Njg4MCwidGlwb0NvZEF1dCI6IkUiLCJjdHoiOjEsInRpcG9DbXAiOjEsInRpcG9Eb2NSZWMiOjgwLCJucm9DbXAiOjExODE4fQ==",
+        "items":  [
+                      {
+                          "codigo":  "108100000943202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000C  S 00 000000000000          0810000094",
+                          "serieCaja":  "3011105341"
+                      },
+                      {
+                          "codigo":  "108100000943202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000C  S 00 000000000000          0810000094",
+                          "serieCaja":  "30211053A1"
+                      },
+                      {
+                          "codigo":  "20008100000943B",
+                          "cantidad":  1,
+                          "descripcion":  "11040008000000001105341ACETABULO NO CEMENTEN",
+                          "serieCaja":  "TADO"
+                      },
+                      {
+                          "codigo":  "20008100000943B",
+                          "cantidad":  1,
+                          "descripcion":  "110400080000000011053A1ACETABULO NO CEMENTEN",
+                          "serieCaja":  "TADO"
+                      }
+                  ]
+    },
+    {
+        "id":  "A-0004-00011817",
+        "tipo":  "A",
+        "tipoCmpAfip":  1,
+        "puntoVenta":  "0004",
+        "numero":  "00011817",
+        "fecha":  "2026-10-31",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  "30708023910",
+        "condicionIva":  "IVA RESPONSABLE INSCRIPTO",
+        "condicionVenta":  "CUENTA CORRIENTE 30 DIAS",
+        "remitoAsociado":  "0004-00045705",
+        "medico":  null,
+        "paciente":  "PACIENTE AFIL. #10620",
+        "cajasSerie":  [
+
+                       ],
+        "netoGravado":  1066115.7,
+        "iva21":  223884.3,
+        "percepcionArba":  0,
+        "total":  1290000,
+        "cae":  "86451211696743",
+        "vtoCae":  "2026-11-10",
+        "estadoCobro":  "PARCIAL_CC",
+        "saldoPendiente":  580500,
+        "qrUrl":  "https://www.afip.gob.ar/fe/qr/?p=eyJtb25lZGEiOiJQRVMiLCJ2ZXIiOjEsInB0b1Z0YSI6NCwiZmVjaGEiOiIyMDI2LTEwLTMxIiwiaW1wb3J0ZSI6MTI5MDAwMCwibnJvRG9jUmVjIjozMDcwODAyMzkxMCwiY3VpdCI6MzA3MDg3NTg3MzIsImNvZEF1dCI6ODY0NTEyMTE2OTY3NDMsInRpcG9Db2RBdXQiOiJFIiwiY3R6IjoxLCJ0aXBvQ21wIjoxLCJ0aXBvRG9jUmVjIjo4MCwibnJvQ21wIjoxMTgxN30=",
+        "items":  [
+                      {
+                          "codigo":  "104100045705202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "5012307043"
+                      },
+                      {
+                          "codigo":  "20004100045705C",
+                          "cantidad":  1,
+                          "descripcion":  "11040004000000002307043THOMPSON TALLO STANDA",
+                          "serieCaja":  ""
+                      }
+                  ]
+    },
+    {
+        "id":  "A-0004-00011816",
+        "tipo":  "A",
+        "tipoCmpAfip":  1,
+        "puntoVenta":  "0004",
+        "numero":  "00011816",
+        "fecha":  "2026-10-31",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  "30708023910",
+        "condicionIva":  "IVA RESPONSABLE INSCRIPTO",
+        "condicionVenta":  "CUENTA CORRIENTE 30 DIAS",
+        "remitoAsociado":  "0004-00045704",
+        "medico":  null,
+        "paciente":  "PACIENTE AFIL. #10637",
+        "cajasSerie":  [
+
+                       ],
+        "netoGravado":  2578512.4,
+        "iva21":  541487.6,
+        "percepcionArba":  0,
+        "total":  3120000,
+        "cae":  "86451211696606",
+        "vtoCae":  "2026-11-10",
+        "estadoCobro":  "COBRADA",
+        "saldoPendiente":  0,
+        "qrUrl":  "https://www.afip.gob.ar/fe/qr/?p=eyJtb25lZGEiOiJQRVMiLCJ2ZXIiOjEsInB0b1Z0YSI6NCwiZmVjaGEiOiIyMDI2LTEwLTMxIiwiaW1wb3J0ZSI6MzEyMDAwMCwibnJvRG9jUmVjIjozMDcwODAyMzkxMCwiY3VpdCI6MzA3MDg3NTg3MzIsImNvZEF1dCI6ODY0NTEyMTE2OTY2MDYsInRpcG9Db2RBdXQiOiJFIiwiY3R6IjoxLCJ0aXBvQ21wIjoxLCJ0aXBvRG9jUmVjIjo4MCwibnJvQ21wIjoxMTgxNn0=",
+        "items":  [
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4015224025"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4025224025"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4035224025"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4045224020"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4055224020"
+                      },
+                      {
+                          "codigo":  "104100045704202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "4065224035"
+                      }
+                  ]
+    },
+    {
+        "id":  "A-0004-00011815",
+        "tipo":  "A",
+        "tipoCmpAfip":  1,
+        "puntoVenta":  "0004",
+        "numero":  "00011815",
+        "fecha":  "2026-10-30",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  "30708023910",
+        "condicionIva":  "IVA RESPONSABLE INSCRIPTO",
+        "condicionVenta":  "CUENTA CORRIENTE 30 DIAS",
+        "remitoAsociado":  "0004-00045703",
+        "medico":  null,
+        "paciente":  "PACIENTE AFIL. #10654",
+        "cajasSerie":  [
+
+                       ],
+        "netoGravado":  735950.41,
+        "iva21":  154549.59,
+        "percepcionArba":  18398.76,
+        "total":  908898.76,
+        "cae":  "86451211696469",
+        "vtoCae":  "2026-11-09",
+        "estadoCobro":  "COBRADA",
+        "saldoPendiente":  0,
+        "qrUrl":  "https://www.afip.gob.ar/fe/qr/?p=eyJtb25lZGEiOiJQRVMiLCJ2ZXIiOjEsInB0b1Z0YSI6NCwiZmVjaGEiOiIyMDI2LTEwLTMwIiwiaW1wb3J0ZSI6OTA4ODk4Ljc2LCJucm9Eb2NSZWMiOjMwNzA4MDIzOTEwLCJjdWl0IjozMDcwODc1ODczMiwiY29kQXV0Ijo4NjQ1MTIxMTY5NjQ2OSwidGlwb0NvZEF1dCI6IkUiLCJjdHoiOjEsInRpcG9DbXAiOjEsInRpcG9Eb2NSZWMiOjgwLCJucm9DbXAiOjExODE1fQ==",
+        "items":  [
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3015015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3025015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3035015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3045015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3055015400"
+                      },
+                      {
+                          "codigo":  "104100045703202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004570",
+                          "serieCaja":  "3065015400"
+                      }
+                  ]
+    },
+    {
+        "id":  "A-0004-00011814",
+        "tipo":  "A",
+        "tipoCmpAfip":  1,
+        "puntoVenta":  "0004",
+        "numero":  "00011814",
+        "fecha":  "2026-10-30",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  "30708023910",
+        "condicionIva":  "IVA RESPONSABLE INSCRIPTO",
+        "condicionVenta":  "CUENTA CORRIENTE 30 DIAS",
+        "remitoAsociado":  "0004-00045702",
+        "medico":  null,
+        "paciente":  "PACIENTE AFIL. #10671",
+        "cajasSerie":  [
+
+                       ],
+        "netoGravado":  950413.22,
+        "iva21":  199586.78,
+        "percepcionArba":  0,
+        "total":  1150000,
+        "cae":  "86451211696332",
+        "vtoCae":  "2026-11-09",
+        "estadoCobro":  "COBRADA",
+        "saldoPendiente":  0,
+        "qrUrl":  "https://www.afip.gob.ar/fe/qr/?p=eyJtb25lZGEiOiJQRVMiLCJ2ZXIiOjEsInB0b1Z0YSI6NCwiZmVjaGEiOiIyMDI2LTEwLTMwIiwiaW1wb3J0ZSI6MTE1MDAwMCwibnJvRG9jUmVjIjozMDcwODAyMzkxMCwiY3VpdCI6MzA3MDg3NTg3MzIsImNvZEF1dCI6ODY0NTEyMTE2OTYzMzIsInRpcG9Db2RBdXQiOiJFIiwiY3R6IjoxLCJ0aXBvQ21wIjoxLCJ0aXBvRG9jUmVjIjo4MCwibnJvQ21wIjoxMTgxNH0=",
+        "items":  [
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2015015400"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2025015400"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2035015400"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2045015400"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2055015400"
+                      },
+                      {
+                          "codigo":  "104100045702202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  S 00 000000000000          0410004570",
+                          "serieCaja":  "2065015400"
+                      }
+                  ]
+    },
+    {
+        "id":  "A-0004-00011813",
+        "tipo":  "A",
+        "tipoCmpAfip":  1,
+        "puntoVenta":  "0004",
+        "numero":  "00011813",
+        "fecha":  "2026-10-29",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  "30708023910",
+        "condicionIva":  "IVA RESPONSABLE INSCRIPTO",
+        "condicionVenta":  "CUENTA CORRIENTE 30 DIAS",
+        "remitoAsociado":  "0004-00045701",
+        "medico":  null,
+        "paciente":  "PACIENTE AFIL. #10688",
+        "cajasSerie":  [
+
+                       ],
+        "netoGravado":  528925.62,
+        "iva21":  111074.38,
+        "percepcionArba":  0,
+        "total":  640000,
+        "cae":  "86451211696195",
+        "vtoCae":  "2026-11-08",
+        "estadoCobro":  "COBRADA",
+        "saldoPendiente":  0,
+        "qrUrl":  "https://www.afip.gob.ar/fe/qr/?p=eyJtb25lZGEiOiJQRVMiLCJ2ZXIiOjEsInB0b1Z0YSI6NCwiZmVjaGEiOiIyMDI2LTEwLTI5IiwiaW1wb3J0ZSI6NjQwMDAwLCJucm9Eb2NSZWMiOjMwNzA4MDIzOTEwLCJjdWl0IjozMDcwODc1ODczMiwiY29kQXV0Ijo4NjQ1MTIxMTY5NjE5NSwidGlwb0NvZEF1dCI6IkUiLCJjdHoiOjEsInRpcG9DbXAiOjEsInRpcG9Eb2NSZWMiOjgwLCJucm9DbXAiOjExODEzfQ==",
+        "items":  [
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "10132079B1"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "1022707403"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "1032707404"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "10432079SK"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "10532079D1"
+                      },
+                      {
+                          "codigo":  "104100045701202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000D  SS00 000000000000          0410004570",
+                          "serieCaja":  "1063207964"
+                      }
+                  ]
+    },
+    {
+        "id":  "A-0004-00011812",
+        "tipo":  "A",
+        "tipoCmpAfip":  1,
+        "puntoVenta":  "0004",
+        "numero":  "00011812",
+        "fecha":  "2026-10-29",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  "30708023910",
+        "condicionIva":  "IVA RESPONSABLE INSCRIPTO",
+        "condicionVenta":  "CUENTA CORRIENTE 30 DIAS",
+        "remitoAsociado":  "0004-00045699",
+        "medico":  null,
+        "paciente":  "PACIENTE AFIL. #10705",
+        "cajasSerie":  [
+
+                       ],
+        "netoGravado":  1425619.83,
+        "iva21":  299380.17,
+        "percepcionArba":  35640.5,
+        "total":  1760640.5,
+        "cae":  "86451211696058",
+        "vtoCae":  "2026-11-08",
+        "estadoCobro":  "COBRADA",
+        "saldoPendiente":  0,
+        "qrUrl":  "https://www.afip.gob.ar/fe/qr/?p=eyJtb25lZGEiOiJQRVMiLCJ2ZXIiOjEsInB0b1Z0YSI6NCwiZmVjaGEiOiIyMDI2LTEwLTI5IiwiaW1wb3J0ZSI6MTc2MDY0MC41LCJucm9Eb2NSZWMiOjMwNzA4MDIzOTEwLCJjdWl0IjozMDcwODc1ODczMiwiY29kQXV0Ijo4NjQ1MTIxMTY5NjA1OCwidGlwb0NvZEF1dCI6IkUiLCJjdHoiOjEsInRpcG9DbXAiOjEsInRpcG9Eb2NSZWMiOjgwLCJucm9DbXAiOjExODEyfQ==",
+        "items":  [
+                      {
+                          "codigo":  "104100045699202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000R  S 00 000000000000          0410004569",
+                          "serieCaja":  "90190614EX"
+                      },
+                      {
+                          "codigo":  "20004100045699A",
+                          "cantidad":  1,
+                          "descripcion":  "110400040000000090614EXCAJAS",
+                          "serieCaja":  "PARA"
+                      }
+                  ]
+    },
+    {
+        "id":  "A-0004-00011811",
+        "tipo":  "A",
+        "tipoCmpAfip":  1,
+        "puntoVenta":  "0004",
+        "numero":  "00011811",
+        "fecha":  "2026-10-28",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  "30708023910",
+        "condicionIva":  "IVA RESPONSABLE INSCRIPTO",
+        "condicionVenta":  "CUENTA CORRIENTE 30 DIAS",
+        "remitoAsociado":  "0008-00000942",
+        "medico":  null,
+        "paciente":  "PACIENTE AFIL. #10722",
+        "cajasSerie":  [
+
+                       ],
+        "netoGravado":  809917.36,
+        "iva21":  170082.64,
+        "percepcionArba":  0,
+        "total":  980000,
+        "cae":  "86451211695921",
+        "vtoCae":  "2026-11-07",
+        "estadoCobro":  "COBRADA",
+        "saldoPendiente":  0,
+        "qrUrl":  "https://www.afip.gob.ar/fe/qr/?p=eyJtb25lZGEiOiJQRVMiLCJ2ZXIiOjEsInB0b1Z0YSI6NCwiZmVjaGEiOiIyMDI2LTEwLTI4IiwiaW1wb3J0ZSI6OTgwMDAwLCJucm9Eb2NSZWMiOjMwNzA4MDIzOTEwLCJjdWl0IjozMDcwODc1ODczMiwiY29kQXV0Ijo4NjQ1MTIxMTY5NTkyMSwidGlwb0NvZEF1dCI6IkUiLCJjdHoiOjEsInRpcG9DbXAiOjEsInRpcG9Eb2NSZWMiOjgwLCJucm9DbXAiOjExODExfQ==",
+        "items":  [
+                      {
+                          "codigo":  "108100000942202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000V  S 00 000000000000          0810000094",
+                          "serieCaja":  "20112054C2"
+                      },
+                      {
+                          "codigo":  "108100000942202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000V  S 00 000000000000          0810000094",
+                          "serieCaja":  "20209051B1"
+                      },
+                      {
+                          "codigo":  "108100000942202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000V  S 00 000000000000          0810000094",
+                          "serieCaja":  "20309051B2"
+                      },
+                      {
+                          "codigo":  "108100000942202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000V  S 00 000000000000          0810000094",
+                          "serieCaja":  "2045224020"
+                      },
+                      {
+                          "codigo":  "20008100000942B",
+                          "cantidad":  1,
+                          "descripcion":  "110400080000000009051B1CABEZA INTERCAMBIABLE",
+                          "serieCaja":  "MODULAR"
+                      },
+                      {
+                          "codigo":  "20008100000942B",
+                          "cantidad":  1,
+                          "descripcion":  "110400080000000009051B2CABEZA INTERCAMBIABLE",
+                          "serieCaja":  "MODULAR"
+                      }
+                  ]
+    },
+    {
+        "id":  "A-0004-00011810",
+        "tipo":  "A",
+        "tipoCmpAfip":  1,
+        "puntoVenta":  "0004",
+        "numero":  "00011810",
+        "fecha":  "2026-10-28",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  "30708023910",
+        "condicionIva":  "IVA RESPONSABLE INSCRIPTO",
+        "condicionVenta":  "CUENTA CORRIENTE 30 DIAS",
+        "remitoAsociado":  "0008-00000941",
+        "medico":  null,
+        "paciente":  "PACIENTE AFIL. #10739",
+        "cajasSerie":  [
+
+                       ],
+        "netoGravado":  1165289.26,
+        "iva21":  244710.74,
+        "percepcionArba":  0,
+        "total":  1410000,
+        "cae":  "86451211695784",
+        "vtoCae":  "2026-11-07",
+        "estadoCobro":  "COBRADA",
+        "saldoPendiente":  0,
+        "qrUrl":  "https://www.afip.gob.ar/fe/qr/?p=eyJtb25lZGEiOiJQRVMiLCJ2ZXIiOjEsInB0b1Z0YSI6NCwiZmVjaGEiOiIyMDI2LTEwLTI4IiwiaW1wb3J0ZSI6MTQxMDAwMCwibnJvRG9jUmVjIjozMDcwODAyMzkxMCwiY3VpdCI6MzA3MDg3NTg3MzIsImNvZEF1dCI6ODY0NTEyMTE2OTU3ODQsInRpcG9Db2RBdXQiOiJFIiwiY3R6IjoxLCJ0aXBvQ21wIjoxLCJ0aXBvRG9jUmVjIjo4MCwibnJvQ21wIjoxMTgxMH0=",
+        "items":  [
+                      {
+                          "codigo":  "108100000941202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000V  S 00 000000000000          0810000094",
+                          "serieCaja":  "1019099645"
+                      },
+                      {
+                          "codigo":  "20008100000941A",
+                          "cantidad":  1,
+                          "descripcion":  "11040008000000009099645CAJAS",
+                          "serieCaja":  "TALLO"
+                      }
+                  ]
+    },
+    {
+        "id":  "A-0004-00011809",
+        "tipo":  "A",
+        "tipoCmpAfip":  1,
+        "puntoVenta":  "0004",
+        "numero":  "00011809",
+        "fecha":  "2026-10-27",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  "30708023910",
+        "condicionIva":  "IVA RESPONSABLE INSCRIPTO",
+        "condicionVenta":  "CUENTA CORRIENTE 30 DIAS",
+        "remitoAsociado":  "0005-00002726",
+        "medico":  null,
+        "paciente":  "PACIENTE AFIL. #10756",
+        "cajasSerie":  [
+
+                       ],
+        "netoGravado":  1727272.73,
+        "iva21":  362727.27,
+        "percepcionArba":  43181.82,
+        "total":  2133181.82,
+        "cae":  "86451211695647",
+        "vtoCae":  "2026-11-06",
+        "estadoCobro":  "COBRADA",
+        "saldoPendiente":  0,
+        "qrUrl":  "https://www.afip.gob.ar/fe/qr/?p=eyJtb25lZGEiOiJQRVMiLCJ2ZXIiOjEsInB0b1Z0YSI6NCwiZmVjaGEiOiIyMDI2LTEwLTI3IiwiaW1wb3J0ZSI6MjEzMzE4MS44MiwibnJvRG9jUmVjIjozMDcwODAyMzkxMCwiY3VpdCI6MzA3MDg3NTg3MzIsImNvZEF1dCI6ODY0NTEyMTE2OTU2NDcsInRpcG9Db2RBdXQiOiJFIiwiY3R6IjoxLCJ0aXBvQ21wIjoxLCJ0aXBvRG9jUmVjIjo4MCwibnJvQ21wIjoxMTgwOX0=",
+        "items":  [
+                      {
+                          "codigo":  "105100002726202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  "6019199047"
+                      },
+                      {
+                          "codigo":  "105100002726202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "20005100002726A",
+                          "cantidad":  1,
+                          "descripcion":  "11040005000000009199047CAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      }
+                  ]
+    },
+    {
+        "id":  "A-0004-00011808",
+        "tipo":  "A",
+        "tipoCmpAfip":  1,
+        "puntoVenta":  "0004",
+        "numero":  "00011808",
+        "fecha":  "2026-10-27",
+        "clienteCodigo":  null,
+        "clienteNombre":  null,
+        "clienteCuit":  "30708023910",
+        "condicionIva":  "IVA RESPONSABLE INSCRIPTO",
+        "condicionVenta":  "CUENTA CORRIENTE 30 DIAS",
+        "remitoAsociado":  "0005-00002725",
+        "medico":  null,
+        "paciente":  "PACIENTE AFIL. #10773",
+        "cajasSerie":  [
+
+                       ],
+        "netoGravado":  628099.17,
+        "iva21":  131900.83,
+        "percepcionArba":  0,
+        "total":  760000,
+        "cae":  "86451211695510",
+        "vtoCae":  "2026-11-06",
+        "estadoCobro":  "COBRADA",
+        "saldoPendiente":  0,
+        "qrUrl":  "https://www.afip.gob.ar/fe/qr/?p=eyJtb25lZGEiOiJQRVMiLCJ2ZXIiOjEsInB0b1Z0YSI6NCwiZmVjaGEiOiIyMDI2LTEwLTI3IiwiaW1wb3J0ZSI6NzYwMDAwLCJucm9Eb2NSZWMiOjMwNzA4MDIzOTEwLCJjdWl0IjozMDcwODc1ODczMiwiY29kQXV0Ijo4NjQ1MTIxMTY5NTUxMCwidGlwb0NvZEF1dCI6IkUiLCJjdHoiOjEsInRpcG9DbXAiOjEsInRpcG9Eb2NSZWMiOjgwLCJucm9DbXAiOjExODA4fQ==",
+        "items":  [
+                      {
+                          "codigo":  "105100002725202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  "5019199036"
+                      },
+                      {
+                          "codigo":  "105100002725202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  "5029199043"
+                      },
+                      {
+                          "codigo":  "105100002725202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  "5039199036"
+                      },
+                      {
+                          "codigo":  "105100002725202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "105100002725202",
+                          "cantidad":  6110400,
+                          "descripcion":  "0000G  S 00 000000000000          0510000272",
+                          "serieCaja":  ""
+                      },
+                      {
+                          "codigo":  "20005100002725A",
+                          "cantidad":  1,
+                          "descripcion":  "11040005000000009199043CAJAS INSTRUMENTAL IM",
+                          "serieCaja":  "PLANTES"
+                      }
+                  ]
+    }
+]

@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Órdenes de Producción (VIAORD) | TERIAN ERP</title>
+    <link rel="stylesheet" href="../css/tailwind.css">
+    <link rel="stylesheet" href="../css/dark-theme.css">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        body { font-family: 'Public Sans', sans-serif; }
+        .glass-card { background: rgba(255, 255, 255, 0.94); border: 1px solid rgba(0,0,0,0.08); backdrop-filter: blur(12px); }
+        html.dark .glass-card { background: rgba(22, 30, 42, 0.78); border: 1px solid rgba(255, 255, 255, 0.07); }
+    </style>
+</head>
+<body class="bg-slate-100 dark:bg-[#0a0f16] text-slate-900 dark:text-[#f1f5f9] antialiased min-h-screen flex flex-col">
+
+    <header class="bg-[#f8fafc]/90 dark:bg-[#0f172a]/90 backdrop-blur-md shadow-sm border-b border-slate-200 dark:border-slate-800 px-4 lg:px-6 py-3 flex items-center justify-between sticky top-0 z-40">
+        <div class="header-left flex items-center gap-3">
+            <a href="menu.html" class="p-2 rounded-xl bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 no-underline flex items-center">
+                <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+            </a>
+            <div class="h-9 w-9 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white shadow-lg shadow-emerald-500/20">
+                <span class="material-symbols-outlined text-[18px]">engineering</span>
+            </div>
+            <div>
+                <h1 class="text-base font-black tracking-tight uppercase text-slate-900 dark:text-white leading-none">Órdenes de Producción (VIAORD & Monday)</h1>
+                <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-500">Reemplazo Web de VIAORD • SQLVIAORD.COB • monday_op_link.ps1</span>
+            </div>
+        </div>
+        <div class="flex items-center gap-2">
+            <button id="btn-open-new-op" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs uppercase tracking-wider border-none cursor-pointer flex items-center gap-1.5 shadow-lg shadow-emerald-600/20">
+                <span class="material-symbols-outlined text-[16px]">add_circle</span> Nueva OP
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-1 w-full max-w-7xl mx-auto px-4 py-6 flex flex-col gap-6">
+        <!-- Filtros y Buscador -->
+        <div class="glass-card rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="relative w-full md:w-96">
+                <span class="material-symbols-outlined absolute left-3.5 top-2.5 text-slate-400 text-[20px]">search</span>
+                <input id="op-search" type="text" placeholder="Buscar por N° OP (ej: 26896), código (32-080-RC) o descripción..." class="w-full pl-11 pr-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs font-bold text-slate-900 dark:text-white">
+            </div>
+            <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
+                <select id="op-filter-estado" class="px-3 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs font-bold text-slate-900 dark:text-white">
+                    <option value="">Todos los Estados</option>
+                    <option value="En Ejecucion">En Ejecución</option>
+                    <option value="Cuarentena PZ3">Cuarentena PZ3</option>
+                    <option value="Liberada">Liberada a Depósito</option>
+                </select>
+                <span id="op-count-badge" class="px-3 py-2 rounded-xl bg-emerald-500/10 text-emerald-500 font-black text-xs uppercase tracking-wider">80 OPs cargadas</span>
+            </div>
+        </div>
+
+        <!-- Tabla de Órdenes de Producción -->
+        <div class="glass-card rounded-3xl overflow-hidden shadow-xl">
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b border-slate-200 dark:border-slate-800 bg-slate-200/50 dark:bg-slate-900/60 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                            <th class="py-3.5 px-4">N° OP</th>
+                            <th class="py-3.5 px-4">Fecha</th>
+                            <th class="py-3.5 px-4">Código</th>
+                            <th class="py-3.5 px-4">Descripción / Pieza (VIAORD)</th>
+                            <th class="py-3.5 px-4">Material / Lote</th>
+                            <th class="py-3.5 px-4 text-center">Cant.</th>
+                            <th class="py-3.5 px-4">Estado</th>
+                            <th class="py-3.5 px-4 text-right">Acciones (Zebra / Monday / PZ3)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="op-table-body" class="divide-y divide-slate-200 dark:divide-slate-800/70 text-xs">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Nueva OP -->
+    <div id="modal-new-op" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="glass-card rounded-3xl p-6 max-w-lg w-full shadow-2xl border border-slate-300 dark:border-slate-700 flex flex-col gap-4">
+            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+                <h3 class="text-base font-black uppercase text-emerald-500">Alta de Orden de Producción (VIAORD)</h3>
+                <button id="btn-close-new-op" class="p-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-500 border-none cursor-pointer">
+                    <span class="material-symbols-outlined text-[18px]">close</span>
+                </button>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+                <div>
+                    <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">N° Orden (OP)</label>
+                    <input id="new-op-num" type="text" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-black text-sm text-emerald-500">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">Código Artículo</label>
+                    <input id="new-op-codigo" type="text" placeholder="Ej: 42-147-31" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-sm text-slate-900 dark:text-white uppercase">
+                </div>
+            </div>
+            <div>
+                <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">Descripción del Producto / Semielaborado</label>
+                <input id="new-op-detalle" type="text" placeholder="Ej: PLACA VOLAR ANATOMICA RADIO DISTAL" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-sm text-slate-900 dark:text-white uppercase">
+            </div>
+            <div class="grid grid-cols-3 gap-3">
+                <div>
+                    <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">Cantidad</label>
+                    <input id="new-op-cant" type="number" value="25" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-sm text-slate-900 dark:text-white">
+                </div>
+                <div>
+                    <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">Material</label>
+                    <select id="new-op-mat" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-xs text-slate-900 dark:text-white">
+                        <option value="TITANIO">TITANIO</option>
+                        <option value="ACERO / CR-CO">ACERO / CR-CO</option>
+                        <option value="UHMWPE / POLIETILENO">UHMWPE / POLIETILENO</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">Inf. Recepción (IR)</label>
+                    <input id="new-op-ir" type="text" value="IR-2026-089" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-xs text-slate-900 dark:text-white">
+                </div>
+            </div>
+            <button id="btn-save-new-op" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs uppercase tracking-widest border-none cursor-pointer shadow-lg shadow-emerald-600/20">
+                Guardar Orden de Producción
+            </button>
+        </div>
+    </div>
+
+    <script type="module" src="js/ordenes-produccion.js"></script>
+    <script type="module" src="../js/global-sidebar.js"></script>
+    <script type="module">import "../js/theme.js";</script>
+</body>
+</html>
+
