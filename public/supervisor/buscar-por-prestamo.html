@@ -21,8 +21,8 @@
 
         @media print {
             @page {
-                size: 62mm 34mm;
-                margin: 1.5mm;
+                size: 4in 1.5in;
+                margin: 0;
             }
             html, body {
                 background: #ffffff !important;
@@ -38,10 +38,25 @@
                 display: none !important;
             }
             #sticker-print-area {
-                display: block !important;
-                width: 100% !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                width: 4in !important;
+                max-width: 100% !important;
                 background: #ffffff !important;
                 color: #000000 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            #sticker-print-area img {
+                width: 4in !important;
+                max-width: 100% !important;
+                height: auto !important;
+                display: block !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
             }
         }
     </style>
@@ -106,7 +121,7 @@
 
     <!-- Modal de Confirmación Única de Sticker ANMAT -->
     <div id="modal-confirm-sticker" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
-        <div class="glass-card bg-white dark:bg-[#0f1722] w-full max-w-lg rounded-3xl border border-slate-200 dark:border-white/15 shadow-2xl overflow-hidden">
+        <div class="glass-card bg-white dark:bg-[#0f1722] w-full max-w-2xl rounded-3xl border border-slate-200 dark:border-white/15 shadow-2xl overflow-hidden">
             <div class="p-5 border-b border-slate-200 dark:border-white/10 flex items-center justify-between bg-amber-500/10">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-500 flex items-center justify-center">
@@ -114,10 +129,10 @@
                     </div>
                     <div>
                         <h3 class="text-sm font-black uppercase tracking-wider text-slate-900 dark:text-white">
-                            Emisión Única de Sticker ANMAT
+                            Emisión Única de Etiqueta Oficial ANMAT (4" x 1.5")
                         </h3>
                         <p class="text-[11px] font-bold text-amber-600 dark:text-amber-400">
-                            Impresión irrepetible por normativa de trazabilidad
+                            Impresión irrepetible por normativa de trazabilidad · Formato Zebra / A4
                         </p>
                     </div>
                 </div>
@@ -127,27 +142,62 @@
             </div>
 
             <div class="p-5 space-y-4">
-                <div class="p-3.5 rounded-2xl bg-rose-500/10 border border-rose-500/25 text-xs text-rose-700 dark:text-rose-300 font-semibold leading-relaxed">
-                    <strong>ATENCIÓN:</strong> Este sticker se puede imprimir <strong>UNA SOLA VEZ</strong> para el número de serie seleccionado. Al confirmar, quedará registrado de forma permanente y no podrá volver a imprimirse desde ningún equipo.
+                <div class="p-3 rounded-2xl bg-rose-500/10 border border-rose-500/25 text-xs text-rose-700 dark:text-rose-300 font-semibold leading-relaxed">
+                    <strong>ATENCIÓN NORMATIVA ANMAT:</strong> Este sticker oficial se puede imprimir <strong>UNA SOLA VEZ</strong> para la serie seleccionada. Al confirmar, quedará bloqueado permanentemente en la base de datos.
                 </div>
 
-                <!-- Vista previa del sticker -->
-                <div class="flex justify-center">
-                    <div id="sticker-preview-box" class="w-full max-w-[340px] bg-white text-slate-900 rounded-xl border-2 border-dashed border-slate-300 p-3.5 shadow-inner">
+                <!-- Datos complementarios de etiqueta ANMAT -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <div>
+                        <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">N° Lote / OP (10)</label>
+                        <input id="stk-lote" type="text" value="2301328" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-mono font-bold text-xs text-slate-900 dark:text-white" />
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Fecha Fab.</label>
+                        <input id="stk-fecha" type="text" value="" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-mono font-bold text-xs text-slate-900 dark:text-white" placeholder="DD/MM/AAAA" />
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Material</label>
+                        <select id="stk-material" class="w-full px-2.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-xs text-slate-900 dark:text-white">
+                            <option value="TITANIO">TITANIO</option>
+                            <option value="ACERO INOX.">ACERO INOX.</option>
+                            <option value="CR-CO-MO">CR-CO-MO</option>
+                            <option value="PEEK / UHMWPE">PEEK / UHMWPE</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-1">Condición</label>
+                        <select id="stk-condicion" class="w-full px-2.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-xs text-slate-900 dark:text-white">
+                            <option value="NO ESTERIL">NO ESTERIL</option>
+                            <option value="ESTERIL ETO">ESTERIL ETO</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Vista previa real de la etiqueta (Labelary 8dpmm 4x1.5") -->
+                <div class="rounded-2xl bg-slate-900/90 border border-slate-700/80 p-4 space-y-2">
+                    <div class="flex items-center justify-between text-[11px]">
+                        <span class="font-black uppercase tracking-wider text-slate-300">Vista Previa Real (4" x 1.5" · ANMAT PM 15)</span>
+                        <span id="stk-render-status" class="font-bold text-amber-400">Generando...</span>
+                    </div>
+                    <div id="sticker-preview-box" class="w-full min-h-[140px] flex items-center justify-center bg-slate-950/60 rounded-xl border border-dashed border-slate-700 p-3">
                         <!-- Renderizado dinámicamente -->
                     </div>
                 </div>
 
-                <div class="pt-2 flex items-center justify-end gap-2.5">
-                    <button id="btn-cancel-sticker-2" type="button"
-                        class="px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider cursor-pointer">
-                        Cancelar
-                    </button>
-                    <button id="btn-confirm-print-sticker" type="button"
-                        class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-black uppercase tracking-wider shadow-lg shadow-emerald-600/25 cursor-pointer">
-                        <span class="material-symbols-outlined text-base">print</span>
-                        Confirmar e Imprimir (1x)
-                    </button>
+                <div class="pt-2 flex flex-wrap items-center justify-between gap-2.5">
+                    <span class="text-[11px] font-mono text-slate-400" id="stk-id-hint"></span>
+                    <div class="flex items-center gap-2.5">
+                        <button id="btn-cancel-sticker-2" type="button"
+                            class="px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-300 text-xs font-bold uppercase tracking-wider cursor-pointer">
+                            Cancelar
+                        </button>
+                        <button id="btn-confirm-print-sticker" type="button"
+                            class="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-black uppercase tracking-wider shadow-lg shadow-emerald-600/25 cursor-pointer disabled:opacity-50">
+                            <span class="material-symbols-outlined text-base">print</span>
+                            Confirmar e Imprimir (1x)
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

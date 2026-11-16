@@ -3,6 +3,7 @@ import {
     serverTimestamp, registrarHistorial
 } from './firebase-config.js';
 import { runTransaction } from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js';
+import { buildOfficialVillalbaZpl } from '../../produccion/js/etiquetas-zebra.js';
 
 const searchInput = document.getElementById('prestamo-search-input');
 const searchBtn = document.getElementById('search-btn');
@@ -16,6 +17,9 @@ const errorState = document.getElementById('error-state');
 const stickerRegistry = new Map();
 let pendingStickerData = null;
 let isPrintingInProgress = false;
+let currentStickerBlobUrl = null;
+let currentStickerIsImage = false;
+let renderDebounceTimer = null;
 
 const esc = (str) => String(str ?? '')
     .replace(/&/g, '&amp;')
@@ -35,6 +39,14 @@ function formatDate(timestamp) {
     return new Date(timestamp).toLocaleString('es-ES');
 }
 
+function formatDateDMY(timestamp) {
+    const date = timestamp?.toDate ? timestamp.toDate() : (timestamp ? new Date(timestamp) : new Date());
+    const d = String(date.getDate()).padStart(2, '0');
+    const m = String(date.getMonth() + 1).padStart(2, '0');
+    const y = date.getFullYear();
+    return `${d}/${m}/${y}`;
+}
+
 function formatDateShort(timestamp) {
     if (!timestamp) return 'Actualidad';
     const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
@@ -47,7 +59,7 @@ function getStickerDocId(prestamoNum, cajaSerie, itemCode, serieAnterior) {
     return raw.replace(/[^A-Z0-9_-]/g, '_');
 }
 
-// Generador Code39 SVG puro (sin dependencias externas) para el número de serie
+// Generador Code39 SVG puro (fallback offline)
 const CODE39_MAP = {
     '0':'nnnwwnwnn','1':'wnnwnnnnw','2':'nnwwnnnnw','3':'wnwwnnnnn','4':'nnnwwnnnw',
     '5':'wnnwwnnnn','6':'nnwwwnnnn','7':'nnnwnnwnw','8':'wnnwnnwnn','9':'nnwwnnwnn',
@@ -64,10 +76,10 @@ function buildCode39Svg(text) {
     const clean = String(text || '0').toUpperCase().replace(/[^0-9A-Z\-. $/+%]/g, '');
     const full = `*${clean}*`;
     let x = 0;
-    const narrow = 1.6;
-    const wide = 3.8;
-    const gap = 1.6;
-    const height = 28;
+    const narrow = 1.5;
+    const wide = 3.5;
+    const gap = 1.5;
+    const height = 26;
     const rects = [];
 
     for (let i = 0; i < full.length; i++) {
@@ -81,38 +93,145 @@ function buildCode39Svg(text) {
         }
         x += gap;
     }
-    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${x.toFixed(1)} ${height}" class="w-full h-7" preserveAspectRatio="none">${rects.join('')}</svg>`;
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${x.toFixed(1)} ${height}" style="width:100%;height:24px;display:block;" preserveAspectRatio="none">${rects.join('')}</svg>`;
 }
 
-function buildStickerHtml(item) {
-    const barcodeSvg = buildCode39Svg(item.serieAnterior);
-    const fechaTxt = item.entradaStrShort || formatDateShort(item.entrada);
+// Fallback visual fiel 4" x 1.5" en HTML/SVG por si Labelary está offline
+function buildOfflineOfficialStickerHtml(params) {
+    const barcodeSvg = buildCode39Svg(params.serie);
+    const leyenda = params.condicion.includes('NO ESTERIL')
+        ? 'ESTERILIZAR ANTES DE USAR'
+        : 'ESTERILIZADO POR OXIDO DE ETILENO';
+
     return `
-        <div style="font-family:'Public Sans',sans-serif;border:1.5px solid #0f172a;border-radius:6px;padding:6px 8px;background:#fff;color:#0f172a;box-sizing:border-box;">
-            <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #cbd5e1;padding-bottom:3px;margin-bottom:4px;">
-                <span style="font-size:9px;font-weight:900;letter-spacing:0.06em;text-transform:uppercase;">VILLALBA HNOS. S.A.</span>
-                <span style="font-size:8px;font-weight:800;background:#0f172a;color:#fff;padding:1px 4px;border-radius:3px;">ANMAT TRAZ.</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:6px;">
-                <span style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:800;">COD: ${esc(item.code)}</span>
-                <span style="font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;">PRÉST. #${esc(item.prestamoNum)}</span>
-            </div>
-            <div style="font-size:9px;font-weight:700;line-height:1.2;margin:2px 0 4px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
-                ${esc(item.desc)}
-            </div>
-            <div style="background:#f8fafc;border:1px solid #94a3b8;border-radius:4px;padding:3px 5px;text-align:center;">
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2px;">
-                    <span style="font-size:8px;font-weight:800;text-transform:uppercase;color:#475569;">SERIE (SN)</span>
-                    <span style="font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:900;letter-spacing:0.08em;">${esc(item.serieAnterior)}</span>
+        <div style="width:384px;height:144px;box-sizing:border-box;background:#fff;color:#000;font-family:Arial,Helvetica,sans-serif;border:1px solid #000;border-radius:6px;padding:6px 8px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;page-break-inside:avoid;break-inside:avoid;">
+            <div style="display:flex;gap:8px;align-items:flex-start;">
+                <div style="width:98px;flex-shrink:0;font-size:7px;line-height:1.18;font-weight:700;">
+                    <div style="text-align:center;font-weight:900;font-size:9px;border:1.5px solid #000;padding:2px;margin-bottom:3px;">▲ VILLALBA</div>
+                    <div>Fabricado por VILLALBA S.A.</div>
+                    <div>Fray M.Esquiu 4548 - Caseros</div>
+                    <div>Buenos Aires - Argentina</div>
+                    <div>Autorizado por la ANMAT</div>
+                    <div>PM 15</div>
+                    <div>DT:Farm. Leandro A. Tagliabue</div>
+                    <div>M.P.:18056</div>
+                    <div>Industria Argentina</div>
                 </div>
-                ${barcodeSvg}
+                <div style="flex:1;min-width:0;">
+                    <div style="display:flex;justify-content:space-between;gap:6px;align-items:flex-start;">
+                        <div style="border:1.5px solid #000;padding:3px 5px;flex:1;min-height:36px;font-size:9px;font-weight:900;line-height:1.15;">
+                            <div>${esc(params.desc1)}</div>
+                            <div>${esc(params.desc2)}</div>
+                        </div>
+                        <div style="font-family:'JetBrains Mono',monospace;font-size:7.5px;font-weight:700;line-height:1.25;text-align:left;flex-shrink:0;">
+                            <div>(21)${esc(params.serie)}</div>
+                            <div>(10)${esc(params.lote)}</div>
+                            <div>(22)${esc(params.codigo)}</div>
+                        </div>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;font-size:8.5px;font-weight:800;margin-top:3px;">
+                        <div>Codigo: ${esc(params.codigo)}<br/>Lote: ${esc(params.lote)}<br/>${esc(params.material)}</div>
+                        <div style="text-align:right;">Fabricado: ${esc(params.fecha)}</div>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:6px;margin-top:3px;">
+                        <div style="flex:1;">${barcodeSvg}</div>
+                        <div style="background:#000;color:#fff;font-size:10px;font-weight:900;padding:2px 6px;letter-spacing:0.04em;white-space:nowrap;">${esc(params.condicion)}</div>
+                    </div>
+                    <div style="display:flex;justify-content:space-between;align-items:center;font-size:8px;font-weight:900;margin-top:2px;">
+                        <span>SERIE: <strong style="font-size:10px;">${esc(params.serie)}</strong></span>
+                        <span>${esc(leyenda)}</span>
+                    </div>
+                </div>
             </div>
-            <div style="display:flex;justify-content:space-between;font-size:8px;font-weight:700;color:#334155;margin-top:3px;">
-                <span>CAJA: ${esc(item.cajaSerie)}</span>
-                <span>CIERRE: ${esc(fechaTxt)}</span>
-            </div>
+            <div style="text-align:center;font-size:7px;font-weight:700;">—Uso exclusivo a profesionales e instituciones sanitarias—</div>
         </div>
     `;
+}
+
+function detectMaterialFromDesc(desc) {
+    const d = String(desc || '').toUpperCase();
+    if (d.includes('ACERO') || d.includes('316')) return 'ACERO INOX.';
+    if (d.includes('CR-CO') || d.includes('CROMO')) return 'CR-CO-MO';
+    if (d.includes('PEEK') || d.includes('POLIET')) return 'PEEK / UHMWPE';
+    return 'TITANIO';
+}
+
+function splitDescLines(desc) {
+    const clean = String(desc || 'IMPLANTE OSTEOSINTESIS VILLALBA').trim().toUpperCase();
+    if (clean.length <= 30) return { desc1: clean, desc2: '' };
+    const cut = clean.lastIndexOf(' ', 30);
+    const idx = cut > 10 ? cut : 30;
+    return {
+        desc1: clean.slice(0, idx).trim(),
+        desc2: clean.slice(idx).trim().slice(0, 30)
+    };
+}
+
+function getModalStickerParams(item) {
+    const { desc1, desc2 } = splitDescLines(item.desc);
+    return {
+        codigo: String(item.code || '').replace(/-/g, '').trim(),
+        serie: String(item.serieAnterior || '').trim().toUpperCase(),
+        lote: (document.getElementById('stk-lote')?.value || '2301328').trim(),
+        fecha: (document.getElementById('stk-fecha')?.value || formatDateDMY(item.entrada || item.fechaRaw)).trim(),
+        desc1,
+        desc2,
+        material: document.getElementById('stk-material')?.value || 'TITANIO',
+        condicion: document.getElementById('stk-condicion')?.value || 'NO ESTERIL',
+        pm: 'PM 15'
+    };
+}
+
+async function renderOfficialPreview(item) {
+    if (!item) return;
+    const previewBox = document.getElementById('sticker-preview-box');
+    const statusEl = document.getElementById('stk-render-status');
+    const confirmBtn = document.getElementById('btn-confirm-print-sticker');
+
+    const params = getModalStickerParams(item);
+    const zpl = buildOfficialVillalbaZpl(params);
+
+    if (statusEl) {
+        statusEl.textContent = 'Generando etiqueta oficial Zebra (4x1.5")...';
+        statusEl.className = 'font-bold text-amber-400';
+    }
+    if (confirmBtn) confirmBtn.disabled = true;
+
+    try {
+        const response = await fetch('https://api.labelary.com/v1/printers/8dpmm/labels/4x1.5/0/', {
+            method: 'POST',
+            headers: {
+                'Accept': 'image/png',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: zpl
+        });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const blob = await response.blob();
+
+        if (currentStickerBlobUrl) URL.revokeObjectURL(currentStickerBlobUrl);
+        currentStickerBlobUrl = URL.createObjectURL(blob);
+        currentStickerIsImage = true;
+
+        previewBox.innerHTML = `
+            <img id="stk-preview-img" src="${currentStickerBlobUrl}" alt="Etiqueta Oficial Villalba ANMAT"
+                class="w-full max-w-[440px] h-auto rounded-lg shadow-lg bg-white" />
+        `;
+        if (statusEl) {
+            statusEl.textContent = `Etiqueta oficial lista (${(blob.size / 1024).toFixed(1)} KB)`;
+            statusEl.className = 'font-bold text-emerald-400';
+        }
+    } catch (err) {
+        console.warn('Labelary offline, usando renderizado oficial local:', err);
+        currentStickerIsImage = false;
+        previewBox.innerHTML = buildOfflineOfficialStickerHtml(params);
+        if (statusEl) {
+            statusEl.textContent = 'Modo local listo (4" x 1.5")';
+            statusEl.className = 'font-bold text-blue-400';
+        }
+    } finally {
+        if (confirmBtn) confirmBtn.disabled = false;
+    }
 }
 
 async function buscarPrestamo() {
@@ -235,7 +354,6 @@ async function renderResult(prestamoNum, data) {
 
     resultsContainer.appendChild(card);
 
-    // Conectar botones de impresión de sticker único
     card.querySelectorAll('[data-print-sticker]').forEach(btn => {
         btn.addEventListener('click', () => {
             const stickerId = btn.getAttribute('data-print-sticker');
@@ -346,6 +464,7 @@ async function getBoxDetails(caja, prestamoNum, loanTimestamp, loanUser) {
                     result.consumos.push({
                         codigoDesc: h.detalles.itemDescripcion,
                         serieAnterior: h.detalles.valorAnterior,
+                        lote: h.detalles.lote || h.detalles.partida || '',
                         fecha: h.timestamp,
                         stickerInfo: null
                     });
@@ -353,7 +472,6 @@ async function getBoxDetails(caja, prestamoNum, loanTimestamp, loanUser) {
             }
         });
 
-        // Consultar en Firestore si cada ítem consumido ya tuvo su sticker impreso
         await Promise.all(result.consumos.map(async (c) => {
             const parts = (c.codigoDesc || '').split(';');
             const code = parts[0] || '?';
@@ -448,8 +566,10 @@ function renderBoxItem(details, index, prestamoNum) {
                 modelName: details.modelName,
                 code,
                 desc,
+                lote: c.lote || '',
                 serieAnterior: c.serieAnterior,
                 fechaConsumo,
+                fechaRaw: c.fecha,
                 salida: details.salida,
                 entrada: details.entrada,
                 entradaStrShort: formatDateShort(details.entrada),
@@ -535,16 +655,29 @@ function openStickerConfirmModal(stickerId) {
     }
 
     pendingStickerData = item;
-    const previewBox = document.getElementById('sticker-preview-box');
-    previewBox.innerHTML = buildStickerHtml(item);
+
+    const inpLote = document.getElementById('stk-lote');
+    const inpFecha = document.getElementById('stk-fecha');
+    const selMat = document.getElementById('stk-material');
+    const selCond = document.getElementById('stk-condicion');
+    const hint = document.getElementById('stk-id-hint');
+
+    if (inpLote) inpLote.value = item.lote || '2301328';
+    if (inpFecha) inpFecha.value = formatDateDMY(item.entrada || item.fechaRaw);
+    if (selMat) selMat.value = detectMaterialFromDesc(item.desc);
+    if (selCond) selCond.value = 'NO ESTERIL';
+    if (hint) hint.textContent = `Préstamo #${item.prestamoNum} · Caja ${item.cajaSerie} · Serie ${item.serieAnterior}`;
 
     const confirmBtn = document.getElementById('btn-confirm-print-sticker');
-    confirmBtn.disabled = false;
-    confirmBtn.innerHTML = `<span class="material-symbols-outlined text-base">print</span> Confirmar e Imprimir (1x)`;
+    if (confirmBtn) {
+        confirmBtn.innerHTML = `<span class="material-symbols-outlined text-base">print</span> Confirmar e Imprimir (1x)`;
+    }
 
     const modal = document.getElementById('modal-confirm-sticker');
     modal.classList.remove('hidden');
     modal.classList.add('flex');
+
+    renderOfficialPreview(item);
 }
 
 function closeStickerConfirmModal() {
@@ -557,6 +690,7 @@ function closeStickerConfirmModal() {
 async function confirmAndPrintUniqueSticker() {
     if (!pendingStickerData || isPrintingInProgress) return;
     const item = pendingStickerData;
+    const params = getModalStickerParams(item);
     const confirmBtn = document.getElementById('btn-confirm-print-sticker');
 
     isPrintingInProgress = true;
@@ -585,6 +719,10 @@ async function confirmAndPrintUniqueSticker() {
                 itemCode: item.code,
                 itemDesc: item.desc,
                 serieRetirada: item.serieAnterior,
+                lote: params.lote,
+                fechaFabricacion: params.fecha,
+                material: params.material,
+                condicion: params.condicion,
                 impreso: true,
                 impresionesCount: 1,
                 impresoPorNombre: userName,
@@ -601,6 +739,8 @@ async function confirmAndPrintUniqueSticker() {
             itemCodigo: item.code,
             itemDescripcion: item.desc,
             serieRetirada: item.serieAnterior,
+            lote: params.lote,
+            material: params.material,
             stickerId: item.stickerId
         });
 
@@ -617,11 +757,19 @@ async function confirmAndPrintUniqueSticker() {
             slot.innerHTML = renderStickerActionBadge(item.stickerId, true, lockedInfo);
         }
 
-        // Preparar área de impresión y lanzar diálogo de impresión
+        // Preparar área de impresión oficial (imagen única 4x1.5" para que nunca se parta en 2 hojas)
         const printArea = document.getElementById('sticker-print-area');
-        printArea.innerHTML = buildStickerHtml(item);
-        closeStickerConfirmModal();
+        if (currentStickerIsImage && currentStickerBlobUrl) {
+            printArea.innerHTML = `<img id="print-sticker-img" src="${currentStickerBlobUrl}" alt="Sticker ANMAT" />`;
+            const imgEl = document.getElementById('print-sticker-img');
+            if (imgEl && !imgEl.complete) {
+                await new Promise(resolve => { imgEl.onload = resolve; imgEl.onerror = resolve; });
+            }
+        } else {
+            printArea.innerHTML = buildOfflineOfficialStickerHtml(params);
+        }
 
+        closeStickerConfirmModal();
         window.print();
     } catch (err) {
         if (err?.message === 'ALREADY_PRINTED') {
@@ -668,3 +816,11 @@ if (menuBtn) {
 document.getElementById('btn-cancel-sticker')?.addEventListener('click', closeStickerConfirmModal);
 document.getElementById('btn-cancel-sticker-2')?.addEventListener('click', closeStickerConfirmModal);
 document.getElementById('btn-confirm-print-sticker')?.addEventListener('click', confirmAndPrintUniqueSticker);
+
+['stk-lote', 'stk-fecha', 'stk-material', 'stk-condicion'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', () => {
+        if (!pendingStickerData) return;
+        clearTimeout(renderDebounceTimer);
+        renderDebounceTimer = setTimeout(() => renderOfficialPreview(pendingStickerData), 350);
+    });
+});

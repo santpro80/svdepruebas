@@ -65,6 +65,7 @@ export function buildOfficialVillalbaZpl({ codigo, serie, lote, fecha, desc1, de
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    if (!document.getElementById('zpl-raw-editor')) return;
     const inpCodigo = document.getElementById('zpl-codigo');
     const inpSerie  = document.getElementById('zpl-serie');
     const inpLote   = document.getElementById('zpl-lote');
