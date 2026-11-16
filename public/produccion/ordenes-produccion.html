@@ -1,126 +1,582 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es" class="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Órdenes de Producción (VIAORD) | TERIAN ERP</title>
+    <title>Órdenes de Producción, Procesos y Operaciones | Villalba Systems</title>
+    <link rel="icon" href="../supervisor/assets/logo.png" type="image/png">
     <link rel="stylesheet" href="../css/tailwind.css">
     <link rel="stylesheet" href="../css/dark-theme.css">
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
-        body { font-family: 'Public Sans', sans-serif; }
-        .glass-card { background: rgba(255, 255, 255, 0.94); border: 1px solid rgba(0,0,0,0.08); backdrop-filter: blur(12px); }
-        html.dark .glass-card { background: rgba(22, 30, 42, 0.78); border: 1px solid rgba(255, 255, 255, 0.07); }
+        body {
+            font-family: 'Public Sans', sans-serif;
+        }
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(12px);
+        }
+        html.dark .glass-card {
+            background: rgba(22, 30, 42, 0.80);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: rgba(148, 163, 184, 0.35);
+            border-radius: 9999px;
+        }
     </style>
 </head>
-<body class="bg-slate-100 dark:bg-[#0a0f16] text-slate-900 dark:text-[#f1f5f9] antialiased min-h-screen flex flex-col">
 
-    <header class="bg-[#f8fafc]/90 dark:bg-[#0f172a]/90 backdrop-blur-md shadow-sm border-b border-slate-200 dark:border-slate-800 px-4 lg:px-6 py-3 flex items-center justify-between sticky top-0 z-40">
+<body
+    class="bg-gradient-to-br from-[#6e8efb] to-[#a777e3] dark:from-[#0a0f16] dark:to-[#0a0f16] text-slate-900 dark:text-[#f1f5f9] antialiased min-h-screen flex flex-col">
+
+    <!-- Top Header -->
+    <header
+        class="bg-[#f8fafc]/90 dark:bg-[#0a0f16]/90 backdrop-blur-md shadow-sm border-b border-slate-200 dark:border-slate-800 px-4 lg:px-6 py-3 flex flex-wrap items-center justify-between gap-3 sticky top-0 z-40">
         <div class="header-left flex items-center gap-3">
-            <a href="menu.html" class="p-2 rounded-xl bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 no-underline flex items-center">
+            <a href="menu.html"
+                class="p-2 rounded-xl bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-300 no-underline flex items-center">
                 <span class="material-symbols-outlined text-[20px]">arrow_back</span>
             </a>
-            <div class="h-9 w-9 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white shadow-lg shadow-emerald-500/20">
-                <span class="material-symbols-outlined text-[18px]">engineering</span>
+            <div
+                class="h-9 w-9 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white shadow-lg shadow-emerald-500/20">
+                <span class="material-symbols-outlined text-[18px]">precision_manufacturing</span>
             </div>
             <div>
-                <h1 class="text-base font-black tracking-tight uppercase text-slate-900 dark:text-white leading-none">Órdenes de Producción (VIAORD & Monday)</h1>
-                <span class="text-[10px] font-bold uppercase tracking-widest text-emerald-500">Reemplazo Web de VIAORD • SQLVIAORD.COB • monday_op_link.ps1</span>
+                <h1 class="text-base font-black tracking-tight uppercase text-slate-900 dark:text-white leading-none">
+                    Producción, Procesos y Operaciones
+                </h1>
+                <span id="prod-header-sub"
+                    class="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 tracking-wide">
+                    Cargando base de procesos, operaciones y piezas...
+                </span>
             </div>
         </div>
-        <div class="flex items-center gap-2">
-            <button id="btn-open-new-op" class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs uppercase tracking-wider border-none cursor-pointer flex items-center gap-1.5 shadow-lg shadow-emerald-600/20">
-                <span class="material-symbols-outlined text-[16px]">add_circle</span> Nueva OP
+
+        <div class="flex items-center gap-2 flex-wrap">
+            <a href="../supervisor/menu.html"
+                class="px-3.5 py-2 rounded-xl bg-slate-200/70 dark:bg-white/5 hover:bg-slate-300 dark:hover:bg-white/10 text-slate-700 dark:text-slate-200 font-bold text-xs uppercase tracking-wider no-underline flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[16px] text-villalba-blue">home</span>
+                Menú Principal
+            </a>
+            <button id="btn-open-new-proc" type="button"
+                class="px-3.5 py-2 rounded-xl bg-indigo-500/15 hover:bg-indigo-500/25 text-indigo-600 dark:text-indigo-300 border border-indigo-500/30 font-black text-xs uppercase tracking-wider cursor-pointer flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[16px]">account_tree</span>
+                Nuevo Proceso
+            </button>
+            <button id="btn-open-new-op" type="button"
+                class="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs uppercase tracking-wider border-none cursor-pointer flex items-center gap-1.5 shadow-lg shadow-emerald-600/20">
+                <span class="material-symbols-outlined text-[16px]">add_circle</span>
+                Nueva Orden de Producción
             </button>
         </div>
     </header>
 
-    <main class="flex-1 w-full max-w-7xl mx-auto px-4 py-6 flex flex-col gap-6">
-        <!-- Filtros y Buscador -->
-        <div class="glass-card rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="relative w-full md:w-96">
-                <span class="material-symbols-outlined absolute left-3.5 top-2.5 text-slate-400 text-[20px]">search</span>
-                <input id="op-search" type="text" placeholder="Buscar por N° OP (ej: 26896), código (32-080-RC) o descripción..." class="w-full pl-11 pr-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs font-bold text-slate-900 dark:text-white">
+    <main class="flex-1 w-full max-w-[1600px] mx-auto px-4 py-5 flex flex-col gap-5">
+
+        <!-- KPI Summary Row -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div data-switch-tab="ops"
+                class="glass-card rounded-2xl p-4 flex items-center justify-between cursor-pointer hover:border-emerald-500/50 transition-all">
+                <div>
+                    <p class="text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">
+                        Órdenes de Producción
+                    </p>
+                    <p id="kpi-ops-count" class="text-2xl font-black font-mono text-slate-900 dark:text-white mt-1">--</p>
+                    <p class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">Con hoja de ruta de operaciones</p>
+                </div>
+                <div class="w-11 h-11 rounded-2xl bg-emerald-500/15 text-emerald-500 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-2xl">engineering</span>
+                </div>
             </div>
-            <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
-                <select id="op-filter-estado" class="px-3 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs font-bold text-slate-900 dark:text-white">
-                    <option value="">Todos los Estados</option>
-                    <option value="En Ejecucion">En Ejecución</option>
-                    <option value="Cuarentena PZ3">Cuarentena PZ3</option>
-                    <option value="Liberada">Liberada a Depósito</option>
-                </select>
-                <span id="op-count-badge" class="px-3 py-2 rounded-xl bg-emerald-500/10 text-emerald-500 font-black text-xs uppercase tracking-wider">80 OPs cargadas</span>
+
+            <div data-switch-tab="procesos"
+                class="glass-card rounded-2xl p-4 flex items-center justify-between cursor-pointer hover:border-indigo-500/50 transition-all">
+                <div>
+                    <p class="text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">
+                        Procesos de Fabricación
+                    </p>
+                    <p id="kpi-proc-count" class="text-2xl font-black font-mono text-slate-900 dark:text-white mt-1">--</p>
+                    <p id="kpi-proc-sub" class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold">Secuencias de operaciones</p>
+                </div>
+                <div class="w-11 h-11 rounded-2xl bg-indigo-500/15 text-indigo-500 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-2xl">account_tree</span>
+                </div>
+            </div>
+
+            <div data-switch-tab="codigos"
+                class="glass-card rounded-2xl p-4 flex items-center justify-between cursor-pointer hover:border-blue-500/50 transition-all">
+                <div>
+                    <p class="text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">
+                        Proceso por Código de Pieza
+                    </p>
+                    <p id="kpi-piezas-count" class="text-2xl font-black font-mono text-slate-900 dark:text-white mt-1">--</p>
+                    <p class="text-xs text-blue-600 dark:text-blue-400 font-semibold">Códigos vinculados a su proceso</p>
+                </div>
+                <div class="w-11 h-11 rounded-2xl bg-blue-500/15 text-blue-500 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-2xl">category</span>
+                </div>
+            </div>
+
+            <div data-switch-tab="operaciones"
+                class="glass-card rounded-2xl p-4 flex items-center justify-between cursor-pointer hover:border-amber-500/50 transition-all">
+                <div>
+                    <p class="text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">
+                        Base de Operaciones Planta
+                    </p>
+                    <p id="kpi-oper-count" class="text-2xl font-black font-mono text-slate-900 dark:text-white mt-1">--</p>
+                    <p id="kpi-operarios-sub" class="text-xs text-amber-600 dark:text-amber-400 font-semibold">Operaciones y operarios</p>
+                </div>
+                <div class="w-11 h-11 rounded-2xl bg-amber-500/15 text-amber-500 flex items-center justify-center">
+                    <span class="material-symbols-outlined text-2xl">build_circle</span>
+                </div>
             </div>
         </div>
 
-        <!-- Tabla de Órdenes de Producción -->
-        <div class="glass-card rounded-3xl overflow-hidden shadow-xl">
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="border-b border-slate-200 dark:border-slate-800 bg-slate-200/50 dark:bg-slate-900/60 text-[10px] font-black uppercase tracking-widest text-slate-500">
-                            <th class="py-3.5 px-4">N° OP</th>
-                            <th class="py-3.5 px-4">Fecha</th>
-                            <th class="py-3.5 px-4">Código</th>
-                            <th class="py-3.5 px-4">Descripción / Pieza (VIAORD)</th>
-                            <th class="py-3.5 px-4">Material / Lote</th>
-                            <th class="py-3.5 px-4 text-center">Cant.</th>
-                            <th class="py-3.5 px-4">Estado</th>
-                            <th class="py-3.5 px-4 text-right">Acciones (Zebra / Monday / PZ3)</th>
-                        </tr>
-                    </thead>
-                    <tbody id="op-table-body" class="divide-y divide-slate-200 dark:divide-slate-800/70 text-xs">
-                    </tbody>
-                </table>
-            </div>
+        <!-- Navigation Tabs -->
+        <div class="glass-card rounded-2xl p-2 flex flex-wrap items-center gap-2">
+            <button data-tab-btn="ops" type="button"
+                class="prod-tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider bg-emerald-600 text-white shadow-md shadow-emerald-600/20 cursor-pointer">
+                <span class="material-symbols-outlined text-[18px]">list_alt</span>
+                Órdenes de Producción
+            </button>
+            <button data-tab-btn="procesos" type="button"
+                class="prod-tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-white/5 cursor-pointer">
+                <span class="material-symbols-outlined text-[18px]">account_tree</span>
+                Procesos y qué Operaciones Llevan
+            </button>
+            <button data-tab-btn="codigos" type="button"
+                class="prod-tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-white/5 cursor-pointer">
+                <span class="material-symbols-outlined text-[18px]">qr_code</span>
+                Proceso por Código de Artículo
+            </button>
+            <button data-tab-btn="operaciones" type="button"
+                class="prod-tab-btn flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-white/5 cursor-pointer">
+                <span class="material-symbols-outlined text-[18px]">handyman</span>
+                Base de Operaciones
+            </button>
         </div>
+
+        <!-- ============================================================== -->
+        <!-- TAB 1: ÓRDENES DE PRODUCCIÓN                                   -->
+        <!-- ============================================================== -->
+        <section id="tab-panel-ops" class="space-y-4">
+            <div class="glass-card rounded-2xl p-4 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+                <div class="relative flex-1">
+                    <span class="material-symbols-outlined absolute left-3.5 top-2.5 text-slate-400 text-[20px]">search</span>
+                    <input id="op-search" type="text"
+                        placeholder="Buscar por N° OP (ej: 26906), código (10052F6, 4211805), descripción o proceso..."
+                        class="w-full pl-11 pr-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs font-bold text-slate-900 dark:text-white" />
+                </div>
+                <div class="flex flex-wrap items-center gap-2">
+                    <select id="op-filter-proceso"
+                        class="px-3 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs font-bold text-slate-900 dark:text-white">
+                        <option value="">Todos los Procesos</option>
+                    </select>
+                    <select id="op-filter-estado"
+                        class="px-3 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs font-bold text-slate-900 dark:text-white">
+                        <option value="">Todos los Estados</option>
+                        <option value="En Ejecucion">En Ejecución</option>
+                        <option value="Cuarentena PZ3">Cuarentena PZ3</option>
+                        <option value="Liberada">Liberada a Depósito</option>
+                    </select>
+                    <span id="op-count-badge"
+                        class="px-3 py-2 rounded-xl bg-emerald-500/10 text-emerald-500 font-black text-xs uppercase tracking-wider">
+                        0 OPs
+                    </span>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-3xl overflow-hidden shadow-xl">
+                <div class="overflow-x-auto custom-scroll">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr
+                                class="border-b border-slate-200 dark:border-slate-800 bg-slate-200/50 dark:bg-slate-900/60 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                                <th class="py-3.5 px-4">N° OP</th>
+                                <th class="py-3.5 px-4">Fecha</th>
+                                <th class="py-3.5 px-4">Código</th>
+                                <th class="py-3.5 px-4">Descripción / Pieza</th>
+                                <th class="py-3.5 px-4">Proceso y Operaciones</th>
+                                <th class="py-3.5 px-4">Material / IR</th>
+                                <th class="py-3.5 px-4 text-center">Cant.</th>
+                                <th class="py-3.5 px-4">Estado</th>
+                                <th class="py-3.5 px-4 text-right">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="op-table-body" class="divide-y divide-slate-200 dark:divide-slate-800/70 text-xs">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================== -->
+        <!-- TAB 2: PROCESOS Y QUÉ OPERACIONES LLEVA CADA PROCESO           -->
+        <!-- ============================================================== -->
+        <section id="tab-panel-procesos" class="space-y-4 hidden">
+            <div class="glass-card rounded-2xl p-4 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+                <div class="relative flex-1">
+                    <span class="material-symbols-outlined absolute left-3.5 top-2.5 text-slate-400 text-[20px]">search</span>
+                    <input id="proc-search" type="text"
+                        placeholder="Buscar proceso por código (ej: 060, 095, 049, 026) o por nombre o por operación (ej: Blastinizado, Fresado, Torneado)..."
+                        class="w-full pl-11 pr-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs font-bold text-slate-900 dark:text-white" />
+                </div>
+                <select id="proc-filter-con-ops"
+                    class="px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs font-bold text-slate-900 dark:text-white">
+                    <option value="CON_OPS">Procesos con Secuencia de Operaciones</option>
+                    <option value="TODOS">Todos los Procesos (204)</option>
+                </select>
+            </div>
+
+            <div id="procesos-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <!-- ============================================================== -->
+        <!-- TAB 3: PROCESO POR CÓDIGO DE ARTÍCULO / PIEZA (5.445 CÓDIGOS)  -->
+        <!-- ============================================================== -->
+        <section id="tab-panel-codigos" class="space-y-4 hidden">
+            <div class="glass-card rounded-2xl p-4 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+                <div class="relative flex-1">
+                    <span class="material-symbols-outlined absolute left-3.5 top-2.5 text-slate-400 text-[20px]">search</span>
+                    <input id="piezas-search" type="text"
+                        placeholder="Buscar por Código de Pieza (ej: 4211805, 0604001, 10052A1, 5222335) o Descripción..."
+                        class="w-full pl-11 pr-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs font-bold text-slate-900 dark:text-white" />
+                </div>
+                <select id="piezas-filter-proceso"
+                    class="px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs font-bold text-slate-900 dark:text-white">
+                    <option value="">Filtrar por Proceso Asignado: Todos</option>
+                </select>
+            </div>
+
+            <div class="glass-card rounded-3xl overflow-hidden shadow-xl">
+                <div class="overflow-x-auto custom-scroll">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr
+                                class="border-b border-slate-200 dark:border-slate-800 bg-slate-200/50 dark:bg-slate-900/60 text-[10px] font-black uppercase tracking-widest text-slate-500">
+                                <th class="py-3.5 px-4">Código Artículo</th>
+                                <th class="py-3.5 px-4">Rubro</th>
+                                <th class="py-3.5 px-4">Descripción de Pieza / Producto</th>
+                                <th class="py-3.5 px-4">Material</th>
+                                <th class="py-3.5 px-4">Proceso Asignado</th>
+                                <th class="py-3.5 px-4">Operaciones que lleva</th>
+                                <th class="py-3.5 px-4 text-right">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="piezas-table-body" class="divide-y divide-slate-200 dark:divide-slate-800/70 text-xs">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="p-3.5 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs">
+                    <span id="piezas-page-info" class="font-bold text-slate-500">Mostrando códigos...</span>
+                    <div class="flex items-center gap-2">
+                        <button id="piezas-prev-btn" type="button"
+                            class="px-3 py-1.5 rounded-xl bg-slate-200/70 dark:bg-slate-800 font-bold cursor-pointer">Anterior</button>
+                        <span id="piezas-page-label" class="font-mono font-bold px-2">1 / 1</span>
+                        <button id="piezas-next-btn" type="button"
+                            class="px-3 py-1.5 rounded-xl bg-slate-200/70 dark:bg-slate-800 font-bold cursor-pointer">Siguiente</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================== -->
+        <!-- TAB 4: BASE DE OPERACIONES DE PLANTA (194 OPERACIONES)         -->
+        <!-- ============================================================== -->
+        <section id="tab-panel-operaciones" class="space-y-4 hidden">
+            <div class="glass-card rounded-2xl p-4 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+                <div class="relative flex-1">
+                    <span class="material-symbols-outlined absolute left-3.5 top-2.5 text-slate-400 text-[20px]">search</span>
+                    <input id="oper-search" type="text"
+                        placeholder="Buscar operación por código (001..194) o nombre (Agujero, Fresado, Torneado, Blastinizado, Lavado)..."
+                        class="w-full pl-11 pr-4 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs font-bold text-slate-900 dark:text-white" />
+                </div>
+                <div class="flex items-center gap-2">
+                    <input id="new-oper-nombre" type="text" placeholder="Nombre nueva operación..."
+                        class="px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs font-bold text-slate-900 dark:text-white" />
+                    <button id="btn-add-operacion-base" type="button"
+                        class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider cursor-pointer whitespace-nowrap">
+                        + Agregar Operación
+                    </button>
+                </div>
+            </div>
+
+            <div id="operaciones-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                <!-- Populated by JS -->
+            </div>
+        </section>
     </main>
 
-    <!-- Modal Nueva OP -->
-    <div id="modal-new-op" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
-        <div class="glass-card rounded-3xl p-6 max-w-lg w-full shadow-2xl border border-slate-300 dark:border-slate-700 flex flex-col gap-4">
-            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
-                <h3 class="text-base font-black uppercase text-emerald-500">Alta de Orden de Producción (VIAORD)</h3>
-                <button id="btn-close-new-op" class="p-1.5 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-500 border-none cursor-pointer">
+    <!-- ================================================================== -->
+    <!-- MODAL 1: ALTA DE ORDEN DE PRODUCCIÓN CON PROCESO Y OPERACIONES     -->
+    <!-- ================================================================== -->
+    <div id="modal-new-op" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 hidden items-center justify-center p-3 md:p-6">
+        <div
+            class="glass-card bg-white dark:bg-[#0f1722] rounded-3xl max-w-4xl w-full max-h-[92vh] shadow-2xl border border-slate-300 dark:border-slate-700 flex flex-col overflow-hidden">
+            <div class="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-500 flex items-center justify-center">
+                        <span class="material-symbols-outlined">precision_manufacturing</span>
+                    </div>
+                    <div>
+                        <h3 class="text-base font-black uppercase text-emerald-500">
+                            Alta de Orden de Producción (Con Proceso y Hoja de Ruta)
+                        </h3>
+                        <p class="text-[11px] text-slate-500 dark:text-slate-400">
+                            Al ingresar el código de pieza se asigna automáticamente su Proceso y la secuencia de Operaciones que lleva
+                        </p>
+                    </div>
+                </div>
+                <button id="btn-close-new-op" type="button"
+                    class="p-2 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-500 hover:text-rose-400 border-none cursor-pointer">
                     <span class="material-symbols-outlined text-[18px]">close</span>
                 </button>
             </div>
-            <div class="grid grid-cols-2 gap-3">
-                <div>
-                    <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">N° Orden (OP)</label>
-                    <input id="new-op-num" type="text" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-black text-sm text-emerald-500">
+
+            <div class="flex-1 overflow-y-auto p-5 custom-scroll space-y-4">
+                <!-- Row 1: N° OP + Código Artículo + Descripción -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+                    <div>
+                        <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">N° Orden (OP)</label>
+                        <input id="new-op-num" type="text"
+                            class="w-full px-3 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-mono font-black text-sm text-emerald-500" />
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">
+                            Código Artículo / Pieza *
+                        </label>
+                        <input id="new-op-codigo" list="datalist-piezas-codigos" type="text"
+                            placeholder="Ej: 4211805, 0604001..."
+                            class="w-full px-3 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border-2 border-emerald-500/40 focus:border-emerald-500 font-mono font-bold text-sm text-slate-900 dark:text-white uppercase" />
+                        <datalist id="datalist-piezas-codigos"></datalist>
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">
+                            Descripción del Producto / Semielaborado *
+                        </label>
+                        <input id="new-op-detalle" type="text" placeholder="Se autocompleta al elegir el código..."
+                            class="w-full px-3 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-sm text-slate-900 dark:text-white uppercase" />
+                    </div>
                 </div>
-                <div>
-                    <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">Código Artículo</label>
-                    <input id="new-op-codigo" type="text" placeholder="Ej: 42-147-31" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-sm text-slate-900 dark:text-white uppercase">
+
+                <!-- Row 2: Cantidad + Material + IR + Proceso Asignado -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
+                    <div>
+                        <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">Cantidad</label>
+                        <input id="new-op-cant" type="number" value="25" min="1"
+                            class="w-full px-3 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-mono font-bold text-sm text-slate-900 dark:text-white" />
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">Material</label>
+                        <select id="new-op-mat"
+                            class="w-full px-3 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-xs text-slate-900 dark:text-white">
+                            <option value="TITANIO">TITANIO</option>
+                            <option value="ACERO / CR-CO">ACERO / CR-CO</option>
+                            <option value="UHMWPE / POLIETILENO">UHMWPE / POLIETILENO</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">Inf. Recepción / Partida MP (IR)</label>
+                        <input id="new-op-ir" type="text" value="IR-2026-089"
+                            class="w-full px-3 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-mono font-bold text-xs text-slate-900 dark:text-white" />
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-black uppercase text-indigo-400 mb-1">
+                            Proceso de Fabricación *
+                        </label>
+                        <select id="new-op-proceso"
+                            class="w-full px-3 py-2.5 rounded-xl bg-indigo-500/10 border-2 border-indigo-500/40 font-bold text-xs text-slate-900 dark:text-white">
+                            <!-- Populated by JS -->
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Row 3: Secuencia de Operaciones del Proceso seleccionado -->
+                <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-900/50 p-4 space-y-3">
+                    <div class="flex flex-wrap items-center justify-between gap-2">
+                        <div>
+                            <h4 class="text-xs font-black uppercase tracking-wider text-indigo-500 flex items-center gap-1.5">
+                                <span class="material-symbols-outlined text-[18px]">route</span>
+                                Hoja de Ruta: Operaciones asignadas a esta OP
+                                <span id="new-op-ops-count" class="px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-400 font-mono text-[10px]">0</span>
+                            </h4>
+                            <p id="new-op-proc-hint" class="text-[11px] text-slate-500 mt-0.5">
+                                Seleccioná un código de artículo o un proceso para cargar sus operaciones
+                            </p>
+                        </div>
+
+                        <!-- Agregar operación adicional a esta OP -->
+                        <div class="flex items-center gap-2">
+                            <select id="new-op-add-oper-select"
+                                class="px-3 py-1.5 rounded-xl bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-xs font-bold text-slate-800 dark:text-slate-200">
+                                <!-- Populated with 194 operations -->
+                            </select>
+                            <button id="btn-new-op-add-step" type="button"
+                                class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-black uppercase tracking-wider cursor-pointer whitespace-nowrap">
+                                + Sumar Operación
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto max-h-60 custom-scroll rounded-xl border border-slate-200 dark:border-slate-800">
+                        <table class="w-full text-left border-collapse text-xs">
+                            <thead>
+                                <tr class="bg-slate-200/70 dark:bg-slate-800/80 text-[10px] font-black uppercase text-slate-500">
+                                    <th class="py-2 px-3 w-16">Sec.</th>
+                                    <th class="py-2 px-3 w-24">Cód. Oper.</th>
+                                    <th class="py-2 px-3">Operación de Planta</th>
+                                    <th class="py-2 px-3 w-28 text-center">Orden</th>
+                                    <th class="py-2 px-3 w-12 text-right">Quitar</th>
+                                </tr>
+                            </thead>
+                            <tbody id="new-op-steps-tbody" class="divide-y divide-slate-200 dark:divide-slate-800 bg-white dark:bg-slate-950/60">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-            <div>
-                <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">Descripción del Producto / Semielaborado</label>
-                <input id="new-op-detalle" type="text" placeholder="Ej: PLACA VOLAR ANATOMICA RADIO DISTAL" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-sm text-slate-900 dark:text-white uppercase">
+
+            <div class="p-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-end gap-3 bg-slate-50 dark:bg-slate-900/40">
+                <button id="btn-cancel-new-op" type="button"
+                    class="px-4 py-2.5 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold text-xs uppercase tracking-wider cursor-pointer">
+                    Cancelar
+                </button>
+                <button id="btn-save-new-op" type="button"
+                    class="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs uppercase tracking-widest border-none cursor-pointer shadow-lg shadow-emerald-600/20 flex items-center gap-1.5">
+                    <span class="material-symbols-outlined text-[16px]">check_circle</span>
+                    Guardar Orden de Producción con sus Operaciones
+                </button>
             </div>
-            <div class="grid grid-cols-3 gap-3">
+        </div>
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- MODAL 2: SEGUIMIENTO DE HOJA DE RUTA / OPERACIONES DE UNA OP       -->
+    <!-- ================================================================== -->
+    <div id="modal-op-ruta" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 hidden items-center justify-center p-3 md:p-6">
+        <div
+            class="glass-card bg-white dark:bg-[#0f1722] rounded-3xl max-w-4xl w-full max-h-[92vh] shadow-2xl border border-slate-300 dark:border-slate-700 flex flex-col overflow-hidden">
+            <div class="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
                 <div>
-                    <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">Cantidad</label>
-                    <input id="new-op-cant" type="number" value="25" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-sm text-slate-900 dark:text-white">
+                    <h3 id="ruta-modal-title" class="text-base font-black uppercase text-indigo-400">
+                        Hoja de Ruta de Operaciones — OP #
+                    </h3>
+                    <p id="ruta-modal-sub" class="text-xs text-slate-500 mt-0.5"></p>
                 </div>
-                <div>
-                    <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">Material</label>
-                    <select id="new-op-mat" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-xs text-slate-900 dark:text-white">
-                        <option value="TITANIO">TITANIO</option>
-                        <option value="ACERO / CR-CO">ACERO / CR-CO</option>
-                        <option value="UHMWPE / POLIETILENO">UHMWPE / POLIETILENO</option>
+                <button id="btn-close-op-ruta" type="button"
+                    class="p-2 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-500 hover:text-rose-400 cursor-pointer">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto p-5 custom-scroll space-y-4">
+                <div class="overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-800">
+                    <table class="w-full text-left border-collapse text-xs">
+                        <thead>
+                            <tr class="bg-slate-200/70 dark:bg-slate-900 text-[10px] font-black uppercase text-slate-500">
+                                <th class="py-2.5 px-3">Sec.</th>
+                                <th class="py-2.5 px-3">Cód.</th>
+                                <th class="py-2.5 px-3">Operación</th>
+                                <th class="py-2.5 px-3">Operario Asignado</th>
+                                <th class="py-2.5 px-3">Fecha</th>
+                                <th class="py-2.5 px-3 text-right">Cant. OK</th>
+                                <th class="py-2.5 px-3 text-center">Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ruta-modal-tbody" class="divide-y divide-slate-200 dark:divide-slate-800">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="p-4 border-t border-slate-200 dark:border-slate-800 flex justify-end gap-2.5">
+                <button id="btn-save-op-ruta" type="button"
+                    class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-black text-xs uppercase tracking-wider cursor-pointer">
+                    Guardar Avance de Operaciones
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- MODAL 3: CREAR / EDITAR PROCESO Y SUS OPERACIONES                  -->
+    <!-- ================================================================== -->
+    <div id="modal-edit-proceso" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 hidden items-center justify-center p-3 md:p-6">
+        <div
+            class="glass-card bg-white dark:bg-[#0f1722] rounded-3xl max-w-2xl w-full max-h-[90vh] shadow-2xl border border-slate-300 dark:border-slate-700 flex flex-col overflow-hidden">
+            <div class="p-5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                <h3 id="modal-proc-title" class="text-base font-black uppercase text-indigo-400">
+                    Configurar Proceso y sus Operaciones
+                </h3>
+                <button id="btn-close-edit-proc" type="button"
+                    class="p-2 rounded-xl bg-slate-200 dark:bg-slate-800 text-slate-500 hover:text-rose-400 cursor-pointer">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto p-5 custom-scroll space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    <div>
+                        <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">Código Proceso</label>
+                        <input id="edit-proc-cod" type="text"
+                            class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-mono font-bold text-sm text-indigo-400" />
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">Nombre del Proceso *</label>
+                        <input id="edit-proc-nombre" type="text"
+                            class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-sm text-slate-900 dark:text-white uppercase" />
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <select id="edit-proc-oper-select"
+                        class="flex-1 px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-xs font-bold text-slate-900 dark:text-white">
                     </select>
+                    <button id="btn-edit-proc-add-oper" type="button"
+                        class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-black uppercase cursor-pointer">
+                        + Agregar al Proceso
+                    </button>
                 </div>
-                <div>
-                    <label class="block text-[10px] font-black uppercase text-slate-400 mb-1">Inf. Recepción (IR)</label>
-                    <input id="new-op-ir" type="text" value="IR-2026-089" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold text-xs text-slate-900 dark:text-white">
+
+                <div class="rounded-2xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+                    <table class="w-full text-left border-collapse text-xs">
+                        <thead>
+                            <tr class="bg-slate-200/70 dark:bg-slate-900 text-[10px] font-black uppercase text-slate-500">
+                                <th class="py-2 px-3 w-16">Sec.</th>
+                                <th class="py-2 px-3 w-24">Cód. Oper.</th>
+                                <th class="py-2 px-3">Operación</th>
+                                <th class="py-2 px-3 w-20 text-right">Quitar</th>
+                            </tr>
+                        </thead>
+                        <tbody id="edit-proc-steps-tbody" class="divide-y divide-slate-200 dark:divide-slate-800">
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <button id="btn-save-new-op" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs uppercase tracking-widest border-none cursor-pointer shadow-lg shadow-emerald-600/20">
-                Guardar Orden de Producción
-            </button>
+
+            <div class="p-4 border-t border-slate-200 dark:border-slate-800 flex justify-end gap-2">
+                <button id="btn-save-edit-proc" type="button"
+                    class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs uppercase tracking-wider cursor-pointer">
+                    Guardar Proceso
+                </button>
+            </div>
         </div>
     </div>
 
@@ -128,5 +584,5 @@
     <script type="module" src="../js/global-sidebar.js"></script>
     <script type="module">import "../js/theme.js";</script>
 </body>
-</html>
 
+</html>
